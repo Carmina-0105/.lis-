@@ -1,3 +1,6 @@
+# ==========================
+# Python 核心规则（GitHub原生模板）
+# ==========================
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -27,8 +30,6 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -55,17 +56,17 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
+# Flask stuff
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy stuff
 .scrapy
 
 # Sphinx documentation
@@ -83,48 +84,29 @@ profile_default/
 ipython_config.py
 
 # pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
 # .python-version
 
 # pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+# Pipfile.lock
 
 # UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
+# uv.lock
 
 # poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-#poetry.toml
+# poetry.lock
+# poetry.toml
 
 # pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
-#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
-#pdm.lock
-#pdm.toml
+# pdm.lock
+# pdm.toml
 .pdm-python
 .pdm-build/
 
 # pixi
-#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
-#pixi.lock
-#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
-#   in the .venv directory. It is recommended not to include this directory in version control.
+# pixi.lock
 .pixi
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+# PEP 582
 __pypackages__/
 
 # Celery stuff
@@ -169,35 +151,21 @@ dmypy.json
 cython_debug/
 
 # PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+# .idea/
 
 # Abstra
-# Abstra is an AI-powered process automation framework.
-# Ignore directories containing user credentials, local state, and settings.
-# Learn more at https://abstra.io/docs
 .abstra/
 
 # Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
-#  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
-#  you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 
-# Ruff stuff:
+# Ruff stuff
 .ruff_cache/
 
 # PyPI configuration file
 .pypirc
 
 # Cursor
-#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
-#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
-#  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
 
@@ -205,3 +173,109 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ==========================
+# Java 补充规则
+# ==========================
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+*.javac
+*.jmod
+*.jlink
+
+# ==========================
+# HTML/前端 补充规则
+# ==========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.parcel-cache/
+dist/
+build/
+*.min.js
+*.min.css
+.webpack/
+.vite/
+.eslintcache
+.prettiercache
+
+# ==========================
+# 笔记类 补充规则
+# ==========================
+# Markdown 临时文件
+*.md.bak
+*.md~
+*.markdown.bak
+# 笔记软件缓存
+.obsidian/workspace.json
+.obsidian/plugins/
+.obsidian/themes/
+.notion/
+.yuque/
+# 办公类笔记临时文件
+~$*.docx
+~$*.xlsx
+~$*.pptx
+*.tmp
+# 纯文本笔记临时文件
+*.txt.bak
+*.txt~
+
+# ==========================
+# 图片类 补充规则（仅忽略临时/备份）
+# ==========================
+# 图片备份文件
+*.png.bak
+*.jpg.bak
+*.jpeg.bak
+*.gif.bak
+*.webp.bak
+*.svg.bak
+*.bmp.bak
+*.tiff.bak
+# 图片编辑缓存/临时文件
+*.psd
+*.tmp.png
+*.tmp.jpg
+*.tmp.gif
+*.tmp.svg
+Screenshot*.tmp
+*.screenshot.tmp
+# 图片编辑临时后缀
+*.png~
+*.jpg~
+*.webp~
+*.svg~
+# 图片处理中间文件
+*.raw
+*.cr2
+*.nef
+
+# ==========================
+# 系统/编辑器 通用补充规则
+# ==========================
+# macOS 系统文件
+.DS_Store
+*.DS_Store
+.AppleDouble
+.LSOverride
+# Windows 系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# 编辑器缓存
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+# 全局临时文件
+*.tmp
+*.bak
+*.log
