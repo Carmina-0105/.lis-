@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025陕西新高考数学试卷（Python生成版）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", SimSun, Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 25px 0 15px;
+            color: #34495e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 16px;
+            margin: 20px 0 10px;
+            color: #495057;
+        }
+        .question {
+            font-size: 15px;
+            margin: 15px 0;
+        }
+        .options {
+            margin-left: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .options p {
+            margin: 8px 0;
+        }
+        .img-box {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .img-box img {
+            width: 300px;
+            height: auto;
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .fill-blank {
+            font-size: 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        /* 数学公式样式优化 */
+        .math {
+            font-family: "Times New Roman", serif;
+        }
+    </style>
+    <!-- 引入MathJax渲染数学公式 -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>2025年普通高等学校招生全国统一考试（陕西·新高考）</h1>
+        <h1>数 学</h1>
+
+        <div class="note">
+            <strong>注意事项：</strong><br>
+            1. 本试卷共4页，22小题，满分150分。考试用时120分钟。<br>
+            2. 答题前，考生务必将自己的姓名、准考证号填写在答题卡上。<br>
+            3. 回答选择题时，选出每小题答案后，用铅笔把答题卡上对应题目的答案标号涂黑。如需改动，用橡皮擦干净后再选涂。<br>
+            4. 非选择题答案写在答题卡对应区域，写在本试卷上无效。
+        </div>
+
+        <h2>一、选择题：本题共8小题，每小题5分，共40分。</h2>
+        <p class="question">1. 已知集合 \(A=\{x\mid \log_2(x^2-3x+2)>1\}\)，\(B=\{x\mid 2^{x-1}>4\}\)，则 \(\complement_{\mathbb{R}}(A\cup B)=\)（）</p>
+        <div class="options">
+            <p>A. \((-\infty,0]\)</p>
+            <p>B. \([0,3]\)</p>
+            <p>C. \((2,3)\)</p>
+            <p>D. \([3,+\infty)\)</p>
+        </div>
+
+        <p class="question">2. 若复数 \(z\) 满足 \(z(1+\text{i})=|1-\sqrt{3}\text{i}|\)，则 \(z\) 的虚部为（）</p>
+        <div class="options">
+            <p>A. \(-1\)</p>
+            <p>B. \(1\)</p>
+            <p>C. \(-\text{i}\)</p>
+            <p>D. \(\text{i}\)</p>
+        </div>
+
+        <p class="question">3. 已知向量 \(\boldsymbol{a},\boldsymbol{b}\) 满足 \(|\boldsymbol{a}|=2\)，\(|\boldsymbol{b}|=1\)，\((2\boldsymbol{a}-\boldsymbol{b})\perp\boldsymbol{b}\)，则 \(\boldsymbol{a}\) 与 \(\boldsymbol{b}\) 夹角为（）</p>
+        <div class="options">
+            <p>A. \(\dfrac{\pi}{6}\)</p>
+            <p>B. \(\dfrac{\pi}{3}\)</p>
+            <p>C. \(\dfrac{2\pi}{3}\)</p>
+            <p>D. \(\dfrac{5\pi}{6}\)</p>
+        </div>
+
+        <p class="question">4. 正方体 \(ABCD-A_1B_1C_1D_1\) 棱长为2，\(M\) 为 \(A_1D\) 中点，则异面直线 \(AC_1\) 与 \(BM\) 所成角余弦值为（）</p>
+        <div class="img-box">
+            <img src="cube.png" alt="正方体ABCD-A1B1C1D1">
+        </div>
+        <div class="options">
+            <p>A. \(0\)</p>
+            <p>B. \(\dfrac{\sqrt{10}}{5}\)</p>
+            <p>C. \(\dfrac{\sqrt{3}}{3}\)</p>
+            <p>D. \(\dfrac{1}{2}\)</p>
+        </div>
+
+        <p class="question">5. 已知 \(\{a_n\}\) 为等比数列，\(a_1+a_3=10\)，\(a_2+a_4=5\)，则 \(a_1a_2\cdots a_n\) 最大值为（）</p>
+        <div class="options">
+            <p>A. \(32\)</p>
+            <p>B. \(64\)</p>
+            <p>C. \(128\)</p>
+            <p>D. \(256\)</p>
+        </div>
+
+        <p class="question">6. 将函数 \(f(x)=\sin2x+\sqrt{3}\cos2x\) 左移 \(\dfrac{\pi}{6}\)，所得图象对称轴为（）</p>
+        <div class="options">
+            <p>A. \(x=\dfrac{k\pi}{2}\)</p>
+            <p>B. \(x=\dfrac{\pi}{4}+\dfrac{k\pi}{2}\)</p>
+            <p>C. \(x=\dfrac{\pi}{3}+\dfrac{k\pi}{2}\)</p>
+            <p>D. \(x=\dfrac{\pi}{12}+\dfrac{k\pi}{2}\)</p>
+        </div>
+
+        <p class="question">7. 双曲线 \(\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\) 离心率 \(e=2\)，焦点到渐近线距离为 \(\sqrt{3}\)，则方程为（）</p>
+        <div class="options">
+            <p>A. \(x^2-\dfrac{y^2}{3}=1\)</p>
+            <p>B. \(\dfrac{x^2}{3}-y^2=1\)</p>
+            <p>C. \(\dfrac{x^2}{4}-\dfrac{y^2}{3}=1\)</p>
+            <p>D. \(\dfrac{x^2}{4}-\dfrac{y^2}{12}=1\)</p>
+        </div>
+
+        <p class="question">8. 已知 \(f(x)=e^x - ax^2\) 在 \((0,+\infty)\) 单调递增，则 \(a\) 最大值为（）</p>
+        <div class="options">
+            <p>A. \(\dfrac{e}{2}\)</p>
+            <p>B. \(e\)</p>
+            <p>C. \(\dfrac{e^2}{2}\)</p>
+            <p>D. \(e^2\)</p>
+        </div>
+
+        <h2>二、选择题：本题共4小题，每小题5分，共20分。</h2>
+        <p class="question">9. 已知 \(X\sim N(2,\sigma^2)\)，\(P(X<1)=0.2\)，则（）</p>
+        <div class="options">
+            <p>A. \(P(X<3)=0.8\)</p>
+            <p>B. \(P(1<X<2)=0.3\)</p>
+            <p>C. \(P(X>2)=0.5\)</p>
+            <p>D. \(P(X>4)=0.2\)</p>
+        </div>
+
+        <p class="question">10. 直线 \(y=kx+2\) 与圆 \((x-1)^2+y^2=4\) 相交，则 \(k\) 可取（）</p>
+        <div class="options">
+            <p>A. \(-2\)</p>
+            <p>B. \(-1\)</p>
+            <p>C. \(0\)</p>
+            <p>D. \(1\)</p>
+        </div>
+
+        <p class="question">11. 直三棱柱 \(ABC-A_1B_1C_1\)，\(\angle ACB=90^\circ\)，\(AC=BC=AA_1=2\)，正确的有（）</p>
+        <div class="img-box">
+            <img src="tri_prism.png" alt="直三棱柱ABC-A1B1C1">
+        </div>
+        <div class="options">
+            <p>A. \(AB_1\perp BC_1\)</p>
+            <p>B. 体积为4</p>
+            <p>C. 二面角余弦为 \(\dfrac{\sqrt{3}}{3}\)</p>
+            <p>D. 异面直线成60°</p>
+        </div>
+
+        <p class="question">12. 已知 \(f(x)=x|x-2a|\)，\(a>0\)，正确的有（）</p>
+        <div class="options">
+            <p>A. \(x<2a\) 时 \(f(x)=-x^2+2ax\)</p>
+            <p>B. 在\((-\infty,a)\)递增</p>
+            <p>C. 极小值0</p>
+            <p>D. 值域\(\mathbb{R}\)</p>
+        </div>
+
+        <h2>三、填空题：本题共4小题，每小题5分，共20分。</h2>
+        <p class="fill-blank">13. 若 \(\tan\alpha=3\)，则 \(\dfrac{\sin2\alpha}{\sin^2\alpha+\cos^2\alpha}=\) ________</p>
+
+        <p class="fill-blank">14. \((2x-\dfrac{1}{\sqrt{x}})^6\) 常数项为 ________</p>
+
+        <p class="fill-blank">15. 四棱锥 \(P-ABCD\)，底面正方形，\(PA\perp\) 底面，\(PA=AB=2\)，\(E\) 为 \(PC\) 中点，则 \(DE\) 与面 \(PAB\) 所成角正弦值为 ________</p>
+        <div class="img-box">
+            <img src="square_pyramid.png" alt="四棱锥P-ABCD">
+        </div>
+
+        <p class="fill-blank">16. 已知 \(f(x)=\begin{cases} e^x, & x\le0 \\ \ln x, & x>0 \end{cases}\)，\(f(a)=f(b)\)，\(a\neq b\)，则 \(a+2b\) 最小值为 ________</p>
+
+        <h2>四、解答题：本题共6小题，共70分。</h2>
+        <h3>17.（10分）</h3>
+        <p class="question">在 \(\triangle ABC\) 中，\(a=3\)，\(b=2\sqrt{3}\)，\(\cos B=\dfrac{\sqrt{3}}{3}\)。<br>
+        （1）求 \(\sin A\)；（2）求 \(c\)。</p>
+
+        <h3>18.（12分）</h3>
+        <p class="question">已知 \(\{a_n\}\) 满足 \(a_1=1\)，\(a_{n+1}=3a_n+2\)。<br>
+        （1）证明 \(\{a_n+1\}\) 等比；（2）求 \(\left\{\dfrac{1}{a_n}\right\}\) 前\(n\)项和\(T_n\)。</p>
+
+        <h3>19.（12分）</h3>
+        <p class="question">三棱锥 \(P-ABC\)，\(PA\perp\) 面 \(ABC\)，\(AB\perp BC\)，\(PA=AB=BC=2\)，\(E\) 为 \(PB\) 中点。<br>
+        （1）证明 \(AE\perp\) 面 \(PBC\)；（2）求二面角 \(A-PC-B\) 余弦值。</p>
+        <div class="img-box">
+            <img src="tri_pyramid.png" alt="三棱锥P-ABC">
+        </div>
+
+        <h3>20.（12分）</h3>
+        <p class="question">椭圆 \(C:\dfrac{x^2}{4}+\dfrac{y^2}{3}=1\)，过右焦点\(F\)直线交\(A,B\)，\(\overrightarrow{AF}=2\overrightarrow{FB}\)。<br>
+        （1）求直线方程；（2）求\(\triangle OAB\)面积。</p>
+
+        <h3>21.（12分）</h3>
+        <p class="question">已知 \(f(x)=x\ln x - ax + 2a\)。<br>
+        （1）讨论单调性；（2）若 \(f(x)\ge0\) 恒成立，求\(a\)范围。</p>
+
+        <h3>22.（12分）【选修4-4】</h3>
+        <p class="question">曲线 \(C_1:\begin{cases}x=2\cos\theta\\y=\sqrt{3}\sin\theta\end{cases}\)，\(C_2:\rho=4\cos\theta\)。<br>
+        （1）普通方程；（2）交点距离。</p>
+    </div>
+</body>
+</html>

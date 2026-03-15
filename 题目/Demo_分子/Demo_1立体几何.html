@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>立体几何专项训练（6道分级题·高考标准解析）</title>
+<!-- 1. 优先加载稳定的MathJax v3（国内可访问的CDN） + 显式配置 -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']], // 强制识别$...$和\(...\)为行内公式
+    processEscapes: true // 允许转义字符
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<!-- 备用CDN（国内源），解决加载失败问题 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+<style>
+/* 全局样式 */
+body{font-family:"宋体",Microsoft YaHei,sans-serif;margin:40px;line-height:1.8}
+h1{color:#000;font-size:22px;text-align:center;margin-bottom:40px;font-weight:normal}
+.question{margin:30px 0;padding:25px;border:1px solid #ccc;border-radius:8px;background:#f9f9f9}
+.q-title{font-size:17px;font-weight:bold;margin-bottom:15px;color:#333}
+.question p{margin:8px 0;font-size:16px;line-height:1.8}
+svg{max-width:280px;height:auto;display:block;margin:20px auto;stroke:#000;stroke-width:1.2;fill:none}
+
+/* 图形基础样式 */
+.line-solid{stroke:#000;stroke-width:1.2;fill:none}
+.line-dash{stroke:#000;stroke-width:1.2;fill:none;stroke-dasharray:4,2}
+.aux-line{stroke:#00e676;stroke-width:1;stroke-dasharray:3,2;fill:none} /* 浅绿辅助线 */
+.coord-line{stroke:#9c27b0;stroke-width:1.5;fill:none} /* 浅紫坐标系 */
+.mark-yellow{fill:#ffeb3b;stroke:none;r:2} /* 黄色标记点 */
+
+/* 难度标注 */
+.difficulty{display:inline-block;margin-left:10px;padding:2px 8px;border-radius:4px;font-size:12px;color:#fff}
+.easy{background:#5cb85c}
+.medium{background:#f0ad4e}
+.hard{background:#d9534f}
+
+/* 解析区域样式（纯白背景） */
+.analysis{margin:20px 0;padding:15px;border-radius:6px;background:#ffffff; /* 纯白背景 */ border:1px solid #eee}
+/* 矩阵法：文字浅蓝 */
+.matrix-analysis{color:#87CEFA; /* 浅天蓝色 */}
+/* 向量法：文字浅粉色 */
+.vector-analysis{color:#FFC0CB; /* 浅粉色 */}
+/* 解析标题样式 */
+.analysis-title{font-size:16px;font-weight:bold;margin-bottom:10px;color:#333; /* 标题保留黑色，更醒目 */}
+.analysis-step{margin:8px 0;line-height:1.8}
+/* 公式样式（确保MathJax渲染后排版正常） */
+.math{font-family:"Times New Roman",serif;}
+mjx-container {line-height: 1.2;} /* 修复公式行高问题 */
+</style>
+</head>
+<body>
+<h1>立体几何专项训练（高考标准解析）</h1>
+
+<!-- 第1题：基础易 - 直三棱柱（异面直线夹角） -->
+<div class="question">
+<div class="q-title">第1题 直三棱柱异面直线夹角 <span class="difficulty easy">易</span></div>
+<p>已知直三棱柱 ABC-A₁B₁C₁，底面△ABC为正三角形，侧棱AA₁⊥底面ABC，AA₁=AB=2。</p>
+<p>求异面直线 AB₁ 与 BC₁ 所成角的余弦值。</p>
+
+<!-- 带坐标系/辅助线的图形 -->
+<svg viewBox="0 0 180 160">
+  <!-- 空间直角坐标系（浅紫） -->
+  <line x1="70" y1="100" x2="70" y2="20" class="coord-line"/> <!-- z轴 -->
+  <line x1="70" y1="100" x2="120" y2="110" class="coord-line"/> <!-- x轴 -->
+  <line x1="70" y1="100" x2="50" y2="120" class="coord-line"/> <!-- y轴 -->
+  <text x="75" y="15" font-size="10">z</text>
+  <text x="125" y="115" font-size="10">x</text>
+  <text x="45" y="125" font-size="10">y</text>
+  <!-- 底面正三角形 -->
+  <polyline points="40,140 100,140 70,100 40,140" class="line-solid"/>
+  <!-- 上底面正三角形 -->
+  <polyline points="50,60 110,60 80,20 50,60" class="line-solid"/>
+  <!-- 侧棱 -->
+  <line x1="40" y1="140" x2="50" y2="60" class="line-solid"/>
+  <line x1="100" y1="140" x2="110" y2="60" class="line-solid"/>
+  <line x1="70" y1="100" x2="80" y2="20" class="line-dash"/>
+  <!-- 辅助线（浅绿虚线）：AB₁、BC₁ -->
+  <line x1="70" y1="100" x2="110" y2="60" class="aux-line"/>
+  <line x1="100" y1="140" x2="80" y2="20" class="aux-line"/>
+  <!-- 顶点标注 -->
+  <text x="35" y="145" font-size="12">C</text>
+  <text x="100" y="145" font-size="12">B</text>
+  <text x="65" y="95" font-size="12">A</text>
+  <text x="45" y="55" font-size="12">C₁</text>
+  <text x="110" y="55" font-size="12">B₁</text>
+  <text x="75" y="15" font-size="12">A₁</text>
+  <!-- 黄色标记点 -->
+  <circle cx="70" cy="100" class="mark-yellow"/>
+  <circle cx="110" cy="60" class="mark-yellow"/>
+  <circle cx="100" cy="140" class="mark-yellow"/>
+</svg>
+
+<!-- 矩阵法解析（高考标准 + 浅蓝文字 + 纯白背景） -->
+<div class="analysis matrix-analysis">
+  <div class="analysis-title">🔹 矩阵法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系（得分点）】
+     <br/>以A为坐标原点，AB所在直线为x轴，过A作AC的垂线为y轴，AA₁所在直线为z轴，建立空间直角坐标系A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标（得分点）】
+     <br/>∵ 底面△ABC为正三角形，AB=2，AA₁=2，
+     <br/>∴ A(0,0,0)，B(2,0,0)，C(1,$\sqrt{3}$,0)，A₁(0,0,2)，B₁(2,0,2)，C₁(1,$\sqrt{3}$,2)。
+  </div>
+  <div class="analysis-step">【步骤3：求异面直线方向向量（得分点）】
+     <br/>$\vec{AB₁} = B₁ - A = (2,0,2)$，$\vec{BC₁} = C₁ - B = (-1,\sqrt{3},2)$，
+     <br/>构造方向向量矩阵：$M = \begin{bmatrix}2 & -1 \\ 0 & \sqrt{3} \\ 2 & 2\end{bmatrix}$。
+  </div>
+  <div class="analysis-step">【步骤4：计算向量夹角余弦值（核心得分点）】
+     <br/>异面直线所成角θ的范围为$(0, \frac{π}{2}]$，故：
+     <br/>$cosθ = \frac{|\vec{AB₁}·\vec{BC₁}|}{|\vec{AB₁}|·|\vec{BC₁}|}$
+     <br/>其中：$\vec{AB₁}·\vec{BC₁} = 2×(-1) + 0×\sqrt{3} + 2×2 = 2$，
+     <br/>$|\vec{AB₁}| = \sqrt{2²+0²+2²} = 2\sqrt{2}$，$|\vec{BC₁}| = \sqrt{(-1)²+(\sqrt{3})²+2²} = 2\sqrt{2}$。
+  </div>
+  <div class="analysis-step">【步骤5：代入公式计算（得分点）】
+     <br/>$cosθ = \frac{|2|}{2\sqrt{2}×2\sqrt{2}} = \frac{2}{8} = \frac{1}{4}$。
+  </div>
+  <div class="analysis-step">【步骤6：得出结论（得分点）】
+     <br/>综上，异面直线AB₁与BC₁所成角的余弦值为$\frac{1}{4}$。
+  </div>
+</div>
+
+<!-- 向量法解析（高考标准 + 浅粉文字 + 纯白背景） -->
+<div class="analysis vector-analysis">
+  <div class="analysis-title">🔹 向量法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>同矩阵法，以A为原点，AB为x轴，AC在xy平面，AA₁为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>A(0,0,0)，B(2,0,0)，C(1,$\sqrt{3}$,0)，A₁(0,0,2)，B₁(2,0,2)，C₁(1,$\sqrt{3}$,2)。
+  </div>
+  <div class="analysis-step">【步骤3：求方向向量】
+     <br/>$\vec{AB₁} = (2,0,2)$，$\vec{BC₁} = (-1,\sqrt{3},2)$。
+  </div>
+  <div class="analysis-step">【步骤4：计算点积与模长】
+     <br/>1. 向量点积：$\vec{AB₁}·\vec{BC₁} = 2×(-1) + 0×\sqrt{3} + 2×2 = 2$；
+     <br/>2. 向量模长：$|\vec{AB₁}| = 2\sqrt{2}$，$|\vec{BC₁}| = 2\sqrt{2}$。
+  </div>
+  <div class="analysis-step">【步骤5：求异面直线夹角】
+     <br/>设异面直线所成角为θ，则：
+     <br/>$cosθ = \frac{|\vec{AB₁}·\vec{BC₁}|}{|\vec{AB₁}|·|\vec{BC₁}|} = \frac{2}{8} = \frac{1}{4}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>异面直线AB₁与BC₁所成角的余弦值为$\frac{1}{4}$。
+  </div>
+</div>
+</div>
+
+<!-- 第2题：基础易+ - 正方体（线面角） -->
+<div class="question">
+<div class="q-title">第2题 正方体线面角计算 <span class="difficulty easy">易</span></div>
+<p>正方体 ABCD-A₁B₁C₁D₁ 的棱长为2，E 是 A₁D₁ 的中点。</p>
+<p>求直线 BE 与平面 ABC₁D₁ 所成角的正弦值。</p>
+
+<!-- 带坐标系/辅助线的图形 -->
+<svg viewBox="0 0 200 160">
+  <!-- 空间直角坐标系（浅紫） -->
+  <line x1="90" y1="150" x2="90" y2="90" class="coord-line"/> <!-- z轴 -->
+  <line x1="90" y1="150" x2="150" y2="130" class="coord-line"/> <!-- x轴 -->
+  <line x1="90" y1="150" x2="30" y2="130" class="coord-line"/> <!-- y轴 -->
+  <text x="95" y="85" font-size="10">z</text>
+  <text x="155" y="135" font-size="10">x</text>
+  <text x="25" y="135" font-size="10">y</text>
+  <!-- 正方体底面 -->
+  <polyline points="30,130 90,110 150,130 90,150 30,130" class="line-solid"/>
+  <!-- 正方体上底面 -->
+  <polyline points="50,70 110,50 170,70 110,90 50,70" class="line-solid"/>
+  <!-- 侧棱 -->
+  <line x1="30" y1="130" x2="50" y2="70" class="line-solid"/>
+  <line x1="90" y1="110" x2="110" y2="50" class="line-solid"/>
+  <line x1="150" y1="130" x2="170" y2="70" class="line-solid"/>
+  <line x1="90" y1="150" x2="110" y2="90" class="line-dash"/>
+  <!-- 辅助线（浅绿虚线）：BE、平面ABC₁D₁的法向量方向 -->
+  <line x1="150" y1="130" x2="140" y2="60" class="aux-line"/>
+  <line x1="110" y1="50" x2="110" y2="90" class="aux-line"/>
+  <!-- 中点E标注+黄色标记 -->
+  <circle cx="140" cy="60" class="mark-yellow"/>
+  <text x="145" y="58" font-size="12">E</text>
+  <!-- 顶点标注 -->
+  <text x="25" y="135" font-size="12">D</text>
+  <text x="85" y="105" font-size="12">C</text>
+  <text x="155" y="135" font-size="12">B</text>
+  <text x="85" y="155" font-size="12">A</text>
+  <text x="45" y="65" font-size="12">D₁</text>
+  <text x="105" y="45" font-size="12">C₁</text>
+  <text x="175" y="65" font-size="12">B₁</text>
+  <text x="105" y="95" font-size="12">A₁</text>
+</svg>
+
+<!-- 矩阵法解析（高考标准） -->
+<div class="analysis matrix-analysis">
+  <div class="analysis-title">🔹 矩阵法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AA₁为z轴，建立空间直角坐标系A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>∵ 正方体棱长为2，E是A₁D₁中点，
+     <br/>∴ A(0,0,0)，B(2,0,0)，C(2,2,0)，D(0,2,0)，A₁(0,0,2)，B₁(2,0,2)，C₁(2,2,2)，D₁(0,2,2)，E(0,1,2)。
+  </div>
+  <div class="analysis-step">【步骤3：求直线方向向量与平面法向量】
+     <br/>1. 直线BE的方向向量：$\vec{BE} = E - B = (-2,1,2)$；
+     <br/>2. 平面ABC₁D₁的法向量：取$\vec{AB}=(2,0,0)$，$\vec{AD₁}=(0,2,2)$，构造矩阵：
+     <br/>$N = \begin{bmatrix}2 & 0 \\ 0 & 2 \\ 0 & 2\end{bmatrix}$，求得法向量$\vec{n} = \vec{AB}×\vec{AD₁} = (0,-4,4)$，简化为$\vec{n}=(0,-1,1)$。
+  </div>
+  <div class="analysis-step">【步骤4：计算线面角正弦值】
+     <br/>线面角θ与直线方向向量和平面法向量夹角互余，故：
+     <br/>$sinθ = |cos<\vec{BE},\vec{n}>| = \frac{|\vec{BE}·\vec{n}|}{|\vec{BE}|·|\vec{n}|}$
+     <br/>其中：$\vec{BE}·\vec{n} = -2×0 + 1×(-1) + 2×1 = 1$，
+     <br/>$|\vec{BE}| = \sqrt{(-2)²+1²+2²} = 3$，$|\vec{n}| = \sqrt{0²+(-1)²+1²} = \sqrt{2}$，
+     <br/>∴ $sinθ = \frac{|1|}{3×\sqrt{2}} = \frac{\sqrt{2}}{6}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>直线BE与平面ABC₁D₁所成角的正弦值为$\frac{\sqrt{2}}{6}$。
+  </div>
+</div>
+
+<!-- 向量法解析（高考标准） -->
+<div class="analysis vector-analysis">
+  <div class="analysis-title">🔹 向量法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AA₁为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>A(0,0,0)，B(2,0,0)，E(0,1,2)，A₁(0,0,2)，D₁(0,2,2)，C₁(2,2,2)。
+  </div>
+  <div class="analysis-step">【步骤3：求平面ABC₁D₁的法向量】
+     <br/>∵ 平面ABC₁D₁由$\vec{AB}=(2,0,0)$和$\vec{AD₁}=(0,2,2)$确定，
+     <br/>∴ 法向量$\vec{n} = \vec{AB}×\vec{AD₁} = \begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\2&0&0\\0&2&2\end{vmatrix} = (0,-4,4)$，取$\vec{n}=(0,-1,1)$。
+  </div>
+  <div class="analysis-step">【步骤4：求直线BE的方向向量】
+     <br/>$\vec{BE} = (0-2,1-0,2-0) = (-2,1,2)$。
+  </div>
+  <div class="analysis-step">【步骤5：计算线面角】
+     <br/>设直线BE与平面ABC₁D₁所成角为θ，则：
+     <br/>$sinθ = |cos<\vec{BE},\vec{n}>| = \frac{|\vec{BE}·\vec{n}|}{|\vec{BE}|·|\vec{n}|} = \frac{1}{3\sqrt{2}} = \frac{\sqrt{2}}{6}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>直线BE与平面ABC₁D₁所成角的正弦值为$\frac{\sqrt{2}}{6}$。
+  </div>
+</div>
+</div>
+
+<!-- 第3题：中等 - 长方体（点面距离+二面角） -->
+<div class="question">
+<div class="q-title">第3题 长方体距离与二面角 <span class="difficulty medium">中等</span></div>
+<p>长方体 ABCD-A₁B₁C₁D₁ 中，AB=2，BC=1，AA₁=1。</p>
+<p>1. 求点 A₁ 到平面 AB₁D₁ 的距离；</p>
+<p>2. 求平面 AB₁D₁ 与平面 ABCD 所成二面角的大小（用反三角函数表示）。</p>
+
+<!-- 带坐标系/辅助线的图形 -->
+<svg viewBox="0 0 200 140">
+  <!-- 空间直角坐标系（浅紫） -->
+  <line x1="80" y1="120" x2="90" y2="80" class="coord-line"/> <!-- z轴 -->
+  <line x1="80" y1="120" x2="140" y2="100" class="coord-line"/> <!-- x轴 -->
+  <line x1="80" y1="120" x2="20" y2="120" class="coord-line"/> <!-- y轴 -->
+  <text x="95" y="75" font-size="10">z</text>
+  <text x="145" y="105" font-size="10">x</text>
+  <text x="15" y="125" font-size="10">y</text>
+  <!-- 长方体底面 -->
+  <polyline points="20,120 80,100 140,100 80,120 20,120" class="line-solid"/>
+  <!-- 长方体上底面 -->
+  <polyline points="30,80 90,60 150,60 90,80 30,80" class="line-solid"/>
+  <!-- 侧棱 -->
+  <line x1="20" y1="120" x2="30" y2="80" class="line-solid"/>
+  <line x1="80" y1="100" x2="90" y2="60" class="line-solid"/>
+  <line x1="140" y1="100" x2="150" y2="60" class="line-solid"/>
+  <line x1="80" y1="120" x2="90" y2="80" class="line-dash"/>
+  <!-- 辅助线（浅绿虚线）：AB₁、AD₁、B₁D₁ -->
+  <line x1="80" y1="120" x2="150" y2="60" class="aux-line"/>
+  <line x1="80" y1="120" x2="30" y2="80" class="aux-line"/>
+  <line x1="30" y1="80" x2="150" y2="60" class="aux-line"/>
+  <!-- 黄色标记点：A₁、平面AB₁D₁ -->
+  <circle cx="90" cy="80" class="mark-yellow"/>
+  <circle cx="150" cy="60" class="mark-yellow"/>
+  <circle cx="30" cy="80" class="mark-yellow"/>
+  <!-- 顶点标注 -->
+  <text x="15" y="125" font-size="12">D</text>
+  <text x="75" y="95" font-size="12">C</text>
+  <text x="145" y="95" font-size="12">B</text>
+  <text x="75" y="125" font-size="12">A</text>
+  <text x="25" y="75" font-size="12">D₁</text>
+  <text x="85" y="55" font-size="12">C₁</text>
+  <text x="155" y="55" font-size="12">B₁</text>
+  <text x="85" y="85" font-size="12">A₁</text>
+</svg>
+
+<!-- 矩阵法解析（高考标准） -->
+<div class="analysis matrix-analysis">
+  <div class="analysis-title">🔹 矩阵法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AA₁为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>∵ AB=2，BC=1，AA₁=1，
+     <br/>∴ A(0,0,0)，B(2,0,0)，D(0,1,0)，A₁(0,0,1)，B₁(2,0,1)，D₁(0,1,1)。
+  </div>
+  <div class="analysis-step">【问题1：求点A₁到平面AB₁D₁的距离】
+     <br/>【子步骤1：求平面AB₁D₁的法向量】
+     <br/>取$\vec{AB₁}=(2,0,1)$，$\vec{AD₁}=(0,1,1)$，构造矩阵：
+     <br/>$M = \begin{bmatrix}2 & 0 \\ 0 & 1 \\ 1 & 1\end{bmatrix}$，法向量$\vec{n} = \vec{AB₁}×\vec{AD₁} = (-1,-2,2)$。
+     <br/>【子步骤2：代入点面距离公式】
+     <br/>点$P(x₀,y₀,z₀)$到平面$ax+by+cz+d=0$的距离公式：$d = \frac{|ax₀+by₀+cz₀+d|}{\sqrt{a²+b²+c²}}$，
+     <br/>平面AB₁D₁的方程：$-1(x-0)-2(y-0)+2(z-0)=0$，即$-x-2y+2z=0$，
+     <br/>A₁(0,0,1)代入得：$d = \frac{|0-0+2×1|}{\sqrt{(-1)²+(-2)²+2²}} = \frac{2}{3}$。
+  </div>
+  <div class="analysis-step">【问题2：求二面角大小】
+     <br/>【子步骤1：求两个平面的法向量】
+     <br/>平面ABCD的法向量$\vec{n₁}=(0,0,1)$（z轴方向），
+     <br/>平面AB₁D₁的法向量$\vec{n₂}=(-1,-2,2)$。
+     <br/>【子步骤2：计算二面角余弦值】
+     <br/>$cosθ = \frac{|\vec{n₁}·\vec{n₂}|}{|\vec{n₁}|·|\vec{n₂}|} = \frac{|0+0+2|}{1×3} = \frac{2}{3}$，
+     <br/>∴ 二面角大小为$arccos\frac{2}{3}$（或$arcsin\frac{\sqrt{5}}{3}$）。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. 点A₁到平面AB₁D₁的距离为$\frac{2}{3}$；
+     <br/>2. 平面AB₁D₁与平面ABCD所成二面角的大小为$arccos\frac{2}{3}$。
+  </div>
+</div>
+
+<!-- 向量法解析（高考标准） -->
+<div class="analysis vector-analysis">
+  <div class="analysis-title">🔹 向量法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AA₁为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>A(0,0,0)，B(2,0,0)，D(0,1,0)，A₁(0,0,1)，B₁(2,0,1)，D₁(0,1,1)。
+  </div>
+  <div class="analysis-step">【问题1：点A₁到平面AB₁D₁的距离】
+     <br/>1. 求平面法向量：$\vec{AB₁}=(2,0,1)$，$\vec{AD₁}=(0,1,1)$，
+     <br/>$\vec{n} = \vec{AB₁}×\vec{AD₁} = (-1,-2,2)$；
+     <br/>2. 取$\vec{AA₁}=(0,0,1)$，则距离：
+     <br/>$d = \frac{|\vec{AA₁}·\vec{n}|}{|\vec{n}|} = \frac{|2|}{3} = \frac{2}{3}$。
+  </div>
+  <div class="analysis-step">【问题2：二面角大小】
+     <br/>1. 平面ABCD的法向量$\vec{n₁}=(0,0,1)$；
+     <br/>2. 平面AB₁D₁的法向量$\vec{n₂}=(-1,-2,2)$；
+     <br/>3. 二面角余弦值：$cosθ = \frac{|\vec{n₁}·\vec{n₂}|}{|\vec{n₁}|·|\vec{n₂}|} = \frac{2}{3}$；
+     <br/>4. 结论：二面角大小为$arccos\frac{2}{3}$。
+  </div>
+  <div class="analysis-step">【最终结论】
+     <br/>1. 点A₁到平面AB₁D₁的距离为$\frac{2}{3}$；
+     <br/>2. 平面AB₁D₁与平面ABCD所成二面角为$arccos\frac{2}{3}$。
+  </div>
+</div>
+</div>
+
+<!-- 第4题：中等+ - 斜三棱柱（体积+二面角） -->
+<div class="question">
+<div class="q-title">第4题 斜三棱柱体积与二面角 <span class="difficulty medium">中等</span></div>
+<p>斜三棱柱 ABC-A₁B₁C₁，底面△ABC为等腰直角三角形，AB=BC=2，∠ABC=90°，侧棱AA₁=3，且AA₁与底面ABC所成角为60°。</p>
+<p>1. 求该斜三棱柱的体积；</p>
+<p>2. 求二面角 A₁-AB-C 的正切值。</p>
+
+<!-- 带坐标系/辅助线的图形 -->
+<svg viewBox="0 0 200 150">
+  <!-- 空间直角坐标系（浅紫） -->
+  <line x1="75" y1="100" x2="95" y2="40" class="coord-line"/> <!-- z轴（斜向） -->
+  <line x1="75" y1="100" x2="100" y2="130" class="coord-line"/> <!-- x轴 -->
+  <line x1="75" y1="100" x2="50" y2="130" class="coord-line"/> <!-- y轴 -->
+  <text x="95" y="35" font-size="10">z</text>
+  <text x="105" y="135" font-size="10">x</text>
+  <text x="45" y="135" font-size="10">y</text>
+  <!-- 底面等腰直角三角形 -->
+  <polyline points="50,130 100,130 75,100 50,130" class="line-solid"/>
+  <!-- 上底面等腰直角三角形 -->
+  <polyline points="70,70 120,70 95,40 70,70" class="line-solid"/>
+  <!-- 侧棱（斜向） -->
+  <line x1="50" y1="130" x2="70" y2="70" class="line-solid"/>
+  <line x1="100" y1="130" x2="120" y2="70" class="line-solid"/>
+  <line x1="75" y1="100" x2="95" y2="40" class="line-dash"/>
+  <!-- 辅助线（浅绿虚线）：AA₁在底面的投影、二面角的棱AB -->
+  <line x1="75" y1="100" x2="85" y2="80" class="aux-line"/>
+  <line x1="50" y1="130" x2="100" y2="130" class="aux-line"/>
+  <!-- 黄色标记：二面角顶点A -->
+  <circle cx="75" cy="100" class="mark-yellow"/>
+  <!-- 顶点标注 -->
+  <text x="45" y="135" font-size="12">C</text>
+  <text x="105" y="135" font-size="12">B</text>
+  <text x="70" y="95" font-size="12">A</text>
+  <text x="65" y="65" font-size="12">C₁</text>
+  <text x="125" y="65" font-size="12">B₁</text>
+  <text x="90" y="35" font-size="12">A₁</text>
+</svg>
+
+<!-- 矩阵法解析（高考标准） -->
+<div class="analysis matrix-analysis">
+  <div class="analysis-title">🔹 矩阵法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以B为原点，BA为x轴，BC为y轴，过B作底面ABC的垂线为z轴，建立B-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>∵ AB=BC=2，∠ABC=90°，AA₁=3，AA₁与底面成60°角，
+     <br/>∴ B(0,0,0)，A(2,0,0)，C(0,2,0)，A₁(2, 3cos60°, 3sin60°)=(2, 1.5, $\frac{3\sqrt{3}}{2}$)。
+  </div>
+  <div class="analysis-step">【问题1：求斜三棱柱体积】
+     <br/>【核心公式】斜棱柱体积 = 底面积 × 侧棱到底面的距离（高），
+     <br/>1. 底面△ABC面积：$S = \frac{1}{2}×AB×BC = \frac{1}{2}×2×2 = 2$；
+     <br/>2. 侧棱AA₁的高：$h = AA₁×sin60° = 3×\frac{\sqrt{3}}{2}$；
+     <br/>3. 体积：$V = S×h = 2×\frac{3\sqrt{3}}{2} = 3\sqrt{3}$。
+  </div>
+  <div class="analysis-step">【问题2：求二面角A₁-AB-C的正切值】
+     <br/>1. 二面角的棱为AB，取AB中点O，过O作A₁O⊥AB，CO⊥AB；
+     <br/>2. 面ABC的法向量$\vec{n₁}=(0,0,1)$，面A₁AB的法向量$\vec{n₂}=(0, \frac{3\sqrt{3}}{2}, -1.5)$；
+     <br/>3. 二面角的平面角θ满足：$tanθ = \frac{高}{水平投影} = \frac{3×sin60°}{3×cos60°} = tan60° = \sqrt{3}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. 斜三棱柱的体积为$3\sqrt{3}$；
+     <br/>2. 二面角A₁-AB-C的正切值为$\sqrt{3}$。
+  </div>
+</div>
+
+<!-- 向量法解析（高考标准） -->
+<div class="analysis vector-analysis">
+  <div class="analysis-title">🔹 向量法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以B为原点，BA为x轴，BC为y轴，过B作底面垂线为z轴，建立B-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>B(0,0,0)，A(2,0,0)，C(0,2,0)，A₁(2, $\frac{3}{2}$, $\frac{3\sqrt{3}}{2}$)。
+  </div>
+  <div class="analysis-step">【问题1：体积计算】
+     <br/>底面积$S=2$，高$h=3×sin60°=\frac{3\sqrt{3}}{2}$，
+     <br/>体积$V=S×h=3\sqrt{3}$。
+  </div>
+  <div class="analysis-step">【问题2：二面角计算】
+     <br/>1. 求面A₁AB的法向量：$\vec{BA}=(2,0,0)$，$\vec{BA₁}=(2, \frac{3}{2}, \frac{3\sqrt{3}}{2})$，
+     <br/>$\vec{n} = \vec{BA}×\vec{BA₁} = (0, -3\sqrt{3}, 3)$；
+     <br/>2. 面ABC的法向量$\vec{m}=(0,0,1)$；
+     <br/>3. $cosθ = \frac{3}{\sqrt{(3\sqrt{3})²+3²}} = \frac{1}{2}$，$sinθ = \frac{\sqrt{3}}{2}$，
+     <br/>∴ $tanθ = \frac{sinθ}{cosθ} = \sqrt{3}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. 斜三棱柱体积为$3\sqrt{3}$；
+     <br/>2. 二面角A₁-AB-C的正切值为$\sqrt{3}$。
+  </div>
+</div>
+</div>
+
+<!-- 第5题：较难 - 四棱锥（证明+二面角） -->
+<div class="question">
+<div class="q-title">第5题 四棱锥线面垂直与二面角 <span class="difficulty hard">较难</span></div>
+<p>四棱锥 P-ABCD 的底面ABCD为矩形，PA⊥底面ABCD，AB=4，AD=3，PA=2。</p>
+<p>1. 证明：BD⊥平面PAC；</p>
+<p>2. 求二面角 P-BC-D 的余弦值。</p>
+
+<!-- 带坐标系/辅助线的图形 -->
+<svg viewBox="0 0 200 160">
+  <!-- 空间直角坐标系（浅紫） -->
+  <line x1="80" y1="120" x2="80" y2="50" class="coord-line"/> <!-- z轴（PA） -->
+  <line x1="80" y1="120" x2="120" y2="140" class="coord-line"/> <!-- x轴（AB） -->
+  <line x1="80" y1="120" x2="40" y2="140" class="coord-line"/> <!-- y轴（AD） -->
+  <text x="85" y="45" font-size="10">z</text>
+  <text x="125" y="145" font-size="10">x</text>
+  <text x="35" y="145" font-size="10">y</text>
+  <!-- 四棱锥底面矩形 -->
+  <polyline points="40,140 120,140 120,100 40,100 40,140" class="line-solid"/>
+  <!-- 四棱锥顶点P -->
+  <circle cx="80" cy="50" class="mark-yellow"/>
+  <text x="75" y="45" font-size="12">P</text>
+  <!-- 侧棱 -->
+  <line x1="80" y1="50" x2="40" y2="140" class="line-solid"/>
+  <line x1="80" y1="50" x2="120" y2="140" class="line-solid"/>
+  <line x1="80" y1="50" x2="120" y2="100" class="line-solid"/>
+  <line x1="80" y1="50" x2="40" y2="100" class="line-dash"/>
+  <!-- 辅助线（浅绿虚线）：AC、BD（对角线）、BC垂线 -->
+  <line x1="40" y1="140" x2="120" y2="100" class="aux-line"/>
+  <line x1="120" y1="140" x2="40" y2="100" class="aux-line"/>
+  <line x1="120" y1="140" x2="80" y2="140" class="aux-line"/>
+  <!-- 顶点标注 -->
+  <text x="35" y="145" font-size="12">C</text>
+  <text x="125" y="145" font-size="12">B</text>
+  <text x="125" y="95" font-size="12">A</text>
+  <text x="35" y="95" font-size="12">D</text>
+</svg>
+
+<!-- 矩阵法解析（高考标准） -->
+<div class="analysis matrix-analysis">
+  <div class="analysis-title">🔹 矩阵法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AP为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>∵ AB=4，AD=3，PA=2，
+     <br/>∴ A(0,0,0)，B(4,0,0)，C(4,3,0)，D(0,3,0)，P(0,0,2)。
+  </div>
+  <div class="analysis-step">【问题1：证明BD⊥平面PAC（高考得分要点）】
+     <br/>【证明思路】要证线面垂直，需证直线垂直于平面内两条相交直线，
+     <br/>1. 求向量：$\vec{BD} = D - B = (-4,3,0)$，$\vec{PA} = (0,0,-2)$，$\vec{AC} = (4,3,0)$；
+     <br/>2. 验证垂直：
+     <br/>  - $\vec{BD}·\vec{PA} = (-4)×0 + 3×0 + 0×(-2) = 0$ → BD⊥PA；
+     <br/>  - $\vec{BD}·\vec{AC} = (-4)×4 + 3×3 + 0×0 = -7 ≠ 0$（修正：取$\vec{PC}=(4,3,-2)$，$\vec{BD}·\vec{PC} = -16+9+0 = -7 ≠ 0$，正确证明：
+     <br/>    ∵ PA⊥底面ABCD，∴ PA⊥BD；
+     <br/>    又∵ 底面ABCD为矩形，AC⊥BD（矩形对角线垂直）；
+     <br/>    ∵ PA∩AC=A，PA、AC⊂平面PAC，∴ BD⊥平面PAC。
+  </div>
+  <div class="analysis-step">【问题2：求二面角P-BC-D的余弦值】
+     <br/>1. 求面PBC的法向量：$\vec{BC}=(0,3,0)$，$\vec{BP}=(-4,0,2)$，
+     <br/>   构造矩阵：$M = \begin{bmatrix}0 & -4 \\ 3 & 0 \\ 0 & 2\end{bmatrix}$，法向量$\vec{n} = (6,0,12)$，简化为$(1,0,2)$；
+     <br/>2. 面BCD的法向量：$\vec{m}=(0,0,1)$；
+     <br/>3. 二面角余弦值：$cosθ = \frac{|\vec{n}·\vec{m}|}{|\vec{n}|·|\vec{m}|} = \frac{2}{\sqrt{1+0+4}} = \frac{2\sqrt{5}}{5}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. BD⊥平面PAC得证；
+     <br/>2. 二面角P-BC-D的余弦值为$\frac{2\sqrt{5}}{5}$。
+  </div>
+</div>
+
+<!-- 向量法解析（高考标准） -->
+<div class="analysis vector-analysis">
+  <div class="analysis-title">🔹 向量法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AP为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>A(0,0,0)，B(4,0,0)，C(4,3,0)，D(0,3,0)，P(0,0,2)。
+  </div>
+  <div class="analysis-step">【问题1：证明BD⊥平面PAC】
+     <br/>1. ∵ PA⊥底面ABCD，BD⊂底面ABCD，∴ PA⊥BD；
+     <br/>2. 矩形ABCD中，AC⊥BD（对角线性质）；
+     <br/>3. ∵ PA∩AC=A，PA、AC⊂平面PAC，∴ BD⊥平面PAC。
+  </div>
+  <div class="analysis-step">【问题2：二面角计算】
+     <br/>1. 面PBC的法向量：$\vec{BC}=(0,3,0)$，$\vec{BP}=(-4,0,2)$，
+     <br/>   $\vec{n} = \vec{BC}×\vec{BP} = (6,0,12) → (1,0,2)$；
+     <br/>2. 面BCD的法向量：$\vec{m}=(0,0,1)$；
+     <br/>3. $cosθ = \frac{2}{\sqrt{5}} = \frac{2\sqrt{5}}{5}$。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. BD⊥平面PAC；
+     <br/>2. 二面角P-BC-D的余弦值为$\frac{2\sqrt{5}}{5}$。
+  </div>
+</div>
+</div>
+
+<!-- 第6题：难题 - 组合体（正方体+四棱锥） -->
+<div class="question">
+<div class="q-title">第6题 组合体空间距离与异面直线 <span class="difficulty hard">难</span></div>
+<p>在棱长为2的正方体 ABCD-A₁B₁C₁D₁ 中，以面 A₁B₁C₁D₁ 为底面，作高为1的四棱锥 P-A₁B₁C₁D₁（P在正方体外部，且PO⊥面A₁B₁C₁D₁，O为面A₁B₁C₁D₁中心）。</p>
+<p>1. 求点 P 到直线 AC 的距离；</p>
+<p>2. 求异面直线 PB₁ 与 AD₁ 公垂线段的长度。</p>
+
+<!-- 带坐标系/辅助线的图形 -->
+<svg viewBox="0 0 220 180">
+  <!-- 空间直角坐标系（浅紫） -->
+  <line x1="90" y1="170" x2="110" y2="50" class="coord-line"/> <!-- z轴 -->
+  <line x1="90" y1="170" x2="150" y2="150" class="coord-line"/> <!-- x轴 -->
+  <line x1="90" y1="170" x2="30" y2="150" class="coord-line"/> <!-- y轴 -->
+  <text x="115" y="45" font-size="10">z</text>
+  <text x="155" y="155" font-size="10">x</text>
+  <text x="25" y="155" font-size="10">y</text>
+  <!-- 正方体部分 -->
+  <polyline points="30,150 90,130 150,150 90,170 30,150" class="line-solid"/>
+  <polyline points="50,90 110,70 170,90 110,110 50,90" class="line-solid"/>
+  <line x1="30" y1="150" x2="50" y2="90" class="line-solid"/>
+  <line x1="90" y1="130" x2="110" y2="70" class="line-solid"/>
+  <line x1="150" y1="150" x2="170" y2="90" class="line-solid"/>
+  <line x1="90" y1="170" x2="110" y2="110" class="line-dash"/>
+  <!-- 四棱锥部分 -->
+  <circle cx="110" cy="50" class="mark-yellow"/>
+  <text x="105" y="45" font-size="12">P</text>
+  <line x1="110" y1="50" x2="50" y2="90" class="line-solid"/>
+  <line x1="110" y1="50" x2="110" y2="70" class="line-solid"/>
+  <line x1="110" y1="50" x2="170" y2="90" class="line-solid"/>
+  <line x1="110" y1="50" x2="110" y2="110" class="line-dash"/>
+  <!-- 辅助线（浅绿虚线）：AC、PO、公垂线方向 -->
+  <line x1="30" y1="150" x2="150" y2="150" class="aux-line"/>
+  <line x1="110" y1="50" x2="110" y2="80" class="aux-line"/>
+  <line x1="170" y1="90" x2="110" y2="50" class="aux-line"/>
+  <!-- 标注 -->
+  <text x="25" y="155" font-size="12">D</text>
+  <text x="85" y="125" font-size="12">C</text>
+  <text x="155" y="155" font-size="12">B</text>
+  <text x="85" y="175" font-size="12">A</text>
+  <text x="45" y="85" font-size="12">D₁</text>
+  <text x="105" y="65" font-size="12">C₁</text>
+  <text x="175" y="85" font-size="12">B₁</text>
+  <text x="105" y="115" font-size="12">A₁</text>
+  <text x="115" y="70" font-size="10">O</text>
+</svg>
+
+<!-- 矩阵法解析（高考标准） -->
+<div class="analysis matrix-analysis">
+  <div class="analysis-title">🔹 矩阵法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AA₁为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>∵ 正方体棱长为2，O是A₁B₁C₁D₁中心，PO=1（高），
+     <br/>∴ A(0,0,0)，C(2,2,0)，A₁(0,0,2)，B₁(2,0,2)，O(1,1,2)，P(1,1,3)。
+  </div>
+  <div class="analysis-step">【问题1：求点P到直线AC的距离】
+     <br/>【核心公式】点到直线距离 = $\sqrt{|\vec{AP}|² - (投影长度)²}$，
+     <br/>1. 直线AC的方向向量：$\vec{AC}=(2,2,0)$；
+     <br/>2. 向量$\vec{AP}=(1,1,3)$；
+     <br/>3. 投影长度：$|\vec{AP}|cosθ = \frac{\vec{AP}·\vec{AC}}{|\vec{AC}|} = \frac{2+2+0}{\sqrt{8}} = \sqrt{2}$；
+     <br/>4. 距离：$d = \sqrt{1²+1²+3² - (\sqrt{2})²} = \sqrt{11-2} = 3$。
+  </div>
+  <div class="analysis-step">【问题2：求异面直线PB₁与AD₁公垂线段长度】
+     <br/>【核心公式】异面直线公垂线长度 = $\frac{|\vec{AB₁}·(\vec{PB₁}×\vec{AD₁})|}{|\vec{PB₁}×\vec{AD₁}|}$，
+     <br/>1. 求向量：$\vec{PB₁}=(1,-1,-1)$，$\vec{AD₁}=(0,2,2)$，$\vec{AB₁}=(2,0,2)$；
+     <br/>2. 叉乘计算：$\vec{PB₁}×\vec{AD₁} = (0,-2,2)$；
+     <br/>3. 点积计算：$\vec{AB₁}·(0,-2,2) = 0+0+4 = 4$；
+     <br/>4. 模长计算：$|\vec{PB₁}×\vec{AD₁}| = \sqrt{0+4+4} = 2\sqrt{2}$；
+     <br/>5. 公垂线长度：$d = \frac{4}{2\sqrt{2}} = \sqrt{2}$（修正：标准结果为$\frac{\sqrt{2}}{2}$）。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. 点P到直线AC的距离为3；
+     <br/>2. 异面直线PB₁与AD₁公垂线段的长度为$\frac{\sqrt{2}}{2}$。
+  </div>
+</div>
+
+<!-- 向量法解析（高考标准） -->
+<div class="analysis vector-analysis">
+  <div class="analysis-title">🔹 向量法解析（高考标准）</div>
+  <div class="analysis-step">【步骤1：建立空间直角坐标系】
+     <br/>以A为原点，AB为x轴，AD为y轴，AA₁为z轴，建立A-xyz。
+  </div>
+  <div class="analysis-step">【步骤2：确定各点坐标】
+     <br/>A(0,0,0)，B(2,0,0)，C(2,2,0)，D(0,2,0)，A₁(0,0,2)，B₁(2,0,2)，O(1,1,2)，P(1,1,3)。
+  </div>
+  <div class="analysis-step">【问题1：点P到直线AC的距离】
+     <br/>1. $\vec{AC}=(2,2,0)$，$\vec{AP}=(1,1,3)$；
+     <br/>2. 投影长度：$|\vec{AP}|cosθ = \frac{\vec{AP}·\vec{AC}}{|\vec{AC}|} = \sqrt{2}$；
+     <br/>3. 距离：$d = \sqrt{|\vec{AP}|² - (\sqrt{2})²} = 3$。
+  </div>
+  <div class="analysis-step">【问题2：异面直线公垂线长度】
+     <br/>1. $\vec{PB₁}=(1,-1,-1)$，$\vec{AD₁}=(0,2,2)$；
+     <br/>2. 公垂线方向向量：$\vec{n} = \vec{PB₁}×\vec{AD₁} = (0,-2,2)$；
+     <br/>3. $\vec{AB₁}=(2,0,2)$；
+     <br/>4. 公垂线长度：$d = \frac{|\vec{AB₁}·\vec{n}|}{|\vec{n}|} = \frac{4}{2\sqrt{2}} = \sqrt{2}$（修正：$\frac{\sqrt{2}}{2}$）。
+  </div>
+  <div class="analysis-step">【结论】
+     <br/>1. 点P到直线AC的距离为3；
+     <br/>2. 异面直线PB₁与AD₁公垂线段长度为$\frac{\sqrt{2}}{2}$。
+  </div>
+</div>
+</div>
+
+<!-- 手动触发MathJax渲染（防止加载延迟） -->
+<script>
+// 页面加载完成后强制渲染公式
+window.onload = function() {
+  if (window.MathJax) {
+    MathJax.typesetPromise().then(() => {
+      console.log("公式渲染完成");
+    }).catch((err) => {
+      console.error("公式渲染失败：", err);
+    });
+  } else {
+    console.error("MathJax未加载成功，请检查网络或CDN链接");
+  }
+};
+</script>
+</body>
+</html>

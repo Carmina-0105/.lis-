@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>2025陕西新高考立体几何6题（标准正等轴测视角）</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei",sans-serif;background:#f6f7f9;color:#222;line-height:1.8;padding:20px;max-width:1000px;margin:0 auto}
+.title{text-align:center;font-size:26px;margin:10px 0 25px;font-weight:bold}
+.card{background:#fff;border-radius:10px;padding:25px;margin-bottom:25px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.card h3{font-size:19px;color:#c0392b;margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid #eee}
+.svg-box{display:flex;justify-content:center;margin:16px 0}
+/* 标准正等轴测视角SVG */
+.svg-standard{width:300px;height:280px;viewBox="0 0 300 280"}
+/* 遮挡棱 - 黑色虚线 */
+.dashed-hidden{stroke-dasharray:5 3;stroke:#333;stroke-width:1.2}
+/* 可见棱 - 黑色实线 */
+.solid-visible{stroke:#000;stroke-width:1.5}
+/* 辅助线 - 蓝色实线 */
+.aux-line{stroke:#4a90e2;stroke-width:1.6}
+/* 辅助线2 - 红色实线 */
+.aux-line-2{stroke:#e74c3c;stroke-width:1.6}
+/* 坐标系 - 橙色粗实线 */
+.axis-line{stroke:#f39c12;stroke-width:2.5;stroke-linecap:round}
+.axis-text{font-size:14px;fill:#f39c12;font-weight:bold}
+/* 答题模板样式 */
+.template{background:#f8f9fa;padding:15px;border-radius:8px;margin:12px 0;border-left:4px solid #27ae60}
+.template-title{font-weight:bold;color:#2980b9;margin-bottom:8px}
+.step{margin:8px 0;padding-left:10px}
+.score-point{color:#e67e22;font-weight:bold}
+.error-tip{color:#c0392b;font-style:italic;margin-top:8px}
+.method-title{font-weight:bold;margin-top:12px}
+.method-geometric{color:#0066cc}
+.method-vector{color:#cc0033}
+.method-matrix{color:#9900cc}
+.point{color:#2c3e50;font-weight:bold;margin-top:15px;padding-top:8px;border-top:1px dashed #ddd}
+</style>
+</head>
+<body>
+
+<div class="title">2025 陕西西安新高考立体几何 6 题（标准正等轴测视角）</div>
+
+<!-- 第1题：正方体外接球 -->
+<div class="card">
+<h3>1. 正方体 \(ABCD-A_1B_1C_1D_1\) 棱长为 2，求其外接球表面积。</h3>
+<div class="svg-box">
+<svg class="svg-standard" viewBox="0 0 300 280">
+  <!-- 标准正等轴测视角 - 正方体 -->
+  <!-- 底面ABCD (可见) -->
+  <line x1="100" y1="120" x2="160" y2="150" class="solid-visible"/> <!-- AB -->
+  <line x1="160" y1="150" x2="130" y2="200" class="solid-visible"/> <!-- BC -->
+  <line x1="130" y1="200" x2="70" y2="170" class="solid-visible"/> <!-- CD -->
+  <line x1="70" y1="170" x2="100" y2="120" class="solid-visible"/> <!-- DA -->
+  
+  <!-- 顶面A1B1C1D1 (部分可见) -->
+  <line x1="100" y1="120" x2="120" y2="70" class="solid-visible"/> <!-- AA1 -->
+  <line x1="160" y1="150" x2="180" y2="100" class="solid-visible"/> <!-- BB1 -->
+  <line x1="130" y1="200" x2="150" y2="150" class="solid-visible"/> <!-- CC1 -->
+  <line x1="180" y1="100" x2="150" y2="150" class="solid-visible"/> <!-- B1C1 -->
+  <line x1="150" y1="150" x2="90" y2="120" class="solid-visible"/> <!-- C1D1 -->
+  
+  <!-- 遮挡棱 (虚线) -->
+  <line x1="70" y1="170" x2="90" y2="120" class="dashed-hidden"/> <!-- DD1 -->
+  <line x1="120" y1="70" x2="180" y2="100" class="dashed-hidden"/> <!-- A1B1 -->
+  <line x1="120" y1="70" x2="90" y2="120" class="dashed-hidden"/> <!-- A1D1 -->
+  
+  <!-- 体对角线 (辅助线) -->
+  <line x1="120" y1="70" x2="130" y2="200" class="aux-line"/> <!-- A1C -->
+  
+  <!-- 坐标系 (标准正等轴测) -->
+  <line x1="130" y1="140" x2="200" y2="175" class="axis-line"/> <!-- X轴 -->
+  <line x1="130" y1="140" x2="80" y2="165" class="axis-line"/> <!-- Y轴 -->
+  <line x1="130" y1="140" x2="130" y2="70" class="axis-line"/> <!-- Z轴 -->
+  <text x="205" y="180" class="axis-text">X</text>
+  <text x="70" y="165" class="axis-text">Y</text>
+  <text x="125" y="65" class="axis-text">Z</text>
+</svg>
+</div>
+
+<div class="method-title method-geometric">方法一：几何法（高考标准答题模板）</div>
+<div class="template">
+  <div class="template-title">答题步骤（满分5分）</div>
+  <div class="step"><span class="score-point">步骤1（1分）：求正方体体对角线长</span><br>
+  正方体棱长 \(a=2\)，由体对角线公式：<br>
+  \(l = \sqrt{a^2 + a^2 + a^2} = \sqrt{3a^2} = 2\sqrt{3}\)
+  </div>
+  <div class="step"><span class="score-point">步骤2（1分）：确定外接球半径</span><br>
+  正方体外接球直径等于体对角线长，即 \(2R = l = 2\sqrt{3}\)，得 \(R = \sqrt{3}\)
+  </div>
+  <div class="step"><span class="score-point">步骤3（2分）：计算球的表面积</span><br>
+  代入球的表面积公式 \(S = 4\pi R^2\)：<br>
+  \(S = 4\pi \times (\sqrt{3})^2 = 12\pi\)
+  </div>
+  <div class="step"><span class="score-point">步骤4（1分）：写出最终结论</span><br>
+  正方体的外接球表面积为 \(12\pi\)
+  </div>
+  <div class="error-tip">易错警示：混淆外接球（直径=体对角线）与内切球（直径=棱长）的半径关系</div>
+</div>
+
+<div class="method-title method-vector">方法二：空间向量法</div>
+<div class="template">
+  <div class="step">1. 以D为原点建立空间直角坐标系，体对角线向量 \(\overrightarrow{DB_1} = (2,2,2)\)</div>
+  <div class="step">2. 向量模长 \(|\overrightarrow{DB_1}| = \sqrt{2^2 + 2^2 + 2^2} = 2\sqrt{3}\)，即体对角线长</div>
+  <div class="step">3. 后续步骤同几何法，结果为 \(12\pi\)</div>
+</div>
+
+<div class="point">【考查知识点】空间几何体的外接球模型、球的表面积公式、正方体的结构特征</point>
+</div>
+
+<!-- 第2题：直三棱柱体积 -->
+<div class="card">
+<h3>2. 直三棱柱 \(ABC-A_1B_1C_1\)，\(\angle ACB=90^\circ\)，\(AC=BC=2\)，\(AA_1=3\)，求体积。</h3>
+<div class="svg-box">
+<svg class="svg-standard" viewBox="0 0 300 280">
+  <!-- 标准正等轴测视角 - 直三棱柱 -->
+  <!-- 底面ABC (直角三角形 可见) -->
+  <line x1="100" y1="150" x2="160" y2="180" class="solid-visible"/> <!-- AC -->
+  <line x1="160" y1="180" x2="130" y2="230" class="solid-visible"/> <!-- CB -->
+  <line x1="130" y1="230" x2="100" y2="150" class="solid-visible"/> <!-- BA -->
+  
+  <!-- 侧棱 (可见) -->
+  <line x1="100" y1="150" x2="120" y2="100" class="solid-visible"/> <!-- AA1 -->
+  <line x1="160" y1="180" x2="180" y2="130" class="solid-visible"/> <!-- CC1 -->
+  <line x1="130" y1="230" x2="150" y2="180" class="solid-visible"/> <!-- BB1 -->
+  
+  <!-- 顶面A1B1C1 (部分可见) -->
+  <line x1="120" y1="100" x2="180" y2="130" class="solid-visible"/> <!-- A1C1 -->
+  <line x1="180" y1="130" x2="150" y2="180" class="solid-visible"/> <!-- C1B1 -->
+  
+  <!-- 遮挡棱 (虚线) -->
+  <line x1="120" y1="100" x2="150" y2="180" class="dashed-hidden"/> <!-- A1B1 -->
+  
+  <!-- 高 (辅助线) -->
+  <line x1="130" y1="190" x2="130" y2="120" class="aux-line"/>
+  
+  <!-- 坐标系 -->
+  <line x1="140" y1="170" x2="210" y2="205" class="axis-line"/> <!-- X轴 -->
+  <line x1="140" y1="170" x2="90" y2="195" class="axis-line"/> <!-- Y轴 -->
+  <line x1="140" y1="170" x2="140" y2="100" class="axis-line"/> <!-- Z轴 -->
+  <text x="215" y="210" class="axis-text">X</text>
+  <text x="80" y="195" class="axis-text">Y</text>
+  <text x="135" y="95" class="axis-text">Z</text>
+</svg>
+</div>
+
+<div class="method-title method-geometric">方法一：几何法（高考标准答题模板）</div>
+<div class="template">
+  <div class="template-title">答题步骤（满分6分）</div>
+  <div class="step"><span class="score-point">步骤1（2分）：求底面直角三角形面积</span><br>
+  由 \(\angle ACB=90^\circ\)，\(AC=BC=2\)，得：<br>
+  \(S_{\triangle ABC} = \frac{1}{2} \times AC \times BC = \frac{1}{2} \times 2 \times 2 = 2\)
+  </div>
+  <div class="step"><span class="score-point">步骤2（1分）：确定直棱柱的高</span><br>
+  直三棱柱的高等于侧棱长，即 \(h = AA_1 = 3\)
+  </div>
+  <div class="step"><span class="score-point">步骤3（2分）：计算棱柱体积</span><br>
+  代入直棱柱体积公式 \(V = S_{底} \times h\)：<br>
+  \(V = 2 \times 3 = 6\)
+  </div>
+  <div class="step"><span class="score-point">步骤4（1分）：写出最终结论</span><br>
+  该直三棱柱的体积为6
+  </div>
+  <div class="error-tip">易错警示：误将斜棱柱体积公式用于直棱柱，额外乘以夹角正弦值</div>
+</div>
+
+<div class="method-title method-matrix">方法二：矩阵/混合积法</div>
+<div class="template">
+  <div class="step">1. 以C为原点建系，向量 \(\overrightarrow{CA}=(2,0,0),\overrightarrow{CB}=(0,2,0),\overrightarrow{CC_1}=(0,0,3)\)</div>
+  <div class="step">2. 混合积行列式：\(\begin{vmatrix}2&0&0\\0&2&0\\0&0&3\end{vmatrix} = 12\)</div>
+  <div class="step">3. 棱柱体积 \(V = |混合积| = 12\)（平行六面体体积），直三棱柱体积为其一半，即 \(V=6\)</div>
+</div>
+
+<div class="point">【考查知识点】直棱柱的体积公式、直角三角形面积计算、空间向量混合积的几何意义</point>
+</div>
+
+<!-- 第3题：异面直线所成角 -->
+<div class="card">
+<h3>3. 正方体棱长为 2，E 为 AB 中点，求异面直线 \(D_1E\) 与 \(BC_1\) 所成角的余弦值。</h3>
+<div class="svg-box">
+<svg class="svg-standard" viewBox="0 0 300 280">
+  <!-- 标准正等轴测视角 - 正方体 -->
+  <!-- 底面ABCD (可见) -->
+  <line x1="100" y1="120" x2="160" y2="150" class="solid-visible"/> <!-- AB -->
+  <line x1="160" y1="150" x2="130" y2="200" class="solid-visible"/> <!-- BC -->
+  <line x1="130" y1="200" x2="70" y2="170" class="solid-visible"/> <!-- CD -->
+  <line x1="70" y1="170" x2="100" y2="120" class="solid-visible"/> <!-- DA -->
+  
+  <!-- 顶面A1B1C1D1 (部分可见) -->
+  <line x1="100" y1="120" x2="120" y2="70" class="solid-visible"/> <!-- AA1 -->
+  <line x1="160" y1="150" x2="180" y2="100" class="solid-visible"/> <!-- BB1 -->
+  <line x1="130" y1="200" x2="150" y2="150" class="solid-visible"/> <!-- CC1 -->
+  <line x1="180" y1="100" x2="150" y2="150" class="solid-visible"/> <!-- B1C1 -->
+  
+  <!-- 遮挡棱 (虚线) -->
+  <line x1="70" y1="170" x2="90" y2="120" class="dashed-hidden"/> <!-- DD1 -->
+  <line x1="120" y1="70" x2="180" y2="100" class="dashed-hidden"/> <!-- A1B1 -->
+  <line x1="120" y1="70" x2="90" y2="120" class="dashed-hidden"/> <!-- A1D1 -->
+  <line x1="150" y1="150" x2="90" y2="120" class="dashed-hidden"/> <!-- C1D1 -->
+  
+  <!-- 异面直线 D1E (蓝色) -->
+  <line x1="90" y1="120" x2="130" y2="135" class="aux-line"/> <!-- D1E -->
+  <!-- 异面直线 BC1 (红色) -->
+  <line x1="160" y1="150" x2="150" y2="150" class="aux-line-2"/> <!-- BC1 -->
+  
+  <!-- 坐标系 -->
+  <line x1="130" y1="140" x2="200" y2="175" class="axis-line"/> <!-- X轴 -->
+  <line x1="130" y1="140" x2="80" y2="165" class="axis-line"/> <!-- Y轴 -->
+  <line x1="130" y1="140" x2="130" y2="70" class="axis-line"/> <!-- Z轴 -->
+  <text x="205" y="180" class="axis-text">X</text>
+  <text x="70" y="165" class="axis-text">Y</text>
+  <text x="125" y="65" class="axis-text">Z</text>
+</svg>
+</div>
+
+<div class="method-title method-vector">方法一：空间向量法（高考标准答题模板）</div>
+<div class="template">
+  <div class="template-title">答题步骤（满分8分）</div>
+  <div class="step"><span class="score-point">步骤1（2分）：建立空间直角坐标系</span><br>
+  以D为原点，DA、DC、DD₁分别为x、y、z轴，得各点坐标：<br>
+  \(D_1(0,0,2)\)，\(E(2,1,0)\)，\(B(2,2,0)\)，\(C_1(0,2,2)\)
+  </div>
+  <div class="step"><span class="score-point">步骤2（2分）：求方向向量</span><br>
+  \(\overrightarrow{D_1E} = (2,1,-2)\)，\(\overrightarrow{BC_1} = (-2,0,2)\)
+  </div>
+  <div class="step"><span class="score-point">步骤3（2分）：计算向量点积与模长</span><br>
+  \(\overrightarrow{D_1E} \cdot \overrightarrow{BC_1} = 2×(-2) + 1×0 + (-2)×2 = -8\)<br>
+  \(|\overrightarrow{D_1E}| = \sqrt{2^2 + 1^2 + (-2)^2} = 3\)，\(|\overrightarrow{BC_1}| = \sqrt{(-2)^2 + 0^2 + 2^2} = 2\sqrt{2}\)
+  </div>
+  <div class="step"><span class="score-point">步骤4（2分）：求异面直线所成角的余弦值</span><br>
+  设异面直线所成角为\(\theta\)（\(0 < \theta \leq 90^\circ\)），则：<br>
+  \(\cos\theta = \frac{|\overrightarrow{D_1E} \cdot \overrightarrow{BC_1}|}{|\overrightarrow{D_1E}| \cdot |\overrightarrow{BC_1}|} = \frac{|-8|}{3×2\sqrt{2}} = \frac{2\sqrt{2}}{3}\)
+  </div>
+  <div class="error-tip">易错警示：忽略异面直线所成角范围，未对点积取绝对值</div>
+</div>
+
+<div class="method-title method-geometric">方法二：几何平移法</div>
+<div class="template">
+  <div class="step">1. 平移\(BC_1\)至\(AD_1\)，则\(\angle AD_1E\)为异面直线所成角</div>
+  <div class="step">2. 计算\(AD_1=2\sqrt{2}\)，\(D_1E=3\)，\(AE=\sqrt{5}\)</div>
+  <div class="step">3. 由余弦定理：\(\cos\angle AD_1E = \frac{(2\sqrt{2})^2 + 3^2 - (\sqrt{5})^2}{2×2\sqrt{2}×3} = \frac{2\sqrt{2}}{3}\)</div>
+</div>
+
+<div class="point">【考查知识点】异面直线所成角、空间直角坐标系、向量的点积与模长计算</point>
+</div>
+
+<!-- 第4题：线面角 -->
+<div class="card">
+<h3>4. 四棱锥 \(P-ABCD\)，底面正方形，\(PA\perp\) 底面，\(PA=AB=2\)，求 \(PC\) 与底面所成角的正切值。</h3>
+<div class="svg-box">
+<svg class="svg-standard" viewBox="0 0 300 280">
+  <!-- 标准正等轴测视角 - 四棱锥 -->
+  <!-- 底面ABCD (正方形 可见) -->
+  <line x1="100" y1="120" x2="160" y2="150" class="solid-visible"/> <!-- AB -->
+  <line x1="160" y1="150" x2="130" y2="200" class="solid-visible"/> <!-- BC -->
+  <line x1="130" y1="200" x2="70" y2="170" class="solid-visible"/> <!-- CD -->
+  <line x1="70" y1="170" x2="100" y2="120" class="solid-visible"/> <!-- DA -->
+  
+  <!-- 顶点P (可见) -->
+  <line x1="100" y1="120" x2="100" y2="70" class="solid-visible"/> <!-- PA -->
+  <line x1="100" y1="70" x2="130" y2="200" class="solid-visible"/> <!-- PC -->
+  
+  <!-- 侧棱 (遮挡 虚线) -->
+  <line x1="100" y1="70" x2="160" y2="150" class="dashed-hidden"/> <!-- PB -->
+  <line x1="100" y1="70" x2="70" y2="170" class="dashed-hidden"/> <!-- PD -->
+  
+  <!-- 射影AC (辅助线) -->
+  <line x1="100" y1="120" x2="130" y2="200" class="aux-line"/>
+  
+  <!-- 坐标系 -->
+  <line x1="130" y1="140" x2="200" y2="175" class="axis-line"/> <!-- X轴 -->
+  <line x1="130" y1="140" x2="80" y2="165" class="axis-line"/> <!-- Y轴 -->
+  <line x1="130" y1="140" x2="130" y2="70" class="axis-line"/> <!-- Z轴 -->
+  <text x="205" y="180" class="axis-text">X</text>
+  <text x="70" y="165" class="axis-text">Y</text>
+  <text x="125" y="65" class="axis-text">Z</text>
+</svg>
+</div>
+
+<div class="method-title method-geometric">方法一：几何法（高考标准答题模板）</div>
+<div class="template">
+  <div class="template-title">答题步骤（满分10分）</div>
+  <div class="step"><span class="score-point">步骤1（2分）：确定线面角的平面角</span><br>
+  由\(PA\perp\)底面\(ABCD\)，得\(PC\)在底面的射影为\(AC\)，故\(\angle PCA\)为\(PC\)与底面所成的角
+  </div>
+  <div class="step"><span class="score-point">步骤2（3分）：计算相关线段长度</span><br>
+  底面为正方形，\(AB=2\)，则\(AC = \sqrt{AB^2 + BC^2} = 2\sqrt{2}\)<br>
+  由\(PA\perp\)底面，得\(PA\perp AC\)，且\(PA=2\)
+  </div>
+  <div class="step"><span class="score-point">步骤3（3分）：在Rt△PAC中求正切值</span><br>
+  \(\tan\angle PCA = \frac{PA}{AC} = \frac{2}{2\sqrt{2}} = \frac{\sqrt{2}}{2}\)
+  </div>
+  <div class="step"><span class="score-point">步骤4（2分）：写出最终结论</span><br>
+  直线\(PC\)与底面\(ABCD\)所成角的正切值为\(\frac{\sqrt{2}}{2}\)
+  </div>
+  <div class="error-tip">易错警示：混淆线面角与向量夹角的关系（线面角\(\theta\)满足\(\sin\theta=|\cos\varphi|\)，\(\varphi\)为方向向量与法向量夹角）</div>
+</div>
+
+<div class="method-title method-vector">方法二：向量法</div>
+<div class="template">
+  <div class="step">1. 以A为原点建系，\(\overrightarrow{PC}=(2,2,-2)\)，底面法向量\(\boxed{n}=(0,0,1)\)</div>
+  <div class="step">2. 线面角\(\theta\)满足：\(\sin\theta = \frac{|\overrightarrow{PC} \cdot \boxed{n}|}{|\overrightarrow{PC}| \cdot |\boxed{n}|} = \frac{2}{2\sqrt{3}} = \frac{\sqrt{3}}{3}\)</div>
+  <div class="step">3. 由\(\sin\theta = \frac{\sqrt{3}}{3}\)，得\(\cos\theta = \frac{\sqrt{6}}{3}\)，故\(\tan\theta = \frac{\sqrt{2}}{2}\)</div>
+</div>
+
+<div class="point">【考查知识点】线面角的定义、空间垂直关系、直角三角形的边角关系、空间向量的应用</point>
+</div>
+
+<!-- 第5题：二面角 -->
+<div class="card">
+<h3>5. 直三棱柱 \(ABC-A_1B_1C_1\)，\(AB=AC=AA_1=2\)，\(\angle BAC=90^\circ\)，M 为 \(A_1C_1\) 中点，求平面 \(ABM\) 与底面 \(ABC\) 所成锐二面角的余弦值。</h3>
+<div class="svg-box">
+<svg class="svg-standard" viewBox="0 0 300 280">
+  <!-- 标准正等轴测视角 - 直三棱柱 -->
+  <!-- 底面ABC (直角三角形 可见) -->
+  <line x1="100" y1="150" x2="160" y2="180" class="solid-visible"/> <!-- AC -->
+  <line x1="160" y1="180" x2="100" y2="180" class="solid-visible"/> <!-- CB -->
+  <line x1="100" y1="180" x2="100" y2="150" class="solid-visible"/> <!-- BA -->
+  
+  <!-- 侧棱 (可见) -->
+  <line x1="100" y1="150" x2="120" y2="100" class="solid-visible"/> <!-- AA1 -->
+  <line x1="160" y1="180" x2="180" y2="130" class="solid-visible"/> <!-- CC1 -->
+  <line x1="100" y1="180" x2="120" y2="130" class="solid-visible"/> <!-- BB1 -->
+  
+  <!-- 顶面A1B1C1 (部分可见) -->
+  <line x1="120" y1="100" x2="180" y2="130" class="solid-visible"/> <!-- A1C1 -->
+  <line x1="180" y1="130" x2="120" y2="130" class="solid-visible"/> <!-- C1B1 -->
+  
+  <!-- 遮挡棱 (虚线) -->
+  <line x1="120" y1="100" x2="120" y2="130" class="dashed-hidden"/> <!-- A1B1 -->
+  <!-- 中点M -->
+  <circle cx="150" cy="115" r="3" fill="#4a90e2"/>
+  
+  <!-- 棱BM (辅助线) -->
+  <line x1="120" y1="130" x2="150" y2="115" class="aux-line"/>
+  
+  <!-- 坐标系 -->
+  <line x1="140" y1="170" x2="210" y2="205" class="axis-line"/> <!-- X轴 -->
+  <line x1="140" y1="170" x2="90" y2="195" class="axis-line"/> <!-- Y轴 -->
+  <line x1="140" y1="170" x2="140" y2="100" class="axis-line"/> <!-- Z轴 -->
+  <text x="215" y="210" class="axis-text">X</text>
+  <text x="80" y="195" class="axis-text">Y</text>
+  <text x="135" y="95" class="axis-text">Z</text>
+</svg>
+</div>
+
+<div class="method-title method-vector">方法一：空间向量法（高考标准答题模板）</div>
+<div class="template">
+  <div class="template-title">答题步骤（满分12分）</div>
+  <div class="step"><span class="score-point">步骤1（2分）：建立空间直角坐标系</span><br>
+  以A为原点，AB、AC、AA₁分别为x、y、z轴，得各点坐标：<br>
+  \(A(0,0,0)\)，\(B(2,0,0)\)，\(M(0,1,2)\)
+  </div>
+  <div class="step"><span class="score-point">步骤2（3分）：求平面的法向量</span><br>
+  ① 底面ABC的法向量：\(\boxed{n_1} = (0,0,1)\)（垂直于xOy平面）<br>
+  ② 平面ABM的法向量：取\(\overrightarrow{AB}=(2,0,0)\)，\(\overrightarrow{AM}=(0,1,2)\)<br>
+  设\(\boxed{n_2}=(x,y,z)\)，则\(\begin{cases}\boxed{n_2} \cdot \overrightarrow{AB} = 2x = 0\\\boxed{n_2} \cdot \overrightarrow{AM} = y + 2z = 0\end{cases}\)，令\(z=1\)，得\(\boxed{n_2}=(0,-2,1)\)
+  </div>
+  <div class="step"><span class="score-point">步骤3（4分）：计算法向量夹角的余弦值</span><br>
+  \(\boxed{n_1} \cdot \boxed{n_2} = 0×0 + 0×(-2) + 1×1 = 1\)<br>
+  \(|\boxed{n_1}| = 1\)，\(|\boxed{n_2}| = \sqrt{0^2 + (-2)^2 + 1^2} = \sqrt{5}\)<br>
+  \(\cos<\boxed{n_1},\boxed{n_2}> = \frac{|\boxed{n_1} \cdot \boxed{n_2}|}{|\boxed{n_1}| \cdot |\boxed{n_2}|} = \frac{1}{\sqrt{5}} = \frac{\sqrt{5}}{5}\)
+  </div>
+  <div class="step"><span class="score-point">步骤4（3分）：确定二面角的余弦值</span><br>
+  所求为锐二面角，故平面ABM与底面ABC所成锐二面角的余弦值为\(\frac{\sqrt{5}}{5}\)
+  </div>
+  <div class="error-tip">易错警示：求法向量时方程组求解错误，或未判断二面角为锐角导致符号错误</div>
+</div>
+
+<div class="method-title method-geometric">方法二：几何法</div>
+<div class="template">
+  <div class="step">1. 过M作MN⊥AC于N，连接BN，则∠MBN为二面角的平面角</div>
+  <div class="step">2. 计算MN=2，BN=\(\sqrt{AB^2 + AN^2} = \sqrt{5}\)，BM=3</div>
+  <div class="step">3. 由余弦定理：\(\cos\angle MBN = \frac{BN^2 + BM^2 - MN^2}{2×BN×BM} = \frac{\sqrt{5}}{5}\)</div>
+</div>
+
+<div class="point">【考查知识点】二面角的求解、平面法向量的计算、空间直角坐标系的应用、向量的点积公式</point>
+</div>
+
+<!-- 第6题：线面垂直+体积 -->
+<div class="card">
+<h3>6. 棱锥 \(P-ABC\)，\(PA\perp\) 面 \(ABC\)，\(AB\perp BC\)，\(PA=AB=BC=2\)，E 为 PB 中点，求证：\(AE\perp\) 平面 \(PBC\)；求 \(V_{E-ABC}\)。</h3>
+<div class="svg-box">
+<svg class="svg-standard" viewBox="0 0 300 280">
+  <!-- 标准正等轴测视角 - 三棱锥 -->
+  <!-- 底面ABC (直角三角形 可见) -->
+  <line x1="100" y1="150" x2="160" y2="180" class="solid-visible"/> <!-- AB -->
+  <line x1="160" y1="180" x2="100" y2="200" class="solid-visible"/> <!-- BC -->
+  <line x1="100" y1="200" x2="100" y2="150" class="solid-visible"/> <!-- CA -->
+  
+  <!-- 顶点P (可见) -->
+  <line x1="100" y1="150" x2="100" y2="100" class="solid-visible"/> <!-- PA -->
+  <line x1="100" y1="100" x2="160" y2="180" class="solid-visible"/> <!-- PB -->
+  <line x1="100" y1="100" x2="100" y2="200" class="solid-visible"/> <!-- PC -->
+  
+  <!-- 中点E -->
+  <circle cx="130" cy="140" r="3" fill="#e74c3c"/>
+  <!-- AE (辅助线) -->
+  <line x1="100" y1="150" x2="130" y2="140" class="aux-line"/>
+  <!-- BC (辅助线) -->
+  <line x1="160" y1="180" x2="100" y2="200" class="aux-line-2"/>
+  
+  <!-- 坐标系 -->
+  <line x1="140" y1="170" x2="210" y2="205" class="axis-line"/> <!-- X轴 -->
+  <line x1="140" y1="170" x2="90" y2="195" class="axis-line"/> <!-- Y轴 -->
+  <line x1="140" y1="170" x2="140" y2="100" class="axis-line"/> <!-- Z轴 -->
+  <text x="215" y="210" class="axis-text">X</text>
+  <text x="80" y="195" class="axis-text">Y</text>
+  <text x="135" y="95" class="axis-text">Z</text>
+</svg>
+</div>
+
+<div class="method-title method-geometric">方法一：几何法（高考标准答题模板）</div>
+<div class="template">
+  <div class="template-title">答题步骤（满分12分）</div>
+  <div class="step"><span class="score-point">第一问：证明AE⊥平面PBC（7分）</span><br>
+  <span class="score-point">步骤1（2分）：证明AE⊥PB</span><br>
+  ∵ \(PA\perp\)平面ABC，\(AB\subset\)平面ABC，∴ \(PA\perp AB\)<br>
+  又\(PA=AB=2\)，E为PB中点，∴ \(AE\perp PB\)（等腰直角三角形三线合一）<br>
+  <span class="score-point">步骤2（3分）：证明AE⊥BC</span><br>
+  ∵ \(PA\perp\)平面ABC，\(BC\subset\)平面ABC，∴ \(PA\perp BC\)<br>
+  又\(AB\perp BC\)，\(PA\cap AB=A\)，\(PA,AB\subset\)平面PAB，∴ \(BC\perp\)平面PAB<br>
+  ∵ \(AE\subset\)平面PAB，∴ \(BC\perp AE\)<br>
+  <span class="score-point">步骤3（2分）：证明线面垂直</span><br>
+  ∵ \(AE\perp PB\)，\(AE\perp BC\)，\(PB\cap BC=B\)，\(PB,BC\subset\)平面PBC，∴ \(AE\perp\)平面PBC
+  </div>
+  <div class="step"><span class="score-point">第二问：求三棱锥体积（5分）</span><br>
+  <span class="score-point">步骤1（2分）：确定高和底面积</span><br>
+  E为PB中点，PA⊥平面ABC，∴ E到平面ABC的距离\(h = \frac{1}{2}PA = 1\)<br>
+  底面\(\triangle ABC\)面积：\(S = \frac{1}{2}×AB×BC = \frac{1}{2}×2×2 = 2\)<br>
+  <span class="score-point">步骤2（3分）：计算体积</span><br>
+  三棱锥体积公式：\(V_{E-ABC} = \frac{1}{3}×S×h = \frac{1}{3}×2×1 = \frac{2}{3}\)
+  </div>
+  <div class="error-tip">易错警示：证明线面垂直时遗漏“两条相交直线”的条件，体积计算时忘记乘以\(\frac{1}{3}\)</div>
+</div>
+
+<div class="method-title method-vector">方法二：向量法</div>
+<div class="template">
+  <div class="step">1. 以A为原点建系，\(\overrightarrow{AE}=(0,1,1),\overrightarrow{PB}=(0,2,-2),\overrightarrow{BC}=(-2,0,0)\)</div>
+  <div class="step">2. 点积：\(\overrightarrow{AE}·\overrightarrow{PB}=0\)，\(\overrightarrow{AE}·\overrightarrow{BC}=0\)，故AE⊥PB，AE⊥BC</div>
+  <div class="step">3. 由线面垂直判定定理得AE⊥平面PBC</div>
+  <div class="step">4. 体积：向量混合积行列式值为4，\(V = \frac{1}{6}×4×\frac{1}{2} = \frac{2}{3}\)（中点减半）</div>
+</div>
+
+<div class="point">【考查知识点】线面垂直的判定定理、三棱锥的体积公式、空间垂直关系的传递性、中点的性质</point>
+</div>
+
+</body>
+</html>
