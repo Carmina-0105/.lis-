@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>2026年陕西新高考化学试题卷</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        
+        body {
+            font-family: "SimSun", "宋体", serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #000;
+            max-width: 180mm;
+            margin: 0 auto;
+            padding: 15mm 12mm;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 8px;
+        }
+        
+        .header-info {
+            font-size: 10.5pt;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .section { margin-bottom: 25px; }
+        .section-title { font-size: 13pt; font-weight: bold; margin: 25px 0 15px 0; padding: 8px 0; border-bottom: 1px solid #333; font-family: "SimHei", "黑体", sans-serif; }
+        .notice-box {
+            font-family: "SimSun", "宋体", serif;
+            font-size: 10.5pt;
+            border: 1px solid #333;
+            padding: 12px 15px;
+            margin: 20px 0 25px 0;
+            background-color: #fafafa;
+            line-height: 1.7;
+        }
+        .notice-box strong {
+            font-family: "SimHei", "黑体", sans-serif;
+        }
+        .section-desc { font-size: 10.5pt; margin-bottom: 15px; padding: 10px; background: #fafafa; border-radius: 4px; }
+        .question { margin-bottom: 18px; text-align: justify; }
+        .question-number { font-weight: bold; margin-right: 8px; }
+        .options {
+            margin: 8px 0 8px 24px;
+        }
+        .option {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: flex-start;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+        .option-label {
+            min-width: 28px;
+            font-weight: normal;
+        }
+        .option-content {
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        .question-image { text-align: center; margin: 15px 0; }
+        .question-image svg { max-width: 100%; height: auto; }
+        .sub-question { margin: 10px 0 10px 24px; }
+        .blank-line { display: inline-block; min-width: 80px; border-bottom: 1px solid #000; margin: 0 5px; }
+        .answer-area { border: 1px solid #ccc; min-height: 120px; margin: 15px 0; padding: 15px; background: #fafafa; }
+        .table-container { margin: 15px 0; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #000; padding: 8px 12px; text-align: center; font-size: 10.5pt; }
+        th { background: #f0f0f0; font-weight: bold; }
+        .chemical-formula { font-family: "Times New Roman", serif; font-style: italic; }
+        .reaction-arrow { font-size: 14pt; margin: 0 5px; }
+        @media print {
+            body { padding: 0; }
+            .paper-container { padding: 10mm; }
+            .no-break { page-break-inside: avoid; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2026年陕西省普通高中学业水平选择性考试</h1>
+        <h2>化 学</h2>
+        <div class="header-info">
+            <span>本试卷满分100分，考试时间75分钟</span>
+            <span>2026年6月</span>
+        </div>
+    </div>
+
+    <div class="notice-box">
+        <strong>注意事项：</strong><br>
+        1. 答卷前，考生务必将自己的姓名、准考证号填写在答题卡上。<br>
+        2. 回答选择题时，选出每小题答案后，用铅笔把答题卡上对应题目的答案标号涂黑。如需改动，用橡皮擦干净后，再选涂其他答案标号。回答非选择题时，将答案写在答题卡上。写在本试卷上无效。<br>
+        3. 考试结束后，将本试卷和答题卡一并交回。
+    </div>
+
+    <!-- 可能用到的相对原子质量 -->
+    <div class="section">
+        <p style="font-size: 10.5pt; margin-bottom: 15px;"><strong>可能用到的相对原子质量：</strong>H-1 &nbsp; C-12 &nbsp; N-14 &nbsp; O-16 &nbsp; Na-23 &nbsp; Mg-24 &nbsp; Al-27 &nbsp; S-32 &nbsp; Cl-35.5 &nbsp; Fe-56 &nbsp; Cu-64 &nbsp; Zn-65</p>
+    </div>
+
+    <!-- 第一部分：选择题 -->
+    <div class="section">
+        <div class="section-title">第一部分（选择题 共45分）</div>
+        <div class="section-desc">
+            本部分共15小题，每小题3分，共45分。在每小题给出的四个选项中，只有一项是符合题目要求的。
+        </div>
+
+            <!-- 选择题1-15 -->
+            <div class="question no-break">
+                <span class="question-number">1.</span>化学与生活密切相关。下列说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">明矾可用作净水剂，是因为它能杀菌消毒</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">光导纤维的主要成分是硅单质</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">用灼烧的方法可以区分蚕丝和人造纤维</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">碳酸钡可用作医疗上的"钡餐"</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">2.</span>下列化学用语表示正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">乙烯的结构简式：CH<sub>2</sub>CH<sub>2</sub></span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">羟基的电子式：$\cdot \underset{\cdot \cdot}{\overset{\cdot \cdot}{O}}:H$</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">氯离子的结构示意图：(+17) 2 8 7</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">中子数为10的氧原子：$^{10}_{8}O$</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">3.</span>设N<sub>A</sub>为阿伏加德罗常数的值。下列说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">1 mol Fe与足量稀硝酸反应，转移电子数为2N<sub>A</sub></span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">标准状况下，22.4 L CCl<sub>4</sub>中含有的分子数为N<sub>A</sub></span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">1 L 0.1 mol·L<sup>-1</sup> Na<sub>2</sub>CO<sub>3</sub>溶液中，CO<sub>3</sub><sup>2-</sup>的数目为0.1N<sub>A</sub></span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">14 g乙烯和丙烯的混合气体中含有的氢原子数为2N<sub>A</sub></span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">4.</span>下列离子方程式书写正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">向NaOH溶液中通入过量CO<sub>2</sub>：CO<sub>2</sub> + 2OH<sup>-</sup> = CO<sub>3</sub><sup>2-</sup> + H<sub>2</sub>O</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">向FeCl<sub>3</sub>溶液中加入铁粉：Fe<sup>3+</sup> + Fe = 2Fe<sup>2+</sup></span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">向AlCl<sub>3</sub>溶液中滴加过量氨水：Al<sup>3+</sup> + 3NH<sub>3</sub>·H<sub>2</sub>O = Al(OH)<sub>3</sub>↓ + 3NH<sub>4</sub><sup>+</sup></span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">向稀硝酸中加入铜片：Cu + 4H<sup>+</sup> + 2NO<sub>3</sub><sup>-</sup> = Cu<sup>2+</sup> + 2NO<sub>2</sub>↑ + 2H<sub>2</sub>O</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">5.</span>下列关于有机化合物的说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">苯和乙烯都能使溴水褪色，且褪色原理相同</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">乙醇和乙酸都能与NaOH溶液反应</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">淀粉和纤维素的分子式相同，互为同分异构体</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">油脂在碱性条件下的水解反应称为皂化反应</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">6.</span>短周期主族元素X、Y、Z、W的原子序数依次增大，X是地壳中含量最多的元素，Y原子的最外层有2个电子，Z的单质晶体是应用最广泛的半导体材料，W与X位于同一主族。下列说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">原子半径：r(W) > r(Z) > r(Y) > r(X)</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">Y与X形成的化合物只含有离子键</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">最高价氧化物对应水化物的酸性：Z > W</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">简单气态氢化物的热稳定性：X > W</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">7.</span>下列实验操作能达到实验目的的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">用分液漏斗分离苯和溴苯的混合物</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">用饱和Na<sub>2</sub>CO<sub>3</sub>溶液除去CO<sub>2</sub>中混有的少量HCl</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">用稀盐酸洗涤试管内壁附着的银镜</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">用湿润的淀粉-KI试纸检验Cl<sub>2</sub></span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">8.</span>下列关于化学反应与能量的说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">放热反应在任何条件下都能自发进行</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">化学反应中的能量变化都表现为热量变化</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">反应物的总能量高于生成物的总能量时，反应放热</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">催化剂能改变反应的焓变</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">9.</span>下列关于电化学的说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">原电池中，电子从负极经电解质溶液流向正极</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">电解精炼铜时，粗铜作阴极，纯铜作阳极</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">钢铁发生吸氧腐蚀时，正极反应为O<sub>2</sub> + 2H<sub>2</sub>O + 4e<sup>-</sup> = 4OH<sup>-</sup></span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">铅蓄电池放电时，负极质量减小</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">10.</span>常温下，下列各组离子在指定溶液中一定能大量共存的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">无色透明溶液中：K<sup>+</sup>、Cu<sup>2+</sup>、NO<sub>3</sub><sup>-</sup>、SO<sub>4</sub><sup>2-</sup></span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">pH=1的溶液中：Na<sup>+</sup>、Fe<sup>2+</sup>、NO<sub>3</sub><sup>-</sup>、Cl<sup>-</sup></span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">使酚酞变红的溶液中：Na<sup>+</sup>、K<sup>+</sup>、CO<sub>3</sub><sup>2-</sup>、Cl<sup>-</sup></span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">c(H<sup>+</sup>)/c(OH<sup>-</sup>)=1×10<sup>12</sup>的溶液中：NH<sub>4</sub><sup>+</sup>、Ca<sup>2+</sup>、Cl<sup>-</sup>、HCO<sub>3</sub><sup>-</sup></span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">11.</span>下列关于化学平衡的说法正确的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">化学平衡发生移动，平衡常数一定改变</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">对于可逆反应，升高温度，正反应速率增大，逆反应速率减小</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">增大压强，化学平衡一定向气体分子数减小的方向移动</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">催化剂能同等程度地改变正、逆反应速率，不影响化学平衡</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">12.</span>下列实验方案能达到实验目的的是
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">用酸性KMnO<sub>4</sub>溶液鉴别乙烯和乙炔</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">用BaCl<sub>2</sub>溶液鉴别Na<sub>2</sub>SO<sub>4</sub>溶液和AgNO<sub>3</sub>溶液</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">用NaOH溶液除去乙酸乙酯中混有的少量乙酸</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">用水鉴别苯、四氯化碳和乙醇</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">13.</span>某温度下，向10 mL 0.1 mol·L<sup>-1</sup> NaCl溶液和10 mL 0.1 mol·L<sup>-1</sup> K<sub>2</sub>CrO<sub>4</sub>溶液中分别滴加0.1 mol·L<sup>-1</sup> AgNO<sub>3</sub>溶液，滴加过程中-lgc(Cl<sup>-</sup>)和-lgc(CrO<sub>4</sub><sup>2-</sup>)与加入AgNO<sub>3</sub>溶液体积(V)的变化关系如图所示。下列说法错误的是
+                <div class="question-image">
+                    <svg width="400" height="280" viewBox="0 0 400 280">
+                        <!-- 坐标轴 -->
+                        <line x1="60" y1="240" x2="360" y2="240" stroke="black" stroke-width="1.5"/>
+                        <line x1="60" y1="240" x2="60" y2="40" stroke="black" stroke-width="1.5"/>
+                        <!-- 箭头 -->
+                        <polygon points="360,240 355,235 355,245" fill="black"/>
+                        <polygon points="60,40 55,45 65,45" fill="black"/>
+                        <!-- 曲线1 - NaCl -->
+                        <path d="M 60,200 Q 120,195 180,180 Q 240,140 280,80" stroke="#2196F3" stroke-width="2" fill="none"/>
+                        <!-- 曲线2 - K2CrO4 -->
+                        <path d="M 60,180 Q 150,170 220,150 Q 280,120 340,60" stroke="#FF5722" stroke-width="2" fill="none"/>
+                        <!-- 标注 -->
+                        <text x="200" y="265" font-size="12" text-anchor="middle">V(AgNO₃)/mL</text>
+                        <text x="25" y="145" font-size="12" text-anchor="middle" transform="rotate(-90 25 145)">-lgc(X)</text>
+                        <text x="80" y="30" font-size="11" fill="#2196F3">NaCl</text>
+                        <text x="80" y="50" font-size="11" fill="#FF5722">K₂CrO₄</text>
+                        <!-- 刻度 -->
+                        <text x="60" y="255" font-size="10" text-anchor="middle">0</text>
+                        <text x="160" y="255" font-size="10" text-anchor="middle">5</text>
+                        <text x="260" y="255" font-size="10" text-anchor="middle">10</text>
+                        <text x="340" y="255" font-size="10" text-anchor="middle">15</text>
+                        <text x="50" y="205" font-size="10" text-anchor="end">2</text>
+                        <text x="50" y="125" font-size="10" text-anchor="end">4</text>
+                        <text x="50" y="65" font-size="10" text-anchor="end">6</text>
+                    </svg>
+                </div>
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">该温度下，K<sub>sp</sub>(Ag<sub>2</sub>CrO<sub>4</sub>) = 4×10<sup>-12</sup></span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">a点溶液中：c(Ag<sup>+</sup>) > c(Cl<sup>-</sup>) > c(NO<sub>3</sub><sup>-</sup>)</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">曲线②表示-lgc(CrO<sub>4</sub><sup>2-</sup>)与V(AgNO<sub>3</sub>)的变化关系</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">相同实验条件下，若改为0.05 mol·L<sup>-1</sup>的NaCl和K<sub>2</sub>CrO<sub>4</sub>溶液，则两条曲线在终点前重合</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">14.</span>某有机物的结构简式如图所示，下列关于该有机物的说法正确的是
+                <div class="question-image">
+                    <svg width="280" height="140" viewBox="0 0 280 140">
+                        <!-- 苯环 -->
+                        <polygon points="100,70 115,44 145,44 160,70 145,96 115,96" stroke="black" stroke-width="1.5" fill="none"/>
+                        <line x1="108" y1="52" x2="152" y2="88" stroke="black" stroke-width="1"/>
+                        <line x1="152" y1="52" x2="108" y2="88" stroke="black" stroke-width="1"/>
+                        <line x1="100" y1="70" x2="115" y2="70" stroke="black" stroke-width="1"/>
+                        <!-- 连接链 -->
+                        <line x1="160" y1="70" x2="185" y2="70" stroke="black" stroke-width="1.5"/>
+                        <!-- 羰基 -->
+                        <line x1="185" y1="70" x2="205" y2="55" stroke="black" stroke-width="1.5"/>
+                        <line x1="185" y1="70" x2="205" y2="85" stroke="black" stroke-width="1.5"/>
+                        <text x="210" y="55" font-size="14">O</text>
+                        <text x="210" y="90" font-size="14">OH</text>
+                        <!-- 羟基在苯环上 -->
+                        <line x1="115" y1="44" x2="115" y2="24" stroke="black" stroke-width="1.5"/>
+                        <text x="108" y="18" font-size="14">OH</text>
+                        <!-- 醛基 -->
+                        <line x1="100" y1="70" x2="75" y2="70" stroke="black" stroke-width="1.5"/>
+                        <line x1="75" y1="70" x2="55" y2="55" stroke="black" stroke-width="1.5"/>
+                        <line x1="75" y1="70" x2="55" y2="85" stroke="black" stroke-width="1.5"/>
+                        <text x="40" y="55" font-size="14">H</text>
+                        <text x="40" y="90" font-size="14">O</text>
+                        <line x1="48" y1="58" x2="48" y2="82" stroke="black" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">分子式为C<sub>9</sub>H<sub>8</sub>O<sub>4</sub></span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">1 mol该有机物最多能与4 mol H<sub>2</sub>发生加成反应</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">能发生取代反应、加成反应和氧化反应</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">分子中所有碳原子可能共平面</span></div>
+                </div>
+            </div>
+
+            <div class="question no-break">
+                <span class="question-number">15.</span>室温下，用0.1000 mol·L<sup>-1</sup> NaOH溶液滴定20.00 mL 0.1000 mol·L<sup>-1</sup> HA溶液，滴定曲线如图所示。下列说法正确的是
+                <div class="question-image">
+                    <svg width="400" height="280" viewBox="0 0 400 280">
+                        <!-- 坐标轴 -->
+                        <line x1="60" y1="240" x2="360" y2="240" stroke="black" stroke-width="1.5"/>
+                        <line x1="60" y1="240" x2="60" y2="40" stroke="black" stroke-width="1.5"/>
+                        <!-- 箭头 -->
+                        <polygon points="360,240 355,235 355,245" fill="black"/>
+                        <polygon points="60,40 55,45 65,45" fill="black"/>
+                        <!-- 滴定曲线 -->
+                        <path d="M 60,200 Q 100,195 140,180 Q 180,120 200,60 Q 220,100 280,90 Q 320,85 360,80" stroke="#4CAF50" stroke-width="2" fill="none"/>
+                        <!-- 等当点标记 -->
+                        <circle cx="200" cy="60" r="4" fill="red"/>
+                        <text x="200" y="50" font-size="10" text-anchor="middle" fill="red">等当点</text>
+                        <!-- 标注 -->
+                        <text x="210" y="265" font-size="12" text-anchor="middle">V(NaOH)/mL</text>
+                        <text x="25" y="145" font-size="12" text-anchor="middle" transform="rotate(-90 25 145)">pH</text>
+                        <!-- 刻度 -->
+                        <text x="60" y="255" font-size="10" text-anchor="middle">0</text>
+                        <text x="130" y="255" font-size="10" text-anchor="middle">10</text>
+                        <text x="200" y="255" font-size="10" text-anchor="middle">20</text>
+                        <text x="280" y="255" font-size="10" text-anchor="middle">30</text>
+                        <text x="340" y="255" font-size="10" text-anchor="middle">40</text>
+                        <text x="50" y="205" font-size="10" text-anchor="end">3</text>
+                        <text x="50" y="145" font-size="10" text-anchor="end">7</text>
+                        <text x="50" y="85" font-size="10" text-anchor="end">11</text>
+                    </svg>
+                </div>
+                <div class="options">
+                    <div class="option"><span class="option-label">A.</span><span class="option-content">HA为强酸</span></div>
+                    <div class="option"><span class="option-label">B.</span><span class="option-content">a点溶液中：c(A<sup>-</sup>) > c(Na<sup>+</sup>) > c(HA) > c(H<sup>+</sup>) > c(OH<sup>-</sup>)</span></div>
+                    <div class="option"><span class="option-label">C.</span><span class="option-content">b点溶液中：c(Na<sup>+</sup>) = c(A<sup>-</sup>) + c(HA)</span></div>
+                    <div class="option"><span class="option-label">D.</span><span class="option-content">水的电离程度：a点 < b点 < c点</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二部分：非选择题 -->
+        <div class="section page-break">
+            <div class="section-title">第二部分（非选择题 共55分）</div>
+            <div class="section-desc">
+                本部分共4大题，共55分。
+            </div>
+
+            <!-- 第16题 -->
+            <div class="question no-break">
+                <span class="question-number">16.</span>（14分）某化学兴趣小组设计实验制备二氧化硫并探究其性质。回答下列问题：
+                
+                <div class="sub-question">（1）实验室用亚硫酸钠固体与70%硫酸反应制备SO<sub>2</sub>，反应的化学方程式为________。</div>
+                
+                <div class="sub-question">（2）用下图所示装置探究SO<sub>2</sub>的性质（部分夹持装置已省略）：</div>
+                
+                <div class="question-image">
+                    <svg width="500" height="200" viewBox="0 0 500 200">
+                        <!-- A装置 -->
+                        <rect x="30" y="80" width="60" height="60" stroke="black" stroke-width="1.5" fill="none"/>
+                        <text x="60" y="115" font-size="12" text-anchor="middle">Na₂SO₃</text>
+                        <text x="60" y="60" font-size="12" text-anchor="middle">A</text>
+                        <!-- 分液漏斗 -->
+                        <polygon points="50,30 70,30 65,50 55,50" stroke="black" stroke-width="1" fill="none"/>
+                        <line x1="55" y1="50" x2="55" y2="80" stroke="black" stroke-width="1"/>
+                        <line x1="65" y1="50" x2="65" y2="80" stroke="black" stroke-width="1"/>
+                        <text x="80" y="40" font-size="10">70% H₂SO₄</text>
+                        
+                        <!-- 连接管 -->
+                        <line x1="90" y1="100" x2="130" y2="100" stroke="black" stroke-width="1.5"/>
+                        
+                        <!-- B装置 -->
+                        <rect x="130" y="70" width="50" height="60" stroke="black" stroke-width="1.5" fill="none"/>
+                        <text x="155" y="105" font-size="12" text-anchor="middle">品红</text>
+                        <text x="155" y="55" font-size="12" text-anchor="middle">B</text>
+                        
+                        <!-- 连接管 -->
+                        <line x1="180" y1="100" x2="220" y2="100" stroke="black" stroke-width="1.5"/>
+                        
+                        <!-- C装置 -->
+                        <rect x="220" y="70" width="50" height="60" stroke="black" stroke-width="1.5" fill="none"/>
+                        <text x="245" y="105" font-size="12" text-anchor="middle">溴水</text>
+                        <text x="245" y="55" font-size="12" text-anchor="middle">C</text>
+                        
+                        <!-- 连接管 -->
+                        <line x1="270" y1="100" x2="310" y2="100" stroke="black" stroke-width="1.5"/>
+                        
+                        <!-- D装置 -->
+                        <rect x="310" y="70" width="50" height="60" stroke="black" stroke-width="1.5" fill="none"/>
+                        <text x="335" y="105" font-size="12" text-anchor="middle">Na₂S</text>
+                        <text x="335" y="55" font-size="12" text-anchor="middle">D</text>
+                        
+                        <!-- 连接管 -->
+                        <line x1="360" y1="100" x2="400" y2="100" stroke="black" stroke-width="1.5"/>
+                        
+                        <!-- E装置 -->
+                        <rect x="400" y="70" width="50" height="60" stroke="black" stroke-width="1.5" fill="none"/>
+                        <text x="425" y="105" font-size="12" text-anchor="middle">NaOH</text>
+                        <text x="425" y="55" font-size="12" text-anchor="middle">E</text>
+                        
+                        <!-- 长导管 -->
+                        <line x1="425" y1="130" x2="425" y2="170" stroke="black" stroke-width="1"/>
+                        <line x1="435" y1="130" x2="435" y2="170" stroke="black" stroke-width="1"/>
+                        <line x1="425" y1="170" x2="435" y2="170" stroke="black" stroke-width="1"/>
+                    </svg>
+                </div>
+                
+                <div class="sub-question">① B装置中观察到的现象是________，说明SO<sub>2</sub>具有________性。</div>
+                
+                <div class="sub-question">② C装置中发生反应的离子方程式为________。</div>
+                
+                <div class="sub-question">③ D装置中出现淡黄色浑浊，发生反应的化学方程式为________，说明SO<sub>2</sub>具有________性。</div>
+                
+                <div class="sub-question">④ E装置的作用是________。</div>
+                
+                <div class="sub-question">（3）该小组同学将SO<sub>2</sub>通入BaCl<sub>2</sub>溶液中，无明显现象；再通入气体X，产生白色沉淀。则气体X可能是________（填字母）。
+                    <div style="margin-left: 24px;">
+                        a. Cl<sub>2</sub>&nbsp;&nbsp;&nbsp;&nbsp;b. CO<sub>2</sub>&nbsp;&nbsp;&nbsp;&nbsp;c. NH<sub>3</sub>&nbsp;&nbsp;&nbsp;&nbsp;d. NO<sub>2</sub>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第17题 -->
+            <div class="question no-break">
+                <span class="question-number">17.</span>（13分）工业上以黄铁矿（主要成分为FeS<sub>2</sub>）为原料制备硫酸，同时回收硫铁矿烧渣（主要成分为Fe<sub>2</sub>O<sub>3</sub>）制备铁红（Fe<sub>2</sub>O<sub>3</sub>）。工艺流程如下：
+                
+                <div style="margin: 15px 0; font-size: 10.5pt; line-height: 2;">
+                    黄铁矿 <span class="reaction-arrow">→</span> 焙烧 <span class="reaction-arrow">→</span> SO<sub>2</sub> <span class="reaction-arrow">→</span> 催化氧化 <span class="reaction-arrow">→</span> SO<sub>3</sub> <span class="reaction-arrow">→</span> 吸收 <span class="reaction-arrow">→</span> 硫酸<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;烧渣<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸浸<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滤液（Fe³⁺、Fe²⁺等）
+                </div>
+                
+                <div class="sub-question">（1）黄铁矿焙烧的化学方程式为4FeS<sub>2</sub> + 11O<sub>2</sub> $\xrightarrow{高温}$ 2Fe<sub>2</sub>O<sub>3</sub> + 8SO<sub>2</sub>。该反应中氧化剂与还原剂的物质的量之比为________。</div>
+                
+                <div class="sub-question">（2）SO<sub>2</sub>催化氧化的化学方程式为________；该反应在________（填设备名称）中进行。</div>
+                
+                <div class="sub-question">（3）吸收SO<sub>3</sub>时，用98.3%的浓硫酸而不用水的原因是________。</div>
+                
+                <div class="sub-question">（4）烧渣酸浸时，加入的酸是________（填化学式）；滤液中含有Fe<sup>3+</sup>和Fe<sup>2+</sup>，检验Fe<sup>2+</sup>的方法是________。</div>
+                
+                <div class="sub-question">（5）向滤液中加入氧化剂将Fe<sup>2+</sup>氧化为Fe<sup>3+</sup>，最适宜的氧化剂是________（填字母）。
+                    <div style="margin-left: 24px;">
+                        a. KMnO<sub>4</sub>&nbsp;&nbsp;&nbsp;&nbsp;b. H<sub>2</sub>O<sub>2</sub>&nbsp;&nbsp;&nbsp;&nbsp;c. Cl<sub>2</sub>&nbsp;&nbsp;&nbsp;&nbsp;d. HNO<sub>3</sub>
+                    </div>
+                </div>
+                
+                <div class="sub-question">（6）向含Fe<sup>3+</sup>的溶液中加入氨水调节pH，使Fe<sup>3+</sup>完全沉淀（c(Fe<sup>3+</sup>) ≤ 1×10<sup>-5</sup> mol·L<sup>-1</sup>）。已知K<sub>sp</sub>[Fe(OH)<sub>3</sub>] = 1×10<sup>-38</sup>，则溶液的pH至少为________。</div>
+            </div>
+
+            <!-- 第18题 -->
+            <div class="question no-break">
+                <span class="question-number">18.</span>（14分）甲醇是一种重要的化工原料，也是清洁能源。工业上可用CO<sub>2</sub>和H<sub>2</sub>合成甲醇：CO<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ CH<sub>3</sub>OH(g) + H<sub>2</sub>O(g)  ΔH。
+                
+                <div class="sub-question">（1）已知：① CO(g) + 2H<sub>2</sub>(g) ⇌ CH<sub>3</sub>OH(g)  ΔH<sub>1</sub> = -90.1 kJ·mol<sup>-1</sup><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;② CO<sub>2</sub>(g) + H<sub>2</sub>(g) ⇌ CO(g) + H<sub>2</sub>O(g)  ΔH<sub>2</sub> = +41.2 kJ·mol<sup>-1</sup><br>
+                    则CO<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ CH<sub>3</sub>OH(g) + H<sub>2</sub>O(g)的ΔH = ________ kJ·mol<sup>-1</sup>。</div>
+                
+                <div class="sub-question">（2）在一定温度下，向2 L恒容密闭容器中充入1 mol CO<sub>2</sub>和3 mol H<sub>2</sub>，发生上述反应。10 min时反应达到平衡，测得c(CH<sub>3</sub>OH) = 0.25 mol·L<sup>-1</sup>。
+                    <div style="margin-top: 8px;">① 0~10 min内，v(H<sub>2</sub>) = ________ mol·L<sup>-1</sup>·min<sup>-1</sup>。</div>
+                    <div style="margin-top: 8px;">② 该温度下，反应的平衡常数K = ________。</div>
+                    <div style="margin-top: 8px;">③ 下列措施既能加快反应速率，又能提高CO<sub>2</sub>平衡转化率的是________（填字母）。
+                        <div style="margin-left: 24px;">
+                            a. 升高温度&nbsp;&nbsp;&nbsp;&nbsp;b. 增大压强&nbsp;&nbsp;&nbsp;&nbsp;c. 使用高效催化剂&nbsp;&nbsp;&nbsp;&nbsp;d. 增加CO<sub>2</sub>的投料量
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-question">（3）工业上合成甲醇时，通常采用下图所示的装置（电极均为惰性电极）：
+                    <div class="question-image">
+                        <svg width="400" height="220" viewBox="0 0 400 220">
+                            <!-- 电解槽 -->
+                            <rect x="80" y="50" width="240" height="120" stroke="black" stroke-width="1.5" fill="none"/>
+                            <!-- 隔膜 -->
+                            <line x1="200" y1="50" x2="200" y2="170" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+                            <text x="200" y="185" font-size="10" text-anchor="middle">质子交换膜</text>
+                            <!-- 电极 -->
+                            <rect x="110" y="90" width="30" height="40" stroke="black" stroke-width="1" fill="#ddd"/>
+                            <text x="125" y="115" font-size="10" text-anchor="middle">a</text>
+                            <rect x="260" y="90" width="30" height="40" stroke="black" stroke-width="1" fill="#ddd"/>
+                            <text x="275" y="115" font-size="10" text-anchor="middle">b</text>
+                            <!-- 导线 -->
+                            <line x1="125" y1="50" x2="125" y2="20" stroke="black" stroke-width="1"/>
+                            <line x1="275" y1="50" x2="275" y2="20" stroke="black" stroke-width="1"/>
+                            <line x1="125" y1="20" x2="275" y2="20" stroke="black" stroke-width="1"/>
+                            <!-- 电源 -->
+                            <rect x="180" y="10" width="40" height="20" stroke="black" stroke-width="1" fill="none"/>
+                            <text x="200" y="24" font-size="12" text-anchor="middle">电源</text>
+                            <text x="170" y="5" font-size="10">-</text>
+                            <text x="230" y="5" font-size="10">+</text>
+                            <!-- 气体入口 -->
+                            <line x1="40" y1="100" x2="80" y2="100" stroke="black" stroke-width="1"/>
+                            <polygon points="80,100 75,95 75,105" fill="black"/>
+                            <text x="30" y="105" font-size="10" text-anchor="end">CO₂</text>
+                            <line x1="40" y1="120" x2="80" y2="120" stroke="black" stroke-width="1"/>
+                            <polygon points="80,120 75,115 75,125" fill="black"/>
+                            <text x="30" y="125" font-size="10" text-anchor="end">H₂</text>
+                            <!-- 产物出口 -->
+                            <line x1="320" y1="110" x2="360" y2="110" stroke="black" stroke-width="1"/>
+                            <polygon points="360,110 355,105 355,115" fill="black"/>
+                            <text x="370" y="115" font-size="10">CH₃OH</text>
+                            <!-- 溶液 -->
+                            <text x="140" y="155" font-size="10" fill="#2196F3">H₂O</text>
+                            <text x="240" y="155" font-size="10" fill="#2196F3">H₂O</text>
+                            <!-- 标注 -->
+                            <text x="125" y="80" font-size="11" text-anchor="middle">阴极</text>
+                            <text x="275" y="80" font-size="11" text-anchor="middle">阳极</text>
+                        </svg>
+                    </div>
+                    ① 电极a为________（填"阴极"或"阳极"），电极b的电极反应式为________。<br>
+                    ② 若电解过程中转移2 mol电子，则理论上可生成CH<sub>3</sub>OH的质量为________g。
+                </div>
+            </div>
+
+            <!-- 第19题 -->
+            <div class="question no-break">
+                <span class="question-number">19.</span>（14分）化合物G是一种重要的医药中间体，其合成路线如下：
+                
+                <div class="question-image">
+                    <svg width="550" height="280" viewBox="0 0 550 280">
+                        <!-- A -->
+                        <text x="30" y="50" font-size="12">A</text>
+                        <text x="50" y="55" font-size="14">CH₃CHO</text>
+                        <text x="90" y="55" font-size="12">+</text>
+                        <text x="105" y="55" font-size="14">CH₃CHO</text>
+                        
+                        <!-- 箭头1 -->
+                        <line x1="150" y1="50" x2="200" y2="50" stroke="black" stroke-width="1"/>
+                        <polygon points="200,50 195,45 195,55" fill="black"/>
+                        <text x="175" y="40" font-size="10" text-anchor="middle">稀NaOH</text>
+                        <text x="175" y="65" font-size="10" text-anchor="middle">△</text>
+                        
+                        <!-- B -->
+                        <text x="210" y="50" font-size="12">B</text>
+                        <text x="225" y="55" font-size="14">CH₃CH=CHCHO</text>
+                        
+                        <!-- 箭头2 -->
+                        <line x1="320" y1="50" x2="370" y2="50" stroke="black" stroke-width="1"/>
+                        <polygon points="370,50 365,45 365,55" fill="black"/>
+                        <text x="345" y="40" font-size="10" text-anchor="middle">H₂/Ni</text>
+                        <text x="345" y="65" font-size="10" text-anchor="middle">△</text>
+                        
+                        <!-- C -->
+                        <text x="380" y="50" font-size="12">C</text>
+                        <text x="395" y="55" font-size="14">CH₃CH₂CH₂CH₂OH</text>
+                        
+                        <!-- 箭头3 -->
+                        <line x1="490" y1="50" x2="520" y2="50" stroke="black" stroke-width="1"/>
+                        <line x1="520" y1="50" x2="520" y2="120" stroke="black" stroke-width="1"/>
+                        <line x1="520" y1="120" x2="490" y2="120" stroke="black" stroke-width="1"/>
+                        <polygon points="490,120 495,115 495,125" fill="black"/>
+                        <text x="535" y="85" font-size="10" transform="rotate(90 535 85)">Cu/O₂,△</text>
+                        
+                        <!-- D -->
+                        <text x="380" y="125" font-size="12">D</text>
+                        <text x="395" y="130" font-size="14">CH₃CH₂CH₂CHO</text>
+                        
+                        <!-- 箭头4 -->
+                        <line x1="370" y1="120" x2="320" y2="120" stroke="black" stroke-width="1"/>
+                        <polygon points="320,120 325,115 325,125" fill="black"/>
+                        <text x="345" y="110" font-size="10" text-anchor="middle">① 银氨溶液</text>
+                        <text x="345" y="140" font-size="10" text-anchor="middle">② H⁺</text>
+                        
+                        <!-- E -->
+                        <text x="210" y="125" font-size="12">E</text>
+                        <text x="225" y="130" font-size="14">CH₃CH₂CH₂COOH</text>
+                        
+                        <!-- 箭头5 -->
+                        <line x1="200" y1="120" x2="150" y2="120" stroke="black" stroke-width="1"/>
+                        <polygon points="150,120 155,115 155,125" fill="black"/>
+                        <text x="175" y="110" font-size="10" text-anchor="middle">C + E</text>
+                        <text x="175" y="140" font-size="10" text-anchor="middle">浓H₂SO₄,△</text>
+                        
+                        <!-- F -->
+                        <text x="30" y="125" font-size="12">F</text>
+                        <text x="50" y="130" font-size="14">CH₃CH₂CH₂COOCH₂CH₂CH₂CH₃</text>
+                        
+                        <!-- 箭头6 -->
+                        <line x1="80" y1="145" x2="80" y2="200" stroke="black" stroke-width="1"/>
+                        <polygon points="80,200 75,195 85,195" fill="black"/>
+                        <text x="65" y="175" font-size="10" text-anchor="end">一定条件</text>
+                        
+                        <!-- G -->
+                        <text x="30" y="225" font-size="12">G</text>
+                        <rect x="50" y="210" width="120" height="30" stroke="black" stroke-width="1" fill="none"/>
+                        <text x="110" y="230" font-size="12" text-anchor="middle">高分子化合物</text>
+                    </svg>
+                </div>
+                
+                <div class="sub-question">（1）A的名称为________，B中含有的官能团名称为________。</div>
+                
+                <div class="sub-question">（2）C→D的反应类型为________，D→E的反应类型为________。</div>
+                
+                <div class="sub-question">（3）E→F的化学方程式为________。</div>
+                
+                <div class="sub-question">（4）F→G的反应类型为________。</div>
+                
+                <div class="sub-question">（5）写出满足下列条件的E的同分异构体的结构简式：________（写一种即可）。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;① 能与NaHCO<sub>3</sub>溶液反应放出气体<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;② 核磁共振氢谱显示有3组峰，峰面积之比为6:1:1
+                </div>
+                
+                <div class="sub-question">（6）参照上述合成路线，以乙烯为原料（无机试剂任选），设计制备聚丙烯酸（$\underset{COOH}{-[CH_2-CH]_n-}$）的合成路线：________。</div>
+            </div>
+    </div>
+
+    <!-- 试卷结束 -->
+    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; font-size: 10.5pt; color: #666;">
+        <p>—— 化学试题卷 结束 ——</p>
+        <p style="margin-top: 10px;">第 1 页 共 4 页</p>
+    </div>
+</body>
+</html>

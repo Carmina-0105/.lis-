@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>2026年陕西新高考数学试题卷</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        
+        body {
+            font-family: "Times New Roman", "SimSun", serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #000;
+            max-width: 180mm;
+            margin: 0 auto;
+            padding: 15mm 12mm;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 8px;
+        }
+        
+        .header-info {
+            font-size: 10.5pt;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+        .notice-box {
+            font-size: 10.5pt;
+            border: 1px solid #333;
+            padding: 12px 15px;
+            margin: 20px 0 25px 0;
+            background-color: #fafafa;
+            line-height: 1.7;
+        }
+        
+        .section-title {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 25px 0 15px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .question {
+            margin: 18px 0;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            font-size: 11pt;
+        }
+        
+        .options {
+            margin: 8px 0 8px 24px;
+        }
+        
+        .option {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: flex-start;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+        
+        .option-label {
+            min-width: 28px;
+            font-weight: normal;
+        }
+        
+        .option-content {
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        
+        .multi-select-note {
+            font-size: 9.5pt;
+            color: #666;
+            font-style: italic;
+            margin: 5px 0 10px 0;
+        }
+        
+        .answer-area {
+            border: 1px solid #333;
+            min-height: 80px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fefefe;
+        }
+        
+        .solution-area {
+            border: 1px solid #333;
+            min-height: 150px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fefefe;
+        }
+        
+        .figure-box {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+        }
+        
+        .figure-box img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .figure-caption {
+            font-size: 10pt;
+            margin-top: 5px;
+            color: #333;
+        }
+        
+        table {
+            border-collapse: collapse;
+            margin: 10px auto;
+        }
+        
+        td, th {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                padding: 10mm;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2026年陕西省普通高中学业水平选择性考试</h1>
+        <h2>数 学</h2>
+        <div class="header-info">
+            <span>本试卷满分150分，考试时间120分钟</span>
+            <span>2026年6月</span>
+        </div>
+    </div>
+
+    <div class="notice-box">
+        <strong>注意事项：</strong><br>
+        1. 答卷前，考生务必将自己的姓名、准考证号填写在答题卡上。<br>
+        2. 回答选择题时，选出每小题答案后，用铅笔把答题卡上对应题目的答案标号涂黑。如需改动，用橡皮擦干净后，再选涂其他答案标号。回答非选择题时，将答案写在答题卡上。写在本试卷上无效。<br>
+        3. 考试结束后，将本试卷和答题卡一并交回。
+    </div>
+
+    <!-- 单项选择题 -->
+    <div class="section-title">一、单项选择题：本题共8小题，每小题5分，共40分。在每小题给出的四个选项中，只有一项是符合题目要求的。</div>
+
+    <div class="question">
+        <span class="question-number">1.</span> 已知集合 \(A = \{x | x^2 - 3x + 2 \leq 0\}\)，\(B = \{x | \log_2 x < 1\}\)，则 \(A \cap B = ()\)
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\((0, 1]\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\([1, 2]\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\((0, 2)\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\([1, 2)\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">2.</span> 若复数 \(z\) 满足 \((1+i)z = 2-i\)，则 \(|z| = ()\)
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(\frac{\sqrt{10}}{2}\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(\frac{\sqrt{5}}{2}\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(\sqrt{2}\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(\frac{3}{2}\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">3.</span> 已知向量 \(\vec{a} = (1, 2)\)，\(\vec{b} = (2, -1)\)，若 \((\vec{a} + \lambda\vec{b}) \perp \vec{b}\)，则 \(\lambda = ()\)
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(-\frac{4}{5}\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(0\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(\frac{4}{5}\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(1\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">4.</span> 某工厂生产的一批零件的长度 \(X\)（单位：mm）服从正态分布 \(N(100, \sigma^2)\)，若 \(P(98 < X < 102) = 0.8\)，则 \(P(X < 98) = ()\)
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(0.1\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(0.2\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(0.3\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(0.4\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">5.</span> 已知等差数列 \(\{a_n\}\) 的前 \(n\) 项和为 \(S_n\)，若 \(a_3 + a_7 = 10\)，\(S_5 = 20\)，则 \(a_{10} = ()\)
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(13\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(14\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(15\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(16\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">6.</span> 函数 \(f(x) = \sin(2x + \frac{\pi}{3})\) 的图像向右平移 \(\frac{\pi}{6}\) 个单位长度后，所得图像的一个对称中心是 ()
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\((\frac{\pi}{6}, 0)\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\((\frac{\pi}{4}, 0)\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\((\frac{\pi}{3}, 0)\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\((\frac{\pi}{2}, 0)\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">7.</span> 已知抛物线 \(C: y^2 = 4x\) 的焦点为 \(F\)，点 \(P\) 在 \(C\) 上，点 \(Q\) 在准线 \(l\) 上，且 \(PQ \parallel x\) 轴。若 \(|QF| = 5\)，则 \(|PF| = ()\)
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(4\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(5\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(6\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(7\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">8.</span> 已知函数 \(f(x) = \begin{cases} x^2 - 2x, & x \geq 0 \\ -x^2 - 2x, & x < 0 \end{cases}\)，若关于 \(x\) 的方程 \(f(x) = a\) 有3个不同的实数根，则实数 \(a\) 的取值范围是 ()
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\((-1, 0)\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\((0, 1)\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\((-1, 1)\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\((-\infty, -1) \cup (1, +\infty)\)</span></div>
+        </div>
+    </div>
+
+    <!-- 多项选择题 -->
+    <div class="section-title">二、多项选择题：本题共4小题，每小题5分，共20分。在每小题给出的选项中，有多项符合题目要求。全部选对的得5分，部分选对的得2分，有选错的得0分。</div>
+    <p class="multi-select-note">（注：请将所有正确选项的字母填写在答题卡对应位置）</p>
+
+    <div class="question">
+        <span class="question-number">9.</span> 已知函数 \(f(x) = x^3 - 3x^2 + 2\)，则 ()
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(f(x)\) 在 \(x = 0\) 处取得极大值</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(f(x)\) 在 \(x = 2\) 处取得极小值</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(f(x)\) 的图像关于点 \((1, 0)\) 对称</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(f(x)\) 在区间 \([0, 2]\) 上单调递减</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">10.</span> 在正方体 \(ABCD-A_1B_1C_1D_1\) 中，点 \(E\)、\(F\) 分别是棱 \(BB_1\)、\(CC_1\) 的中点，则 ()
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">直线 \(AE\) 与直线 \(D_1F\) 平行</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">直线 \(AE\) 与平面 \(BDD_1B_1\) 所成角的正弦值为 \(\frac{\sqrt{10}}{5}\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">二面角 \(A-BD-C_1\) 的大小为 \(60°\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">点 \(F\) 到平面 \(ABD_1\) 的距离为 \(\frac{\sqrt{6}}{3}\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">11.</span> 已知双曲线 \(C: \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 (a > 0, b > 0)\) 的左、右焦点分别为 \(F_1\)、\(F_2\)，过 \(F_2\) 的直线与双曲线的右支交于 \(A\)、\(B\) 两点，且 \(|AF_1| = |AB|\)，\(|AF_2| = 2|BF_2|\)，则 ()
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">双曲线 \(C\) 的离心率为 \(2\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">直线 \(AB\) 的斜率为 \(\pm\frac{\sqrt{15}}{5}\)</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(\triangle AF_1F_2\) 的面积为 \(\sqrt{15}a^2\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(|BF_1| = 4a\)</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">12.</span> 已知函数 \(f(x)\) 的定义域为 \(\mathbb{R}\)，且 \(f(x+y) = f(x) + f(y)\)，\(f(1) = 2\)，则 ()
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">\(f(0) = 0\)</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">\(f(x)\) 是奇函数</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">\(f(2026) = 4052\)</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">\(f(x)\) 在 \(\mathbb{R}\) 上单调递增</span></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 填空题 -->
+    <div class="section-title">三、填空题：本题共4小题，每小题5分，共20分。</div>
+
+    <div class="question">
+        <span class="question-number">13.</span> 已知 \(\tan(\alpha + \frac{\pi}{4}) = 3\)，则 \(\sin 2\alpha = \) __________。
+    </div>
+
+    <div class="question">
+        <span class="question-number">14.</span> 某校从5名男生和3名女生中选出3人参加演讲比赛，则至少有1名女生被选中的概率为 __________。
+    </div>
+
+    <div class="question">
+        <span class="question-number">15.</span> 已知圆 \(O: x^2 + y^2 = 4\) 与直线 \(l: x + y = a\) 相交于 \(A\)、\(B\) 两点，若 \(|AB| = 2\sqrt{2}\)，则 \(a = \) __________。
+    </div>
+
+    <div class="question">
+        <span class="question-number">16.</span> 已知数列 \(\{a_n\}\) 满足 \(a_1 = 1\)，\(a_{n+1} = 2a_n + 1\)，则数列 \(\{\frac{1}{a_n + 1}\}\) 的前 \(n\) 项和为 __________。
+    </div>
+
+    <!-- 解答题 -->
+    <div class="section-title">四、解答题：本题共6小题，共70分。解答应写出文字说明、证明过程或演算步骤。</div>
+
+    <div class="question">
+        <span class="question-number">17.</span> （10分）在 \(\triangle ABC\) 中，角 \(A\)、\(B\)、\(C\) 的对边分别为 \(a\)、\(b\)、\(c\)，已知 \(2c\cos A = 2b - a\)。<br>
+        （1）求角 \(C\)；<br>
+        （2）若 \(c = 2\sqrt{3}\)，\(\triangle ABC\) 的面积为 \(2\sqrt{3}\)，求 \(\triangle ABC\) 的周长。
+        <div class="solution-area"></div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">18.</span> （12分）已知数列 \(\{a_n\}\) 是等差数列，数列 \(\{b_n\}\) 是等比数列，且 \(a_1 = b_1 = 1\)，\(a_3 + b_3 = 8\)，\(a_5 + b_5 = 22\)。<br>
+        （1）求数列 \(\{a_n\}\) 和 \(\{b_n\}\) 的通项公式；<br>
+        （2）设 \(c_n = a_n \cdot b_n\)，求数列 \(\{c_n\}\) 的前 \(n\) 项和 \(S_n\)。
+        <div class="solution-area"></div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">19.</span> （12分）如图，在四棱锥 \(P-ABCD\) 中，底面 \(ABCD\) 是正方形，\(PA \perp\) 平面 \(ABCD\)，\(PA = AB = 2\)，点 \(E\) 是 \(PD\) 的中点。<br>
+        <div class="figure-box">
+            <svg width="200" height="180" viewBox="0 0 200 180">
+                <!-- 底面正方形 -->
+                <polygon points="40,140 160,140 180,100 60,100" fill="none" stroke="black" stroke-width="1.5"/>
+                <!-- 顶点P -->
+                <line x1="100" y1="30" x2="40" y2="140" stroke="black" stroke-width="1.5"/>
+                <line x1="100" y1="30" x2="160" y2="140" stroke="black" stroke-width="1.5"/>
+                <line x1="100" y1="30" x2="60" y2="100" stroke="black" stroke-width="1.5"/>
+                <line x1="100" y1="30" x2="180" y2="100" stroke="black" stroke-width="1.5"/>
+                <!-- 虚线 -->
+                <line x1="40" y1="140" x2="60" y2="100" stroke="black" stroke-width="1" stroke-dasharray="4,2"/>
+                <line x1="100" y1="30" x2="120" y2="120" stroke="black" stroke-width="1.5"/>
+                <!-- 点标注 -->
+                <text x="95" y="25" font-size="12">P</text>
+                <text x="30" y="155" font-size="12">A</text>
+                <text x="155" y="155" font-size="12">B</text>
+                <text x="180" y="95" font-size="12">C</text>
+                <text x="45" y="95" font-size="12">D</text>
+                <text x="125" y="125" font-size="12">E</text>
+            </svg>
+            <div class="figure-caption">（第19题图）</div>
+        </div>
+        （1）求证：\(PB \parallel\) 平面 \(AEC\)；<br>
+        （2）求二面角 \(E-AC-D\) 的余弦值。
+        <div class="solution-area"></div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">20.</span> （12分）某工厂生产某种零件，质量指标 \(Z\) 服从正态分布 \(N(\mu, \sigma^2)\)。从生产线上随机抽取100个零件，测得质量指标的平均值 \(\bar{x} = 65\)，方差 \(s^2 = 100\)。<br>
+        （1）求 \(\mu\) 和 \(\sigma\) 的估计值；<br>
+        （2）若质量指标在 \([55, 85]\) 内的零件为合格品，求该工厂生产零件的合格率（结果保留0.001）；<br>
+        （3）现从合格品中随机抽取3个零件，求至少有2个零件质量指标在 \([65, 85]\) 内的概率。<br>
+        <p style="font-size: 10pt; margin-top: 10px;">参考数据：若 \(Z \sim N(\mu, \sigma^2)\)，则 \(P(\mu - \sigma \leq Z \leq \mu + \sigma) \approx 0.6827\)，\(P(\mu - 2\sigma \leq Z \leq \mu + 2\sigma) \approx 0.9545\)，\(P(\mu - 3\sigma \leq Z \leq \mu + 3\sigma) \approx 0.9973\)。</p>
+        <div class="solution-area"></div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">21.</span> （12分）已知椭圆 \(C: \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 (a > b > 0)\) 的离心率为 \(\frac{\sqrt{2}}{2}\)，且过点 \((2, \sqrt{2})\)。<br>
+        （1）求椭圆 \(C\) 的标准方程；<br>
+        （2）设直线 \(l: y = kx + m\) 与椭圆 \(C\) 交于 \(A\)、\(B\) 两点，若以 \(AB\) 为直径的圆过原点 \(O\)，求证：点 \(O\) 到直线 \(l\) 的距离为定值。
+        <div class="solution-area"></div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">22.</span> （12分）已知函数 \(f(x) = e^x - ax^2 - x - 1\)。<br>
+        （1）当 \(a = 1\) 时，求曲线 \(y = f(x)\) 在点 \((0, f(0))\) 处的切线方程；<br>
+        （2）若 \(f(x) \geq 0\) 对任意 \(x \geq 0\) 恒成立，求实数 \(a\) 的取值范围。
+        <div class="solution-area"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 10.5pt; color: #666;">
+        <p>— 试题结束 —</p>
+    </div>
+</body>
+</html>

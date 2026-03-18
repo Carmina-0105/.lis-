@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>2026年陕西新高考语文试题卷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        
+        body {
+            font-family: "KaiTi", "STKaiti", "楷体", serif;
+            font-size: 12pt;
+            line-height: 1.9;
+            color: #000;
+            max-width: 180mm;
+            margin: 0 auto;
+            padding: 15mm 12mm;
+            -webkit-font-smoothing: antialiased;
+            text-align: justify;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 8px;
+        }
+        
+        .header-info {
+            font-family: "SimSun", "宋体", serif;
+            font-size: 10.5pt;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+        .notice-box {
+            font-family: "SimSun", "宋体", serif;
+            font-size: 10.5pt;
+            border: 1px solid #333;
+            padding: 12px 15px;
+            margin: 20px 0 25px 0;
+            background-color: #fafafa;
+            line-height: 1.7;
+        }
+        
+        .notice-box strong {
+            font-family: "SimHei", "黑体", sans-serif;
+        }
+        
+        .section-title {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 30px 0 18px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .section-score {
+            font-family: "SimSun", "宋体", serif;
+            font-size: 11pt;
+            font-weight: normal;
+            color: #333;
+        }
+        
+        .passage-title {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-size: 13pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 25px 0 15px 0;
+        }
+        
+        .passage-subtitle {
+            font-family: "SimSun", "宋体", serif;
+            font-size: 10.5pt;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .passage-content {
+            text-indent: 2em;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        .material-box {
+            border-left: 3px solid #666;
+            padding-left: 15px;
+            margin: 15px 0;
+            background-color: #f9f9f9;
+            padding: 12px 15px;
+        }
+        
+        .question {
+            margin: 20px 0;
+            padding-left: 0;
+        }
+        
+        .question-number {
+            font-family: "SimHei", "黑体", sans-serif;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        
+        .question-content {
+            display: inline;
+        }
+        
+        .options {
+            margin: 10px 0 10px 24px;
+        }
+        
+        .option {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: flex-start;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            text-indent: 0;
+        }
+        
+        .option-label {
+            min-width: 28px;
+            font-weight: normal;
+        }
+        
+        .option-content {
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        
+        .answer-area {
+            border: 1px solid #333;
+            min-height: 100px;
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #fefefe;
+        }
+        
+        .answer-lines {
+            border-bottom: 1px dashed #ccc;
+            height: 28px;
+            margin: 0;
+        }
+        
+        .writing-box {
+            border: 1px solid #333;
+            min-height: 600px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fefefe;
+        }
+        
+        .writing-grid {
+            background-image: linear-gradient(#ddd 1px, transparent 1px);
+            background-size: 100% 28px;
+            min-height: 560px;
+        }
+        
+        .poem-content {
+            text-align: center;
+            margin: 20px 0;
+            line-height: 2;
+        }
+        
+        .poem-line {
+            margin: 5px 0;
+        }
+        
+        .author-info {
+            text-align: center;
+            font-size: 11pt;
+            color: #333;
+            margin: 10px 0 20px 0;
+        }
+        
+        .blank-line {
+            display: inline-block;
+            width: 80px;
+            border-bottom: 1px solid #000;
+            margin: 0 5px;
+        }
+        
+        @media print {
+            body {
+                padding: 10mm;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2026年陕西省普通高中学业水平选择性考试</h1>
+        <h2>语 文</h2>
+        <div class="header-info">
+            <span>本试卷满分150分，考试时间150分钟</span>
+            <span>2026年6月</span>
+        </div>
+    </div>
+
+    <div class="notice-box">
+        <strong>注意事项：</strong><br>
+        1. 答卷前，考生务必将自己的姓名、准考证号填写在答题卡上。<br>
+        2. 回答选择题时，选出每小题答案后，用铅笔把答题卡上对应题目的答案标号涂黑。如需改动，用橡皮擦干净后，再选涂其他答案标号。回答非选择题时，将答案写在答题卡上。写在本试卷上无效。<br>
+        3. 考试结束后，将本试卷和答题卡一并交回。
+    </div>
+
+    <!-- 现代文阅读I -->
+    <div class="section-title">一、现代文阅读I <span class="section-score">（本题共5小题，19分）</span></div>
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">阅读下面的文字，完成1～5题。</p>
+    
+    <div class="passage-title">数字时代的文化传承与创新</div>
+    <div class="passage-subtitle">——论人工智能对传统艺术的赋能与重构</div>
+    
+    <p class="passage-content">在数字化浪潮席卷全球的今天，人工智能技术的迅猛发展正在深刻改变着人类社会的方方面面，文化艺术领域也不例外。从AlphaGo战胜围棋世界冠军，到ChatGPT生成流畅的文本，再到Midjourney创作出令人惊叹的视觉艺术作品，人工智能展现出前所未有的创造潜能。这种技术变革不仅带来了生产效率的极大提升，更引发了关于艺术本质、创作主体和文化传承的深层思考。</p>
+    
+    <p class="passage-content">传统艺术是人类文明的重要载体，承载着民族的历史记忆、审美追求和精神价值。中国书法、国画、戏曲等传统艺术形式，历经数千年积淀，形成了独特的艺术语言和审美体系。然而，在现代社会快节奏的生活方式和多元化的娱乐选择面前，传统艺术面临着受众老龄化、传承断层、创新乏力等困境。如何让传统艺术在数字时代焕发新的生机，成为亟待解决的时代课题。</p>
+    
+    <p class="passage-content">人工智能为传统艺术的传承与创新提供了新的可能。在技术层面，AI可以通过深度学习海量艺术作品，掌握传统艺术的风格特征和技法规律。例如，通过训练神经网络模型，AI能够生成具有特定书法家风格的书法作品，或者模仿某位画家的笔触创作国画。这种技术不仅可以辅助艺术家进行创作，还可以用于艺术教育和普及，让更多人以低成本接触和了解传统艺术。</p>
+    
+    <p class="passage-content">然而，技术赋能并非没有争议。批评者认为，AI生成的艺术作品缺乏人类创作者的情感投入和生命体验，是"没有灵魂"的技术模仿。艺术创作不仅仅是形式的组合，更是创作者思想情感的表达和对世界的独特理解。这种观点触及了艺术本质的核心问题：艺术的价值究竟在于形式的美感，还是在于创作过程中的人文精神？</p>
+    
+    <p class="passage-content">从文化传承的角度看，人工智能可以扮演"桥梁"的角色。一方面，AI技术可以对濒危的传统艺术进行数字化保存，建立完整的艺术档案；另一方面，AI可以创造出融合传统元素与现代审美的"新国风"作品，吸引年轻群体的关注。2024年春节期间，某AI团队创作的数字敦煌壁画在社交媒体上获得数百万次传播，让更多年轻人对敦煌艺术产生了兴趣，这便是技术赋能文化传承的典型案例。</p>
+    
+    <p class="passage-content">当然，我们也需要警惕技术异化的风险。如果过度依赖AI生成内容，可能导致艺术创作的同质化和浅薄化。当算法成为创作的主导，艺术的多样性和创新性反而可能受到抑制。因此，在拥抱技术的同时，我们更应该强调人的主体地位，将AI定位为创作的工具和助手，而非替代品。</p>
+    
+    <p class="passage-content">展望未来，人工智能与传统艺术的融合将呈现更加多元的形态。虚拟现实技术可以让观众"走进"古画之中，沉浸式体验传统艺术的魅力；智能推荐算法可以为用户匹配个性化的艺术内容，提升审美教育的精准度；区块链和NFT技术则为数字艺术品的版权保护和价值流通提供了新方案。这些技术创新正在重塑艺术的创作、传播和消费方式。</p>
+    
+    <p class="passage-content">归根结底，技术只是手段，文化的传承与发展才是目的。在数字时代，我们既要善用人工智能等技术工具，拓展传统艺术的表现形式和传播渠道；更要坚守人文精神，保持对艺术本质的追问和对文化价值的坚守。只有实现技术与人文的平衡，才能让传统艺术在新时代绽放更加璀璨的光芒。</p>
+
+    <div class="question">
+        <span class="question-number">1.</span> <span class="question-content">下列关于原文内容的理解和分析，正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">人工智能技术的发展使传统艺术面临受众老龄化、传承断层等困境。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">AI生成的艺术作品与人类创作的艺术作品在本质上没有任何区别。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">人工智能可以通过深度学习掌握传统艺术的风格特征和技法规律。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">区块链技术主要用于提升艺术创作的效率和质量。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">2.</span> <span class="question-content">下列对原文论证的相关分析，不正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">文章采用"提出问题—分析问题—解决问题"的论证结构，逻辑清晰。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">文章以AlphaGo、ChatGPT等为例，论证了人工智能的创造潜能。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">文章引用数字敦煌壁画的案例，旨在证明AI可以完全替代人类创作。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">文章既肯定了技术赋能的积极意义，也指出了可能存在的风险。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">3.</span> <span class="question-content">根据原文内容，下列说法不正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">传统艺术承载着民族的历史记忆、审美追求和精神价值。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">人工智能生成的书法作品可以完全替代书法家的创作。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">虚拟现实技术可以让观众沉浸式体验传统艺术的魅力。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">在数字时代，我们既要善用技术工具，也要坚守人文精神。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">4.</span> <span class="question-content">请结合文章内容，概括人工智能为传统艺术传承与创新提供的"新的可能"。（4分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">5.</span> <span class="question-content">文章说"如果过度依赖AI生成内容，可能导致艺术创作的同质化和浅薄化"，请结合文本和现实，谈谈你对这一观点的看法。（6分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <!-- 现代文阅读II -->
+    <div class="section-title">二、现代文阅读II <span class="section-score">（本题共4小题，16分）</span></div>
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">阅读下面的文字，完成6～9题。</p>
+    
+    <div class="passage-title">老槐树下的时光</div>
+    <div class="passage-subtitle">——陈晓明</div>
+    
+    <p class="passage-content">村口的老槐树已经三百多岁了。据村里的老人说，这棵树是明朝万历年间一位过路的商人栽下的，那时候这里还是一片荒地，只有几户逃难的人家。商人在这棵树下歇脚，喝了口井水，觉得甘甜清冽，便决定在这里定居。他栽下这棵树，说是要留个念想。</p>
+    
+    <p class="passage-content">三百年过去了，老槐树依然枝繁叶茂。春天，满树的白花如云似雪，香气能飘出二里地；夏天，浓密的树荫遮蔽了半个村口，老人们搬着马扎坐在树下，摇着蒲扇聊天；秋天，金黄的叶子铺满地面，孩子们在上面打滚嬉戏；冬天，光秃秃的枝桠指向天空，像一位沉默的守望者。</p>
+    
+    <p class="passage-content">我童年最深刻的记忆，都与这棵老槐树有关。那时候，村里还没有通电，夏天的夜晚，全村人都会聚到老槐树下乘凉。大人们讲着古老的故事，有牛郎织女，有白蛇传，也有村里先辈们的传奇经历。我们这些孩子躺在凉席上，仰望着满天的繁星，听着听着就睡着了。偶尔有萤火虫从草丛里飞出来，在黑暗中划出绿色的光轨，引来孩子们一阵惊呼。</p>
+    
+    <p class="passage-content">老槐树也是村里信息交流的中心。谁家娶了新媳妇，谁家生了大胖小子，谁家遇到了难处，都会在树下传播开来。那时候没有手机，没有电视，老槐树就是村里的"新闻联播"。记得有一年，村里考上了第一个大学生，消息在树下传开时，整个村子都沸腾了。那位大学生的父亲，一个老实巴交的农民，激动得在树前磕了三个头，说是祖宗保佑。</p>
+    
+    <p class="passage-content">然而，时光流转，一切都在改变。我离开村子去城里读书，然后工作，结婚生子，回老家的次数越来越少。每次回去，都会发现村子变了一些：新盖的房子多了，年轻人少了，老人们的面孔也陌生了许多。只有那棵老槐树，依然站在那里，仿佛时间的流逝对它毫无影响。</p>
+    
+    <p class="passage-content">去年夏天，我带着孩子回老家。车子刚到村口，我就看到了那棵老槐树。它似乎比记忆中更加粗壮了，树干要三四个人才能合抱。树下依然坐着几个老人，但已经没有一个是我认识的了。我走上前去，向他们问好。老人们很热情，拉着我坐下，问我是谁家的孩子。当我说出父亲的名字时，一位老人眼睛一亮："哦，你是老陈家的二小子吧？都长这么大了！"</p>
+    
+    <p class="passage-content">孩子在树下玩耍，追逐着蝴蝶，就像当年的我一样。我坐在马扎上，看着这一切，心中涌起一种复杂的情感。老槐树见证了几代人的成长，见证了这个村子的兴衰变迁。它不说话，却什么都记得。那些在老树下发生的故事，那些欢笑与泪水，都已经融入了它的年轮之中。</p>
+    
+    <p class="passage-content">临走时，我让孩子围着老槐树转了三圈。这是村里的老规矩，说是能保佑孩子平安健康。孩子听话地转了三圈，然后仰起小脸问我："爸爸，这棵树为什么这么老啊？"我摸了摸他的头，说："因为它一直在等每一个离开的人回来。"</p>
+    
+    <p class="passage-content">车子缓缓驶离村口，我从后视镜里看着那棵老槐树，它越来越远，越来越小，最后变成了一个黑点，消失在视野中。但我知道，它依然在那里，守着那个古老的村庄，守着那些古老的记忆，等待着下一个归来的人。</p>
+
+    <div class="question">
+        <span class="question-number">6.</span> <span class="question-content">下列对小说相关内容的理解，正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">老槐树是明朝一位商人为了留作纪念而特意栽种的。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">村里考上第一个大学生的父亲磕头是为了感谢老槐树的保佑。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">作者每次回老家都能认出老槐树下的老人们。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">作者让孩子围着老槐树转圈是为了遵守村里的老规矩。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">7.</span> <span class="question-content">下列对小说艺术特色的分析鉴赏，不正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">小说以老槐树为线索，串联起过去与现在，结构紧凑。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">小说运用对比手法，展现了乡村的变迁和时代的进步。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">小说语言朴实自然，富有乡土气息，情感真挚动人。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">小说通过老槐树这一意象，表达了对城市化进程的批判。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">8.</span> <span class="question-content">请结合文本，分析文中画线句子"它不说话，却什么都记得"的含意。（4分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">9.</span> <span class="question-content">小说结尾写道："因为它一直在等每一个离开的人回来。"请结合全文，谈谈你对这句话的理解。（6分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 古代诗文阅读 -->
+    <div class="section-title">三、古代诗文阅读 <span class="section-score">（本题共5小题，20分）</span></div>
+    
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin: 15px 0;">（一）文言文阅读（本题共4小题，14分）</p>
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">阅读下面的文言文，完成10～13题。</p>
+    
+    <div class="material-box">
+        <p style="text-indent: 2em; margin-bottom: 10px;">王守仁，字伯安，余姚人。父华，成化十七年进士第一。守仁娠十四月而生。祖母梦神人自云中送儿下，因名云。五岁不能言，异人拊之，更名守仁，乃言。十五岁，访客居庸、山海关，纵观山川形胜。弱冠举乡试，学大进。顾益好言兵，且善射。</p>
+        <p style="text-indent: 2em; margin-bottom: 10px;">兵部主事王守仁上疏论戴铣等事，下诏狱，廷杖四十，谪贵州龙场驿丞。龙场万山丛薄苗僚杂居守仁因俗化导夷人喜相率以木石椽宇为守仁筑室龙场驿。居久之，悟格物致知，当自求诸心，不当求诸事物，喟然曰："道在是矣。"遂笃信不疑。其为教，专以致良知为主，谓宋周、程二子后，惟象山陆氏简易直捷，有以接孟氏之传。而朱子《集注》《或问》之类，乃中年未定之说。学者翕然从之，世遂有"阳明学"之称。</p>
+        <p style="text-indent: 2em; margin-bottom: 10px;">正德十一年，擢右佥都御史，巡抚南、赣。当是时，南中盗贼蜂起。守仁亲率锐卒，屯上杭，佯退师，出不意捣之，连破四十余寨，俘斩七千有奇。疏言权轻无以令将士，请给旗牌，提督军务，得便宜从事。明年七月，进兵大庾，志在必得。凡两月，平贼巢八十四，俘斩六千有奇。捷闻，加秩视三品。</p>
+        <p style="text-indent: 2em;">守仁病剧，舆归，卒于南安，年五十七。丧过江西，军民无不缟素哭送者。守仁天资异敏，年十七，从吴与弼学。游九华归，筑室阳明洞中，数年无所得。谪龙场，穷荒无书，日绎旧闻。忽悟格物致知，当自求诸心，不当求诸事物，喟然曰："道在是矣。"其为文博大昌达，诗亦秀逸有致，不独事功可称，其文章自足传世也。</p>
+    </div>
+    <p style="text-align: right; font-size: 10.5pt; color: #333; margin: 10px 0;">（节选自《明史·王守仁传》）</p>
+
+    <div class="question">
+        <span class="question-number">10.</span> <span class="question-content">文中画波浪线的部分有三处需要断句，请用铅笔将答题卡上相应位置的答案标号涂黑，每涂对一处给1分，涂黑超过三处不给分。（3分）</span>
+        <p style="margin: 10px 0; padding: 10px; background-color: #f5f5f5;">龙场万山丛薄A苗僚杂居B守仁因俗化导C夷人喜D相率以木石椽宇E为守仁筑室F龙场驿</p>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">A、C、E</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">B、C、F</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">B、D、F</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">A、D、E</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">11.</span> <span class="question-content">下列对文中加点的词语及相关内容的解说，不正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">"进士第一"指考中状元，是古代科举考试殿试的最高名次。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">"弱冠"指男子二十岁，古代男子二十岁行冠礼，表示成年。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">"格物致知"指推究事物原理，从而获得知识，出自《大学》。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">"视三品"指按照三品官员的俸禄待遇，"视"意为"看待"。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">12.</span> <span class="question-content">下列对原文有关内容的概述，不正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">王守仁出生时伴有异象，五岁才会说话，年少时即对军事产生兴趣。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">王守仁因上疏获罪，被贬龙场，在逆境中悟出了"致良知"的学说。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">王守仁巡抚南赣时，采用奇袭战术，平定了当地的盗贼之乱。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">王守仁去世后，江西军民为他服丧痛哭，可见他在民间威望很高。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">13.</span> <span class="question-content">把文中画横线的句子翻译成现代汉语。（8分）</span>
+        <p style="margin: 10px 0;">（1）守仁亲率锐卒，屯上杭，佯退师，出不意捣之，连破四十余寨。</p>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+        <p style="margin: 10px 0;">（2）其为教，专以致良知为主，谓宋周、程二子后，惟象山陆氏简易直捷。</p>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin: 25px 0 15px 0;">（二）古代诗歌阅读（本题共2小题，9分）</p>
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">阅读下面这首唐诗，完成14～15题。</p>
+    
+    <div class="poem-content">
+        <div class="passage-title">秋夜寄邱员外</div>
+        <div class="author-info">[唐] 韦应物</div>
+        <div class="poem-line">怀君属秋夜，散步咏凉天。</div>
+        <div class="poem-line">空山松子落，幽人应未眠。</div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">14.</span> <span class="question-content">下列对这首诗的理解和赏析，不正确的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">首句点明季节是秋天，时间是夜晚，表达了对友人的思念之情。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">"散步咏凉天"写出了诗人在秋夜漫步、吟咏纳凉的情景。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">"空山松子落"以动衬静，营造出清幽寂静的意境。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">"幽人应未眠"是实写，说明诗人看到友人此时还没有入睡。</span></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">15.</span> <span class="question-content">这首诗表达了诗人怎样的思想感情？请结合全诗简要分析。（6分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin: 25px 0 15px 0;">（三）名篇名句默写（本题共1小题，6分）</p>
+
+    <div class="question">
+        <span class="question-number">16.</span> <span class="question-content">补写出下列句子中的空缺部分。（6分）</span>
+        <p style="margin: 12px 0;">（1）李白《蜀道难》中"<span class="blank-line"></span>，<span class="blank-line"></span>"两句，以夸张手法写出了蜀道山高的特点。</p>
+        <p style="margin: 12px 0;">（2）苏轼《赤壁赋》中描写江面清风与山间明月的句子是"<span class="blank-line"></span>，<span class="blank-line"></span>"。</p>
+        <p style="margin: 12px 0;">（3）辛弃疾《永遇乐·京口北固亭怀古》中"<span class="blank-line"></span>，<span class="blank-line"></span>"两句，表达了对英雄人物刘裕的敬仰之情。</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 语言文字运用 -->
+    <div class="section-title">四、语言文字运用 <span class="section-score">（本题共5小题，20分）</span></div>
+    
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">（一）语言文字运用I（本题共3小题，11分）</p>
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">阅读下面的文字，完成17～19题。</p>
+    
+    <div class="material-box">
+        <p style="text-indent: 2em; margin-bottom: 10px;">近年来，随着人工智能技术的快速发展，AI写作工具逐渐进入大众视野。这些工具能够根据用户输入的关键词或主题，快速生成文章、诗歌、小说等文本内容。对于文字工作者来说，AI写作工具既是"助手"，也是"对手"。一方面，它可以提高写作效率，帮助创作者突破思维瓶颈；另一方面，它也引发了关于创作主体、版权归属、内容质量等方面的争议。</p>
+        <p style="text-indent: 2em;">事实上，AI写作的本质是基于海量数据的模式学习和文本生成。它擅长模仿已有文本的风格和结构，但在原创性、情感表达和深度思考方面仍存在明显局限。因此，将AI定位为创作的辅助工具，而非替代品，或许是更为理性的选择。</p>
+    </div>
+
+    <div class="question">
+        <span class="question-number">17.</span> <span class="question-content">文中画横线的句子有语病，请进行修改，使语言表达准确流畅。可少量增删词语，不得改变原意。（3分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">18.</span> <span class="question-content">请在文中横线处补写恰当的语句，使整段文字语意完整连贯，内容贴切，逻辑严密，每处不超过12个字。（4分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">19.</span> <span class="question-content">文中多处用了引号，下列各句中的引号和文中"助手""对手"的引号作用相同的一项是（3分）</span>
+        <div class="options">
+            <div class="option"><span class="option-label">A.</span><span class="option-content">"五四"运动是中国近现代史上具有划时代意义的重大事件。</span></div>
+            <div class="option"><span class="option-label">B.</span><span class="option-content">这样的"聪明人"还是少一点好。</span></div>
+            <div class="option"><span class="option-label">C.</span><span class="option-content">海伦学会了用手指"说话"。</span></div>
+            <div class="option"><span class="option-label">D.</span><span class="option-content">鲁迅在书桌上刻了一个"早"字。</span></div>
+        </div>
+    </div>
+
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin: 25px 0 15px 0;">（二）语言文字运用II（本题共2小题，9分）</p>
+    <p style="font-family: 'SimHei', '黑体', sans-serif; font-size: 11pt; margin-bottom: 15px;">阅读下面的文字，完成20～21题。</p>
+    
+    <div class="material-box">
+        <p style="text-indent: 2em;">中国茶文化源远流长，博大精深。茶不仅是一种饮品，更是一种生活态度和精神追求。品茶讲究"色、香、味、形"，注重环境、器具、水质的搭配。在快节奏的现代生活中，泡茶品茶成为许多人放松身心、回归内心宁静的方式。一盏清茶，可以让人暂时远离喧嚣，在茶香中感受生活的美好。</p>
+    </div>
+
+    <div class="question">
+        <span class="question-number">20.</span> <span class="question-content">文中画波浪线的句子使用了哪种修辞手法？请简要分析其表达效果。（4分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <span class="question-number">21.</span> <span class="question-content">请将文中画横线的部分改写成一组排比句。要求：语意连贯，句式整齐，不超过60字。（5分）</span>
+        <div class="answer-area">
+            <div class="answer-lines"></div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <!-- 写作 -->
+    <div class="section-title">五、写作 <span class="section-score">（60分）</span></div>
+
+    <div class="question">
+        <span class="question-number">22.</span> <span class="question-content">阅读下面的材料，根据要求写作。（60分）</span>
+        <div class="material-box" style="margin: 15px 0;">
+            <p style="text-indent: 2em; margin-bottom: 10px;">材料一：2024年，"新质生产力"成为热词。新质生产力是创新起主导作用，摆脱传统经济增长方式、生产力发展路径，具有高科技、高效能、高质量特征，符合新发展理念的先进生产力质态。</p>
+            <p style="text-indent: 2em; margin-bottom: 10px;">材料二：青年是常为新的，最具创新热情，最具创新动力。新时代的青年生逢其时，施展才干的舞台无比广阔，实现梦想的前景无比光明。</p>
+            <p style="text-indent: 2em;">材料三：创新是一个民族进步的灵魂，是一个国家兴旺发达的不竭动力，也是中华民族最深沉的民族禀赋。</p>
+        </div>
+        <p style="text-indent: 2em; margin: 15px 0;">请结合以上材料，以"创新"为主题，写一篇文章。</p>
+        <p style="margin: 10px 0;"><strong>要求：</strong>选准角度，确定立意，明确文体，自拟标题；不要套作，不得抄袭；不得泄露个人信息；不少于800字。</p>
+    </div>
+
+    <div class="writing-box">
+        <div class="writing-grid"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 10.5pt; color: #666;">
+        <p>— 试题结束 —</p>
+    </div>
+</body>
+</html>
