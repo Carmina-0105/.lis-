@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细胞模块专项练习 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #667eea; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .problem {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .problem-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .problem-content {
+            margin-bottom: 15px;
+        }
+        .options {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .answer {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .answer-title {
+            color: #155724;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .analysis {
+            color: #333;
+            line-height: 1.8;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .mistake-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-easy { background: #28a745; color: white; }
+        .tag-medium { background: #ffc107; color: #333; }
+        .tag-hard { background: #dc3545; color: white; }
+        .tag-important { background: #e74c3c; color: white; }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module01_cell_molecules.html">模块1</a>
+                <a href="module02_cell_structure.html">模块2</a>
+                <a href="module03_transport.html">模块3</a>
+                <a href="module04_energy.html">模块4</a>
+                <a href="module05_cell_cycle.html">模块5</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🧬 细胞模块专项练习</h1>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">
+                涵盖模块1-5：细胞的分子组成、基本结构、物质运输、能量供应、生命历程
+            </p>
+
+            <h2>一、细胞的分子组成（模块1）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-easy">基础</span>
+                    例题1【2023年全国甲卷】
+                </div>
+                <div class="problem-content">
+                    下列关于细胞中化合物的叙述，正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 糖类都是能源物质</p>
+                    <p>B. 脂质都只含有C、H、O三种元素</p>
+                    <p>C. 蛋白质是生命活动的主要承担者</p>
+                    <p>D. 核酸都只分布在细胞核中</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：C</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        A错误：并非所有糖类都是能源物质。例如，纤维素是结构物质，构成植物细胞壁；五碳糖（核糖、脱氧核糖）是核酸的组成成分。<br/>
+                        B错误：脂质中的磷脂含有C、H、O、N、P五种元素。<br/>
+                        C正确：蛋白质功能多样，包括催化（酶）、运输（血红蛋白）、免疫（抗体）、调节（激素）、结构（胶原蛋白）等，是生命活动的主要承担者。<br/>
+                        D错误：核酸包括DNA和RNA。DNA主要分布在细胞核，RNA主要分布在细胞质。
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    <span class="tag tag-important">重点</span>
+                    例题2【蛋白质计算】
+                </div>
+                <div class="problem-content">
+                    某蛋白质由n条肽链组成，氨基酸的平均分子量为a，控制该蛋白质合成的基因含b个碱基对，则该蛋白质的分子量约为（  ）
+                </div>
+                <div class="options">
+                    <p>A. $\\frac{2}{3}ab - 6b + 18n$</p>
+                    <p>B. $\\frac{2}{3}ab - 18(\\frac{b}{3} - n)$</p>
+                    <p>C. $\\frac{2}{3}ab - 18(b - n)$</p>
+                    <p>D. $\\frac{1}{3}ab - 18(\\frac{b}{3} - n)$</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：B</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>步骤1：计算氨基酸数目</strong><br/>
+                        基因中碱基对数 : mRNA碱基数 : 氨基酸数 = 6 : 3 : 1<br/>
+                        氨基酸数 = $\\frac{b}{3}$<br/><br/>
+                        
+                        <strong>步骤2：计算脱去水分子数</strong><br/>
+                        脱去水分子数 = 氨基酸数 - 肽链数 = $\\frac{b}{3} - n$<br/><br/>
+                        
+                        <strong>步骤3：计算蛋白质分子量</strong><br/>
+                        蛋白质分子量 = 氨基酸总分子量 - 脱去水分子总分子量<br/>
+                        = $a \\times \\frac{b}{3} - 18 \\times (\\frac{b}{3} - n)$<br/>
+                        = $\\frac{2}{3}ab - 18(\\frac{b}{3} - n)$<br/><br/>
+                        
+                        <strong>关键公式：</strong><br/>
+                        • 蛋白质分子量 = 氨基酸平均分子量 × 氨基酸数 - 18 × 脱去水分子数<br/>
+                        • 脱去水分子数 = 氨基酸数 - 肽链数 = 肽键数
+                    </div>
+                </div>
+            </div>
+
+            <div class="mistake-box">
+                <strong>⚠️ 易错警示：蛋白质计算常见错误</strong><br/><br/>
+                1. <strong>混淆碱基与碱基对：</strong>基因中的"b个碱基对"等于"2b个碱基"<br/>
+                2. <strong>忘记减去水分子：</strong>蛋白质分子量 = 氨基酸总分子量 - 脱去水分子总分子量<br/>
+                3. <strong>环肽计算：</strong>环肽的肽键数 = 氨基酸数（不是氨基酸数-1）<br/>
+                4. <strong>二硫键：</strong>每形成一个二硫键(-S-S-)脱去2个H，分子量减少2
+            </div>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-hard">较难</span>
+                    例题3【核酸综合】
+                </div>
+                <div class="problem-content">
+                    某双链DNA分子含有1000个碱基对，其中一条链上A:T:G:C = 1:2:3:4，则该DNA分子（  ）
+                </div>
+                <div class="options">
+                    <p>A. 含有1000个脱氧核糖</p>
+                    <p>B. 含有200个腺嘌呤</p>
+                    <p>C. 四种含氮碱基的比例为A:T:G:C = 3:3:7:7</p>
+                    <p>D. 该DNA复制3次，需要游离的鸟嘌呤脱氧核苷酸2800个</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：C</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>步骤1：计算一条链上各碱基数</strong><br/>
+                        一条链上碱基总数 = 1000<br/>
+                        A = 1000 × 1/10 = 100<br/>
+                        T = 1000 × 2/10 = 200<br/>
+                        G = 1000 × 3/10 = 300<br/>
+                        C = 1000 × 4/10 = 400<br/><br/>
+                        
+                        <strong>步骤2：计算整个DNA分子中各碱基数</strong><br/>
+                        根据碱基互补配对原则：<br/>
+                        A总 = A₁ + T₁ = 100 + 200 = 300<br/>
+                        T总 = T₁ + A₁ = 200 + 100 = 300<br/>
+                        G总 = G₁ + C₁ = 300 + 400 = 700<br/>
+                        C总 = C₁ + G₁ = 400 + 300 = 700<br/><br/>
+                        
+                        <strong>步骤3：验证各选项</strong><br/>
+                        A错误：含有2000个脱氧核糖（每个脱氧核苷酸含一个脱氧核糖）<br/>
+                        B错误：含有300个腺嘌呤<br/>
+                        C正确：A:T:G:C = 300:300:700:700 = 3:3:7:7<br/>
+                        D错误：复制3次需要游离的鸟嘌呤脱氧核苷酸 = 700 × (2³-1) = 700 × 7 = 4900个
+                    </div>
+                </div>
+            </div>
+
+            <h2>二、细胞的基本结构（模块2）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-easy">基础</span>
+                    例题4【细胞器功能】
+                </div>
+                <div class="problem-content">
+                    下列关于细胞器的叙述，正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 线粒体和叶绿体都含有DNA和核糖体，都能合成自身所需的全部蛋白质</p>
+                    <p>B. 内质网是蛋白质合成、加工和运输的场所</p>
+                    <p>C. 高尔基体在动植物细胞中的功能相同</p>
+                    <p>D. 溶酶体可以消化细胞从外界吞入的颗粒和细胞自身产生的碎渣</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：D</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        A错误：线粒体和叶绿体是半自主性细胞器，能合成部分蛋白质，但大部分蛋白质仍需核基因编码，在细胞质中合成后运入。<br/>
+                        B错误：蛋白质合成的场所是核糖体，不是内质网。内质网是蛋白质加工和运输的场所。<br/>
+                        C错误：高尔基体在动物细胞中与分泌物的形成有关，在植物细胞中与细胞壁的形成有关，功能不同。<br/>
+                        D正确：溶酶体含有多种水解酶，可以消化细胞从外界吞入的颗粒（如细菌）和细胞自身产生的碎渣（如衰老的细胞器）。
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    <span class="tag tag-important">重点</span>
+                    例题5【分泌蛋白合成】
+                </div>
+                <div class="problem-content">
+                    用³H标记的亮氨酸注射到胰腺腺泡细胞中，追踪分泌蛋白的合成和分泌过程。下列叙述正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 放射性首先出现在高尔基体中</p>
+                    <p>B. 内质网对该蛋白进行加工和包装</p>
+                    <p>C. 分泌蛋白通过主动运输分泌到细胞外</p>
+                    <p>D. 该过程体现了生物膜在结构和功能上的联系</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：D</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>分泌蛋白的合成和分泌过程：</strong><br/>
+                        核糖体（合成肽链）→ 内质网（加工、折叠）→ 囊泡 → 高尔基体（进一步加工、分类、包装）→ 囊泡 → 细胞膜 → 胞吐 → 细胞外<br/><br/>
+                        
+                        A错误：放射性首先出现在核糖体中，因为氨基酸首先在核糖体上合成肽链。<br/>
+                        B错误：内质网对蛋白质进行初步加工（如折叠、糖基化），高尔基体进行进一步加工和包装。<br/>
+                        C错误：分泌蛋白通过胞吐（外排）分泌到细胞外，不是主动运输。胞吐需要消耗能量，但不需要载体蛋白。<br/>
+                        D正确：该过程涉及核糖体、内质网、高尔基体、细胞膜等多种生物膜结构，体现了生物膜在结构上的联系（通过囊泡）和功能上的分工合作。
+                    </div>
+                </div>
+            </div>
+
+            <h2>三、细胞的物质输入与输出（模块3）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    例题6【物质跨膜运输】
+                </div>
+                <div class="problem-content">
+                    下列关于物质跨膜运输的叙述，正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 葡萄糖进入红细胞需要载体蛋白协助，并消耗能量</p>
+                    <p>B. 植物细胞发生质壁分离复原时，水分子只进入细胞</p>
+                    <p>C. 主动运输使膜内外物质浓度趋于一致，维持了细胞的正常代谢</p>
+                    <p>D. 抑制细胞膜上载体蛋白的活性，会影响细胞对离子的吸收</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：D</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        A错误：葡萄糖进入红细胞是协助扩散，需要载体蛋白但不消耗能量。<br/>
+                        B错误：质壁分离复原时，水分子既进入细胞也出细胞，只是进入细胞的水分子多于出细胞的水分子。<br/>
+                        C错误：主动运输是逆浓度梯度运输，使膜内外物质浓度差增大，而不是趋于一致。<br/>
+                        D正确：细胞对离子的吸收主要是主动运输，需要载体蛋白和能量。抑制载体蛋白活性会影响离子吸收。
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>📝 物质跨膜运输方式总结</strong><br/><br/>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="background: #667eea; color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">运输方式</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">方向</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">载体</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">能量</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">实例</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">自由扩散</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">高→低</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">不需要</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">不消耗</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">O₂、CO₂、水、甘油、乙醇</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">协助扩散</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">高→低</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">需要</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">不消耗</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">葡萄糖进入红细胞</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">主动运输</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">低→高</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">需要</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">消耗</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">离子、氨基酸、葡萄糖进入小肠上皮细胞</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">胞吞/胞吐</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">不需要</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">消耗</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">蛋白质、神经递质、吞噬作用</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>四、细胞的能量供应与利用（模块4）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-hard">较难</span>
+                    <span class="tag tag-important">重点</span>
+                    例题7【光合作用和呼吸作用综合】
+                </div>
+                <div class="problem-content">
+                    将一株生长正常的绿色植物置于密闭的玻璃容器内，在适宜条件下光照培养。随培养时间的延长，玻璃容器内CO₂浓度可能出现的变化趋势是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 一直降低，直至为零</p>
+                    <p>B. 一直保持稳定，不变化</p>
+                    <p>C. 降低至一定水平时保持相对稳定</p>
+                    <p>D. 升高至一定水平时保持相对稳定</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：C</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>分析过程：</strong><br/>
+                        1. <strong>初期：</strong>光照下植物进行光合作用，吸收CO₂，释放O₂。由于光合作用强度大于呼吸作用强度，容器内CO₂浓度降低。<br/><br/>
+                        
+                        2. <strong>中期：</strong>随着CO₂浓度降低，光合作用强度逐渐减弱，而呼吸作用强度基本不变（温度等条件适宜且稳定）。<br/><br/>
+                        
+                        3. <strong>平衡点：</strong>当光合作用强度等于呼吸作用强度时，CO₂的吸收量等于释放量，容器内CO₂浓度达到平衡，保持相对稳定。<br/><br/>
+                        
+                        4. <strong>不可能为零：</strong>如果CO₂浓度为零，光合作用将无法进行，植物会死亡。实际上，当CO₂浓度降低到一定水平（CO₂补偿点）时，光合作用强度等于呼吸作用强度，CO₂浓度不再下降。<br/><br/>
+                        
+                        <strong>答案C正确。</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>📝 光合作用与呼吸作用的关系</strong><br/><br/>
+                <strong>1. 净光合速率 = 总光合速率 - 呼吸速率</strong><br/><br/>
+                
+                <strong>2. CO₂补偿点：</strong>光合作用强度等于呼吸作用强度时的CO₂浓度。此时净光合速率为零，植物不吸收也不释放CO₂。<br/><br/>
+                
+                <strong>3. 光补偿点：</strong>光合作用强度等于呼吸作用强度时的光照强度。<br/><br/>
+                
+                <strong>4. 密闭容器中气体变化规律：</strong><br/>
+                • 光照下：CO₂浓度先降低后稳定（在CO₂补偿点）<br/>
+                • 黑暗中：CO₂浓度持续升高，O₂浓度持续降低
+            </div>
+
+            <h2>五、细胞的生命历程（模块5）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    例题8【细胞分裂综合】
+                </div>
+                <div class="problem-content">
+                    下列关于细胞分裂的叙述，正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 有丝分裂和减数分裂过程中都有同源染色体的联会</p>
+                    <p>B. 有丝分裂后期和减数第二次分裂后期都有着丝点的分裂</p>
+                    <p>C. 有丝分裂中期和减数第一次分裂中期染色体数目相同</p>
+                    <p>D. 有丝分裂和减数分裂过程中DNA复制次数相同</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：B</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        A错误：同源染色体的联会只发生在减数第一次分裂前期，有丝分裂过程中没有联会。<br/><br/>
+                        
+                        B正确：有丝分裂后期和减数第二次分裂后期都发生着丝点分裂，姐妹染色单体分开，染色体数目暂时加倍。<br/><br/>
+                        
+                        C错误：假设正常体细胞染色体数为2N。<br/>
+                        • 有丝分裂中期：染色体数为2N<br/>
+                        • 减数第一次分裂中期：染色体数为2N<br/>
+                        虽然染色体数目相同，但染色单体数目不同（有丝分裂中期有4N条染色单体，减数第一次分裂中期也有4N条染色单体）。<br/><br/>
+                        
+                        D错误：有丝分裂过程中DNA复制1次；减数分裂过程中DNA也只复制1次（在减数第一次分裂前的间期），但细胞分裂2次。<br/><br/>
+                        
+                        <strong>注意：</strong>本题C选项容易误判。虽然染色体数目相同，但题目问的是"正确的是"，B选项更加准确无误。
+                    </div>
+                </div>
+            </div>
+
+            <div class="mistake-box">
+                <strong>⚠️ 易错警示：有丝分裂 vs 减数分裂</strong><br/><br/>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="background: #f5c6cb;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">比较项目</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">有丝分裂</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">减数分裂</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">发生部位</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">体细胞、原始生殖细胞</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">生殖细胞</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 8px; border: 1px solid #ddd;">分裂次数</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">1次</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">2次</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">DNA复制</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">1次</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">1次</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 8px; border: 1px solid #ddd;">同源染色体联会</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">无</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">有（减Ⅰ前期）</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">同源染色体分离</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">无</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">有（减Ⅰ后期）</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 8px; border: 1px solid #ddd;">子细胞染色体数</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">与母细胞相同（2N）</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">减半（N）</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module01_cell_molecules.html">模块1</a>
+                    <a href="module02_cell_structure.html">模块2</a>
+                    <a href="module03_transport.html">模块3</a>
+                    <a href="module04_energy.html">模块4</a>
+                    <a href="module05_cell_cycle.html">模块5</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

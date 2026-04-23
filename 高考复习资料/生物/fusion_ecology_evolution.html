@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>融合专题：生态与进化 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #4facfe;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #4facfe; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #4facfe;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #4facfe;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #4facfe;
+        }
+        h3 {
+            color: #00a8e8;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #4facfe20, #00f2fe20);
+            border-left: 4px solid #4facfe;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #4facfe;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #4facfe;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #4facfe;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #4facfe15, #00f2fe15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4facfe;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="fusion_metabolism_genetics.html">← 上一专题</a>
+                <a href="index.html">返回主页 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🌿 融合专题：生态与进化</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：15-25分</span>
+                <span class="tag tag-key">难度：★★★★☆</span>
+                <span class="tag tag-formula">跨模块综合</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>种群基因频率</strong><br/>
+                        进化实质
+                    </div>
+                    <div class="network-item">
+                        <strong>自然选择</strong><br/>
+                        环境压力
+                    </div>
+                    <div class="network-item">
+                        <strong>共同进化</strong><br/>
+                        生物与环境
+                    </div>
+                    <div class="network-item">
+                        <strong>生物多样性</strong><br/>
+                        基因、物种、生态
+                    </div>
+                    <div class="network-item">
+                        <strong>生态系统稳定</strong><br/>
+                        自我调节
+                    </div>
+                    <div class="network-item">
+                        <strong>能量流动</strong><br/>
+                        物质循环
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、生态与进化的核心联系</h2>
+
+            <h3>1.1 自然选择与生态适应</h3>
+            <div class="key-point">
+                <strong>自然选择是进化的动力，生态系统是自然选择的舞台：</strong><br/><br/>
+                • 生态系统中的资源限制（食物、空间）产生选择压力<br/>
+                • 种间关系（竞争、捕食、寄生）驱动协同进化<br/>
+                • 环境变化导致适应性进化<br/><br/>
+                <strong>实例：</strong><br/>
+                • 工业黑化现象：环境污染导致桦尺蠖黑色型频率增加<br/>
+                • 抗生素抗性：抗生素的滥用导致细菌抗性基因频率上升
+            </div>
+
+            <h3>1.2 共同进化与生态系统</h3>
+            <div class="key-point">
+                <strong>共同进化：</strong>不同物种之间、生物与无机环境之间在相互影响中不断进化和发展。<br/><br/>
+                <strong>共同进化的类型：</strong><br/>
+                • 种间互助：传粉昆虫与开花植物<br/>
+                • 种间斗争：捕食者与被捕食者的"军备竞赛"<br/>
+                • 生物与环境：光合生物与大气氧含量<br/><br/>
+                <strong>结果：</strong>形成生物多样性和复杂的生态系统
+            </div>
+
+            <h2>二、种群生态学与进化</h2>
+
+            <h3>2.1 种群数量变化与进化</h3>
+            <div class="formula-box">
+                <div class="title">种群数量变化与基因频率的关系</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>种群增长期（J型增长）：</strong><br/>
+                    • 资源丰富，选择压力小<br/>
+                    • 基因频率变化较慢<br/>
+                    • 种群快速扩张<br/><br/>
+                    <strong>种群稳定期（S型增长的K值附近）：</strong><br/>
+                    • 资源竞争加剧，选择压力增大<br/>
+                    • 基因频率变化加快<br/>
+                    • 适应性进化更明显<br/><br/>
+                    <strong>种群波动期：</strong><br/>
+                    • 环境变化导致选择压力变化<br/>
+                    • 基因频率波动<br/>
+                    • 可能导致种群分化
+                </p>
+            </div>
+
+            <h3>2.2 基因频率与种群密度</h3>
+            <div class="key-point">
+                <strong>基因频率变化的影响因素：</strong><br/><br/>
+                • <strong>遗传漂变：</strong>小种群中基因频率的随机变化<br/>
+                • <strong>基因流：</strong>种群间个体的迁移导致基因交流<br/>
+                • <strong>自然选择：</strong>环境对基因型的选择<br/>
+                • <strong>突变：</strong>产生新的等位基因<br/><br/>
+                <strong>种群密度对进化的影响：</strong><br/>
+                • 高密度：种内竞争加剧，选择压力增大<br/>
+                • 低密度：遗传漂变作用增强，近交衰退风险增加
+            </div>
+
+            <h2>三、群落与进化</h2>
+
+            <h3>3.1 种间关系与协同进化</h3>
+            <table>
+                <tr>
+                    <th>种间关系</th>
+                    <th>进化效应</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>互利共生</td>
+                    <td>相互适应，形成高度特化的结构</td>
+                    <td>蜜蜂与花、根瘤菌与豆科植物</td>
+                </tr>
+                <tr>
+                    <td>捕食</td>
+                    <td>"军备竞赛"，协同进化</td>
+                    <td>猎豹与羚羊、狼与兔</td>
+                </tr>
+                <tr>
+                    <td>竞争</td>
+                    <td>生态位分化，减少竞争</td>
+                    <td>达尔文雀的喙形分化</td>
+                </tr>
+                <tr>
+                    <td>寄生</td>
+                    <td>寄生生物适应性进化，宿主抗性进化</td>
+                    <td>病毒与宿主</td>
+                </tr>
+            </table>
+
+            <h3>3.2 群落演替与进化</h3>
+            <div class="key-point">
+                <strong>群落演替过程中的进化：</strong><br/><br/>
+                • 先锋物种的适应性特征（耐贫瘠、生长快）<br/>
+                • 顶级群落物种的适应性特征（竞争力强、寿命长）<br/>
+                • 演替过程中物种的替代反映了进化的历史<br/><br/>
+                <strong>实例：</strong><br/>
+                • 地衣在裸岩上的定殖：分泌有机酸溶解岩石<br/>
+                • 草本植物替代苔藓：根系更深，竞争力更强<br/>
+                • 灌木和乔木的出现：对光照的竞争更激烈
+            </div>
+
+            <h2>四、生态系统与进化</h2>
+
+            <h3>4.1 能量流动与进化策略</h3>
+            <div class="key-point">
+                <strong>能量流动特点对生物进化的影响：</strong><br/><br/>
+                • <strong>能量逐级递减：</strong>导致食物链长度有限（一般不超过5级）<br/>
+                • <strong>能量利用效率：</strong>10%-20%的传递效率驱动生物进化出高效利用能量的策略<br/>
+                • <strong>营养级位置：</strong>决定生物的生态策略（r-选择 vs K-选择）<br/><br/>
+                <strong>r-选择与K-选择：</strong><br/>
+                • r-选择：高繁殖率，低存活率（机会主义物种）<br/>
+                • K-选择：低繁殖率，高存活率（竞争优势物种）
+            </div>
+
+            <h3>4.2 物质循环与进化</h3>
+            <div class="key-point">
+                <strong>碳循环与生物进化：</strong><br/><br/>
+                • 光合作用的出现改变了大气成分<br/>
+                • 氧气积累促进了有氧呼吸生物的进化<br/>
+                • 碳循环的变化影响全球气候，进而影响生物进化<br/><br/>
+                <strong>氮循环与生物进化：</strong><br/><br/>
+                • 固氮生物的进化使氮素进入生物圈<br/>
+                • 植物与根瘤菌的共生关系是协同进化的结果
+            </div>
+
+            <h2>五、生物多样性的形成与维持</h2>
+
+            <h3>5.1 生物多样性的三个层次</h3>
+            <div class="formula-box">
+                <div class="title">生物多样性与生态系统功能</div>
+                <table>
+                    <tr>
+                        <th>层次</th>
+                        <th>内涵</th>
+                        <th>与生态系统的关系</th>
+                    </tr>
+                    <tr>
+                        <td>基因多样性</td>
+                        <td>物种内基因的多样性</td>
+                        <td>提供进化的原材料，增强种群适应性</td>
+                    </tr>
+                    <tr>
+                        <td>物种多样性</td>
+                        <td>一定区域内物种的丰富程度</td>
+                        <td>增加生态系统稳定性，提高生产力</td>
+                    </tr>
+                    <tr>
+                        <td>生态系统多样性</td>
+                        <td>生物群落和生态过程的多样性</td>
+                        <td>提供多样的生态位，促进物种形成</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>5.2 生物多样性的形成机制</h3>
+            <div class="key-point">
+                <strong>生物多样性形成的进化机制：</strong><br/><br/>
+                1. <strong>物种形成：</strong>地理隔离和生殖隔离导致新物种产生<br/>
+                2. <strong>适应性辐射：</strong>一个祖先物种快速分化成多个物种<br/>
+                3. <strong>协同进化：</strong>不同物种间的相互适应<br/>
+                4. <strong>生态位分化：</strong>减少竞争，促进共存<br/><br/>
+                <strong>实例：</strong>达尔文雀的适应性辐射<br/>
+                • 共同祖先从大陆到达加拉帕戈斯群岛<br/>
+                • 不同岛屿的环境差异导致不同食性的选择<br/>
+                • 喙形分化，形成多个物种
+            </div>
+
+            <h2>六、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>自然选择</strong><br/>
+                        • 环境压力<br/>
+                        • 适应性进化
+                    </div>
+                    <div class="network-item">
+                        <strong>共同进化</strong><br/>
+                        • 种间关系<br/>
+                        • 生物与环境
+                    </div>
+                    <div class="network-item">
+                        <strong>种群动态</strong><br/>
+                        • 数量变化<br/>
+                        • 基因频率
+                    </div>
+                    <div class="network-item">
+                        <strong>群落演替</strong><br/>
+                        • 物种替代<br/>
+                        • 适应性特征
+                    </div>
+                    <div class="network-item">
+                        <strong>能量流动</strong><br/>
+                        • 进化策略<br/>
+                        • r-K选择
+                    </div>
+                    <div class="network-item">
+                        <strong>生物多样性</strong><br/>
+                        • 形成机制<br/>
+                        • 三个层次
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>某生态系统中，捕食者的捕食压力导致被捕食者种群中警觉性高的个体比例增加。这种现象说明（  ）</p>
+                <p>A. 捕食者与被捕食者之间存在竞争关系</p>
+                <p>B. 自然选择决定生物进化的方向</p>
+                <p>C. 被捕食者的基因频率不发生改变</p>
+                <p>D. 捕食者的存在不利于被捕食者的进化</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：B</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A错误：捕食者与被捕食者之间是捕食关系，不是竞争关系。</p>
+                <p>B正确：捕食压力作为一种选择因素，使警觉性高的个体被保留，说明自然选择决定生物进化的方向。</p>
+                <p>C错误：被捕食者种群中警觉性高的个体比例增加，说明相关基因频率发生了改变。</p>
+                <p>D错误：捕食者的存在促进了被捕食者的进化（协同进化）。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="fusion_metabolism_genetics.html">← 上一专题</a>
+                    <a href="index.html">返回主页 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

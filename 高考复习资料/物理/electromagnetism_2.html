@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 电磁学模块（下）磁场与电磁感应</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #4a00e0;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #f5576c;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #4a00e0;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .integration {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 3px solid #6c5ce7;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(142, 45, 226, 0.4);
+        }
+        canvas {
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            background: white;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧲 物理极致复习 · 电磁学模块（下）</h1>
+        <div class="subtitle">磁场、电磁感应、交变电流 | 2026陕西新高考专用</div>
+
+        <!-- 模块九：磁场 -->
+        <div class="module-box">
+            <div class="module-title">🧲 模块九：磁场与安培力</div>
+            
+            <div class="section">
+                <h3>9.1 磁感应强度与安培力</h3>
+                <div class="formula-box">
+                    <p>定义：$\displaystyle B = \frac{F}{IL}$（$B \perp I$ 时，$B$ 与 $F$、$I$、$L$ 无关）</p>
+                    <p>安培力：$F = BIL\sin\theta$（$\theta$ 为 $B$ 与 $I$ 夹角）</p>
+                    <p>方向：左手定则（$B$ 穿手心，四指 $I$，拇指 $F$）</p>
+                    <p>磁通量：$\Phi = BS\cos\theta = BS_\perp$（$\theta$ 为 $B$ 与法线夹角）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🖐️ 左手定则应用要点：</strong><br/>
+                    • 磁感线垂直穿入手心（$B$ 的方向）<br/>
+                    • 四指指向电流方向（正电荷运动方向）<br/>
+                    • 拇指指向安培力（洛伦兹力）方向<br/>
+                    • <span class="highlight">注意</span>：$F$ 始终垂直于 $B$ 和 $I$ 所确定的平面
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>9.2 带电粒子在磁场中的运动</h3>
+                <div class="formula-box">
+                    <p>洛伦兹力：$f = qvB\sin\theta$（始终不做功！）</p>
+                    <p>圆周运动半径：$\displaystyle r = \frac{mv}{qB}$</p>
+                    <p>周期：$\displaystyle T = \frac{2\pi m}{qB}$（与速度无关！）</p>
+                    <p>运动时间：$\displaystyle t = \frac{\theta}{2\pi}T = \frac{\theta m}{qB}$（$\theta$ 为圆心角，弧度制）</p>
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="lorentzCanvas" width="600" height="400"></canvas>
+                    <p><em>带电粒子在匀强磁场中的圆周运动</em></p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 带电粒子圆周运动解题步骤：</strong><br/>
+                    1. <span class="highlight">找圆心</span>：$f \perp v$，圆心在洛伦兹力垂线上；或弦的中垂线<br/>
+                    2. <span class="highlight">求半径</span>：$r = \frac{mv}{qB}$，或几何关系 $r = \frac{L}{2\sin\theta}$<br/>
+                    3. <span class="highlight">定圆心角</span>：速度偏转角 = 圆心角 = 2×弦切角<br/>
+                    4. <span class="highlight">求时间</span>：$t = \frac{\theta m}{qB}$ 或 $t = \frac{s}{v} = \frac{r\theta}{v}$
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 常见边界磁场问题：</strong><br/>
+                    • <span class="highlight">直线边界</span>：入射角 = 出射角，对称性<br/>
+                    • <span class="highlight">平行边界</span>：临界条件（与边界相切）<br/>
+                    • <span class="highlight">圆形边界</span>：沿径向射入必沿径向射出<br/>
+                    • <span class="highlight">矩形边界</span>：找临界轨迹（与边相切）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>9.3 带电粒子在复合场中的运动</h3>
+                <div class="formula-box">
+                    <p>速度选择器：$qE = qvB$ → $\displaystyle v = \frac{E}{B}$（与 $q$、$m$ 无关）</p>
+                    <p>质谱仪：$r = \frac{mv}{qB}$，$\frac{q}{m} = \frac{v}{Br}$</p>
+                    <p>霍尔效应：$U_H = \frac{IB}{nqd} = \frac{RB}{d}I$（$R_H = \frac{1}{nq}$ 为霍尔系数）</p>
+                    <p>回旋加速器：$T = \frac{2\pi m}{qB}$，$E_{kmax} = \frac{q^2B^2R^2}{2m}$</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>装置</th>
+                        <th>原理</th>
+                        <th>关键公式</th>
+                        <th>应用</th>
+                    </tr>
+                    <tr>
+                        <td>速度选择器</td>
+                        <td>正交电磁场</td>
+                        <td>$v = E/B$</td>
+                        <td>筛选特定速度粒子</td>
+                    </tr>
+                    <tr>
+                        <td>质谱仪</td>
+                        <td>电场加速+磁场偏转</td>
+                        <td>$\frac{q}{m} = \frac{2U}{B^2r^2}$</td>
+                        <td>测比荷、分析同位素</td>
+                    </tr>
+                    <tr>
+                        <td>回旋加速器</td>
+                        <td>电场加速+磁场偏转</td>
+                        <td>$E_k = \frac{q^2B^2R^2}{2m}$</td>
+                        <td>高能粒子加速</td>
+                    </tr>
+                    <tr>
+                        <td>磁流体发电机</td>
+                        <td>等离子体在磁场中偏转</td>
+                        <td>$E = Bdv$</td>
+                        <td>发电</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 模块十：电磁感应 -->
+        <div class="module-box">
+            <div class="module-title">⚡ 模块十：电磁感应</div>
+            
+            <div class="section">
+                <h3>10.1 法拉第电磁感应定律</h3>
+                <div class="formula-box">
+                    <p>感应电动势：$\displaystyle E = n\frac{\Delta\Phi}{\Delta t}$（$n$ 为匝数）</p>
+                    <p>动生电动势：$E = BLv$（$B$、$L$、$v$ 两两垂直）</p>
+                    <p>转动切割：$\displaystyle E = \frac{1}{2}BL^2\omega$（绕一端转动）</p>
+                    <p>感应电荷量：$\displaystyle q = n\frac{\Delta\Phi}{R_{总}}$（与过程无关，只看初末）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🔑 感应电动势两类计算：</strong><br/>
+                    • <span class="highlight">感生电动势</span>：$E = nS\frac{\Delta B}{\Delta t}$（磁场变化，$B-t$ 图斜率）<br/>
+                    • <span class="highlight">动生电动势</span>：$E = BLv$（切割磁感线）<br/>
+                    • <span class="highlight">有效长度</span>：导体两端连线在垂直于 $v$ 方向的投影
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>10.2 楞次定律与右手定则</h3>
+                <div class="formula-box">
+                    <p>楞次定律：感应电流的磁场总是阻碍引起感应电流的磁通量变化</p>
+                    <p>"增反减同"：$\Phi$ 增加，$B_{感}$ 与 $B_{原}$ 反向；$\Phi$ 减少，同向</p>
+                    <p>"来拒去留"：相对运动，安培力阻碍相对运动</p>
+                    <p>右手定则：$B$ 穿手心，拇指 $v$，四指 $I$（仅切割情况）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 楞次定律判断三步法：</strong><br/>
+                    1. 确定原磁场 $B_{原}$ 方向<br/>
+                    2. 判断 $\Phi$ 变化（增加或减少）<br/>
+                    3. 用"增反减同"确定 $B_{感}$ 方向，进而确定 $I_{感}$ 方向
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>10.3 自感与互感</h3>
+                <div class="formula-box">
+                    <p>自感电动势：$\displaystyle E = L\frac{\Delta I}{\Delta t}$（$L$ 为自感系数）</p>
+                    <p>自感系数：与线圈匝数、大小、形状、有无铁芯有关</p>
+                    <p>通电自感：电流逐渐增大，$L$ 相当于断路 → 电阻 → 导线</p>
+                    <p>断电自感：$L$ 相当于电源，与 $L$ 构成回路的灯可能闪亮</p>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 自感现象分析要点：</strong><br/>
+                    • 稳定时：$L$ 相当于导线（电阻为 $R_L$）<br/>
+                    • 变化时：$L$ 阻碍电流变化（$I$ 只能渐变，不能突变）<br/>
+                    • 断电闪亮条件：$I_L > I_{灯}$（稳定时通过 $L$ 的电流大于灯）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>10.4 电磁感应中的动力学与能量</h3>
+                <div class="formula-box">
+                    <p>安培力：$F = BIL = \frac{B^2L^2v}{R}$（阻碍相对运动）</p>
+                    <p>牛顿第二定律：$F - \frac{B^2L^2v}{R} = ma$（导体棒加速）</p>
+                    <p>能量守恒：$W_{外} = \Delta E_k + Q$（$Q$ 为焦耳热）</p>
+                    <p>电荷量：$q = \frac{BLx}{R}$（$x$ 为位移）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🚀 单棒模型总结：</strong><br/>
+                    1. <span class="highlight">阻尼式</span>：给初速度，$F_安 = \frac{B^2L^2v}{R}$，减速至静止<br/>
+                    2. <span class="highlight">发电式</span>：恒力拉动，$F - \frac{B^2L^2v}{R} = ma$，最终匀速 $v_m = \frac{FR}{B^2L^2}$<br/>
+                    3. <span class="highlight">电动式</span>：含电源，类似发电式<br/>
+                    4. <span class="highlight">电容式</span>：$I = \frac{\Delta Q}{\Delta t} = CBL\frac{\Delta v}{\Delta t} = CBLa$，匀加速运动
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块十一：交变电流 -->
+        <div class="module-box">
+            <div class="module-title">〰️ 模块十一：交变电流</div>
+            
+            <div class="section">
+                <h3>11.1 正弦式交变电流</h3>
+                <div class="formula-box">
+                    <p>瞬时值：$e = E_m\sin\omega t = NBS\omega\sin\omega t$</p>
+                    <p>峰值：$E_m = NBS\omega = N\Phi_m\omega$</p>
+                    <p>有效值：$\displaystyle E = \frac{E_m}{\sqrt{2}}$（正弦/余弦，一个周期内）</p>
+                    <p>平均值：$\bar{E} = n\frac{\Delta\Phi}{\Delta t}$（计算电荷量）</p>
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="acCanvas" width="600" height="400"></canvas>
+                    <p><em>正弦交流电波形与有效值</em></p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>物理量</th>
+                        <th>公式</th>
+                        <th>适用场景</th>
+                    </tr>
+                    <tr>
+                        <td>瞬时值</td>
+                        <td>$e = E_m\sin\omega t$</td>
+                        <td>计算某时刻受力、电流</td>
+                    </tr>
+                    <tr>
+                        <td>峰值</td>
+                        <td>$E_m = NBS\omega$</td>
+                        <td>电容器耐压值</td>
+                    </tr>
+                    <tr>
+                        <td>有效值</td>
+                        <td>$E = E_m/\sqrt{2}$</td>
+                        <td>电表读数、功率计算、铭牌标注</td>
+                    </tr>
+                    <tr>
+                        <td>平均值</td>
+                        <td>$\bar{E} = n\Delta\Phi/\Delta t$</td>
+                        <td>计算通过导体的电荷量</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>11.2 变压器与远距离输电</h3>
+                <div class="formula-box">
+                    <p>变压比：$\displaystyle \frac{U_1}{U_2} = \frac{n_1}{n_2}$</p>
+                    <p>变流比：$\displaystyle \frac{I_1}{I_2} = \frac{n_2}{n_1}$（理想变压器，一个副线圈）</p>
+                    <p>功率关系：$P_入 = P_出$（理想变压器无损耗）</p>
+                    <p>输电损失：$P_{损} = I^2R = \left(\frac{P}{U}\right)^2R$（高压输电减小损耗）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 变压器动态分析：</strong><br/>
+                    1. $U_1$ 决定 $U_2$（$U_2 = \frac{n_2}{n_1}U_1$）<br/>
+                    2. $I_2$ 决定 $I_1$（$I_1 = \frac{n_2}{n_1}I_2$）<br/>
+                    3. $P_2$ 决定 $P_1$（$P_1 = P_2$）<br/>
+                    <span class="highlight">口诀</span>："电压原决定副，电流副决定原，功率副决定原"
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 远距离输电要点：</strong><br/>
+                    • 升压变压器：减小输电电流，$P_{损} = I^2R$ 大幅减小<br/>
+                    • 降压变压器：将高压降至用户电压<br/>
+                    • 输电电流：$I = \frac{P_{输送}}{U_{输送}}$<br/>
+                    • 电压损失：$\Delta U = IR$，功率损失：$\Delta P = I^2R$
+                </div>
+            </div>
+        </div>
+
+        <!-- 融合总结 -->
+        <div class="integration">
+            <h2>🔗 电磁学（下）融合总结</h2>
+            <div class="section" style="background: rgba(255,255,255,0.9); color: #333;">
+                <h3 style="color: #4a00e0;">磁场+电磁感应+电路综合</h3>
+                <p><strong>1. 电磁感应+电路：</strong>感应电动势作为电源，$E = BLv$ 或 $E = n\Delta\Phi/\Delta t$，画等效电路</p>
+                <p><strong>2. 电磁感应+力学：</strong>$F_安 = BIL = \frac{B^2L^2v}{R}$，牛顿第二定律，动量定理（$BLq = m\Delta v$）</p>
+                <p><strong>3. 电磁感应+能量：</strong>$Q = I^2Rt$ 或 $Q = W_{安}$（克服安培力做功），能量守恒</p>
+                <p><strong>4. 交变电流+变压器：</strong>注意有效值计算，远距离输电功率损失 $P_{损} = (P/U)^2R$</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="electromagnetism_1.html">← 上一页：电磁学模块（上）</a>
+            <a href="modern_physics.html">下一页：热学光学近代物理 →</a>
+        </div>
+    </div>
+
+    <script>//<![CDATA[
+
+        // 洛伦兹力运动绘制
+        const lorentzCanvas = document.getElementById('lorentzCanvas');
+        const lorentzCtx = lorentzCanvas.getContext('2d');
+        
+        lorentzCtx.fillStyle = '#f8f9fa';
+        lorentzCtx.fillRect(0, 0, 600, 400);
+        
+        // 磁场区域（矩形）
+        lorentzCtx.fillStyle = 'rgba(52, 152, 219, 0.1)';
+        lorentzCtx.fillRect(100, 100, 400, 200);
+        lorentzCtx.strokeStyle = '#3498db';
+        lorentzCtx.lineWidth = 2;
+        lorentzCtx.strokeRect(100, 100, 400, 200);
+        
+        // 画磁场符号（点表示垂直向外）
+        lorentzCtx.fillStyle = '#3498db';
+        lorentzCtx.font = '20px Arial';
+        for (let x = 120; x < 480; x += 60) {
+            for (let y = 120; y < 300; y += 60) {
+                lorentzCtx.beginPath();
+                lorentzCtx.arc(x, y, 3, 0, 2 * Math.PI);
+                lorentzCtx.fill();
+            }
+        }
+        lorentzCtx.fillText('B（垂直纸面向外）', 380, 90);
+        
+        // 粒子轨迹（半圆）
+        lorentzCtx.strokeStyle = '#e74c3c';
+        lorentzCtx.lineWidth = 3;
+        lorentzCtx.beginPath();
+        lorentzCtx.arc(300, 300, 100, Math.PI, 0);
+        lorentzCtx.stroke();
+        
+        // 入射速度
+        lorentzCtx.strokeStyle = '#2ecc71';
+        lorentzCtx.lineWidth = 3;
+        lorentzCtx.beginPath();
+        lorentzCtx.moveTo(200, 300);
+        lorentzCtx.lineTo(260, 300);
+        lorentzCtx.stroke();
+        lorentzCtx.fillStyle = '#2ecc71';
+        lorentzCtx.fillText('v', 265, 295);
+        
+        // 出射速度
+        lorentzCtx.beginPath();
+        lorentzCtx.moveTo(400, 300);
+        lorentzCtx.lineTo(460, 300);
+        lorentzCtx.stroke();
+        lorentzCtx.fillText('v', 465, 295);
+        
+        // 圆心
+        lorentzCtx.fillStyle = '#9b59b6';
+        lorentzCtx.beginPath();
+        lorentzCtx.arc(300, 300, 4, 0, 2 * Math.PI);
+        lorentzCtx.fill();
+        lorentzCtx.fillText('O', 305, 295);
+        
+        // 半径标注
+        lorentzCtx.strokeStyle = '#9b59b6';
+        lorentzCtx.setLineDash([5, 5]);
+        lorentzCtx.beginPath();
+        lorentzCtx.moveTo(300, 300);
+        lorentzCtx.lineTo(300, 200);
+        lorentzCtx.stroke();
+        lorentzCtx.setLineDash([]);
+        lorentzCtx.fillText('r', 305, 250);
+        
+        // 洛伦兹力
+        lorentzCtx.strokeStyle = '#f39c12';
+        lorentzCtx.lineWidth = 2;
+        lorentzCtx.beginPath();
+        lorentzCtx.moveTo(250, 250);
+        lorentzCtx.lineTo(250, 190);
+        lorentzCtx.stroke();
+        lorentzCtx.fillStyle = '#f39c12';
+        lorentzCtx.fillText('f', 255, 210);
+        
+        // 公式
+        lorentzCtx.fillStyle = '#2c3e50';
+        lorentzCtx.font = '14px Arial';
+        lorentzCtx.fillText('r = mv/qB', 420, 150);
+        lorentzCtx.fillText('T = 2πm/qB', 420, 170);
+
+        // 交流电波形
+        const acCanvas = document.getElementById('acCanvas');
+        const acCtx = acCanvas.getContext('2d');
+        
+        acCtx.fillStyle = '#f8f9fa';
+        acCtx.fillRect(0, 0, 600, 400);
+        
+        // 坐标轴
+        acCtx.strokeStyle = '#333';
+        acCtx.lineWidth = 2;
+        acCtx.beginPath();
+        acCtx.moveTo(50, 200);
+        acCtx.lineTo(550, 200);
+        acCtx.moveTo(50, 50);
+        acCtx.lineTo(50, 350);
+        acCtx.stroke();
+        
+        // 标签
+        acCtx.font = '16px Arial';
+        acCtx.fillStyle = '#333';
+        acCtx.fillText('t', 560, 205);
+        acCtx.fillText('e,i', 35, 40);
+        acCtx.fillText('O', 35, 220);
+        
+        // 正弦曲线
+        acCtx.strokeStyle = '#e74c3c';
+        acCtx.lineWidth = 3;
+        acCtx.beginPath();
+        for (let x = 0; x <= 500; x += 2) {
+            const t = x / 500 * 4 * Math.PI;
+            const y = 200 - 120 * Math.sin(t);
+            if (x === 0) acCtx.moveTo(50 + x, y);
+            else acCtx.lineTo(50 + x, y);
+        }
+        acCtx.stroke();
+        
+        // 峰值线
+        acCtx.strokeStyle = '#95a5a6';
+        acCtx.setLineDash([5, 5]);
+        acCtx.lineWidth = 1;
+        acCtx.beginPath();
+        acCtx.moveTo(50, 80);
+        acCtx.lineTo(550, 80);
+        acCtx.moveTo(50, 320);
+        acCtx.lineTo(550, 320);
+        acCtx.stroke();
+        acCtx.setLineDash([]);
+        
+        // 标注峰值
+        acCtx.fillStyle = '#e74c3c';
+        acCtx.font = '14px Arial';
+        acCtx.fillText('Em', 20, 85);
+        acCtx.fillText('-Em', 15, 325);
+        
+        // 有效值线
+        acCtx.strokeStyle = '#3498db';
+        acCtx.setLineDash([3, 3]);
+        acCtx.beginPath();
+        acCtx.moveTo(50, 200 - 120/1.414);
+        acCtx.lineTo(550, 200 - 120/1.414);
+        acCtx.stroke();
+        acCtx.setLineDash([]);
+        acCtx.fillStyle = '#3498db';
+        acCtx.fillText('E = Em/√2', 10, 125);
+        
+        // 周期标注
+        acCtx.strokeStyle = '#2ecc71';
+        acCtx.lineWidth = 2;
+        acCtx.beginPath();
+        acCtx.moveTo(50 + 125, 350);
+        acCtx.lineTo(50 + 125, 360);
+        acCtx.moveTo(50 + 250, 350);
+        acCtx.lineTo(50 + 250, 360);
+        acCtx.stroke();
+        acCtx.fillStyle = '#2ecc71';
+        acCtx.fillText('T', 50 + 180, 375);
+        
+        // 标题
+        acCtx.fillStyle = '#2c3e50';
+        acCtx.font = 'bold 18px Arial';
+        acCtx.fillText('正弦交流电波形', 220, 40);
+    
+//]]></script>
+</body>
+</html>

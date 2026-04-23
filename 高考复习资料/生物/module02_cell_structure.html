@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块02：细胞的基本结构 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #667eea; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        h4 {
+            color: #555;
+            font-size: 1.1em;
+            margin: 20px 0 10px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .experiment-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .experiment-box h4 {
+            color: #2e7d32;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .organelle-card {
+            background: linear-gradient(135deg, #f5f7fa, #e4e8ec);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+        .organelle-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module01_cell_molecules.html">← 上一模块</a>
+                <a href="module03_transport.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🔬 模块02：细胞的基本结构</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：6-10分</span>
+                <span class="tag tag-key">难度：★★★☆☆</span>
+                <span class="tag tag-formula">贯穿高中生物的核心基础</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>细胞膜</strong><br/>
+                        流动镶嵌模型 → 结构特点 → 功能特性
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞器</strong><br/>
+                        双层膜(线粒体、叶绿体) + 单层膜 + 无膜
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞核</strong><br/>
+                        核膜 → 核仁 → 染色质 → 核孔
+                    </div>
+                    <div class="network-item">
+                        <strong>生物膜系统</strong><br/>
+                        细胞膜 + 核膜 + 细胞器膜
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞壁</strong><br/>
+                        植物(纤维素) vs 真菌(几丁质) vs 细菌(肽聚糖)
+                    </div>
+                    <div class="network-item">
+                        <strong>分泌蛋白</strong><br/>
+                        合成 → 加工 → 运输 → 分泌
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、细胞膜的结构与功能</h2>
+
+            <h3>1.1 细胞膜的成分</h3>
+            <table>
+                <tr>
+                    <th>成分</th>
+                    <th>含量</th>
+                    <th>功能</th>
+                    <th>特点</th>
+                </tr>
+                <tr>
+                    <td>脂质</td>
+                    <td>约50%</td>
+                    <td>构成膜的基本骨架</td>
+                    <td>主要是磷脂，动物细胞膜还含有胆固醇</td>
+                </tr>
+                <tr>
+                    <td>蛋白质</td>
+                    <td>约40%</td>
+                    <td>承担膜的主要功能</td>
+                    <td>功能越复杂的膜，蛋白质种类和数量越多</td>
+                </tr>
+                <tr>
+                    <td>糖类</td>
+                    <td>约2%-10%</td>
+                    <td>识别、保护、润滑</td>
+                    <td>与蛋白质或脂质结合形成糖蛋白或糖脂</td>
+                </tr>
+            </table>
+
+            <div class="key-point">
+                <strong>重要结论：</strong>细胞膜的功能复杂程度与蛋白质的种类和数量成正比。<br/>
+                例如：线粒体内膜（有氧呼吸第三阶段）> 细胞膜 > 其他膜结构
+            </div>
+
+            <h3>1.2 流动镶嵌模型</h3>
+            <div class="formula-box">
+                <div class="title">流动镶嵌模型要点（辛格和尼科尔森，1972年）</div>
+                <p><strong>1. 磷脂双分子层构成膜的基本支架</strong></p>
+                <p>• 磷脂分子头部亲水，朝向膜的两侧（水环境）</p>
+                <p>• 磷脂分子尾部疏水，朝向膜的内部</p>
+                <p><strong>2. 蛋白质分子镶嵌或贯穿其中</strong></p>
+                <p>• 有的镶在表面，有的部分或全部嵌入，有的贯穿整个磷脂双分子层</p>
+                <p><strong>3. 磷脂分子和大多数蛋白质分子可以运动</strong></p>
+                <p>• 体现膜的流动性</p>
+            </div>
+
+            <h4>细胞膜的结构特点 vs 功能特性</h4>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>🔀 结构特点：具有一定的流动性</h4>
+                    <p><strong>原因：</strong></p>
+                    <ul>
+                        <li>磷脂分子可以侧向自由移动</li>
+                        <li>大多数蛋白质分子可以运动</li>
+                    </ul>
+                    <p><strong>实例：</strong></p>
+                    <ul>
+                        <li>变形虫的变形运动</li>
+                        <li>细胞融合（如受精作用、杂交瘤细胞制备）</li>
+                        <li>胞吞和胞吐</li>
+                        <li>植物细胞的质壁分离与复原</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>🛡️ 功能特性：选择透过性</h4>
+                    <p><strong>原因：</strong></p>
+                    <ul>
+                        <li>磷脂双分子层的屏障作用</li>
+                        <li>载体蛋白的专一性</li>
+                    </ul>
+                    <p><strong>表现：</strong></p>
+                    <ul>
+                        <li>细胞需要的营养物质可以进入</li>
+                        <li>细胞不需要或有害的物质不易进入</li>
+                        <li>细胞产生的废物可以排出</li>
+                        <li>细胞内的重要物质不会流失</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ 易错提醒：</strong><br/>
+                1. 流动性是结构特点，选择透过性是功能特性，不要混淆<br/>
+                2. 选择透过性的基础是流动性，但两者不是同一概念<br/>
+                3. 细胞死亡后，细胞膜失去选择透过性（变成全透性），但仍有流动性
+            </div>
+
+            <h3>1.3 细胞膜的功能</h3>
+            <table>
+                <tr>
+                    <th>功能</th>
+                    <th>具体内容</th>
+                    <th>相关结构</th>
+                </tr>
+                <tr>
+                    <td>将细胞与外界环境分隔开</td>
+                    <td>保障细胞内部环境的相对稳定</td>
+                    <td>磷脂双分子层</td>
+                </tr>
+                <tr>
+                    <td>控制物质进出细胞</td>
+                    <td>选择性吸收营养物质，排出代谢废物</td>
+                    <td>载体蛋白、通道蛋白</td>
+                </tr>
+                <tr>
+                    <td>进行细胞间的信息交流</td>
+                    <td>细胞识别、信号传递</td>
+                    <td>糖蛋白（受体）</td>
+                </tr>
+            </table>
+
+            <h4>细胞间信息交流的方式</h4>
+            <div class="organelle-card">
+                <h4>方式一：通过化学物质传递信息</h4>
+                <p>细胞分泌化学物质（如激素），通过血液运输，与靶细胞膜上的受体结合，传递信息。</p>
+                <p><strong>实例：</strong>胰岛素与靶细胞受体结合，调节血糖。</p>
+            </div>
+            <div class="organelle-card">
+                <h4>方式二：细胞膜直接接触</h4>
+                <p>相邻两个细胞的细胞膜直接接触，通过膜上的信号分子和受体传递信息。</p>
+                <p><strong>实例：</strong>精子与卵细胞的识别和结合；效应T细胞与靶细胞的接触。</p>
+            </div>
+            <div class="organelle-card">
+                <h4>方式三：细胞间形成通道</h4>
+                <p>相邻细胞之间形成通道，携带信息的物质通过通道进入另一个细胞。</p>
+                <p><strong>实例：</strong>高等植物细胞之间的胞间连丝。</p>
+            </div>
+
+            <h2>二、细胞器的结构与功能</h2>
+
+            <div class="key-point">
+                <strong>细胞器分类（按膜结构）：</strong><br/>
+                • <strong>双层膜：</strong>线粒体、叶绿体（都有DNA、RNA，能半自主复制）<br/>
+                • <strong>单层膜：</strong>内质网、高尔基体、溶酶体、液泡<br/>
+                • <strong>无膜结构：</strong>核糖体、中心体
+            </div>
+
+            <h3>2.1 线粒体——"动力车间"</h3>
+            <div class="organelle-card">
+                <h4>🔋 线粒体结构与功能</h4>
+                <p><strong>结构：</strong></p>
+                <ul>
+                    <li>外膜：平滑，将线粒体与细胞质基质分开</li>
+                    <li>内膜：向内折叠形成嵴，增大膜面积，附着有氧呼吸相关酶</li>
+                    <li>基质：含有DNA、RNA、核糖体、有氧呼吸相关酶</li>
+                </ul>
+                <p><strong>功能：</strong>有氧呼吸的主要场所，将有机物中的化学能转化为ATP中的能量</p>
+                <p><strong>分布：</strong>动植物细胞都有，代谢旺盛的细胞中数量多</p>
+                <p><strong>特点：</strong>含DNA、RNA，能半自主复制，属于半自主性细胞器</p>
+            </div>
+
+            <h3>2.2 叶绿体——"养料制造车间"和"能量转换站"</h3>
+            <div class="organelle-card">
+                <h4>🌿 叶绿体结构与功能</h4>
+                <p><strong>结构：</strong></p>
+                <ul>
+                    <li>外膜和内膜：双层膜结构</li>
+                    <li>基粒：由类囊体堆叠而成，类囊体薄膜上分布有光合色素和光反应相关酶</li>
+                    <li>基质：含有DNA、RNA、核糖体、暗反应相关酶</li>
+                </ul>
+                <p><strong>功能：</strong>光合作用的场所，将光能转化为化学能储存在有机物中</p>
+                <p><strong>分布：</strong>主要存在于绿色植物的叶肉细胞和幼茎皮层细胞</p>
+                <p><strong>特点：</strong>含DNA、RNA，能半自主复制，属于半自主性细胞器</p>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>线粒体 vs 叶绿体 比较</h4>
+                    <table>
+                        <tr>
+                            <th>比较项目</th>
+                            <th>线粒体</th>
+                            <th>叶绿体</th>
+                        </tr>
+                        <tr>
+                            <td>增大膜面积方式</td>
+                            <td>内膜向内折叠形成嵴</td>
+                            <td>类囊体堆叠形成基粒</td>
+                        </tr>
+                        <tr>
+                            <td>功能</td>
+                            <td>有氧呼吸，分解有机物</td>
+                            <td>光合作用，合成有机物</td>
+                        </tr>
+                        <tr>
+                            <td>ATP产生</td>
+                            <td>产生ATP供细胞利用</td>
+                            <td>产生ATP仅供暗反应使用</td>
+                        </tr>
+                        <tr>
+                            <td>气体交换</td>
+                            <td>O₂进入，CO₂排出</td>
+                            <td>CO₂进入，O₂排出</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <h3>2.3 内质网——蛋白质合成和加工，以及脂质合成的"车间"</h3>
+            <div class="organelle-card">
+                <h4>🏭 内质网的类型与功能</h4>
+                <p><strong>粗面内质网（附着核糖体）：</strong></p>
+                <ul>
+                    <li>功能：分泌蛋白的合成和加工</li>
+                    <li>与分泌蛋白的运输有关</li>
+                </ul>
+                <p><strong>光面内质网（无核糖体附着）：</strong></p>
+                <ul>
+                    <li>功能：脂质合成（如性激素）</li>
+                    <li>解毒作用（如肝细胞）</li>
+                </ul>
+                <p><strong>分布：</strong>动植物细胞都有，是细胞内膜面积最大的细胞器</p>
+            </div>
+
+            <h3>2.4 高尔基体——蛋白质加工、分类、包装的"车间"及"发送站"</h3>
+            <div class="organelle-card">
+                <h4>📦 高尔基体功能</h4>
+                <p><strong>动物细胞：</strong></p>
+                <ul>
+                    <li>对来自内质网的蛋白质进行加工、分类和包装</li>
+                    <li>与分泌物的形成有关</li>
+                </ul>
+                <p><strong>植物细胞：</strong></p>
+                <ul>
+                    <li>与细胞壁的形成有关（合成纤维素）</li>
+                </ul>
+                <p><strong>分布：</strong>动植物细胞都有</p>
+            </div>
+
+            <h3>2.5 核糖体——"生产蛋白质的机器"</h3>
+            <div class="organelle-card">
+                <h4>⚙️ 核糖体结构与功能</h4>
+                <p><strong>结构：</strong>无膜结构，由rRNA和蛋白质组成</p>
+                <p><strong>类型：</strong></p>
+                <ul>
+                    <li>游离核糖体：合成胞内蛋白（如细胞呼吸酶）</li>
+                    <li>附着核糖体：合成分泌蛋白（如抗体、消化酶）</li>
+                </ul>
+                <p><strong>功能：</strong>氨基酸脱水缩合形成肽链（翻译的场所）</p>
+                <p><strong>分布：</strong>所有细胞（原核细胞和真核细胞）都有</p>
+            </div>
+
+            <h3>2.6 溶酶体——"消化车间"</h3>
+            <div class="organelle-card">
+                <h4>🗑️ 溶酶体功能</h4>
+                <p><strong>结构：</strong>单层膜包裹，内含多种水解酶</p>
+                <p><strong>功能：</strong></p>
+                <ul>
+                    <li>分解衰老、损伤的细胞器</li>
+                    <li>吞噬并杀死侵入细胞的病毒或细菌</li>
+                    <li>细胞凋亡时与细胞膜融合，释放水解酶使细胞自溶</li>
+                </ul>
+                <p><strong>分布：</strong>主要存在于动物细胞</p>
+                <p><strong>特点：</strong>膜破裂后水解酶释放，可导致细胞自溶</p>
+            </div>
+
+            <h3>2.7 液泡——调节植物细胞内的环境</h3>
+            <div class="organelle-card">
+                <h4>💧 液泡结构与功能</h4>
+                <p><strong>结构：</strong>单层膜，内有细胞液（含糖类、无机盐、色素、蛋白质等）</p>
+                <p><strong>功能：</strong></p>
+                <ul>
+                    <li>调节细胞内的环境，维持细胞形态</li>
+                    <li>储存营养物质和代谢废物</li>
+                    <li>维持细胞渗透压，与质壁分离有关</li>
+                </ul>
+                <p><strong>分布：</strong>主要存在于植物细胞，成熟植物细胞有一个大液泡</p>
+                <p><strong>注意：</strong>动物细胞也有液泡，但一般小而多，不明显</p>
+            </div>
+
+            <h3>2.8 中心体——与细胞有丝分裂有关</h3>
+            <div class="organelle-card">
+                <h4>🎯 中心体结构与功能</h4>
+                <p><strong>结构：</strong>无膜结构，由两个互相垂直排列的中心粒及周围物质组成</p>
+                <p><strong>功能：</strong>与细胞的有丝分裂有关，发出星射线形成纺锤体</p>
+                <p><strong>分布：</strong>动物细胞和某些低等植物细胞</p>
+                <p><strong>复制：</strong>在间期复制，前期移向两极</p>
+            </div>
+
+            <h2>三、细胞器的协调配合——以分泌蛋白为例</h2>
+
+            <div class="key-point">
+                <strong>分泌蛋白：</strong>在细胞内合成，分泌到细胞外起作用的蛋白质。<br/>
+                <strong>实例：</strong>消化酶（如唾液淀粉酶）、抗体、部分激素（如胰岛素）、血浆蛋白等。
+            </div>
+
+            <h3>3.1 分泌蛋白的合成与分泌过程</h3>
+            <div class="formula-box">
+                <div class="title">分泌蛋白合成与分泌路径</div>
+                <p style="font-size: 1.1em; line-height: 2;">
+                    <strong>核糖体</strong>（合成肽链）<br/>
+                    ↓<br/>
+                    <strong>内质网</strong>（加工：折叠、组装、加糖基团）<br/>
+                    ↓ 囊泡运输<br/>
+                    <strong>高尔基体</strong>（进一步加工、分类、包装）<br/>
+                    ↓ 囊泡运输<br/>
+                    <strong>细胞膜</strong>（胞吐分泌到细胞外）
+                </p>
+            </div>
+
+            <h3>3.2 各细胞器的分工</h3>
+            <table>
+                <tr>
+                    <th>细胞器</th>
+                    <th>作用</th>
+                    <th>说明</th>
+                </tr>
+                <tr>
+                    <td>核糖体</td>
+                    <td>合成肽链</td>
+                    <td>氨基酸脱水缩合形成多肽</td>
+                </tr>
+                <tr>
+                    <td>内质网</td>
+                    <td>加工、运输</td>
+                    <td>对肽链进行折叠、组装，加上糖基团等</td>
+                </tr>
+                <tr>
+                    <td>高尔基体</td>
+                    <td>加工、包装、分泌</td>
+                    <td>对蛋白质进一步加工，分类包装，形成分泌小泡</td>
+                </tr>
+                <tr>
+                    <td>线粒体</td>
+                    <td>供能</td>
+                    <td>为整个过程提供ATP</td>
+                </tr>
+                <tr>
+                    <td>细胞膜</td>
+                    <td>分泌</td>
+                    <td>通过胞吐将蛋白质分泌到细胞外</td>
+                </tr>
+            </table>
+
+            <div class="success">
+                <strong>💡 放射性同位素标记法研究分泌蛋白：</strong><br/>
+                用³H标记亮氨酸，追踪放射性出现的先后顺序：<br/>
+                核糖体 → 内质网 → 高尔基体 → 细胞膜外<br/>
+                这证明了分泌蛋白的合成和运输路径。
+            </div>
+
+            <h2>四、细胞的生物膜系统</h2>
+
+            <h3>4.1 生物膜系统的组成</h3>
+            <div class="key-point">
+                <strong>生物膜系统 = 细胞膜 + 核膜 + 细胞器膜</strong><br/><br/>
+                包括：细胞膜、核膜、线粒体膜、叶绿体膜、内质网膜、高尔基体膜、溶酶体膜、液泡膜等
+            </div>
+
+            <h3>4.2 生物膜系统的功能</h3>
+            <table>
+                <tr>
+                    <th>功能</th>
+                    <th>具体说明</th>
+                </tr>
+                <tr>
+                    <td>细胞膜</td>
+                    <td>物质运输、能量转换、信息传递</td>
+                </tr>
+                <tr>
+                    <td>广阔的膜面积为酶提供附着位点</td>
+                    <td>如内质网、线粒体内膜、叶绿体类囊体薄膜</td>
+                </tr>
+                <tr>
+                    <td>将细胞分隔成小区室</td>
+                    <td>使细胞内能够同时进行多种化学反应，互不干扰</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ 注意：</strong><br/>
+                1. 原核细胞没有生物膜系统（只有细胞膜，没有核膜和细胞器膜）<br/>
+                2. 生物膜系统是针对细胞而言的，不是针对生物体<br/>
+                3. 小肠黏膜、胃黏膜等不属于生物膜系统
+            </div>
+
+            <h2>五、细胞核——系统的控制中心</h2>
+
+            <h3>5.1 细胞核的结构</h3>
+            <div class="organelle-card">
+                <h4>🏛️ 细胞核的结构组成</h4>
+                <p><strong>核膜：</strong>双层膜，外膜与内质网相连，上有核孔</p>
+                <p><strong>核孔：</strong>实现核质之间频繁的物质交换和信息交流</p>
+                <p><strong>核仁：</strong>与某种RNA（rRNA）的合成以及核糖体的形成有关</p>
+                <p><strong>染色质：</strong>由DNA和蛋白质组成，是遗传信息的主要载体</p>
+            </div>
+
+            <h3>5.2 染色质与染色体</h3>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>染色质</h4>
+                    <p><strong>状态：</strong>细丝状</p>
+                    <p><strong>时期：</strong>细胞分裂间期</p>
+                    <p><strong>形态：</strong>染色质丝（DNA+蛋白质）</p>
+                </div>
+                <div class="comparison-card">
+                    <h4>染色体</h4>
+                    <p><strong>状态：</strong>圆柱状或杆状</p>
+                    <p><strong>时期：</strong>细胞分裂期</p>
+                    <p><strong>形态：</strong>高度螺旋化、缩短变粗</p>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>染色质与染色体的关系：</strong>同一种物质在细胞不同时期的两种存在状态。<br/>
+                染色质（间期）→ 高度螺旋化、缩短变粗 → 染色体（分裂期）→ 解螺旋 → 染色质（末期）
+            </div>
+
+            <h3>5.3 细胞核的功能</h3>
+            <div class="key-point">
+                <strong>细胞核是遗传信息库，是细胞代谢和遗传的控制中心。</strong><br/><br/>
+                <strong>实验证据：</strong><br/>
+                1. 美西螈核移植实验：细胞核控制生物性状<br/>
+                2. 蝾螈受精卵横缢实验：细胞核控制细胞分裂和分化<br/>
+                3. 变形虫切割实验：细胞核控制细胞代谢<br/>
+                4. 伞藻嫁接与核移植实验：细胞核控制生物形态建成
+            </div>
+
+            <h2>六、原核细胞与真核细胞的比较</h2>
+
+            <table>
+                <tr>
+                    <th>比较项目</th>
+                    <th>原核细胞</th>
+                    <th>真核细胞</th>
+                </tr>
+                <tr>
+                    <td>细胞大小</td>
+                    <td>较小（1-10μm）</td>
+                    <td>较大（10-100μm）</td>
+                </tr>
+                <tr>
+                    <td>细胞核</td>
+                    <td>无核膜包被，无成形细胞核（拟核）</td>
+                    <td>有核膜包被的成形细胞核</td>
+                </tr>
+                <tr>
+                    <td>染色体</td>
+                    <td>无染色体，有环状DNA（拟核DNA和质粒）</td>
+                    <td>有染色体（DNA+蛋白质）</td>
+                </tr>
+                <tr>
+                    <td>细胞器</td>
+                    <td>只有核糖体一种细胞器</td>
+                    <td>有多种细胞器</td>
+                </tr>
+                <tr>
+                    <td>细胞壁</td>
+                    <td>主要成分是肽聚糖（细菌）或几丁质（真菌）</td>
+                    <td>植物：纤维素和果胶；真菌：几丁质</td>
+                </tr>
+                <tr>
+                    <td>代表生物</td>
+                    <td>细菌、蓝藻（蓝细菌）、放线菌、支原体、衣原体</td>
+                    <td>动物、植物、真菌</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ 常见误区：</strong><br/>
+                1. 原核生物≠原生生物（原生生物是真核生物，如草履虫、变形虫）<br/>
+                2. 细菌名称中常带有"杆"、"球"、"螺旋"、"弧"等字样（如大肠杆菌、金黄色葡萄球菌）<br/>
+                3. 蓝藻（蓝细菌）是原核生物，包括颤藻、念珠藻、发菜等，能进行光合作用但没有叶绿体<br/>
+                4. 支原体是最小的原核生物，没有细胞壁
+            </div>
+
+            <h2>七、用高倍显微镜观察叶绿体和细胞质流动（实验）</h2>
+
+            <div class="experiment-box">
+                <h4>🔬 实验：用高倍显微镜观察叶绿体和细胞质流动</h4>
+                
+                <p><strong>实验原理：</strong></p>
+                <ul>
+                    <li>叶绿体呈绿色、扁平的椭球形或球形，散布于细胞质中</li>
+                    <li>活细胞中的细胞质处于不断流动的状态，可用叶绿体的运动作为标志观察细胞质流动</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>材料选择：</strong></p>
+                <ul>
+                    <li>观察叶绿体：藓类的小叶或菠菜叶稍带些叶肉的下表皮</li>
+                    <li>观察细胞质流动：黑藻叶片（叶片薄，只有1-2层叶肉细胞，叶绿体大且数量少）</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>实验步骤：</strong></p>
+                <ol>
+                    <li>制作临时装片：在载玻片上滴一滴清水，将材料放入水滴中，盖上盖玻片</li>
+                    <li>低倍镜观察：找到目标细胞，移至视野中央</li>
+                    <li>高倍镜观察：转动转换器换高倍镜，调节细准焦螺旋使物像清晰</li>
+                    <li>观察细胞质流动：寻找叶脉附近的细胞，观察叶绿体的运动方向</li>
+                </ol>
+
+                <div class="success" style="margin-top: 15px;">
+                    <strong>实验结果：</strong><br/>
+                    • 叶绿体呈绿色扁平椭球形，散布于细胞质中<br/>
+                    • 细胞质流动方向：一般沿一定方向循环流动（如顺时针或逆时针）
+                </div>
+
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>注意事项：</strong><br/>
+                    • 临时装片要始终保持有水状态，保证细胞活性<br/>
+                    • 光线不宜过强，否则叶绿体颜色太浅不易观察<br/>
+                    • 若细胞质流动不明显，可适当提高温度或光照强度
+                </div>
+            </div>
+
+            <h2>八、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>细胞膜考点</strong><br/>
+                        • 流动镶嵌模型<br/>
+                        • 结构特点vs功能特性<br/>
+                        • 信息交流方式
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞器考点</strong><br/>
+                        • 各细胞器的结构与功能<br/>
+                        • 细胞器的分工合作<br/>
+                        • 原核vs真核细胞器区别
+                    </div>
+                    <div class="network-item">
+                        <strong>分泌蛋白考点</strong><br/>
+                        • 合成与分泌路径<br/>
+                        • 各细胞器的作用<br/>
+                        • 同位素标记法
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞核考点</strong><br/>
+                        • 核膜、核孔、核仁功能<br/>
+                        • 染色质与染色体关系<br/>
+                        • 细胞核功能实验
+                    </div>
+                    <div class="network-item">
+                        <strong>生物膜系统</strong><br/>
+                        • 组成与功能<br/>
+                        • 膜之间的联系<br/>
+                        • 原核细胞无生物膜系统
+                    </div>
+                    <div class="network-item">
+                        <strong>实验考点</strong><br/>
+                        • 观察叶绿体<br/>
+                        • 观察细胞质流动<br/>
+                        • 实验材料选择
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国乙卷】</strong>下列关于细胞结构和功能的叙述，正确的是（  ）</p>
+                <p>A. 细胞膜上的受体是细胞间信息交流所必需的结构</p>
+                <p>B. 核糖体是噬菌体、细菌、酵母菌唯一共有的细胞器</p>
+                <p>C. 溶酶体能合成多种水解酶，降解衰老损伤的细胞器</p>
+                <p>D. 细胞核是遗传信息库，是细胞代谢和遗传的控制中心</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：D</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A错误：细胞间信息交流不一定需要受体，如植物细胞通过胞间连丝进行信息交流。</p>
+                <p>B错误：噬菌体是病毒，没有细胞结构，没有核糖体。</p>
+                <p>C错误：溶酶体内的水解酶是在核糖体上合成的，溶酶体不能合成水解酶。</p>
+                <p>D正确：细胞核是遗传信息库，是细胞代谢和遗传的控制中心。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module01_cell_molecules.html">← 上一模块</a>
+                    <a href="module03_transport.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

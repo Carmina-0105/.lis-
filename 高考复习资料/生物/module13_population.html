@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块13：种群和群落 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #11998e;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #11998e; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #11998e;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #11998e;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #11998e;
+        }
+        h3 {
+            color: #0d8a7f;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #11998e20, #38ef7d20);
+            border-left: 4px solid #11998e;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #11998e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #11998e;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #11998e;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #11998e15, #38ef7d15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #11998e;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module12_plant_hormones.html">← 上一模块</a>
+                <a href="module14_ecosystem.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🦋 模块13：种群和群落</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：10-15分</span>
+                <span class="tag tag-key">难度：★★★☆☆</span>
+                <span class="tag tag-formula">种群数量变化</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>种群特征</strong><br/>
+                        数量、空间、遗传
+                    </div>
+                    <div class="network-item">
+                        <strong>种群密度</strong><br/>
+                        调查方法
+                    </div>
+                    <div class="network-item">
+                        <strong>数量变化</strong><br/>
+                        J型、S型曲线
+                    </div>
+                    <div class="network-item">
+                        <strong>群落结构</strong><br/>
+                        垂直、水平结构
+                    </div>
+                    <div class="network-item">
+                        <strong>种间关系</strong><br/>
+                        竞争、捕食、共生
+                    </div>
+                    <div class="network-item">
+                        <strong>群落演替</strong><br/>
+                        初生、次生演替
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、种群的特征</h2>
+
+            <h3>1.1 种群的数量特征</h3>
+            <div class="key-point">
+                <strong>种群：</strong>在一定的自然区域内，同种生物的全部个体。<br/><br/>
+                <strong>种群的数量特征：</strong><br/>
+                1. <strong>种群密度：</strong>种群最基本的数量特征<br/>
+                2. <strong>出生率和死亡率：</strong>决定种群大小和密度的重要因素<br/>
+                3. <strong>迁入率和迁出率：</strong>影响种群大小和密度<br/>
+                4. <strong>年龄组成：</strong>预测种群数量变化趋势<br/>
+                5. <strong>性别比例：</strong>影响种群密度
+            </div>
+
+            <h3>1.2 种群密度的调查方法</h3>
+            <table>
+                <tr>
+                    <th>调查方法</th>
+                    <th>适用范围</th>
+                    <th>计算方法</th>
+                    <th>注意事项</th>
+                </tr>
+                <tr>
+                    <td>样方法</td>
+                    <td>植物或活动能力弱、活动范围小的动物</td>
+                    <td>种群密度 = 样方内个体总数 / 样方面积</td>
+                    <td>随机取样；样方大小适中；取平均值</td>
+                </tr>
+                <tr>
+                    <td>标志重捕法</td>
+                    <td>活动能力强、活动范围大的动物</td>
+                    <td>N = (初次捕获标记数 × 再次捕获总数) / 再次捕获标记数</td>
+                    <td>标记不能影响动物生存；标记不易脱落</td>
+                </tr>
+            </table>
+
+            <h2>二、种群数量的变化</h2>
+
+            <h3>2.1 "J"型增长曲线</h3>
+            <div class="key-point">
+                <strong>条件：</strong>食物和空间条件充裕、气候适宜、没有敌害等理想条件<br/><br/>
+                <strong>数学模型：</strong><br/>
+                $N_t = N_0 \lambda^t$<br/><br/>
+                其中：$N_0$ 为起始数量，$t$ 为时间，$N_t$ 为t年后种群数量，$\lambda$ 为年均增长率<br/><br/>
+                <strong>特点：</strong>增长率保持不变，种群数量连续增长
+            </div>
+
+            <h3>2.2 "S"型增长曲线</h3>
+            <div class="key-point">
+                <strong>条件：</strong>自然条件（资源和空间有限）<br/><br/>
+                <strong>特点：</strong><br/>
+                • 种群数量达到环境容纳量（K值）后停止增长<br/>
+                • 增长速率先增大后减小，在K/2时增长速率最大<br/>
+                • K值不是固定不变的，会随环境变化而变化<br/><br/>
+                <strong>K值（环境容纳量）：</strong>在环境条件不受破坏的情况下，一定空间中所能维持的种群最大数量。
+            </div>
+
+            <div class="formula-box">
+                <div class="title">两种增长曲线的比较</div>
+                <table>
+                    <tr>
+                        <th>项目</th>
+                        <th>J型曲线</th>
+                        <th>S型曲线</th>
+                    </tr>
+                    <tr>
+                        <td>前提条件</td>
+                        <td>理想条件</td>
+                        <td>自然条件</td>
+                    </tr>
+                    <tr>
+                        <td>增长特点</td>
+                        <td>连续增长，无上限</td>
+                        <td>增长到一定数量后保持相对稳定</td>
+                    </tr>
+                    <tr>
+                        <td>增长速率</td>
+                        <td>逐渐增大</td>
+                        <td>先增大后减小</td>
+                    </tr>
+                    <tr>
+                        <td>K值</td>
+                        <td>无K值</td>
+                        <td>有K值</td>
+                    </tr>
+                    <tr>
+                        <td>曲线形状</td>
+                        <td>指数曲线</td>
+                        <td>逻辑斯蒂曲线</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>2.3 种群数量的波动和下降</h3>
+            <div class="key-point">
+                <strong>影响因素：</strong><br/>
+                • 气候、食物、天敌、传染病等<br/>
+                • 人类活动的影响<br/><br/>
+                <strong>种群数量的波动：</strong><br/>
+                • 大多数种群数量总是在波动中<br/>
+                • 某些种群可能出现周期性波动
+            </div>
+
+            <h2>三、群落的结构</h2>
+
+            <h3>3.1 群落的概念</h3>
+            <div class="key-point">
+                <strong>群落：</strong>同一时间内聚集在一定区域中各种生物种群的集合。<br/><br/>
+                <strong>群落的基本特征：</strong><br/>
+                • 物种组成（丰富度）<br/>
+                • 种间关系<br/>
+                • 空间结构<br/>
+                • 群落演替
+            </div>
+
+            <h3>3.2 群落的物种组成</h3>
+            <div class="key-point">
+                <strong>丰富度：</strong>群落中物种数目的多少。<br/><br/>
+                <strong>优势种：</strong>对群落结构和环境形成有明显控制作用的物种。<br/><br/>
+                <strong>调查方法：</strong>常用取样器取样法调查土壤小动物类群丰富度。
+            </div>
+
+            <h3>3.3 种间关系</h3>
+            <table>
+                <tr>
+                    <th>关系类型</th>
+                    <th>特点</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>互利共生</td>
+                    <td>两种生物共同生活，相互依存，彼此有利</td>
+                    <td>豆科植物与根瘤菌、地衣</td>
+                </tr>
+                <tr>
+                    <td>寄生</td>
+                    <td>一种生物寄居于另一种生物体内或体表，摄取寄主的养分</td>
+                    <td>蛔虫与人、菟丝子与植物</td>
+                </tr>
+                <tr>
+                    <td>竞争</td>
+                    <td>两种或两种以上生物相互争夺资源和空间等</td>
+                    <td>牛与羊、水稻与杂草</td>
+                </tr>
+                <tr>
+                    <td>捕食</td>
+                    <td>一种生物以另一种生物为食</td>
+                    <td>狼与兔、猫头鹰与鼠</td>
+                </tr>
+            </table>
+
+            <h3>3.4 群落的空间结构</h3>
+            <div class="key-point">
+                <strong>垂直结构：</strong><br/>
+                • 概念：群落在垂直方向上的分层现象<br/>
+                • 原因：光照（植物）、食物和栖息空间（动物）<br/>
+                • 意义：提高对环境资源的利用能力<br/><br/>
+                <strong>水平结构：</strong><br/>
+                • 概念：群落中生物在水平方向上的配置状况<br/>
+                • 特点：呈镶嵌分布<br/>
+                • 原因：地形变化、土壤湿度和盐碱度差异、光照强度不同、生物自身生长特点、人类活动的影响
+            </div>
+
+            <h2>四、群落的演替</h2>
+
+            <h3>4.1 演替的概念和类型</h3>
+            <div class="key-point">
+                <strong>演替：</strong>随着时间的推移，一个群落被另一个群落代替的过程。<br/><br/>
+                <strong>演替的类型：</strong><br/>
+                • <strong>初生演替：</strong>在一个从来没有被植物覆盖的地面，或者是原来存在过植被、但被彻底消灭了的地方发生的演替<br/>
+                • <strong>次生演替：</strong>在原有植被虽已不存在，但原有土壤条件基本保留，甚至还保留了植物的种子或其他繁殖体的地方发生的演替
+            </div>
+
+            <div class="formula-box">
+                <div class="title">初生演替和次生演替的比较</div>
+                <table>
+                    <tr>
+                        <th>项目</th>
+                        <th>初生演替</th>
+                        <th>次生演替</th>
+                    </tr>
+                    <tr>
+                        <td>起点</td>
+                        <td>无植被或植被被彻底消灭</td>
+                        <td>原有土壤条件基本保留</td>
+                    </tr>
+                    <tr>
+                        <td>时间</td>
+                        <td>长</td>
+                        <td>短</td>
+                    </tr>
+                    <tr>
+                        <td>速度</td>
+                        <td>慢</td>
+                        <td>快</td>
+                    </tr>
+                    <tr>
+                        <td>实例</td>
+                        <td>裸岩、沙丘、火山岩</td>
+                        <td>火灾后的草原、弃耕的农田</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>4.2 演替的过程</h3>
+            <div class="key-point">
+                <strong>初生演替的一般过程：</strong><br/>
+                裸岩阶段 → 地衣阶段 → 苔藓阶段 → 草本植物阶段 → 灌木阶段 → 森林阶段<br/><br/>
+                <strong>演替的趋势：</strong><br/>
+                • 物种丰富度增加<br/>
+                • 群落结构复杂化<br/>
+                • 稳定性增强<br/><br/>
+                <strong>注意：</strong>演替的最终阶段不一定都是森林，取决于当地的气候条件
+            </div>
+
+            <h2>五、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>种群特征</strong><br/>
+                        • 数量特征<br/>
+                        • 空间特征
+                    </div>
+                    <div class="network-item">
+                        <strong>种群密度调查</strong><br/>
+                        • 样方法<br/>
+                        • 标志重捕法
+                    </div>
+                    <div class="network-item">
+                        <strong>数量变化</strong><br/>
+                        • J型曲线<br/>
+                        • S型曲线
+                    </div>
+                    <div class="network-item">
+                        <strong>群落结构</strong><br/>
+                        • 垂直结构<br/>
+                        • 水平结构
+                    </div>
+                    <div class="network-item">
+                        <strong>种间关系</strong><br/>
+                        • 互利共生<br/>
+                        • 竞争、捕食、寄生
+                    </div>
+                    <div class="network-item">
+                        <strong>群落演替</strong><br/>
+                        • 初生演替<br/>
+                        • 次生演替
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>下列关于种群和群落的叙述，正确的是（  ）</p>
+                <p>A. 种群密度是种群最基本的数量特征</p>
+                <p>B. 种群数量达到K值后不再变化</p>
+                <p>C. 群落演替的最终阶段一定是森林</p>
+                <p>D. 竞争的结果一定是一方获胜，另一方被淘汰</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：A</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A正确：种群密度是种群最基本的数量特征。</p>
+                <p>B错误：种群数量达到K值后会在K值附近波动，不是不再变化。</p>
+                <p>C错误：群落演替的最终阶段取决于当地的气候条件，不一定都是森林（如干旱地区可能是草原）。</p>
+                <p>D错误：竞争的结果可能是一方获胜，也可能是双方共存（如生态位分化）。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module12_plant_hormones.html">← 上一模块</a>
+                    <a href="module14_ecosystem.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

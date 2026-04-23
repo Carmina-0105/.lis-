@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>化学复习 · 实验专题</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #fa709a;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #fa709a;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #fee140;
+            padding-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #fa709a;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #fa709a;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .experiment-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(250, 112, 154, 0.4);
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 化学实验专题</h1>
+        <div class="subtitle">基本操作 · 物质制备 · 性质检验 · 定量实验</div>
+
+        <div class="module-box">
+            <div class="module-title">🎯 模块核心</div>
+            <p style="font-size: 1.1em;">
+                <strong>化学实验</strong>是化学学科的重要组成部分，高考中主要考查实验基本操作、物质的制备与性质检验、定量实验等内容。
+            </p>
+            <p style="margin-top: 15px;">
+                <strong>高考分值：</strong>约15-20分（选择题6分 + 实验大题9-14分）<br/>
+                <strong>重点：</strong>实验基本操作、气体制备、离子检验、定量滴定
+            </p>
+        </div>
+
+        <h2>第一章 化学实验基本操作</h2>
+        
+        <div class="section">
+            <h3>1.1 常用仪器及使用</h3>
+            <table>
+                <tr>
+                    <th>仪器类别</th>
+                    <th>仪器名称</th>
+                    <th>主要用途</th>
+                    <th>注意事项</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">计量仪器</td>
+                    <td>量筒</td>
+                    <td>量取液体体积</td>
+                    <td>不能加热，不能作反应容器，读数平视</td>
+                </tr>
+                <tr>
+                    <td>容量瓶</td>
+                    <td>配制一定物质的量浓度的溶液</td>
+                    <td>不能加热，不能溶解固体，使用前要检漏</td>
+                </tr>
+                <tr>
+                    <td>滴定管</td>
+                    <td>滴定操作，精确量取液体</td>
+                    <td>酸式/碱式要区分，使用前要润洗，读数精确到0.01mL</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">加热仪器</td>
+                    <td>酒精灯</td>
+                    <td>提供热源</td>
+                    <td>用外焰加热，禁止对点，熄灭用灯帽</td>
+                </tr>
+                <tr>
+                    <td>酒精喷灯</td>
+                    <td>高温加热</td>
+                    <td>温度可达1000℃以上</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">分离仪器</td>
+                    <td>漏斗</td>
+                    <td>过滤、向小口容器转移液体</td>
+                    <td>过滤时"一贴二低三靠"</td>
+                </tr>
+                <tr>
+                    <td>分液漏斗</td>
+                    <td>分液、萃取、滴加液体</td>
+                    <td>使用前要检漏，上层液体上口出，下层液体下口出</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>1.2 基本操作要点</h3>
+            <div class="key-point">
+                <strong>💡 药品取用：</strong>
+                <ul>
+                    <li>固体药品：粉末用药匙，块状用镊子</li>
+                    <li>液体药品：少量用胶头滴管，多量直接倾倒</li>
+                    <li>原则：不能用手接触，不能尝，不能直闻（扇闻）</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 加热操作：</strong>
+                <ul>
+                    <li>直接加热：试管、坩埚、蒸发皿、燃烧匙</li>
+                    <li>垫石棉网加热：烧杯、烧瓶、锥形瓶</li>
+                    <li>水浴加热：温度不超过100℃，受热均匀</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 溶解与过滤：</strong>
+                <ul>
+                    <li>溶解：用玻璃棒搅拌加速溶解</li>
+                    <li>过滤：一贴（滤纸紧贴漏斗）、二低（滤纸低于漏斗边缘，液面低于滤纸边缘）、三靠（烧杯靠玻璃棒，玻璃棒靠三层滤纸，漏斗下端靠烧杯壁）</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 蒸发与结晶：</strong>
+                <ul>
+                    <li>蒸发：用蒸发皿，玻璃棒不断搅拌，防止局部过热</li>
+                    <li>结晶：蒸发结晶（溶解度随温度变化小）、降温结晶（溶解度随温度变化大）</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>第二章 常见气体的制备</h2>
+
+        <div class="section">
+            <h3>2.1 气体制备装置</h3>
+            <div class="experiment-box">
+                <strong>🔸 固+固加热型：</strong>制O₂、NH₃等<br/>
+                <strong>装置：</strong>大试管+单孔塞+导管+酒精灯<br/>
+                <strong>注意：</strong>试管口略向下倾斜，防止冷凝水倒流
+            </div>
+            <div class="experiment-box">
+                <strong>🔸 固+液不加热型：</strong>制H₂、CO₂、H₂S、SO₂、NO₂、C₂H₂等<br/>
+                <strong>装置：</strong>启普发生器或简易装置（锥形瓶+分液漏斗）<br/>
+                <strong>注意：</strong>启普发生器适用于块状固体和液体反应
+            </div>
+            <div class="experiment-box">
+                <strong>🔸 固+液加热型：</strong>制Cl₂、HCl、NO等<br/>
+                <strong>装置：</strong>圆底烧瓶+分液漏斗+酒精灯<br/>
+                <strong>注意：</strong>需要加热，注意防倒吸
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2.2 重要气体的制备</h3>
+            <table>
+                <tr>
+                    <th>气体</th>
+                    <th>反应原理</th>
+                    <th>收集方法</th>
+                    <th>检验方法</th>
+                    <th>尾气处理</th>
+                </tr>
+                <tr>
+                    <td>O₂</td>
+                    <td>$2KMnO_4 \stackrel{\Delta}{\longrightarrow} K_2MnO_4 + MnO_2 + O_2↑$<br/>或 $2H_2O_2 \stackrel{MnO_2}{\longrightarrow} 2H_2O + O_2↑$</td>
+                    <td>排水法或向上排空气法</td>
+                    <td>带火星木条复燃</td>
+                    <td>无需处理</td>
+                </tr>
+                <tr>
+                    <td>H₂</td>
+                    <td>$Zn + H_2SO_4 = ZnSO_4 + H_2↑$</td>
+                    <td>排水法或向下排空气法</td>
+                    <td>点燃有淡蓝色火焰</td>
+                    <td>点燃或收集</td>
+                </tr>
+                <tr>
+                    <td>CO₂</td>
+                    <td>$CaCO_3 + 2HCl = CaCl_2 + H_2O + CO_2↑$</td>
+                    <td>向上排空气法</td>
+                    <td>通入澄清石灰水变浑浊</td>
+                    <td>无需处理</td>
+                </tr>
+                <tr>
+                    <td>Cl₂</td>
+                    <td>$MnO_2 + 4HCl(浓) \stackrel{\Delta}{\longrightarrow} MnCl_2 + 2H_2O + Cl_2↑$</td>
+                    <td>向上排空气法或排饱和食盐水法</td>
+                    <td>使湿润的淀粉-KI试纸变蓝</td>
+                    <td>用NaOH溶液吸收</td>
+                </tr>
+                <tr>
+                    <td>NH₃</td>
+                    <td>$2NH_4Cl + Ca(OH)_2 \stackrel{\Delta}{\longrightarrow} CaCl_2 + 2NH_3↑ + 2H_2O$</td>
+                    <td>向下排空气法</td>
+                    <td>使湿润的红色石蕊试纸变蓝</td>
+                    <td>用水或稀硫酸吸收（防倒吸）</td>
+                </tr>
+                <tr>
+                    <td>SO₂</td>
+                    <td>$Na_2SO_3 + H_2SO_4 = Na_2SO_4 + H_2O + SO_2↑$</td>
+                    <td>向上排空气法</td>
+                    <td>使品红溶液褪色，加热恢复红色</td>
+                    <td>用NaOH溶液吸收</td>
+                </tr>
+                <tr>
+                    <td>NO</td>
+                    <td>$3Cu + 8HNO_3(稀) = 3Cu(NO_3)_2 + 2NO↑ + 4H_2O$</td>
+                    <td>排水法（不能用排空气法）</td>
+                    <td>遇空气变红棕色</td>
+                    <td>与O₂混合通入NaOH溶液</td>
+                </tr>
+                <tr>
+                    <td>NO₂</td>
+                    <td>$Cu + 4HNO_3(浓) = Cu(NO_3)_2 + 2NO_2↑ + 2H_2O$</td>
+                    <td>向上排空气法</td>
+                    <td>红棕色气体</td>
+                    <td>用NaOH溶液吸收</td>
+                </tr>
+                <tr>
+                    <td>C₂H₄</td>
+                    <td>$C_2H_5OH \stackrel{浓H_2SO_4,170℃}{\longrightarrow} CH_2=CH_2↑ + H_2O$</td>
+                    <td>排水法</td>
+                    <td>使溴水或酸性KMnO₄褪色</td>
+                    <td>点燃</td>
+                </tr>
+                <tr>
+                    <td>C₂H₂</td>
+                    <td>$CaC_2 + 2H_2O → Ca(OH)_2 + C_2H_2↑$</td>
+                    <td>排水法</td>
+                    <td>使溴水或酸性KMnO₄褪色</td>
+                    <td>点燃</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>第三章 物质的检验与鉴别</h2>
+
+        <div class="section">
+            <h3>3.1 常见阳离子检验</h3>
+            <table>
+                <tr>
+                    <th>离子</th>
+                    <th>检验试剂</th>
+                    <th>现象</th>
+                    <th>离子方程式</th>
+                </tr>
+                <tr>
+                    <td>H⁺</td>
+                    <td>紫色石蕊试液</td>
+                    <td>变红</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Na⁺</td>
+                    <td>焰色反应</td>
+                    <td>黄色火焰</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>K⁺</td>
+                    <td>焰色反应（透过蓝色钴玻璃）</td>
+                    <td>紫色火焰</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>NH₄⁺</td>
+                    <td>NaOH溶液，加热</td>
+                    <td>产生使湿润红色石蕊试纸变蓝的气体</td>
+                    <td>$NH_4^+ + OH^- \stackrel{\Delta}{\longrightarrow} NH_3↑ + H_2O$</td>
+                </tr>
+                <tr>
+                    <td>Fe²⁺</td>
+                    <td>①NaOH溶液<br/>②KSCN溶液+氯水</td>
+                    <td>①白色沉淀→灰绿色→红褐色<br/>②先无现象，后变血红色</td>
+                    <td>$Fe^{2+} + 2OH^- = Fe(OH)_2↓$</td>
+                </tr>
+                <tr>
+                    <td>Fe³⁺</td>
+                    <td>①KSCN溶液<br/>②NaOH溶液</td>
+                    <td>①溶液变血红色<br/>②产生红褐色沉淀</td>
+                    <td>$Fe^{3+} + 3SCN^- = Fe(SCN)_3$</td>
+                </tr>
+                <tr>
+                    <td>Cu²⁺</td>
+                    <td>NaOH溶液</td>
+                    <td>产生蓝色沉淀</td>
+                    <td>$Cu^{2+} + 2OH^- = Cu(OH)_2↓$</td>
+                </tr>
+                <tr>
+                    <td>Al³⁺</td>
+                    <td>NaOH溶液</td>
+                    <td>产生白色沉淀，NaOH过量时溶解</td>
+                    <td>$Al^{3+} + 3OH^- = Al(OH)_3↓$<br/>$Al(OH)_3 + OH^- = AlO_2^- + 2H_2O$</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>3.2 常见阴离子检验</h3>
+            <table>
+                <tr>
+                    <th>离子</th>
+                    <th>检验试剂</th>
+                    <th>现象</th>
+                </tr>
+                <tr>
+                    <td>OH⁻</td>
+                    <td>①紫色石蕊试液<br/>②无色酚酞试液</td>
+                    <td>①变蓝<br/>②变红</td>
+                </tr>
+                <tr>
+                    <td>Cl⁻</td>
+                    <td>AgNO₃溶液+稀HNO₃</td>
+                    <td>产生白色沉淀，不溶于稀HNO₃</td>
+                </tr>
+                <tr>
+                    <td>Br⁻</td>
+                    <td>AgNO₃溶液+稀HNO₃</td>
+                    <td>产生淡黄色沉淀，不溶于稀HNO₃</td>
+                </tr>
+                <tr>
+                    <td>I⁻</td>
+                    <td>①AgNO₃溶液+稀HNO₃<br/>②氯水+CCl₄</td>
+                    <td>①产生黄色沉淀<br/>②CCl₄层呈紫红色</td>
+                </tr>
+                <tr>
+                    <td>SO₄²⁻</td>
+                    <td>稀HCl+BaCl₂溶液</td>
+                    <td>先加稀HCl无现象，再加BaCl₂产生白色沉淀</td>
+                </tr>
+                <tr>
+                    <td>SO₃²⁻</td>
+                    <td>稀HCl+品红溶液</td>
+                    <td>产生使品红溶液褪色的气体</td>
+                </tr>
+                <tr>
+                    <td>CO₃²⁻</td>
+                    <td>稀HCl+澄清石灰水</td>
+                    <td>产生使澄清石灰水变浑浊的气体</td>
+                </tr>
+                <tr>
+                    <td>HCO₃⁻</td>
+                    <td>①稀HCl<br/>②CaCl₂溶液</td>
+                    <td>①产生气体<br/>②与CaCl₂不反应（区别于CO₃²⁻）</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>第四章 定量实验</h2>
+
+        <div class="section">
+            <h3>4.1 一定物质的量浓度溶液的配制</h3>
+            <div class="experiment-box">
+                <strong>🔸 主要仪器：</strong>容量瓶、烧杯、玻璃棒、胶头滴管、量筒（或托盘天平）
+            </div>
+            <div class="key-point">
+                <strong>💡 操作步骤：</strong>
+                <ol>
+                    <li>计算：计算所需溶质的质量或浓溶液的体积</li>
+                    <li>称量/量取：用托盘天平称量固体，或用量筒量取液体</li>
+                    <li>溶解/稀释：在烧杯中溶解或稀释，用玻璃棒搅拌</li>
+                    <li>转移：冷却后转移至容量瓶，用玻璃棒引流</li>
+                    <li>洗涤：洗涤烧杯和玻璃棒2-3次，洗液一并转入容量瓶</li>
+                    <li>定容：加水至接近刻度线1-2cm处，改用胶头滴管滴加至刻度线</li>
+                    <li>摇匀：塞好瓶塞，反复颠倒摇匀</li>
+                </ol>
+            </div>
+            <div class="warning">
+                <strong>⚠️ 误差分析：</strong>
+                <ul>
+                    <li>偏高：砝码生锈、量取浓溶液时仰视、定容时俯视</li>
+                    <li>偏低：砝码缺角、转移时溶液溅出、定容时仰视、未冷却就转移</li>
+                    <li>无影响：容量瓶中原有少量蒸馏水</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>4.2 酸碱中和滴定</h3>
+            <div class="experiment-box">
+                <strong>🔸 主要仪器：</strong>酸式滴定管、碱式滴定管、锥形瓶、铁架台、滴定管夹
+            </div>
+            <div class="key-point">
+                <strong>💡 操作步骤：</strong>
+                <ol>
+                    <li>洗涤：用蒸馏水洗涤滴定管、锥形瓶</li>
+                    <li>润洗：用待装液润洗滴定管2-3次</li>
+                    <li>装液：装入待装液，排气泡，调零，记录初始读数</li>
+                    <li>取液：用移液管或滴定管准确量取待测液于锥形瓶中</li>
+                    <li>滴定：左手控制滴定管，右手摇动锥形瓶，眼睛观察溶液颜色变化</li>
+                    <li>终点判断：滴入最后半滴标准液，溶液颜色突变且30s内不恢复</li>
+                    <li>读数：记录终点读数</li>
+                    <li>计算：重复2-3次，取平均值计算</li>
+                </ol>
+            </div>
+            <div class="formula-box">
+                <strong>计算公式：</strong><br/>
+                $c_{待测} = \frac{c_{标准} \cdot V_{标准}}{V_{待测}}$
+            </div>
+            <div class="warning">
+                <strong>⚠️ 误差分析：</strong>
+                <ul>
+                    <li>偏高：滴定管未润洗、锥形瓶用待测液润洗、滴定前仰视/滴定后俯视</li>
+                    <li>偏低：待测液溅出、滴定前俯视/滴定后仰视、标准液浓度偏小</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>第五章 实验拓展（整合补充）</h2>
+
+        <div class="section">
+            <h3>5.1 气体制备四步法则</h3>
+            <div class="key-point">
+                <strong>💡 气体制备流程：</strong>
+                <p style="text-align: center; font-size: 1.1em;">
+                    <strong>发生装置 → 净化装置 → 干燥装置 → 收集/性质验证装置 → 尾气处理装置</strong>
+                </p>
+            </div>
+            <table>
+                <tr>
+                    <th>发生装置类型</th>
+                    <th>适用条件</th>
+                    <th>典型气体</th>
+                </tr>
+                <tr>
+                    <td>固固加热型</td>
+                    <td>固体+固体，需加热</td>
+                    <td>O₂、NH₃、CH₄</td>
+                </tr>
+                <tr>
+                    <td>固液加热型</td>
+                    <td>固体+液体，需加热</td>
+                    <td>Cl₂、HCl、SO₂（浓H₂SO₄+Cu）</td>
+                </tr>
+                <tr>
+                    <td>固液不加热型（简易）</td>
+                    <td>固体+液体，不加热</td>
+                    <td>H₂、CO₂、H₂S</td>
+                </tr>
+                <tr>
+                    <td>固液不加热型（分液）</td>
+                    <td>固体+液体，不加热，需控制速率</td>
+                    <td>C₂H₂、NO、NO₂、SO₂（Na₂SO₃+H₂SO₄）</td>
+                </tr>
+                <tr>
+                    <td>液液加热型</td>
+                    <td>液体+液体，需加热</td>
+                    <td>C₂H₄</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>5.2 温度计位置（高频考点）</h3>
+            <div class="key-point">
+                <strong>💡 温度计位置要点：</strong>
+                <ul>
+                    <li><strong>蒸馏/分馏：</strong>温度计水银球位于<strong>支管口处</strong>（测蒸气温度）</li>
+                    <li><strong>乙烯制备：</strong>温度计插入<strong>反应液中</strong>（控制170℃）</li>
+                    <li><strong>硝基苯制备：</strong>温度计插入<strong>水浴中</strong>（控制50-60℃）</li>
+                    <li><strong>银镜反应：</strong>水浴加热，温度计插入<strong>水浴中</strong>（控制60-70℃）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.3 干燥剂选择</h3>
+            <div class="warning">
+                <strong>⚠️ 干燥剂选择（牢记不可干燥的气体）：</strong>
+                <ul>
+                    <li><strong>浓H₂SO₄（酸性、强氧化性）：</strong>不能干燥NH₃（反应）、H₂S（氧化）、HI、HBr（氧化）</li>
+                    <li><strong>无水CaCl₂（中性）：</strong>不能干燥NH₃（形成CaCl₂·8NH₃配合物）</li>
+                    <li><strong>碱石灰（NaOH+CaO，碱性）：</strong>不能干燥酸性气体（CO₂、SO₂、HCl、H₂S、Cl₂、NO₂等）</li>
+                    <li><strong>P₂O₅（酸性）：</strong>不能干燥NH₃</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.4 重要气体制备详解</h3>
+            <div class="experiment-box">
+                <strong>🔸 Cl₂的制备（重点）：</strong><br/>
+                MnO₂ + 4HCl(浓) →(△) MnCl₂ + Cl₂↑ + 2H₂O<br/><br/>
+                <strong>装置顺序：</strong>
+                <ol>
+                    <li>发生装置：圆底烧瓶+分液漏斗（浓盐酸）+酒精灯加热</li>
+                    <li>净化装置：饱和食盐水（洗气瓶，除HCl）</li>
+                    <li>干燥装置：浓H₂SO₄（洗气瓶，除水）</li>
+                    <li>收集装置：向上排空气法或排饱和食盐水法</li>
+                    <li>尾气处理：NaOH溶液（注意防倒吸）</li>
+                </ol>
+                <strong>关键细节：</strong>
+                <ul>
+                    <li>必须用浓盐酸（稀盐酸不反应）</li>
+                    <li>饱和食盐水作用：Cl₂在饱和食盐水中溶解度小（同离子效应），HCl极易溶</li>
+                    <li>检验：湿润淀粉KI试纸（变蓝：Cl₂ + 2KI = 2KCl + I₂）</li>
+                </ul>
+            </div>
+            <div class="experiment-box">
+                <strong>🔸 NH₃的制备（重点）：</strong><br/>
+                2NH₄Cl + Ca(OH)₂ →(△) CaCl₂ + 2NH₃↑ + 2H₂O<br/><br/>
+                <strong>注意：</strong>
+                <ul>
+                    <li>不能用NH₄NO₃（易爆）或NH₄HCO₃（分解产物复杂）</li>
+                    <li>不能用NaOH或KOH代替Ca(OH)₂（腐蚀玻璃，且易结块不利于NH₃逸出）</li>
+                    <li>收集：向下排空气法；试管口塞一团棉花（防对流，使收集更纯）</li>
+                    <li>干燥：碱石灰（不能用浓H₂SO₄、P₂O₅、无水CaCl₂）</li>
+                </ul>
+            </div>
+            <div class="experiment-box">
+                <strong>🔸 C₂H₄（乙烯）的制备：</strong><br/>
+                C₂H₅OH →(浓H₂SO₄/170℃) CH₂=CH₂↑ + H₂O<br/><br/>
+                <strong>关键细节：</strong>
+                <ul>
+                    <li>浓H₂SO₄作用：催化剂、脱水剂、吸水剂</li>
+                    <li>体积比：V(乙醇):V(浓H₂SO₄) ≈ 1:3</li>
+                    <li>温度计插入反应液中（控制170℃）</li>
+                    <li>加入碎瓷片（或沸石）防暴沸</li>
+                    <li>温度控制：140℃时生成乙醚，需迅速升温至170℃</li>
+                    <li>净化：NaOH溶液除SO₂、CO₂；碱石灰干燥</li>
+                </ul>
+            </div>
+            <div class="experiment-box">
+                <strong>🔸 C₂H₂（乙炔）的制备：</strong><br/>
+                CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂↑<br/><br/>
+                <strong>注意：</strong>
+                <ul>
+                    <li>不能用启普发生器（反应剧烈放热，易损坏；生成的Ca(OH)₂糊状易堵塞）</li>
+                    <li>用饱和食盐水代替水（减缓反应速率，获得平稳气流）</li>
+                    <li>净化：CuSO₄溶液除H₂S、PH₃杂质（电石中含S、P杂质）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.5 尾气处理</h3>
+            <div class="warning">
+                <strong>⚠️ 有毒气体尾气处理：</strong>
+                <ul>
+                    <li><strong>Cl₂、SO₂、H₂S、NO₂、HCl：</strong>用NaOH溶液吸收</li>
+                    <li><strong>NO（不与水反应）：</strong>与O₂混合后通入NaOH溶液；或收集（气球）</li>
+                    <li><strong>NH₃：</strong>用水吸收，防倒吸（倒扣漏斗、安全瓶）</li>
+                    <li><strong>CO：</strong>点燃或收集（气球）</li>
+                    <li><strong>防倒吸装置：</strong>倒扣漏斗、安全瓶（短进短出）、球形干燥管</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.6 气体检验方法总结</h3>
+            <table>
+                <tr>
+                    <th>气体</th>
+                    <th>检验方法</th>
+                    <th>现象</th>
+                </tr>
+                <tr>
+                    <td>O₂</td>
+                    <td>带火星的木条</td>
+                    <td>木条复燃</td>
+                </tr>
+                <tr>
+                    <td>H₂</td>
+                    <td>点燃</td>
+                    <td>淡蓝色火焰，有爆鸣声</td>
+                </tr>
+                <tr>
+                    <td>CO₂</td>
+                    <td>澄清石灰水</td>
+                    <td>石灰水变浑浊</td>
+                </tr>
+                <tr>
+                    <td>Cl₂</td>
+                    <td>湿润的淀粉-KI试纸</td>
+                    <td>试纸变蓝</td>
+                </tr>
+                <tr>
+                    <td>NH₃</td>
+                    <td>湿润的红色石蕊试纸</td>
+                    <td>试纸变蓝</td>
+                </tr>
+                <tr>
+                    <td>SO₂</td>
+                    <td>品红溶液</td>
+                    <td>品红褪色，加热恢复红色</td>
+                </tr>
+                <tr>
+                    <td>NO</td>
+                    <td>暴露在空气中</td>
+                    <td>无色变红棕色</td>
+                </tr>
+                <tr>
+                    <td>NO₂</td>
+                    <td>观察颜色</td>
+                    <td>红棕色气体</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 化学实验装置示意图 -->
+        <div class="module-box">
+            <div class="module-title">🎨 化学实验装置示意图</div>
+            
+            <div class="section">
+                <h3>常见气体制备装置</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 固固加热制气装置 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 380px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e74c3c; margin-bottom: 10px;">固固加热制气装置</h4>
+                        <svg width="340" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 铁架台 -->
+                            <line x1="50" y1="230" x2="50" y2="30" stroke="#333" stroke-width="3"/>
+                            <line x1="40" y1="230" x2="60" y2="230" stroke="#333" stroke-width="3"/>
+                            <line x1="40" y1="30" x2="100" y2="30" stroke="#333" stroke-width="3"/>
+                            
+                            <!-- 试管夹 -->
+                            <path d="M 90 80 Q 100 80, 100 90 L 100 100" stroke="#333" stroke-width="2" fill="none"/>
+                            
+                            <!-- 试管 -->
+                            <path d="M 110 60 L 110 160 Q 110 170, 120 170 L 160 170 Q 170 170, 170 160 L 170 60" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <path d="M 110 60 L 105 50 L 175 50 L 170 60" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 试管内固体 -->
+                            <path d="M 120 150 L 125 140 L 135 145 L 145 138 L 155 145 L 160 150 Z" fill="#d4a574" stroke="#333" stroke-width="1"/>
+                            <text x="140" y="165" font-size="9" fill="#333">固体药品</text>
+                            
+                            <!-- 棉花 -->
+                            <ellipse cx="140" cy="75" rx="25" ry="5" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <text x="140" y="90" font-size="8" fill="#333">棉花</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="170" y1="100" x2="220" y2="100" stroke="#333" stroke-width="2"/>
+                            <line x1="220" y1="100" x2="220" y2="180" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 酒精灯 -->
+                            <ellipse cx="140" cy="210" rx="25" ry="10" fill="#e74c3c" stroke="#333" stroke-width="2"/>
+                            <rect x="130" y="190" width="20" height="20" fill="#c0392b" stroke="#333" stroke-width="1"/>
+                            <line x1="140" y1="190" x2="140" y2="180" stroke="#333" stroke-width="2"/>
+                            <path d="M 140 180 Q 135 170, 140 165 Q 145 170, 140 180" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+                            <text x="140" y="235" font-size="10" fill="#333">酒精灯</text>
+                            
+                            <!-- 收集瓶 -->
+                            <path d="M 200 180 L 200 220 Q 200 230, 210 230 L 230 230 Q 240 230, 240 220 L 240 180" fill="#e8f4f8" stroke="#333" stroke-width="2" opacity="0.5"/>
+                            <text x="220" y="210" font-size="9" fill="#333">集气瓶</text>
+                            
+                            <!-- 说明 -->
+                            <text x="170" y="30" font-size="10" fill="#666">适用于：O₂、NH₃等</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">试管口略向下倾斜<br/>用酒精灯外焰加热<br/>适用于固体加热反应</p>
+                    </div>
+                    
+                    <!-- 固液不加热制气装置 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 380px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #3498db; margin-bottom: 10px;">固液不加热制气装置</h4>
+                        <svg width="340" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 锥形瓶 -->
+                            <path d="M 120 80 L 100 180 Q 95 200, 115 200 L 185 200 Q 205 200, 200 180 L 180 80" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="150" cy="80" rx="30" ry="8" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 液体 -->
+                            <path d="M 115 150 Q 110 170, 120 170 L 180 170 Q 190 170, 185 150 L 180 140 L 120 140 Z" fill="#d4edda" opacity="0.6"/>
+                            <text x="150" y="160" font-size="9" fill="#333">稀酸</text>
+                            
+                            <!-- 固体（放在隔板上） -->
+                            <rect x="135" y="130" width="30" height="8" fill="#95a5a6" stroke="#333" stroke-width="1"/>
+                            <path d="M 140 125 L 145 118 L 155 122 L 160 120" fill="#d4a574" stroke="#333" stroke-width="1"/>
+                            <text x="150" y="115" font-size="8" fill="#333">固体</text>
+                            
+                            <!-- 长颈漏斗 -->
+                            <line x1="150" y1="80" x2="150" y2="40" stroke="#333" stroke-width="2"/>
+                            <line x1="145" y1="40" x2="155" y2="40" stroke="#333" stroke-width="2"/>
+                            <path d="M 140 40 L 135 25 L 165 25 L 160 40" fill="#e8f4f8" stroke="#333" stroke-width="1"/>
+                            <text x="180" y="35" font-size="9" fill="#333">长颈漏斗</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="200" y1="120" x2="250" y2="120" stroke="#333" stroke-width="2"/>
+                            <line x1="250" y1="120" x2="250" y2="180" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 收集瓶 -->
+                            <path d="M 230 180 L 230 220 Q 230 230, 240 230 L 260 230 Q 270 230, 270 220 L 270 180" fill="#e8f4f8" stroke="#333" stroke-width="2" opacity="0.5"/>
+                            <text x="250" y="210" font-size="9" fill="#333">集气瓶</text>
+                            
+                            <!-- 说明 -->
+                            <text x="170" y="30" font-size="10" fill="#666">适用于：H₂、CO₂等</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">长颈漏斗下端伸入液面下<br/>形成液封，防止气体逸出<br/>适用于固液常温反应</p>
+                    </div>
+                    
+                    <!-- 分液漏斗制气装置 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 380px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #27ae60; margin-bottom: 10px;">分液漏斗制气装置</h4>
+                        <svg width="340" height="280" style="background: white; border-radius: 4px;">
+                            <!-- 锥形瓶 -->
+                            <path d="M 120 100 L 100 200 Q 95 220, 115 220 L 185 220 Q 205 220, 200 200 L 180 100" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="150" cy="100" rx="30" ry="8" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 液体 -->
+                            <path d="M 115 170 Q 110 190, 120 190 L 180 190 Q 190 190, 185 170 L 180 160 L 120 160 Z" fill="#d4edda" opacity="0.6"/>
+                            
+                            <!-- 分液漏斗 -->
+                            <path d="M 150 100 L 150 60" stroke="#333" stroke-width="2"/>
+                            <path d="M 135 60 L 140 20 L 160 20 L 165 60 Z" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <line x1="140" y1="35" x2="160" y2="35" stroke="#333" stroke-width="2"/>
+                            <text x="180" y="40" font-size="9" fill="#333">分液漏斗</text>
+                            
+                            <!-- 活塞 -->
+                            <rect x="145" y="70" width="10" height="5" fill="#333"/>
+                            <line x1="140" y1="72" x2="160" y2="72" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 导管 -->
+                            <line x1="200" y1="140" x2="260" y2="140" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 洗气瓶（干燥/除杂） -->
+                            <path d="M 240 120 L 240 180 Q 240 190, 250 190 L 270 190 Q 280 190, 280 180 L 280 120" fill="#e8f4f8" stroke="#333" stroke-width="2" opacity="0.5"/>
+                            <line x1="240" y1="140" x2="280" y2="140" stroke="#333" stroke-width="1" stroke-dasharray="3,3"/>
+                            <text x="260" y="165" font-size="9" fill="#333">洗气瓶</text>
+                            
+                            <!-- 双孔塞 -->
+                            <ellipse cx="150" cy="100" rx="8" ry="3" fill="#333"/>
+                            
+                            <!-- 说明 -->
+                            <text x="170" y="30" font-size="10" fill="#666">可控制反应速率</text>
+                            <text x="170" y="45" font-size="10" fill="#666">适用于：Cl₂等</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">分液漏斗可控制液体滴加速度<br/>从而控制反应速率<br/>可添加洗气装置除杂或干燥</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>气体收集与检验装置</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 排水法收集 -->
+                    <div style="text-align: center; flex: 1; min-width: 250px; max-width: 300px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #9b59b6; margin-bottom: 10px;">排水法收集</h4>
+                        <svg width="260" height="220" style="background: white; border-radius: 4px;">
+                            <!-- 水槽 -->
+                            <path d="M 40 120 L 40 180 Q 40 190, 50 190 L 210 190 Q 220 190, 220 180 L 220 120" fill="#d4edda" stroke="#333" stroke-width="2" opacity="0.5"/>
+                            <line x1="40" y1="140" x2="220" y2="140" stroke="#3498db" stroke-width="1" opacity="0.5"/>
+                            
+                            <!-- 集气瓶 -->
+                            <path d="M 100 60 L 100 170 Q 100 180, 110 180 L 150 180 Q 160 180, 160 170 L 160 60" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="130" cy="60" rx="30" ry="8" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 水 -->
+                            <path d="M 105 130 L 105 170 Q 105 175, 110 175 L 150 175 Q 155 175, 155 170 L 155 130" fill="#3498db" opacity="0.3"/>
+                            
+                            <!-- 导管 -->
+                            <line x1="160" y1="100" x2="200" y2="100" stroke="#333" stroke-width="2"/>
+                            <line x1="200" y1="100" x2="200" y2="160" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 玻璃片 -->
+                            <line x1="90" y1="55" x2="170" y2="55" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 气泡 -->
+                            <circle cx="200" cy="150" r="4" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <circle cx="195" cy="140" r="3" fill="#fff" stroke="#333" stroke-width="1"/>
+                            
+                            <text x="130" y="40" font-size="10" fill="#666">适用于不溶于水的气体</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">O₂、H₂、NO等<br/>收集的气体较纯净</p>
+                    </div>
+                    
+                    <!-- 向上排空气法 -->
+                    <div style="text-align: center; flex: 1; min-width: 250px; max-width: 300px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e67e22; margin-bottom: 10px;">向上排空气法</h4>
+                        <svg width="260" height="220" style="background: white; border-radius: 4px;">
+                            <!-- 集气瓶 -->
+                            <path d="M 80 60 L 80 180 Q 80 190, 90 190 L 170 190 Q 180 190, 180 180 L 180 60" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="130" cy="60" rx="50" ry="10" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 导管（长进短出） -->
+                            <line x1="130" y1="20" x2="130" y2="160" stroke="#333" stroke-width="2"/>
+                            <line x1="180" y1="100" x2="220" y2="100" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 玻璃片 -->
+                            <line x1="70" y1="55" x2="190" y2="55" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 空气排出箭头 -->
+                            <path d="M 200 90 L 220 100 L 200 110" fill="none" stroke="#95a5a6" stroke-width="1.5"/>
+                            <text x="210" y="85" font-size="9" fill="#95a5a6">空气</text>
+                            
+                            <text x="130" y="40" font-size="10" fill="#666">密度比空气大的气体</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">CO₂、Cl₂、NO₂等<br/>导管长进短出</p>
+                    </div>
+                    
+                    <!-- 向下排空气法 -->
+                    <div style="text-align: center; flex: 1; min-width: 250px; max-width: 300px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #f39c12; margin-bottom: 10px;">向下排空气法</h4>
+                        <svg width="260" height="220" style="background: white; border-radius: 4px;">
+                            <!-- 集气瓶（倒置） -->
+                            <path d="M 80 180 L 80 60 Q 80 50, 90 50 L 170 50 Q 180 50, 180 60 L 180 180" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="130" cy="180" rx="50" ry="10" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 导管（短进长出） -->
+                            <line x1="130" y1="220" x2="130" y2="80" stroke="#333" stroke-width="2"/>
+                            <line x1="180" y1="140" x2="220" y2="140" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 玻璃片 -->
+                            <line x1="70" y1="185" x2="190" y2="185" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 空气排出箭头 -->
+                            <path d="M 200 130 L 220 140 L 200 150" fill="none" stroke="#95a5a6" stroke-width="1.5"/>
+                            <text x="210" y="125" font-size="9" fill="#95a5a6">空气</text>
+                            
+                            <text x="130" y="40" font-size="10" fill="#666">密度比空气小的气体</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">H₂、NH₃等<br/>导管短进长出</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>常见实验操作示意图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 过滤操作 -->
+                    <div style="text-align: center; flex: 1; min-width: 250px; max-width: 300px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #3498db; margin-bottom: 10px;">过滤操作</h4>
+                        <svg width="260" height="220" style="background: white; border-radius: 4px;">
+                            <!-- 铁架台 -->
+                            <line x1="40" y1="200" x2="40" y2="40" stroke="#333" stroke-width="2"/>
+                            <line x1="35" y1="200" x2="45" y2="200" stroke="#333" stroke-width="2"/>
+                            <line x1="35" y1="60" x2="80" y2="60" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 烧杯 -->
+                            <path d="M 100 120 L 100 180 Q 100 190, 110 190 L 190 190 Q 200 190, 200 180 L 200 120" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <path d="M 100 120 L 95 110 L 205 110 L 200 120" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 漏斗 -->
+                            <path d="M 130 50 L 125 100 L 145 100 L 140 50" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <line x1="135" y1="100" x2="135" y2="150" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 滤纸 -->
+                            <path d="M 128 55 L 124 98 L 146 98 L 142 55 Z" fill="#fff" stroke="#333" stroke-width="1"/>
+                            
+                            <!-- 玻璃棒 -->
+                            <line x1="80" y1="80" x2="130" y2="70" stroke="#333" stroke-width="3"/>
+                            <text x="70" y="75" font-size="9" fill="#333">玻璃棒</text>
+                            
+                            <!-- 液体 -->
+                            <path d="M 110 160 Q 110 175, 120 175 L 180 175 Q 190 175, 190 160" fill="#3498db" opacity="0.3"/>
+                            
+                            <!-- 烧杯（盛待过滤液） -->
+                            <path d="M 50 80 L 50 110 Q 50 115, 55 115 L 85 115 Q 90 115, 90 110 L 90 80" fill="#e8f4f8" stroke="#333" stroke-width="1.5"/>
+                            <path d="M 55 100 L 60 95 L 70 98 L 75 96" fill="#3498db" opacity="0.5" stroke="#333" stroke-width="0.5"/>
+                            
+                            <text x="150" y="40" font-size="9" fill="#666">一贴二低三靠</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">一贴：滤纸紧贴漏斗<br/>二低：滤纸低于漏斗边缘，液面低于滤纸<br/>三靠：烧杯靠玻璃棒，玻璃棒靠三层滤纸，漏斗下端靠烧杯壁</p>
+                    </div>
+                    
+                    <!-- 蒸发操作 -->
+                    <div style="text-align: center; flex: 1; min-width: 250px; max-width: 300px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e74c3c; margin-bottom: 10px;">蒸发操作</h4>
+                        <svg width="260" height="220" style="background: white; border-radius: 4px;">
+                            <!-- 铁架台 -->
+                            <line x1="50" y1="200" x2="50" y2="40" stroke="#333" stroke-width="2"/>
+                            <line x1="45" y1="200" x2="55" y2="200" stroke="#333" stroke-width="2"/>
+                            <line x1="45" y1="120" x2="100" y2="120" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 蒸发皿 -->
+                            <path d="M 110 110 Q 150 140, 190 110" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="150" cy="110" rx="40" ry="8" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 液体 -->
+                            <ellipse cx="150" cy="115" rx="35" ry="6" fill="#3498db" opacity="0.3"/>
+                            
+                            <!-- 酒精灯 -->
+                            <ellipse cx="150" cy="180" rx="20" ry="8" fill="#e74c3c" stroke="#333" stroke-width="2"/>
+                            <rect x="142" y="165" width="16" height="15" fill="#c0392b" stroke="#333" stroke-width="1"/>
+                            <line x1="150" y1="165" x2="150" y2="158" stroke="#333" stroke-width="1.5"/>
+                            <path d="M 150 158 Q 147 152, 150 148 Q 153 152, 150 158" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+                            
+                            <!-- 玻璃棒 -->
+                            <line x1="120" y1="60" x2="160" y2="115" stroke="#333" stroke-width="2"/>
+                            <text x="100" y="70" font-size="9" fill="#333">玻璃棒搅拌</text>
+                            
+                            <!-- 蒸气 -->
+                            <path d="M 140 100 Q 135 90, 140 80" fill="none" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="2,2"/>
+                            <path d="M 150 95 Q 155 85, 150 75" fill="none" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="2,2"/>
+                            <path d="M 160 100 Q 165 90, 160 80" fill="none" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="2,2"/>
+                            
+                            <text x="180" y="40" font-size="9" fill="#666">边加热边搅拌</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">边加热边用玻璃棒搅拌<br/>防止局部过热液体飞溅<br/>有大量晶体析出时停止加热</p>
+                    </div>
+                    
+                    <!-- 蒸馏装置 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 350px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #9b59b6; margin-bottom: 10px;">蒸馏装置</h4>
+                        <svg width="310" height="220" style="background: white; border-radius: 4px;">
+                            <!-- 铁架台 -->
+                            <line x1="40" y1="200" x2="40" y2="40" stroke="#333" stroke-width="2"/>
+                            <line x1="35" y1="200" x2="45" y2="200" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 蒸馏烧瓶 -->
+                            <path d="M 70 100 Q 60 150, 90 170 L 130 170 Q 160 150, 150 100" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="110" cy="100" rx="40" ry="8" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 支管 -->
+                            <line x1="150" y1="120" x2="190" y2="120" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 温度计 -->
+                            <line x1="110" y1="60" x2="110" y2="100" stroke="#333" stroke-width="2"/>
+                            <line x1="105" y1="60" x2="115" y2="60" stroke="#333" stroke-width="2"/>
+                            <text x="85" y="65" font-size="8" fill="#333">温度计</text>
+                            
+                            <!-- 冷凝管 -->
+                            <rect x="190" y="90" width="60" height="30" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <line x1="200" y1="90" x2="200" y2="120" stroke="#333" stroke-width="1"/>
+                            <line x1="210" y1="90" x2="210" y2="120" stroke="#333" stroke-width="1"/>
+                            <line x1="220" y1="90" x2="220" y2="120" stroke="#333" stroke-width="1"/>
+                            <line x1="230" y1="90" x2="230" y2="120" stroke="#333" stroke-width="1"/>
+                            <line x1="240" y1="90" x2="240" y2="120" stroke="#333" stroke-width="1"/>
+                            
+                            <!-- 冷却水 -->
+                            <text x="185" y="85" font-size="8" fill="#3498db">进水</text>
+                            <text x="255" y="85" font-size="8" fill="#e74c3c">出水</text>
+                            
+                            <!-- 牛角管 -->
+                            <path d="M 250 105 L 270 115 L 270 140" fill="none" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 锥形瓶（接收器） -->
+                            <path d="M 250 140 L 240 180 Q 235 195, 250 195 L 290 195 Q 305 195, 300 180 L 290 140" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 酒精灯 -->
+                            <ellipse cx="110" cy="200" rx="18" ry="7" fill="#e74c3c" stroke="#333" stroke-width="2"/>
+                            <rect x="103" y="188" width="14" height="12" fill="#c0392b" stroke="#333" stroke-width="1"/>
+                            
+                            <text x="220" y="40" font-size="9" fill="#666">分离沸点不同的液体混合物</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">温度计水银球位于支管口处<br/>冷却水下进上出<br/>加沸石防止暴沸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="structure_and_properties.html">← 上一模块</a>
+            <a href="integration.html">下一模块：融合使用技巧 →</a>
+        </div>
+    </div>
+</body>
+</html>

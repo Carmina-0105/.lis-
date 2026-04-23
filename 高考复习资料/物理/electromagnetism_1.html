@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 电磁学模块（上）电场与电路</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #11998e;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #00f2fe;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #11998e;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border: 2px solid #4facfe;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .integration {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border: 3px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(79, 172, 254, 0.4);
+        }
+        canvas {
+            border: 2px solid #4facfe;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            background: white;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ 物理极致复习 · 电磁学模块（上）</h1>
+        <div class="subtitle">静电场、恒定电流 | 2026陕西新高考专用</div>
+
+        <!-- 模块七：静电场 -->
+        <div class="module-box">
+            <div class="module-title">⚡ 模块七：静电场</div>
+            
+            <div class="section">
+                <h3>7.1 电场强度与电场线</h3>
+                <div class="formula-box">
+                    <p>定义式：$\displaystyle E = \frac{F}{q}$（$q$ 为试探电荷，$E$ 与 $q$ 无关）</p>
+                    <p>点电荷：$\displaystyle E = k\frac{Q}{r^2}$，$k = 9.0 \times 10^9 \text{N·m}^2/\text{C}^2$</p>
+                    <p>匀强电场：$\displaystyle E = \frac{U}{d}$（$d$ 为沿电场线方向距离）</p>
+                    <p>叠加原理：$\vec{E} = \vec{E}_1 + \vec{E}_2 + \cdots$（矢量合成）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🔌 电场强度三公式对比：</strong><br/>
+                    • <span class="highlight">定义式</span>：$E = F/q$ → 普适，$E$ 与 $F$、$q$ 无关<br/>
+                    • <span class="highlight">决定式</span>：$E = kQ/r^2$ → 仅点电荷，$E \propto Q$，$E \propto 1/r^2$<br/>
+                    • <span class="highlight">关系式</span>：$E = U/d$ → 仅匀强电场，$d$ 必须是沿场强方向距离
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="fieldCanvas" width="600" height="400"></canvas>
+                    <p><em>常见电场线分布：点电荷、等量异种/同种电荷</em></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>7.2 电势能与电势</h3>
+                <div class="formula-box">
+                    <p>电势能：$E_p = q\varphi$（$q$、$\varphi$ 均带符号）</p>
+                    <p>电势：$\displaystyle \varphi = \frac{E_p}{q} = k\frac{Q}{r}$（点电荷，取无穷远为零势面）</p>
+                    <p>电势差：$U_{AB} = \varphi_A - \varphi_B = \frac{W_{AB}}{q}$</p>
+                    <p>电场力做功：$W_{AB} = qU_{AB} = -\Delta E_p$</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>物理量</th>
+                        <th>定义</th>
+                        <th>标矢性</th>
+                        <th>零势点</th>
+                        <th>与电场线关系</th>
+                    </tr>
+                    <tr>
+                        <td>电场强度 $E$</td>
+                        <td>$F/q$</td>
+                        <td>矢量</td>
+                        <td>无</td>
+                        <td>切线方向</td>
+                    </tr>
+                    <tr>
+                        <td>电势 $\varphi$</td>
+                        <td>$E_p/q$</td>
+                        <td>标量（有正负）</td>
+                        <td>人为规定</td>
+                        <td>沿电场线降低</td>
+                    </tr>
+                    <tr>
+                        <td>电势差 $U$</td>
+                        <td>$W/q$</td>
+                        <td>标量</td>
+                        <td>与零势点无关</td>
+                        <td>$U = Ed$（匀强）</td>
+                    </tr>
+                </table>
+
+                <div class="technique">
+                    <strong>🎯 电场能性质判断口诀：</strong><br/>
+                    "正电荷，高势高能；负电荷，高势低能。<br/>
+                    电场力做正功，电势能减小；<br/>
+                    电场力做负功，电势能增加。"
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>7.3 电容器与电容</h3>
+                <div class="formula-box">
+                    <p>定义：$\displaystyle C = \frac{Q}{U}$（$C$ 与 $Q$、$U$ 无关）</p>
+                    <p>平行板电容器：$\displaystyle C = \frac{\varepsilon_r S}{4\pi kd} = \frac{\varepsilon S}{d}$</p>
+                    <p>电场强度：$\displaystyle E = \frac{U}{d} = \frac{Q}{Cd} = \frac{4\pi kQ}{\varepsilon_r S}$</p>
+                    <p>储能：$\displaystyle W = \frac{1}{2}QU = \frac{1}{2}CU^2 = \frac{Q^2}{2C}$</p>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 电容器动态分析两类问题：</strong><br/>
+                    1. <span class="highlight">与电源相连（$U$ 不变）</span>：<br/>
+                    &#160;&#160;&#160;• $d \uparrow$ → $C \downarrow$ → $Q \downarrow$ → $E \downarrow$<br/>
+                    &#160;&#160;&#160;• $S \downarrow$ → $C \downarrow$ → $Q \downarrow$ → $E$ 不变（$E = U/d$）<br/>
+                    2. <span class="highlight">与电源断开（$Q$ 不变）</span>：<br/>
+                    &#160;&#160;&#160;• $d \uparrow$ → $C \downarrow$ → $U \uparrow$ → $E$ 不变（$E \propto Q/S$）<br/>
+                    &#160;&#160;&#160;• $S \downarrow$ → $C \downarrow$ → $U \uparrow$ → $E \uparrow$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>7.4 带电粒子在电场中的运动</h3>
+                <div class="formula-box">
+                    <p>加速：$qU = \frac{1}{2}mv^2 - \frac{1}{2}mv_0^2$</p>
+                    <p>偏转（类平抛）：$y = \frac{1}{2}at^2 = \frac{qUL^2}{2mdv_0^2}$</p>
+                    <p>偏转角：$\tan\theta = \frac{v_y}{v_0} = \frac{qUL}{mdv_0^2}$</p>
+                    <p><strong>重要推论：</strong>$\tan\theta = \frac{2y}{L}$（速度反向延长线过水平位移中点）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🚀 带电粒子偏转问题解题步骤：</strong><br/>
+                    1. 加速阶段：用动能定理求 $v_0$<br/>
+                    2. 偏转阶段：分解为水平匀速、竖直匀加速<br/>
+                    3. 离开电场后：匀速直线运动<br/>
+                    4. 示波器问题：$Y = y + L'\tan\theta$（$L'$ 为偏转板到屏距离）
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块八：恒定电流 -->
+        <div class="module-box">
+            <div class="module-title">🔋 模块八：恒定电流</div>
+            
+            <div class="section">
+                <h3>8.1 电路基础</h3>
+                <div class="formula-box">
+                    <p>电流：$\displaystyle I = \frac{q}{t} = nqSv$（$n$ 为单位体积自由电荷数）</p>
+                    <p>电阻定律：$\displaystyle R = \rho\frac{L}{S}$（$\rho$ 为电阻率，与材料、温度有关）</p>
+                    <p>欧姆定律：$\displaystyle I = \frac{U}{R}$（纯电阻电路）</p>
+                    <p>电功率：$P = UI = I^2R = \frac{U^2}{R}$</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>连接方式</th>
+                        <th>电流</th>
+                        <th>电压</th>
+                        <th>电阻</th>
+                        <th>功率分配</th>
+                    </tr>
+                    <tr>
+                        <td>串联</td>
+                        <td>$I = I_1 = I_2 = \cdots$</td>
+                        <td>$U = U_1 + U_2 + \cdots$</td>
+                        <td>$R = R_1 + R_2 + \cdots$</td>
+                        <td>$P \propto R$</td>
+                    </tr>
+                    <tr>
+                        <td>并联</td>
+                        <td>$I = I_1 + I_2 + \cdots$</td>
+                        <td>$U = U_1 = U_2 = \cdots$</td>
+                        <td>$\frac{1}{R} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots$</td>
+                        <td>$P \propto \frac{1}{R}$</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>8.2 闭合电路欧姆定律</h3>
+                <div class="formula-box">
+                    <p>电流：$\displaystyle I = \frac{E}{R+r}$（$E$ 为电动势，$r$ 为内阻）</p>
+                    <p>路端电压：$U = E - Ir = IR = \frac{R}{R+r}E$</p>
+                    <p>输出功率：$P_{出} = I^2R = \frac{E^2R}{(R+r)^2}$</p>
+                    <p>最大输出功率：当 $R = r$ 时，$P_{max} = \frac{E^2}{4r}$</p>
+                    <p>效率：$\eta = \frac{P_{出}}{P_{总}} = \frac{R}{R+r} = \frac{U}{E}$</p>
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="powerCanvas" width="600" height="400"></canvas>
+                    <p><em>电源输出功率随外电阻变化曲线</em></p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🔋 电源功率关系：</strong><br/>
+                    • 总功率：$P_{总} = EI$（电源消耗总功率）<br/>
+                    • 内耗功率：$P_{内} = I^2r$（内阻发热）<br/>
+                    • 输出功率：$P_{出} = UI = I^2R$（外电路获得功率）<br/>
+                    • 关系：$P_{总} = P_{出} + P_{内}$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>8.3 电路动态分析</h3>
+                <div class="technique">
+                    <strong>🔄 动态分析口诀（串反并同）：</strong><br/>
+                    <span class="highlight">串反</span>：与变化电阻串联的 $I$、$U$、$P$ 变化相反<br/>
+                    <span class="highlight">并同</span>：与变化电阻并联的 $I$、$U$、$P$ 变化相同<br/>
+                    <span class="highlight">注意</span>：适用于电源有内阻（$r \neq 0$）的情况
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 电路故障分析：</strong><br/>
+                    • <span class="highlight">断路</span>：电流为零，断路点两端电压等于电源电压<br/>
+                    • <span class="highlight">短路</span>：电压为零，电流很大<br/>
+                    • <span class="highlight">检测方法</span>：电压表法（并联）、电流表法（串联）、欧姆表法（断电）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>8.4 电学实验基础</h3>
+                <table>
+                    <tr>
+                        <th>实验</th>
+                        <th>原理</th>
+                        <th>电路图</th>
+                        <th>关键操作</th>
+                        <th>误差分析</th>
+                    </tr>
+                    <tr>
+                        <td>测电阻（伏安法）</td>
+                        <td>$R = U/I$</td>
+                        <td>内接/外接</td>
+                        <td>选量程、接法判断</td>
+                        <td>内接偏大，外接偏小</td>
+                    </tr>
+                    <tr>
+                        <td>测电源电动势和内阻</td>
+                        <td>$U = E - Ir$</td>
+                        <td>电流表内接</td>
+                        <td>作 $U-I$ 图</td>
+                        <td>$E_{测} \leq E_{真}$，$r_{测} \leq r_{真}$</td>
+                    </tr>
+                    <tr>
+                        <td>描绘小灯泡伏安特性</td>
+                        <td>$R = U/I$</td>
+                        <td>分压外接</td>
+                        <td>从零开始调节</td>
+                        <td>温度影响电阻</td>
+                    </tr>
+                    <tr>
+                        <td>电表改装</td>
+                        <td>串/并联电阻</td>
+                        <td>-</td>
+                        <td>计算分压/分流电阻</td>
+                        <td>实际电阻与计算值偏差</td>
+                    </tr>
+                </table>
+
+                <div class="key-point">
+                    <strong>🎯 内接法与外接法选择：</strong><br/>
+                    • <span class="highlight">大内偏大</span>：$R_x \gg R_A$ 用内接，测量值 $R_{测} = R_x + R_A > R_x$<br/>
+                    • <span class="highlight">小外偏小</span>：$R_x \ll R_V$ 用外接，测量值 $\frac{1}{R_{测}} = \frac{1}{R_x} + \frac{1}{R_V}$，$R_{测} &lt; R_x$<br/>
+                    • <span class="highlight">临界值</span>：$\sqrt{R_A R_V}$，大于用内接，小于用外接
+                </div>
+            </div>
+        </div>
+
+        <!-- 融合总结 -->
+        <div class="integration">
+            <h2>🔗 电磁学（上）融合总结</h2>
+            <div class="section">
+                <h3>电场与电路综合</h3>
+                <p><strong>1. 带电粒子在电场中加速+偏转：</strong>加速用动能定理，偏转用类平抛，注意示波器灵敏度 $\frac{h}{U_1}$</p>
+                <p><strong>2. 电容器+电路：</strong>含容电路稳定时电容视为断路，$Q = CU$，变化量 $\Delta Q = C\Delta U$</p>
+                <p><strong>3. 电场图像：</strong>$\varphi-x$ 图斜率 = $-E$，$E_p-x$ 图斜率 = $-F_{电}$</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="mechanics_2.html">← 上一页：力学模块（下）</a>
+            <a href="electromagnetism_2.html">下一页：电磁学模块（下）→</a>
+        </div>
+    </div>
+
+    <script>//<![CDATA[
+
+        // 电场线绘制
+        const fieldCanvas = document.getElementById('fieldCanvas');
+        const fieldCtx = fieldCanvas.getContext('2d');
+        
+        fieldCtx.fillStyle = '#f8f9fa';
+        fieldCtx.fillRect(0, 0, 600, 400);
+        
+        // 绘制等量异种电荷电场线
+        const q1x = 200, q2x = 400, qy = 200;
+        
+        // 正电荷
+        fieldCtx.fillStyle = '#e74c3c';
+        fieldCtx.beginPath();
+        fieldCtx.arc(q1x, qy, 15, 0, 2 * Math.PI);
+        fieldCtx.fill();
+        fieldCtx.fillStyle = 'white';
+        fieldCtx.font = 'bold 20px Arial';
+        fieldCtx.fillText('+', q1x - 7, qy + 7);
+        
+        // 负电荷
+        fieldCtx.fillStyle = '#3498db';
+        fieldCtx.beginPath();
+        fieldCtx.arc(q2x, qy, 15, 0, 2 * Math.PI);
+        fieldCtx.fill();
+        fieldCtx.fillStyle = 'white';
+        fieldCtx.fillText('-', q2x - 6, qy + 7);
+        
+        // 电场线
+        fieldCtx.strokeStyle = '#2ecc71';
+        fieldCtx.lineWidth = 1.5;
+        for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 8) {
+            fieldCtx.beginPath();
+            let x = q1x + 20 * Math.cos(angle);
+            let y = qy + 20 * Math.sin(angle);
+            fieldCtx.moveTo(x, y);
+            
+            for (let i = 0; i < 100; i++) {
+                const dx = q2x - q1x;
+                const dy = 0;
+                const r1 = Math.sqrt((x - q1x) ** 2 + (y - qy) ** 2);
+                const r2 = Math.sqrt((x - q2x) ** 2 + (y - qy) ** 2);
+                
+                if (r1 < 25 || r2 < 25 || x < 0 || x > 600 || y < 0 || y > 400) break;
+                
+                const Ex = (x - q1x) / r1 ** 3 - (x - q2x) / r2 ** 3;
+                const Ey = (y - qy) / r1 ** 3 - (y - qy) / r2 ** 3;
+                const E = Math.sqrt(Ex ** 2 + Ey ** 2);
+                
+                x += 8 * Ex / E;
+                y += 8 * Ey / E;
+                fieldCtx.lineTo(x, y);
+            }
+            fieldCtx.stroke();
+        }
+        
+        // 标题
+        fieldCtx.fillStyle = '#2c3e50';
+        fieldCtx.font = 'bold 18px Arial';
+        fieldCtx.fillText('等量异种电荷电场线', 220, 40);
+
+        // 功率曲线绘制
+        const powerCanvas = document.getElementById('powerCanvas');
+        const powerCtx = powerCanvas.getContext('2d');
+        
+        powerCtx.fillStyle = '#f8f9fa';
+        powerCtx.fillRect(0, 0, 600, 400);
+        
+        // 坐标轴
+        powerCtx.strokeStyle = '#333';
+        powerCtx.lineWidth = 2;
+        powerCtx.beginPath();
+        powerCtx.moveTo(50, 350);
+        powerCtx.lineTo(550, 350);
+        powerCtx.moveTo(50, 350);
+        powerCtx.lineTo(50, 50);
+        powerCtx.stroke();
+        
+        // 标签
+        powerCtx.font = '16px Arial';
+        powerCtx.fillStyle = '#333';
+        powerCtx.fillText('R/r', 560, 355);
+        powerCtx.fillText('P', 35, 40);
+        powerCtx.fillText('O', 35, 370);
+        
+        // 绘制功率曲线 P = E²R/(R+r)²
+        powerCtx.strokeStyle = '#e74c3c';
+        powerCtx.lineWidth = 3;
+        powerCtx.beginPath();
+        const E = 10, r = 10;
+        for (let R = 0.1; R <= 100; R += 0.5) {
+            const P = (E * E * R) / ((R + r) ** 2);
+            const x = 50 + (R / r) * 5;
+            const y = 350 - P * 100;
+            if (R === 0.1) powerCtx.moveTo(x, y);
+            else powerCtx.lineTo(x, y);
+        }
+        powerCtx.stroke();
+        
+        // 最大值点
+        powerCtx.fillStyle = '#e74c3c';
+        powerCtx.beginPath();
+        powerCtx.arc(50 + 50, 350 - 25, 6, 0, 2 * Math.PI);
+        powerCtx.fill();
+        
+        // 标注
+        powerCtx.fillStyle = '#e74c3c';
+        powerCtx.font = '14px Arial';
+        powerCtx.fillText('R=r时P最大', 120, 200);
+        powerCtx.fillText('Pmax=E²/4r', 120, 220);
+        
+        // 效率曲线
+        powerCtx.strokeStyle = '#3498db';
+        powerCtx.lineWidth = 2;
+        powerCtx.setLineDash([5, 5]);
+        powerCtx.beginPath();
+        for (let R = 0.1; R <= 100; R += 0.5) {
+            const eta = R / (R + r);
+            const x = 50 + (R / r) * 5;
+            const y = 350 - eta * 300;
+            if (R === 0.1) powerCtx.moveTo(x, y);
+            else powerCtx.lineTo(x, y);
+        }
+        powerCtx.stroke();
+        powerCtx.setLineDash([]);
+        
+        powerCtx.fillStyle = '#3498db';
+        powerCtx.fillText('效率η', 450, 150);
+        
+        // 标题
+        powerCtx.fillStyle = '#2c3e50';
+        powerCtx.font = 'bold 18px Arial';
+        powerCtx.fillText('电源输出功率与效率曲线', 200, 40);
+    
+//]]></script>
+</body>
+</html>

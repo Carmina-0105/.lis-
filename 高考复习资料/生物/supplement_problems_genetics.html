@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遗传模块专项练习 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #f5576c;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #f5576c; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #f5576c;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #f5576c;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #f5576c;
+        }
+        h3 {
+            color: #d63031;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .problem {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .problem-title {
+            color: #f5576c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .problem-content {
+            margin-bottom: 15px;
+        }
+        .options {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .answer {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .answer-title {
+            color: #155724;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .analysis {
+            color: #333;
+            line-height: 1.8;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #f093fb20, #f5576c20);
+            border-left: 4px solid #f5576c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .mistake-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-easy { background: #28a745; color: white; }
+        .tag-medium { background: #ffc107; color: #333; }
+        .tag-hard { background: #dc3545; color: white; }
+        .tag-important { background: #e74c3c; color: white; }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module06_mendel.html">模块6</a>
+                <a href="module07_gene_chromosome.html">模块7</a>
+                <a href="module08_gene_expression.html">模块8</a>
+                <a href="module09_variation.html">模块9</a>
+                <a href="module10_evolution.html">模块10</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🧬 遗传模块专项练习</h1>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">
+                涵盖模块6-10：遗传因子的发现、基因和染色体的关系、基因的本质与表达、变异与育种、现代生物进化理论
+            </p>
+
+            <h2>一、遗传因子的发现（模块6）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-easy">基础</span>
+                    例题1【分离定律应用】
+                </div>
+                <div class="problem-content">
+                    豌豆的高茎(D)对矮茎(d)为显性。现有一株高茎豌豆，要确定其基因型，最简便的方法是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 用基因型为DD的豌豆与其杂交</p>
+                    <p>B. 用基因型为Dd的豌豆与其杂交</p>
+                    <p>C. 用基因型为dd的豌豆与其测交</p>
+                    <p>D. 让其自交，观察后代是否性状分离</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：D</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        确定显性个体基因型的方法有两种：<br/>
+                        1. <strong>测交法：</strong>与隐性纯合子(dd)杂交。若后代全为高茎，则为DD；若后代出现矮茎，则为Dd。<br/>
+                        2. <strong>自交法：</strong>让该高茎豌豆自交。若后代全为高茎，则为DD；若后代出现矮茎（性状分离），则为Dd。<br/><br/>
+                        
+                        对于豌豆而言，自交是最简便的方法，因为豌豆是自花传粉、闭花受粉的植物，自然状态下就是自交。不需要人工去雄、套袋等复杂操作。<br/><br/>
+                        
+                        <strong>答案D正确。</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-hard">较难</span>
+                    <span class="tag tag-important">重点</span>
+                    例题2【自由组合定律计算】
+                </div>
+                <div class="problem-content">
+                    某植物的花色由两对等位基因(A/a和B/b)控制，遵循自由组合定律。基因型为A_B_的植株开红花，A_bb的植株开粉花，aaB_和aabb的植株开白花。现有基因型为AaBb的植株自交，后代的表现型及比例为（  ）
+                </div>
+                <div class="options">
+                    <p>A. 红花:粉花:白花 = 9:3:4</p>
+                    <p>B. 红花:粉花:白花 = 9:4:3</p>
+                    <p>C. 红花:粉花:白花 = 12:3:1</p>
+                    <p>D. 红花:粉花:白花 = 9:6:1</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：A</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>步骤1：分析基因型与表现型的对应关系</strong><br/>
+                        • 红花：A_B_（双显性）<br/>
+                        • 粉花：A_bb（单显性A）<br/>
+                        • 白花：aaB_ + aabb（单显性B + 双隐性）<br/><br/>
+                        
+                        <strong>步骤2：计算AaBb自交后代各基因型比例</strong><br/>
+                        AaBb自交，后代基因型比例为：<br/>
+                        A_B_ : A_bb : aaB_ : aabb = 9 : 3 : 3 : 1<br/><br/>
+                        
+                        <strong>步骤3：合并表现型</strong><br/>
+                        • 红花(A_B_)：9/16<br/>
+                        • 粉花(A_bb)：3/16<br/>
+                        • 白花(aaB_ + aabb)：3/16 + 1/16 = 4/16<br/><br/>
+                        
+                        <strong>表现型比例为：红花:粉花:白花 = 9:3:4</strong><br/><br/>
+                        
+                        <strong>注意：</strong>这是9:3:3:1的变式，属于"隐性上位"效应。aa基因掩盖了B/b基因的作用。
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>📝 9:3:3:1的变式类型总结</strong><br/><br/>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="background: #f5576c; color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">类型</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">条件</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">比例</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">实例</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">互补作用</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">双显性才表现某性状</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">9:7</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">香豌豆花色</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">累加作用</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">显性基因累加效应</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">9:6:1</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">南瓜果形</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">重叠作用</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">只要有显性基因就表现</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">15:1</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">荠菜果形</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">隐性上位</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">aa掩盖B的作用</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">9:3:4</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">家兔毛色</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">显性上位</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">A掩盖B的作用</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">12:3:1</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">燕麦颖色</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>二、基因和染色体的关系（模块7）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    <span class="tag tag-important">重点</span>
+                    例题3【伴性遗传】
+                </div>
+                <div class="problem-content">
+                    人类红绿色盲是伴X染色体隐性遗传病。一对表现型正常的夫妇，生了一个患红绿色盲的孩子。下列叙述正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 该患病孩子一定是男孩</p>
+                    <p>B. 该夫妇再生一个孩子，患病的概率为1/4</p>
+                    <p>C. 该夫妇的女儿一定是携带者</p>
+                    <p>D. 该患病孩子的色盲基因来自父亲</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：A</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>分析遗传方式：</strong><br/>
+                        红绿色盲是伴X染色体隐性遗传病，设基因为Xᵇ。<br/><br/>
+                        
+                        <strong>确定亲本基因型：</strong><br/>
+                        • 父亲正常：XᴮY<br/>
+                        • 母亲正常但能生出色盲孩子：XᴮXᵇ（携带者）<br/><br/>
+                        
+                        <strong>分析各选项：</strong><br/>
+                        A正确：色盲是X染色体隐性遗传，男性(XᵇY)只要有一个色盲基因就患病，女性(XᵇXᵇ)需要两个色盲基因才患病。父亲正常(XᴮY)，女儿至少从父亲获得一个Xᴮ，所以女儿不会患病。患病孩子一定是男孩(XᵇY)。<br/><br/>
+                        
+                        B错误：再生一个孩子，患病概率为1/4（XᵇY），但题目说的是"患病"，没有限定性别。如果考虑所有孩子，男孩患病概率1/2，女孩患病概率0，总体患病概率1/4。但选项表述不够准确。<br/><br/>
+                        
+                        C错误：女儿基因型为XᴮXᴮ或XᴮXᵇ，概率各为1/2。女儿不一定是携带者。<br/><br/>
+                        
+                        D错误：患病男孩的色盲基因Xᵇ只能来自母亲（父亲提供的是Y染色体）。
+                    </div>
+                </div>
+            </div>
+
+            <div class="mistake-box">
+                <strong>⚠️ 易错警示：伴性遗传特点</strong><br/><br/>
+                <strong>X染色体隐性遗传病（如红绿色盲、血友病）：</strong><br/>
+                • 男性患者多于女性患者<br/>
+                • 隔代交叉遗传：男性患者的致病基因通过女儿传给外孙<br/>
+                • 女性患者的父亲和儿子一定患病<br/><br/>
+                
+                <strong>X染色体显性遗传病（如抗维生素D佝偻病）：</strong><br/>
+                • 女性患者多于男性患者<br/>
+                • 世代连续遗传<br/>
+                • 男性患者的母亲和女儿一定患病<br/><br/>
+                
+                <strong>Y染色体遗传病（如外耳道多毛症）：</strong><br/>
+                • 只有男性患病<br/>
+                • 父传子，子传孙
+            </div>
+
+            <h2>三、基因的本质与表达（模块8）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-hard">较难</span>
+                    <span class="tag tag-important">重点</span>
+                    例题4【DNA复制与细胞分裂综合】
+                </div>
+                <div class="problem-content">
+                    将某一经³H充分标记DNA的雄性动物细胞（染色体数为2N）置于不含³H的培养基中培养，经过两次连续分裂。下列有关说法正确的是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 若进行有丝分裂，则子细胞含³H的染色体数一定为N</p>
+                    <p>B. 若进行减数分裂，则子细胞含³H的DNA分子数为N</p>
+                    <p>C. 若进行有丝分裂，则第二次分裂后期每个细胞中含³H的染色体数为2N</p>
+                    <p>D. 若进行减数分裂，则减数第二次分裂后期每个细胞中含³H的染色体数为N</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：B</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>DNA复制的特点：</strong>半保留复制<br/><br/>
+                        
+                        <strong>情况一：有丝分裂两次</strong><br/>
+                        • 第一次分裂：DNA复制后，每条染色体含2个DNA分子，都是一条链³H、一条链不含³H。分裂后，每个子细胞的每条染色体都含³H。<br/>
+                        • 第二次分裂：DNA再次复制，每条染色体的2个DNA分子中，1个含³H（一条链³H），1个不含³H。分裂时，染色体随机分配，子细胞含³H的染色体数为0～2N，不一定。<br/><br/>
+                        
+                        <strong>情况二：减数分裂</strong><br/>
+                        • DNA只复制1次，细胞分裂2次。<br/>
+                        • 复制后，每条染色体含2条染色单体，每条单体的DNA都是一条链³H、一条链不含³H。<br/>
+                        • 减数第一次分裂后，每条染色体仍含2条染色单体，都含³H。<br/>
+                        • 减数第二次分裂后，每个子细胞含N条染色体，每条染色体的DNA都含³H。<br/>
+                        • 所以子细胞含³H的DNA分子数为N。<br/><br/>
+                        
+                        <strong>答案B正确。</strong>
+                    </div>
+                </div>
+            </div>
+
+            <h2>四、变异与育种（模块9）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    例题5【育种方法选择】
+                </div>
+                <div class="problem-content">
+                    某自花传粉植物的矮茎(a)对高茎(A)为隐性，抗病(B)对感病(b)为显性。现有矮茎抗病(aaBB)和高茎感病(AAbb)两个纯合品种，要培育出高茎抗病(AABB)的新品种，最快捷的育种方法是（  ）
+                </div>
+                <div class="options">
+                    <p>A. 杂交育种</p>
+                    <p>B. 诱变育种</p>
+                    <p>C. 单倍体育种</p>
+                    <p>D. 多倍体育种</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：C</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>分析各育种方法：</strong><br/><br/>
+                        
+                        A. <strong>杂交育种：</strong><br/>
+                        aaBB × AAbb → AaBb（F₁）→ 自交 → F₂中选高茎抗病(A_B_) → 连续自交纯化<br/>
+                        需要至少3-4年，时间较长。<br/><br/>
+                        
+                        B. <strong>诱变育种：</strong><br/>
+                        原理是基因突变，具有不定向性和低频性，无法定向获得所需品种。<br/><br/>
+                        
+                        C. <strong>单倍体育种：</strong><br/>
+                        aaBB × AAbb → AaBb（F₁）→ 花药离体培养 → 单倍体(AB、Ab、aB、ab) → 秋水仙素加倍 → 纯合二倍体(AABB、AAbb、aaBB、aabb) → 选择高茎抗病(AABB)<br/>
+                        只需<strong>2年</strong>，能明显缩短育种年限，且后代都是纯合子。<br/><br/>
+                        
+                        D. <strong>多倍体育种：</strong><br/>
+                        主要用于获得茎秆粗壮、果实种子大的品种，不适用于此情况。<br/><br/>
+                        
+                        <strong>答案C正确。</strong>单倍体育种最快捷。
+                    </div>
+                </div>
+            </div>
+
+            <h2>五、现代生物进化理论（模块10）</h2>
+
+            <div class="problem">
+                <div class="problem-title">
+                    <span class="tag tag-medium">中等</span>
+                    例题6【基因频率计算】
+                </div>
+                <div class="problem-content">
+                    某植物种群中，AA个体占16%，aa个体占36%，该种群随机交配产生的后代中AA个体百分比、A基因频率和自交产生的后代中AA个体百分比、A基因频率的变化依次为（  ）
+                </div>
+                <div class="options">
+                    <p>A. 增大，不变；不变，不变</p>
+                    <p>B. 不变，增大；增大，不变</p>
+                    <p>C. 不变，不变；增大，不变</p>
+                    <p>D. 不变，不变；不变，增大</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-title">答案：C</div>
+                    <div class="analysis">
+                        <strong>解析：</strong><br/>
+                        <strong>步骤1：计算亲代基因频率</strong><br/>
+                        AA = 16%，aa = 36%，则Aa = 48%<br/>
+                        A基因频率 = 16% + 48%/2 = 40%<br/>
+                        a基因频率 = 36% + 48%/2 = 60%<br/><br/>
+                        
+                        <strong>步骤2：随机交配后代（哈迪-温伯格平衡）</strong><br/>
+                        AA = p² = 0.4² = 16%<br/>
+                        Aa = 2pq = 2 × 0.4 × 0.6 = 48%<br/>
+                        aa = q² = 0.6² = 36%<br/>
+                        A基因频率仍为40%<br/><br/>
+                        
+                        <strong>随机交配结果：</strong>AA个体百分比<strong>不变</strong>，A基因频率<strong>不变</strong>。<br/><br/>
+                        
+                        <strong>步骤3：自交后代</strong><br/>
+                        AA自交 → 全部AA<br/>
+                        aa自交 → 全部aa<br/>
+                        Aa自交 → 1/4 AA : 1/2 Aa : 1/4 aa<br/><br/>
+                        
+                        后代AA = 16% + 48% × 1/4 = 16% + 12% = <strong>28%</strong>（增大）<br/>
+                        A基因频率 = 28% + (48% × 1/2)/2 = 28% + 12% = <strong>40%</strong>（不变）<br/><br/>
+                        
+                        <strong>答案C正确：</strong>随机交配：不变，不变；自交：增大，不变。
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>📝 基因频率计算要点</strong><br/><br/>
+                <strong>1. 基因频率计算公式：</strong><br/>
+                某基因频率 = (该基因纯合子个体数×2 + 杂合子个体数) / (总个体数×2)<br/><br/>
+                
+                <strong>2. 哈迪-温伯格定律（理想条件下）：</strong><br/>
+                • 种群足够大<br/>
+                • 随机交配<br/>
+                • 无突变、无迁移、无自然选择<br/>
+                满足条件时：p² + 2pq + q² = 1，基因频率保持不变<br/><br/>
+                
+                <strong>3. 自交与随机交配的区别：</strong><br/>
+                • 自交：基因型频率改变（纯合子增多），基因频率不变<br/>
+                • 随机交配：基因型频率和基因频率都不变（哈迪-温伯格平衡）
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module06_mendel.html">模块6</a>
+                    <a href="module07_gene_chromosome.html">模块7</a>
+                    <a href="module08_gene_expression.html">模块8</a>
+                    <a href="module09_variation.html">模块9</a>
+                    <a href="module10_evolution.html">模块10</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

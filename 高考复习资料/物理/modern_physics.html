@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 热学光学近代物理</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #e84393;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 2px solid #fd79a8;
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #fd79a8;
+            padding-bottom: 10px;
+            color: #2d3436;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #fd79a8;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #e84393;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #fd79a8;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .integration {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 3px solid #6c5ce7;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #2d3436;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(250, 112, 154, 0.4);
+        }
+        canvas {
+            border: 2px solid #fd79a8;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            background: white;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌈 物理极致复习 · 热学光学近代物理</h1>
+        <div class="subtitle">热学、光学、原子物理、相对论 | 2026陕西新高考专用</div>
+
+        <!-- 模块十二：热学 -->
+        <div class="module-box">
+            <div class="module-title">🌡️ 模块十二：热学</div>
+            
+            <div class="section">
+                <h3>12.1 分子动理论</h3>
+                <div class="formula-box">
+                    <p>阿伏伽德罗常数：$N_A = 6.02 \times 10^{23} \text{mol}^{-1}$</p>
+                    <p>分子质量：$\displaystyle m_0 = \frac{M}{N_A} = \frac{\rho V_m}{N_A}$</p>
+                    <p>分子体积（固体/液体）：$\displaystyle V_0 = \frac{V_m}{N_A} = \frac{M}{\rho N_A}$</p>
+                    <p>分子数：$N = nN_A = \frac{m}{M}N_A = \frac{V}{V_m}N_A$</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🧬 分子动理论三要点：</strong><br/>
+                    • 物质由大量分子组成（$N_A$ 是桥梁）<br/>
+                    • 分子永不停息做无规则运动（扩散、布朗运动）<br/>
+                    • 分子间存在相互作用力（引力和斥力同时存在）
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 分子力与分子势能：</strong><br/>
+                    • 平衡位置 $r = r_0$：$F_{引} = F_{斥}$，$F_{合} = 0$，$E_p$ 最小<br/>
+                    • $r &lt; r_0$：斥力为主，$r \downarrow$ → $F_{斥} \uparrow$，$E_p \uparrow$<br/>
+                    • $r > r_0$：引力为主，$r \uparrow$ → $F_{引}$ 先增后减，$E_p \uparrow$<br/>
+                    • $r > 10r_0$：$F \approx 0$，$E_p \approx 0$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>12.2 气体实验定律与理想气体状态方程</h3>
+                <div class="formula-box">
+                    <p>玻意耳定律（等温）：$p_1V_1 = p_2V_2$ 或 $pV = C$</p>
+                    <p>查理定律（等容）：$\displaystyle \frac{p_1}{T_1} = \frac{p_2}{T_2}$ 或 $p = CT$（$T$ 为热力学温度）</p>
+                    <p>盖-吕萨克定律（等压）：$\displaystyle \frac{V_1}{T_1} = \frac{V_2}{T_2}$ 或 $V = CT$</p>
+                    <p>理想气体状态方程：$\displaystyle \frac{p_1V_1}{T_1} = \frac{p_2V_2}{T_2}$ 或 $pV = nRT = \frac{m}{M}RT$</p>
+                    <p>克拉珀龙方程：$pV = NkT$（$k = 1.38 \times 10^{-23} \text{J/K}$ 为玻尔兹曼常量）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 气体问题解题模板：</strong><br/>
+                    1. <span class="highlight">选对象</span>：确定研究的气体（质量是否变化）<br/>
+                    2. <span class="highlight">找状态</span>：明确初态 $(p_1, V_1, T_1)$ 和末态 $(p_2, V_2, T_2)$<br/>
+                    3. <span class="highlight">列方程</span>：根据过程特点选定律（等温/等容/等压/绝热）<br/>
+                    4. <span class="highlight">解方程</span>：注意单位统一（$T$ 必须用开尔文）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>12.3 热力学定律</h3>
+                <div class="formula-box">
+                    <p>热力学第一定律：$\Delta U = Q + W$</p>
+                    <p>符号规定：吸热 $Q > 0$，放热 $Q &lt; 0$；外界对系统做功 $W > 0$，系统对外做功 $W &lt; 0$</p>
+                    <p>理想气体内能：$U = N \cdot \frac{i}{2}kT = \frac{m}{M} \cdot \frac{i}{2}RT$（$i$ 为自由度，仅与温度有关）</p>
+                    <p>热力学第二定律：热量不能自发地从低温传向高温（克劳修斯表述）</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>过程</th>
+                        <th>特点</th>
+                        <th>$\Delta U$</th>
+                        <th>$Q$</th>
+                        <th>$W$</th>
+                    </tr>
+                    <tr>
+                        <td>等温过程</td>
+                        <td>$T = $ 常数</td>
+                        <td>0</td>
+                        <td>$-W$</td>
+                        <td>$-nRT\ln\frac{V_2}{V_1}$</td>
+                    </tr>
+                    <tr>
+                        <td>等容过程</td>
+                        <td>$V = $ 常数</td>
+                        <td>$Q$</td>
+                        <td>$nC_V\Delta T$</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>等压过程</td>
+                        <td>$p = $ 常数</td>
+                        <td>$nC_V\Delta T$</td>
+                        <td>$nC_p\Delta T$</td>
+                        <td>$-p\Delta V$</td>
+                    </tr>
+                    <tr>
+                        <td>绝热过程</td>
+                        <td>$Q = 0$</td>
+                        <td>$W$</td>
+                        <td>0</td>
+                        <td>$\Delta U$</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 模块十三：光学 -->
+        <div class="module-box">
+            <div class="module-title">💡 模块十三：光学</div>
+            
+            <div class="section">
+                <h3>13.1 几何光学</h3>
+                <div class="formula-box">
+                    <p>折射定律：$n_1\sin\theta_1 = n_2\sin\theta_2$（斯涅尔定律）</p>
+                    <p>折射率：$\displaystyle n = \frac{c}{v} = \frac{\sin i}{\sin r} = \frac{1}{\sin C}$（$C$ 为临界角）</p>
+                    <p>全反射条件：光密→光疏，$i \geq C$，$\sin C = \frac{1}{n}$</p>
+                    <p>视深公式：$h' = \frac{h}{n}$（从光疏看光密，视深变浅）</p>
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="opticsCanvas" width="600" height="400"></canvas>
+                    <p><em>光的折射与全反射</em></p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🪞 光学元件成像规律：</strong><br/>
+                    • <span class="highlight">平面镜</span>：等大、等距、虚像、左右相反<br/>
+                    • <span class="highlight">平行玻璃砖</span>：侧移但不改变传播方向，出射光与入射光平行<br/>
+                    • <span class="highlight">三棱镜</span>：向底边偏折，色散（$n_紫 > n_红$，$v_紫 &lt; v_红$）<br/>
+                    • <span class="highlight">光导纤维</span>：全反射原理，内芯折射率 > 外套折射率
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>13.2 物理光学</h3>
+                <div class="formula-box">
+                    <p>双缝干涉：$\Delta x = \frac{L}{d}\lambda$（条纹间距，$L$ 为缝到屏距离，$d$ 为缝间距）</p>
+                    <p>亮纹条件：$\Delta r = n\lambda$（$n = 0, 1, 2, \cdots$）</p>
+                    <p>暗纹条件：$\Delta r = (2n+1)\frac{\lambda}{2}$（$n = 0, 1, 2, \cdots$）</p>
+                    <p>薄膜干涉：光程差 $\Delta = 2nd + \frac{\lambda}{2}$（半波损失）</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>现象</th>
+                        <th>条件</th>
+                        <th>条纹特点</th>
+                        <th>应用</th>
+                    </tr>
+                    <tr>
+                        <td>双缝干涉</td>
+                        <td>相干光（频率相同、相位差恒定）</td>
+                        <td>等间距、等亮度、明暗相间</td>
+                        <td>测波长、检查平整度</td>
+                    </tr>
+                    <tr>
+                        <td>薄膜干涉</td>
+                        <td>薄膜前后表面反射光叠加</td>
+                        <td>等厚条纹（劈尖）或等倾条纹</td>
+                        <td>增透膜、检查表面平整</td>
+                    </tr>
+                    <tr>
+                        <td>单缝衍射</td>
+                        <td>缝宽与波长可比拟</td>
+                        <td>中央亮纹最宽最亮，两侧不等距</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>光的偏振</td>
+                        <td>横波特性</td>
+                        <td>只有特定振动方向的光通过</td>
+                        <td>偏振片、3D眼镜</td>
+                    </tr>
+                </table>
+
+                <div class="warning">
+                    <strong>⚠️ 电磁波谱（按波长从大到小）：</strong><br/>
+                    无线电波 → 微波 → 红外线 → 可见光（红橙黄绿蓝靛紫）→ 紫外线 → X射线 → $\gamma$射线<br/>
+                    • 波长 $\lambda$ 越大，频率 $f$ 越小，能量 $E = hf$ 越小，波动性越强<br/>
+                    • 波长 $\lambda$ 越小，粒子性越强，穿透能力越强（$\gamma$ 射线最强）
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块十四：近代物理 -->
+        <div class="module-box">
+            <div class="module-title">⚛️ 模块十四：近代物理</div>
+            
+            <div class="section">
+                <h3>14.1 光电效应</h3>
+                <div class="formula-box">
+                    <p>爱因斯坦光电效应方程：$h\nu = E_{km} + W_0$ 或 $\frac{1}{2}mv_m^2 = h\nu - W_0$</p>
+                    <p>截止频率：$\nu_0 = \frac{W_0}{h}$（入射光频率必须 $\nu > \nu_0$ 才能发生光电效应）</p>
+                    <p>遏止电压：$eU_c = E_{km} = h\nu - W_0$</p>
+                    <p>普朗克常量：$h = 6.63 \times 10^{-34} \text{J·s}$</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🔆 光电效应四规律：</strong><br/>
+                    1. <span class="highlight">瞬时性</span>：$\tau &lt; 10^{-9} \text{s}$，光电子立即逸出<br/>
+                    2. <span class="highlight">截止频率</span>：只有 $\nu > \nu_0$ 才能发生，与光强无关<br/>
+                    3. <span class="highlight">最大初动能</span>：$E_{km}$ 只与 $\nu$ 有关，与光强无关<br/>
+                    4. <span class="highlight">光电流强度</span>：饱和光电流与入射光强度成正比
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="photoelectricCanvas" width="600" height="400"></canvas>
+                    <p><em>光电效应 $E_{km}-\nu$ 图像</em></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>14.2 原子结构</h3>
+                <div class="formula-box">
+                    <p>玻尔理论假设：定态假设、跃迁假设、轨道量子化假设</p>
+                    <p>能级公式：$\displaystyle E_n = \frac{E_1}{n^2}$（氢原子，$E_1 = -13.6 \text{eV}$）</p>
+                    <p>半径公式：$\displaystyle r_n = n^2r_1$（$r_1 = 0.53 \times 10^{-10} \text{m}$）</p>
+                    <p>跃迁频率：$h\nu = E_m - E_n$（$m > n$，发射光子；$m &lt; n$，吸收光子）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 氢原子跃迁问题：</strong><br/>
+                    • 从 $n$ 能级向低能级跃迁：最多发射 $C_n^2 = \frac{n(n-1)}{2}$ 种频率光子<br/>
+                    • 电离能：从 $n$ 能级电离需要能量 $\geq |E_n|$<br/>
+                    • 光子吸收：能量必须恰好等于能级差（共振吸收）或大于电离能<br/>
+                    • 电子碰撞：电子能量 $\geq$ 能级差即可（可剩余动能）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>14.3 原子核与核反应</h3>
+                <div class="formula-box">
+                    <p>质能方程：$E = mc^2$，$\Delta E = \Delta mc^2$</p>
+                    <p>质量亏损：$\Delta m = (m_{反应前} - m_{反应后}) > 0$ 时释放能量</p>
+                    <p>半衰期：$\displaystyle N = N_0\left(\frac{1}{2}\right)^{t/\tau}$，$m = m_0\left(\frac{1}{2}\right)^{t/\tau}$</p>
+                    <p>平均结合能：越大核越稳定，铁最稳定</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>核反应类型</th>
+                        <th>方程</th>
+                        <th>特点</th>
+                        <th>实例</th>
+                    </tr>
+                    <tr>
+                        <td>$\alpha$衰变</td>
+                        <td>$^A_Z X \rightarrow ^{A-4}_{Z-2}Y + ^4_2He$</td>
+                        <td>质量数-4，电荷数-2</td>
+                        <td>$^{238}_{92}U \rightarrow ^{234}_{90}Th + \alpha$</td>
+                    </tr>
+                    <tr>
+                        <td>$\beta$衰变</td>
+                        <td>$^A_Z X \rightarrow ^A_{Z+1}Y + ^0_{-1}e$</td>
+                        <td>质量数不变，电荷数+1</td>
+                        <td>$^{14}_6C \rightarrow ^{14}_7N + \beta$</td>
+                    </tr>
+                    <tr>
+                        <td>核裂变</td>
+                        <td>重核分裂为中等质量核</td>
+                        <td>链式反应，释放大量能量</td>
+                        <td>$^{235}_{92}U + ^1_0n \rightarrow \cdots$</td>
+                    </tr>
+                    <tr>
+                        <td>核聚变</td>
+                        <td>轻核聚变为较重核</td>
+                        <td>需要高温高压，清洁能源</td>
+                        <td>$^2_1H + ^3_1H \rightarrow ^4_2He + n$</td>
+                    </tr>
+                </table>
+
+                <div class="warning">
+                    <strong>⚠️ 核反应守恒律：</strong><br/>
+                    • 质量数守恒（核子数守恒）<br/>
+                    • 电荷数守恒（质子数守恒）<br/>
+                    • 能量守恒（包括质能转换）<br/>
+                    • 动量守恒
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>14.4 波粒二象性与物质波</h3>
+                <div class="formula-box">
+                    <p>光子能量：$E = h\nu = \frac{hc}{\lambda}$</p>
+                    <p>光子动量：$\displaystyle p = \frac{h}{\lambda} = \frac{E}{c}$</p>
+                    <p>物质波（德布罗意波）：$\displaystyle \lambda = \frac{h}{p} = \frac{h}{mv}$</p>
+                    <p>不确定关系：$\Delta x\Delta p \geq \frac{h}{4\pi}$</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🌊 波粒二象性理解：</strong><br/>
+                    • 光：干涉衍射证明波动性，光电效应证明粒子性<br/>
+                    • 实物粒子：电子衍射实验证明波动性<br/>
+                    • 概率波：物质波是概率波，波强代表粒子出现概率<br/>
+                    • 互补原理：波动性和粒子性不会在同一实验中同时表现
+                </div>
+            </div>
+        </div>
+
+        <!-- 融合总结 -->
+        <div class="integration">
+            <h2>🔗 热光原模块融合总结</h2>
+            <div class="section" style="background: rgba(255,255,255,0.9); color: #333;">
+                <h3 style="color: #e84393;">跨模块联系</h3>
+                <p><strong>1. 热学+力学：</strong>气体压强微观解释（分子碰撞器壁），$p = \frac{1}{3}nm\bar{v}^2$</p>
+                <p><strong>2. 光学+电磁学：</strong>光是电磁波，$c = \lambda f$，$E = hf$</p>
+                <p><strong>3. 近代物理+电磁学：</strong>光子能量 $E = hf$，光电效应中 $eU_c = hf - W_0$</p>
+                <p><strong>4. 质能方程：</strong>$E = mc^2$ 联系质量与能量，核反应中质量亏损释放能量</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="electromagnetism_2.html">← 上一页：电磁学模块（下）</a>
+            <a href="experiments.html">下一页：实验专题 →</a>
+        </div>
+    </div>
+
+    <script>
+        // 光学折射绘制
+        const opticsCanvas = document.getElementById('opticsCanvas');
+        const opticsCtx = opticsCanvas.getContext('2d');
+        
+        opticsCtx.fillStyle = '#f8f9fa';
+        opticsCtx.fillRect(0, 0, 600, 400);
+        
+        // 界面
+        opticsCtx.strokeStyle = '#333';
+        opticsCtx.lineWidth = 2;
+        opticsCtx.beginPath();
+        opticsCtx.moveTo(300, 50);
+        opticsCtx.lineTo(300, 350);
+        opticsCtx.stroke();
+        
+        // 法线
+        opticsCtx.strokeStyle = '#95a5a6';
+        opticsCtx.setLineDash([5, 5]);
+        opticsCtx.beginPath();
+        opticsCtx.moveTo(150, 200);
+        opticsCtx.lineTo(450, 200);
+        opticsCtx.stroke();
+        opticsCtx.setLineDash([]);
+        
+        // 入射光线
+        opticsCtx.strokeStyle = '#e74c3c';
+        opticsCtx.lineWidth = 3;
+        opticsCtx.beginPath();
+        opticsCtx.moveTo(150, 50);
+        opticsCtx.lineTo(300, 200);
+        opticsCtx.stroke();
+        opticsCtx.fillStyle = '#e74c3c';
+        opticsCtx.fillText('入射光', 160, 80);
+        
+        // 折射光线
+        opticsCtx.strokeStyle = '#3498db';
+        opticsCtx.beginPath();
+        opticsCtx.moveTo(300, 200);
+        opticsCtx.lineTo(450, 300);
+        opticsCtx.stroke();
+        opticsCtx.fillStyle = '#3498db';
+        opticsCtx.fillText('折射光', 400, 290);
+        
+        // 角度标注
+        opticsCtx.strokeStyle = '#f39c12';
+        opticsCtx.lineWidth = 2;
+        opticsCtx.beginPath();
+        opticsCtx.arc(300, 200, 40, -Math.PI/4, 0);
+        opticsCtx.stroke();
+        opticsCtx.fillStyle = '#f39c12';
+        opticsCtx.fillText('i', 340, 180);
+        
+        opticsCtx.beginPath();
+        opticsCtx.arc(300, 200, 50, 0, Math.PI/6);
+        opticsCtx.stroke();
+        opticsCtx.fillText('r', 360, 240);
+        
+        // 介质标注
+        opticsCtx.fillStyle = '#2c3e50';
+        opticsCtx.font = '16px Arial';
+        opticsCtx.fillText('n₁', 200, 150);
+        opticsCtx.fillText('n₂', 200, 280);
+        
+        // 公式
+        opticsCtx.fillStyle = '#2c3e50';
+        opticsCtx.font = 'bold 16px Arial';
+        opticsCtx.fillText('n₁sin i = n₂sin r', 380, 100);
+
+        // 光电效应图像
+        const photoCanvas = document.getElementById('photoelectricCanvas');
+        const photoCtx = photoCanvas.getContext('2d');
+        
+        photoCtx.fillStyle = '#f8f9fa';
+        photoCtx.fillRect(0, 0, 600, 400);
+        
+        // 坐标轴
+        photoCtx.strokeStyle = '#333';
+        photoCtx.lineWidth = 2;
+        photoCtx.beginPath();
+        photoCtx.moveTo(50, 350);
+        photoCtx.lineTo(550, 350);
+        photoCtx.moveTo(50, 350);
+        photoCtx.lineTo(50, 50);
+        photoCtx.stroke();
+        
+        // 标签
+        photoCtx.font = '16px Arial';
+        photoCtx.fillStyle = '#333';
+        photoCtx.fillText('ν', 560, 355);
+        photoCtx.fillText('Eₖₘ', 35, 40);
+        photoCtx.fillText('O', 35, 370);
+        
+        // 直线
+        photoCtx.strokeStyle = '#e74c3c';
+        photoCtx.lineWidth = 3;
+        photoCtx.beginPath();
+        photoCtx.moveTo(150, 320);
+        photoCtx.lineTo(500, 80);
+        photoCtx.stroke();
+        
+        // 截止频率点
+        photoCtx.fillStyle = '#3498db';
+        photoCtx.beginPath();
+        photoCtx.arc(150, 350, 6, 0, 2 * Math.PI);
+        photoCtx.fill();
+        photoCtx.fillText('ν₀', 145, 375);
+        
+        // 标注
+        photoCtx.fillStyle = '#e74c3c';
+        photoCtx.font = '14px Arial';
+        photoCtx.fillText('斜率 = h', 400, 120);
+        photoCtx.fillText('纵截距 = -W₀', 180, 310);
+        
+        // 公式
+        photoCtx.fillStyle = '#2c3e50';
+        photoCtx.font = 'bold 16px Arial';
+        photoCtx.fillText('Eₖₘ = hν - W₀', 350, 60);
+        
+        // 标题
+        photoCtx.fillStyle = '#2c3e50';
+        photoCtx.font = 'bold 18px Arial';
+        photoCtx.fillText('光电效应方程图像', 220, 40);
+    </script>
+
+    <!-- 选考题专项 -->
+    <div class="module-box" style="margin-top: 40px;">
+        <div class="module-title">📝 选考题专项突破（热学+振动与波）</div>
+        
+        <div class="section">
+            <h3>选考模块一：热学（3-3）</h3>
+            <div class="strategy-box">
+                <h4>🎯 分子动理论要点</h4>
+                <p><strong>1. 分子大小与数量</strong></p>
+                <p>• 分子直径数量级：$10^{-10}m$（0.1nm）</p>
+                <p>• 阿伏伽德罗常数：$N_A = 6.02 \times 10^{23} mol^{-1}$</p>
+                <p>• 分子质量：$m_0 = \frac{M}{N_A}$（M为摩尔质量）</p>
+                <p>• 分子体积：$V_0 = \frac{V_m}{N_A} = \frac{M}{\rho N_A}$（固体、液体）</p>
+                
+                <p><strong>2. 分子热运动</strong></p>
+                <p>• 扩散现象：分子永不停息地做无规则运动</p>
+                <p>• 布朗运动：悬浮微粒的无规则运动，反映液体分子的无规则运动</p>
+                <p>• 温度是分子平均动能的标志：$\bar{E_k} = \frac{3}{2}kT$</p>
+                
+                <p><strong>3. 分子间作用力</strong></p>
+                <p>• 引力和斥力同时存在，都随距离增大而减小</p>
+                <p>• $r = r_0$（$10^{-10}m$）：引力=斥力，分子力为0</p>
+                <p>• $r &lt; r_0$：斥力>引力，表现为斥力</p>
+                <p>• $r > r_0$：引力>斥力，表现为引力</p>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 固体、液体和气体性质</h4>
+                <p><strong>1. 固体分类</strong></p>
+                <table>
+                    <tr>
+                        <th>性质</th>
+                        <th>晶体</th>
+                        <th>非晶体</th>
+                    </tr>
+                    <tr>
+                        <td>外形</td>
+                        <td>规则几何形状</td>
+                        <td>无规则形状</td>
+                    </tr>
+                    <tr>
+                        <td>熔点</td>
+                        <td>有确定熔点</td>
+                        <td>无确定熔点</td>
+                    </tr>
+                    <tr>
+                        <td>物理性质</td>
+                        <td>各向异性</td>
+                        <td>各向同性</td>
+                    </tr>
+                    <tr>
+                        <td>典型物质</td>
+                        <td>石英、云母、食盐、金属</td>
+                        <td>玻璃、松香、沥青</td>
+                    </tr>
+                </table>
+                
+                <p><strong>2. 液晶特性</strong></p>
+                <p>• 具有液体的流动性</p>
+                <p>• 具有晶体的各向异性</p>
+                <p>• 对光、电、磁敏感，用于显示器</p>
+                
+                <p><strong>3. 液体表面张力</strong></p>
+                <p>• 产生原因：表面层分子间距大，表现为引力</p>
+                <p>• 方向：与液面相切，垂直于分界线</p>
+                <p>• 效果：使液面收缩，形成球形（体积一定时表面积最小）</p>
+                <p>• 应用：毛细现象、肥皂泡、昆虫在水面行走</p>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 气体实验定律</h4>
+                <div class="formula-box">
+                    <strong>玻意耳定律（等温变化）：</strong><br/>
+                    $p_1V_1 = p_2V_2$ 或 $pV = C$<br/><br/>
+                    
+                    <strong>查理定律（等容变化）：</strong><br/>
+                    $\frac{p_1}{T_1} = \frac{p_2}{T_2}$ 或 $\frac{p}{T} = C$<br/><br/>
+                    
+                    <strong>盖-吕萨克定律（等压变化）：</strong><br/>
+                    $\frac{V_1}{T_1} = \frac{V_2}{T_2}$ 或 $\frac{V}{T} = C$<br/><br/>
+                    
+                    <strong>理想气体状态方程：</strong><br/>
+                    $\frac{p_1V_1}{T_1} = \frac{p_2V_2}{T_2}$ 或 $pV = nRT = \frac{m}{M}RT$
+                </div>
+                
+                <p><strong>解题步骤：</strong></p>
+                <p>1. 确定研究对象（哪部分气体）</p>
+                <p>2. 确定初末状态的p、V、T</p>
+                <p>3. 判断变化过程（等温、等容、等压）</p>
+                <p>4. 选择相应定律列方程</p>
+                <p>5. 注意：T必须用热力学温度（K），$T = t + 273$</p>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 热力学定律</h4>
+                <p><strong>热力学第一定律：</strong>$\Delta U = Q + W$</p>
+                <p>• $\Delta U$：内能变化（增加为正，减少为负）</p>
+                <p>• $Q$：热量（吸热为正，放热为负）</p>
+                <p>• $W$：做功（外界对系统做功为正，系统对外做功为负）</p>
+                
+                <p><strong>热力学第二定律（两种表述）：</strong></p>
+                <p>• 克劳修斯表述：热量不能自发地从低温物体传到高温物体</p>
+                <p>• 开尔文表述：不可能从单一热源吸热，使之完全变为功而不产生其他影响</p>
+                <p>• 本质：与热现象有关的宏观过程具有方向性</p>
+                
+                <p><strong>热机效率：</strong>$\eta = \frac{W}{Q_1} = \frac{Q_1 - Q_2}{Q_1} = 1 - \frac{Q_2}{Q_1} &lt; 1$</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>选考模块二：机械振动与机械波（3-4）</h3>
+            <div class="strategy-box">
+                <h4>🎯 简谐运动</h4>
+                <p><strong>1. 描述简谐运动的物理量</strong></p>
+                <p>• 振幅A：离开平衡位置的最大距离，表示振动强弱</p>
+                <p>• 周期T：完成一次全振动的时间，$T = \frac{1}{f}$</p>
+                <p>• 频率f：单位时间内完成全振动的次数</p>
+                <p>• 相位：描述振动状态的物理量</p>
+                
+                <p><strong>2. 简谐运动的表达式</strong></p>
+                <div class="formula-box">
+                    <strong>位移：</strong>$x = A\sin(\omega t + \varphi_0)$<br/>
+                    其中 $\omega = \frac{2\pi}{T} = 2\pi f$<br/><br/>
+                    
+                    <strong>速度和加速度：</strong><br/>
+                    $v = \frac{dx}{dt} = A\omega\cos(\omega t + \varphi_0)$<br/>
+                    $a = \frac{dv}{dt} = -A\omega^2\sin(\omega t + \varphi_0) = -\omega^2 x$
+                </div>
+                
+                <p><strong>3. 简谐运动的能量</strong></p>
+                <p>• 动能：$E_k = \frac{1}{2}mv^2 = \frac{1}{2}m\omega^2(A^2 - x^2)$</p>
+                <p>• 势能：$E_p = \frac{1}{2}kx^2 = \frac{1}{2}m\omega^2x^2$</p>
+                <p>• 总能量：$E = E_k + E_p = \frac{1}{2}kA^2 = \frac{1}{2}m\omega^2A^2$（守恒）</p>
+                <p>• 平衡位置：动能最大，势能为0</p>
+                <p>• 最大位移处：动能为0，势能最大</p>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 单摆</h4>
+                <div class="formula-box">
+                    <strong>周期公式：</strong><br/>
+                    $T = 2\pi\sqrt{\frac{L}{g}}$<br/><br/>
+                    适用条件：摆角 $\theta &lt; 5°$，$L \gg$ 摆球直径
+                </div>
+                
+                <p><strong>应用：</strong></p>
+                <p>• 测重力加速度：$g = \frac{4\pi^2L}{T^2}$</p>
+                <p>• 等效摆长：$L_{等效} = L\sin\theta$（圆锥摆）</p>
+                <p>• 等效重力加速度：$g' = g + a$（加速上升）或 $g' = |g - a|$（加速下降）</p>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 机械波</h4>
+                <p><strong>1. 波的基本概念</strong></p>
+                <p>• 波速：$v = \frac{\lambda}{T} = \lambda f$</p>
+                <p>• 波长$\lambda$：相邻两个振动情况完全相同的质点间距离</p>
+                <p>• 波的传播：振动形式和能量的传播，介质质点不随波迁移</p>
+                
+                <p><strong>2. 波的图像（y-x图）</strong></p>
+                <p>• 横轴：各质点的平衡位置坐标</p>
+                <p>• 纵轴：各质点的位移</p>
+                <p>• 图像表示某一时刻各质点的位移分布</p>
+                
+                <p><strong>3. 振动图像（y-t图）vs 波动图像（y-x图）</strong></p>
+                <table>
+                    <tr>
+                        <th>比较</th>
+                        <th>振动图像</th>
+                        <th>波动图像</th>
+                    </tr>
+                    <tr>
+                        <td>研究对象</td>
+                        <td>一个质点</td>
+                        <td>介质中所有质点</td>
+                    </tr>
+                    <tr>
+                        <td>横轴</td>
+                        <td>时间t</td>
+                        <td>位置x</td>
+                    </tr>
+                    <tr>
+                        <td>纵轴</td>
+                        <td>位移y</td>
+                        <td>位移y</td>
+                    </tr>
+                    <tr>
+                        <td>物理意义</td>
+                        <td>一个质点不同时刻的位移</td>
+                        <td>不同时刻各质点的位移</td>
+                    </tr>
+                    <tr>
+                        <td>相邻峰值间距</td>
+                        <td>周期T</td>
+                        <td>波长λ</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 波的特有现象</h4>
+                <p><strong>1. 波的叠加</strong></p>
+                <p>• 几列波相遇时，每列波保持各自状态继续传播</p>
+                <p>• 相遇区域，质点的位移等于各列波单独引起的位移的矢量和</p>
+                
+                <p><strong>2. 波的干涉</strong></p>
+                <p>• 条件：频率相同、振动方向相同、相位差恒定</p>
+                <p>• 加强点：波程差 $\Delta r = n\lambda$（$n = 0, 1, 2...$），振幅最大</p>
+                <p>• 减弱点：波程差 $\Delta r = (2n+1)\frac{\lambda}{2}$，振幅最小（可能为0）</p>
+                
+                <p><strong>3. 波的衍射</strong></p>
+                <p>• 明显衍射条件：障碍物或孔的尺寸比波长小或与波长相差不多</p>
+                <p>• 衍射是波特有的现象，证明波具有波动性</p>
+                
+                <p><strong>4. 多普勒效应</strong></p>
+                <p>• 波源与观察者相对运动时，观察者接收到的频率发生变化</p>
+                <p>• 相互靠近：接收频率 $f' > f$（音调变高）</p>
+                <p>• 相互远离：接收频率 $f' &lt; f$（音调变低）</p>
+                <p>• 应用：测速雷达、医学超声（B超）</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>选考模块三：光学（3-4）</h3>
+            <div class="strategy-box">
+                <h4>🎯 光的折射与全反射</h4>
+                <p><strong>1. 折射定律</strong></p>
+                <div class="formula-box">
+                    $n_1\sin\theta_1 = n_2\sin\theta_2$<br/><br/>
+                    折射率：$n = \frac{\sin i}{\sin r} = \frac{c}{v} = \frac{\lambda_0}{\lambda}$
+                </div>
+                
+                <p><strong>2. 全反射</strong></p>
+                <p>• 条件：光从光密介质射向光疏介质，入射角 $i \geq$ 临界角C</p>
+                <p>• 临界角：$\sin C = \frac{1}{n}$</p>
+                <p>• 应用：光纤通信、内窥镜、海市蜃楼</p>
+                
+                <p><strong>3. 棱镜与色散</strong></p>
+                <p>• 白光通过棱镜发生色散，分解成七色光</p>
+                <p>• 折射率：$n_{紫} > n_{红}$</p>
+                <p>• 传播速度：$v_{紫} &lt; v_{红}$</p>
+                <p>• 临界角：$C_{紫} &lt; C_{红}$</p>
+            </div>
+
+            <div class="strategy-box">
+                <h4>🎯 光的干涉、衍射和偏振</h4>
+                <p><strong>1. 双缝干涉</strong></p>
+                <div class="formula-box">
+                    <strong>条纹间距：</strong><br/>
+                    $\Delta x = \frac{L}{d}\lambda$<br/><br/>
+                    L：双缝到屏的距离<br/>
+                    d：双缝间距<br/>
+                    λ：光的波长
+                </div>
+                <p>• 亮纹：波程差 $\Delta r = n\lambda$（$n = 0, \pm1, \pm2...$）</p>
+                <p>• 暗纹：波程差 $\Delta r = (2n+1)\frac{\lambda}{2}$</p>
+                <p>• 条纹等间距、等宽度、等亮度</p>
+                
+                <p><strong>2. 薄膜干涉</strong></p>
+                <p>• 原理：薄膜前后表面反射光叠加</p>
+                <p>• 光程差：$\Delta = 2nd + \frac{\lambda}{2}$（考虑半波损失）</p>
+                <p>• 应用：增透膜、增反膜、检查平面平整度</p>
+                
+                <p><strong>3. 光的衍射</strong></p>
+                <p>• 单缝衍射：中央亮纹最宽最亮，两侧条纹不等间距</p>
+                <p>• 圆孔衍射：出现明暗相间的圆环</p>
+                <p>• 泊松亮斑：圆盘阴影中心出现亮斑，证明光的波动性</p>
+                
+                <p><strong>4. 光的偏振</strong></p>
+                <p>• 自然光：各个方向振动，强度相同</p>
+                <p>• 偏振光：只沿某一特定方向振动</p>
+                <p>• 偏振片：只允许特定方向振动的光通过</p>
+                <p>• 应用：太阳镜、3D电影、液晶显示器</p>
+            </div>
+        </div>
+
+        <!-- 选考模块示意图 -->
+        <div class="module-box" style="margin-top: 40px;">
+            <div class="module-title">🎨 选考模块示意图与演示</div>
+            
+            <div class="section">
+                <h3>热学：气体状态变化图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <div style="text-align: center;">
+                        <svg width="250" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="125" y="20" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">等温变化（p-V图）</text>
+                            <!-- 坐标轴 -->
+                            <line x1="40" y1="170" x2="230" y2="170" stroke="#333" stroke-width="2"/>
+                            <line x1="40" y1="170" x2="40" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="235" y="175" font-size="12" fill="#333">V</text>
+                            <text x="35" y="25" font-size="12" fill="#333">p</text>
+                            <!-- 双曲线 -->
+                            <path d="M 60 60 Q 100 100, 220 160" stroke="#e74c3c" stroke-width="2" fill="none"/>
+                            <!-- 等温线标记 -->
+                            <text x="120" y="80" font-size="12" fill="#e74c3c">T₁</text>
+                            <path d="M 60 90 Q 110 120, 220 165" stroke="#3498db" stroke-width="2" fill="none"/>
+                            <text x="140" y="110" font-size="12" fill="#3498db">T₂(T₂>T₁)</text>
+                        </svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <svg width="250" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="125" y="20" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">等容变化（p-T图）</text>
+                            <!-- 坐标轴 -->
+                            <line x1="40" y1="170" x2="230" y2="170" stroke="#333" stroke-width="2"/>
+                            <line x1="40" y1="170" x2="40" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="235" y="175" font-size="12" fill="#333">T(K)</text>
+                            <text x="35" y="25" font-size="12" fill="#333">p</text>
+                            <!-- 过原点的直线 -->
+                            <line x1="40" y1="170" x2="200" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                            <line x1="40" y1="170" x2="180" y2="80" stroke="#3498db" stroke-width="2"/>
+                            <!-- 标记 -->
+                            <text x="180" y="60" font-size="12" fill="#e74c3c">V₁</text>
+                            <text x="160" y="95" font-size="12" fill="#3498db">V₂(V₂>V₁)</text>
+                        </svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <svg width="250" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="125" y="20" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">等压变化（V-T图）</text>
+                            <!-- 坐标轴 -->
+                            <line x1="40" y1="170" x2="230" y2="170" stroke="#333" stroke-width="2"/>
+                            <line x1="40" y1="170" x2="40" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="235" y="175" font-size="12" fill="#333">T(K)</text>
+                            <text x="35" y="25" font-size="12" fill="#333">V</text>
+                            <!-- 过原点的直线 -->
+                            <line x1="40" y1="170" x2="200" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                            <line x1="40" y1="170" x2="180" y2="80" stroke="#3498db" stroke-width="2"/>
+                            <!-- 标记 -->
+                            <text x="180" y="60" font-size="12" fill="#e74c3c">p₁</text>
+                            <text x="160" y="95" font-size="12" fill="#3498db">p₂(p₂&lt;p₁)</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="key-point">
+                    <strong>💡 记忆技巧：</strong>等温线是双曲线，等容线和等压线都是过原点的直线。斜率越大，对应的V或p越小。
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>机械波：波的传播与质点振动</h3>
+                <div style="text-align: center;">
+                    <svg width="600" height="250" style="border: 1px solid #ddd; background: #f8f9fa;">
+                        <text x="300" y="25" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">横波传播示意图（t时刻）</text>
+                        
+                        <!-- 平衡位置线 -->
+                        <line x1="50" y1="150" x2="550" y2="150" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="5,5"/>
+                        
+                        <!-- 波形曲线 -->
+                        <path d="M 50 150 Q 100 50, 150 150 T 250 150 T 350 150 T 450 150 T 550 150" stroke="#3498db" stroke-width="3" fill="none"/>
+                        
+                        <!-- 质点 -->
+                        <circle cx="100" cy="100" r="6" fill="#e74c3c"/>
+                        <circle cx="150" cy="150" r="6" fill="#e74c3c"/>
+                        <circle cx="200" cy="200" r="6" fill="#e74c3c"/>
+                        <circle cx="250" cy="150" r="6" fill="#e74c3c"/>
+                        <circle cx="300" cy="100" r="6" fill="#e74c3c"/>
+                        
+                        <!-- 质点振动方向（假设波向右传播） -->
+                        <path d="M 100 100 L 100 70" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowheadWave)"/>
+                        <path d="M 150 150 L 150 180" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowheadWave)"/>
+                        <path d="M 200 200 L 200 170" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowheadWave)"/>
+                        <path d="M 250 150 L 250 120" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowheadWave)"/>
+                        <path d="M 300 100 L 300 130" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowheadWave)"/>
+                        
+                        <!-- 波传播方向 -->
+                        <path d="M 450 40 L 520 40" stroke="#8e44ad" stroke-width="3" marker-end="url(#arrowheadWave)"/>
+                        <text x="485" y="35" font-size="14" fill="#8e44ad" text-anchor="middle">v（波速）</text>
+                        
+                        <!-- 标注 -->
+                        <text x="100" y="230" font-size="12" fill="#e74c3c" text-anchor="middle">波峰</text>
+                        <text x="200" y="230" font-size="12" fill="#e74c3c" text-anchor="middle">波谷</text>
+                        <text x="250" y="230" font-size="12" fill="#666" text-anchor="middle">平衡位置</text>
+                        
+                        <!-- 波长标注 -->
+                        <line x1="100" y1="245" x2="300" y2="245" stroke="#f39c12" stroke-width="2" marker-start="url(#arrowheadWave2)" marker-end="url(#arrowheadWave2)"/>
+                        <text x="200" y="240" font-size="12" fill="#f39c12" text-anchor="middle">λ（波长）</text>
+                        
+                        <defs>
+                            <marker id="arrowheadWave" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7"/>
+                            </marker>
+                            <marker id="arrowheadWave2" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                                <polygon points="10 0, 0 3.5, 10 7"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-point">
+                    <strong>💡 判断技巧：</strong>"上坡下，下坡上"——波向右传时，处于波形上坡段的质点向下振动，下坡段的质点向上振动。
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>光学：双缝干涉与光路图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <div style="text-align: center;">
+                        <svg width="400" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="200" y="20" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">双缝干涉示意图</text>
+                            
+                            <!-- 光源 -->
+                            <circle cx="40" cy="100" r="8" fill="#f39c12"/>
+                            <text x="40" y="105" font-size="10" fill="#fff" text-anchor="middle">S</text>
+                            
+                            <!-- 单缝 -->
+                            <line x1="80" y1="80" x2="80" y2="95" stroke="#333" stroke-width="3"/>
+                            <line x1="80" y1="105" x2="80" y2="120" stroke="#333" stroke-width="3"/>
+                            <text x="80" y="140" font-size="10" fill="#333" text-anchor="middle">单缝</text>
+                            
+                            <!-- 双缝 -->
+                            <line x1="150" y1="70" x2="150" y2="95" stroke="#333" stroke-width="3"/>
+                            <line x1="150" y1="105" x2="150" y2="130" stroke="#333" stroke-width="3"/>
+                            <text x="150" y="150" font-size="10" fill="#333" text-anchor="middle">S₁</text>
+                            
+                            <line x1="150" y1="85" x2="150" y2="115" stroke="#e74c3c" stroke-width="2"/>
+                            <text x="150" y="165" font-size="10" fill="#e74c3c" text-anchor="middle">d</text>
+                            
+                            <!-- 光屏 -->
+                            <line x1="350" y1="50" x2="350" y2="150" stroke="#8e44ad" stroke-width="4"/>
+                            <text x="380" y="100" font-size="12" fill="#8e44ad" text-anchor="middle">光屏</text>
+                            
+                            <!-- 光线 -->
+                            <line x1="150" y1="85" x2="350" y2="70" stroke="#3498db" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <line x1="150" y1="115" x2="350" y2="70" stroke="#3498db" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            
+                            <!-- 亮纹 -->
+                            <circle cx="350" cy="70" r="4" fill="#e74c3c"/>
+                            <circle cx="350" cy="100" r="4" fill="#f39c12"/>
+                            <circle cx="350" cy="130" r="4" fill="#e74c3c"/>
+                            
+                            <!-- 标注 -->
+                            <text x="250" y="40" font-size="12" fill="#27ae60" text-anchor="middle">L</text>
+                            <line x1="150" y1="45" x2="350" y2="45" stroke="#27ae60" stroke-width="1" stroke-dasharray="3,3"/>
+                        </svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <svg width="350" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="175" y="20" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">光的折射与全反射</text>
+                            
+                            <!-- 两种介质界面 -->
+                            <line x1="175" y1="40" x2="175" y2="180" stroke="#333" stroke-width="2"/>
+                            <text x="100" y="60" font-size="12" fill="#3498db">光密介质 n₁</text>
+                            <text x="220" y="60" font-size="12" fill="#e74c3c">光疏介质 n₂(n₂&lt;n₁)</text>
+                            
+                            <!-- 法线 -->
+                            <line x1="100" y1="110" x2="250" y2="110" stroke="#95a5a6" stroke-width="1" stroke-dasharray="3,3"/>
+                            <text x="260" y="115" font-size="10" fill="#95a5a6">法线</text>
+                            
+                            <!-- 入射光线 -->
+                            <line x1="80" y1="50" x2="175" y2="110" stroke="#3498db" stroke-width="2.5"/>
+                            <path d="M 100 70 L 110 75" stroke="#3498db" stroke-width="2" marker-end="url(#arrowheadOptics)"/>
+                            <text x="90" y="75" font-size="11" fill="#3498db">入射光</text>
+                            
+                            <!-- 折射光线 -->
+                            <line x1="175" y1="110" x2="280" y2="80" stroke="#e74c3c" stroke-width="2.5"/>
+                            <path d="M 220 95 L 230 92" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowheadOptics)"/>
+                            <text x="240" y="90" font-size="11" fill="#e74c3c">折射光</text>
+                            
+                            <!-- 角度 -->
+                            <path d="M 175 90 Q 155 95 160 110" stroke="#f39c12" stroke-width="1.5" fill="none"/>
+                            <text x="155" y="95" font-size="11" fill="#f39c12">i</text>
+                            <path d="M 195 110 Q 200 95 185 95" stroke="#f39c12" stroke-width="1.5" fill="none"/>
+                            <text x="200" y="100" font-size="11" fill="#f39c12">r</text>
+                            
+                            <!-- 公式 -->
+                            <text x="175" y="185" font-size="12" fill="#2c3e50" text-anchor="middle">n₁sin i = n₂sin r</text>
+                            
+                            <defs>
+                                <marker id="arrowheadOptics" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <polygon points="0 0, 8 3, 0 6"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="key-point">
+                    <strong>💡 作图要点：</strong>双缝干涉注意光程差；折射作图要画法线，标出入射角和折射角；全反射时只有反射光没有折射光。
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>波动演示动画</h3>
+                <div style="text-align: center;">
+                    <canvas id="waveCanvas" width="600" height="200" style="border: 2px solid #3498db; background: #f8f9fa;"></canvas>
+                    <p style="margin-top: 10px; color: #666;">
+                        <button onclick="startWaveAnimation()" style="padding: 8px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">开始波动</button>
+                        <button onclick="stopWaveAnimation()" style="padding: 8px 20px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">停止</button>
+                    </p>
+                    <p style="color: #2c3e50; font-size: 14px;">
+                        观察质点在平衡位置附近振动，波向右传播
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="key-point">
+            <strong>💡 选考题答题技巧：</strong><br/>
+            1. 热学计算注意单位换算，温度必须用开尔文温标<br/>
+            2. 气体问题画状态变化图（p-V图、p-T图、V-T图）帮助分析<br/>
+            3. 波动问题先确定波的传播方向，再判断质点振动方向<br/>
+            4. 光学作图要规范，法线、光线、角度标注清晰<br/>
+            5. 计算结果要检查合理性（如效率不能大于1，波长为正等）
+        </div>
+    </div>
+
+    <script>//<![CDATA[
+
+        // 波动动画
+        let waveAnimationId = null;
+        let waveTime = 0;
+        
+        function drawWave() {
+            const canvas = document.getElementById('waveCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            // 清空画布
+            ctx.fillStyle = '#f8f9fa';
+            ctx.fillRect(0, 0, 600, 200);
+            
+            // 绘制平衡位置线
+            ctx.strokeStyle = '#bdc3c7';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(0, 100);
+            ctx.lineTo(600, 100);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // 绘制波形
+            ctx.strokeStyle = '#3498db';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            for (let x = 0; x < 600; x++) {
+                const y = 100 + 40 * Math.sin((x - waveTime * 2) * 0.05);
+                if (x === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // 绘制质点
+            for (let x = 50; x < 600; x += 100) {
+                const y = 100 + 40 * Math.sin((x - waveTime * 2) * 0.05);
+                ctx.fillStyle = '#e74c3c';
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // 绘制质点振动方向
+                const vy = 40 * 0.05 * 2 * Math.cos((x - waveTime * 2) * 0.05);
+                if (Math.abs(vy) > 0.1) {
+                    ctx.strokeStyle = '#27ae60';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x + 15, y);
+                    ctx.lineTo(x + 15, y + vy * 10);
+                    ctx.stroke();
+                    // 箭头
+                    ctx.beginPath();
+                    if (vy > 0) {
+                        ctx.moveTo(x + 15, y + vy * 10);
+                        ctx.lineTo(x + 12, y + vy * 10 - 5);
+                        ctx.lineTo(x + 18, y + vy * 10 - 5);
+                    } else {
+                        ctx.moveTo(x + 15, y + vy * 10);
+                        ctx.lineTo(x + 12, y + vy * 10 + 5);
+                        ctx.lineTo(x + 18, y + vy * 10 + 5);
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            }
+            
+            // 标注
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = '14px Arial';
+            ctx.fillText('波向右传播', 480, 30);
+            ctx.fillStyle = '#27ae60';
+            ctx.fillText('绿色箭头：质点振动方向', 20, 180);
+        }
+        
+        function animateWave() {
+            waveTime += 1;
+            drawWave();
+            waveAnimationId = requestAnimationFrame(animateWave);
+        }
+        
+        function startWaveAnimation() {
+            if (!waveAnimationId) {
+                waveTime = 0;
+                animateWave();
+            }
+        }
+        
+        function stopWaveAnimation() {
+            if (waveAnimationId) {
+                cancelAnimationFrame(waveAnimationId);
+                waveAnimationId = null;
+            }
+        }
+        
+        // 初始绘制
+        drawWave();
+    
+//]]></script>
+
+    <!-- 2025社会热点扩展知识 -->
+    <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-left: 5px solid #5f27cd;">
+        <div class="module-title" style="color: #fff;">🌍 2025社会热点与物理前沿</div>
+        
+        <div class="section">
+            <h3 style="color: #5f27cd;">🏆 诺贝尔物理学奖：机器学习与统计物理</h3>
+            <p><strong>热点背景：</strong>2024年诺贝尔物理学奖授予John Hopfield和Geoffrey Hinton，表彰他们在人工神经网络和机器学习方面的奠基性贡献，将统计物理方法引入计算机科学。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>统计物理基础：</strong>玻尔兹曼分布 $P(E) \propto e^{-E/k_BT}$，描述系统处于某能量状态的概率<br/>
+                • <strong>伊辛模型：</strong>描述磁性材料相变的简化模型，与神经网络结构相似<br/>
+                • <strong>能量景观：</strong>系统能量随状态变化的地形图，局部极小值对应记忆模式<br/>
+                • <strong>退火算法：</strong>模拟金属退火过程，温度逐渐降低寻找全局最优解
+            </div>
+            <div class="formula-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-color: #5f27cd; color: white;">
+                <strong>Hopfield网络能量函数：</strong><br/>
+                $E = -\frac{1}{2}\sum_{i,j} J_{ij} s_i s_j - \sum_i h_i s_i$<br/>
+                其中 $s_i = \pm 1$ 表示神经元状态，$J_{ij}$ 为连接权重，网络演化趋向能量最低状态
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">🌊 引力波探测新纪元：纳赫兹引力波</h3>
+            <p><strong>热点背景：</strong>2023-2025年，北美纳赫兹引力波天文台（NANOGrav）和中国脉冲星测时阵列（CPTA）相继宣布探测到纳赫兹引力波证据，为研究超大质量黑洞合并、宇宙早期相变提供新窗口。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>引力波本质：</strong>时空的涟漪，以光速传播，由加速质量产生<br/>
+                • <strong>四极辐射公式：</strong>引力波强度与质量四极矩的二阶导数成正比 $h \propto \ddot{Q}$<br/>
+                • <strong>脉冲星测时：</strong>利用毫秒脉冲星作为"宇宙钟表"，精度达纳秒级<br/>
+                • <strong>多信使天文学：</strong>结合引力波、电磁波、中微子研究天体物理过程
+            </div>
+            <div class="warning">
+                <strong>高考预测：</strong>可能考查引力波产生条件、光速不变原理、双星系统周期变化等
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">🔭 JWST韦伯望远镜重大发现</h3>
+            <p><strong>热点背景：</strong>2025年詹姆斯·韦伯空间望远镜（JWST）发现宇宙早期星系形成速度远超预期，观测到宇宙大爆炸后仅3亿年形成的星系，挑战现有宇宙学模型。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>多普勒红移：</strong>$z = \frac{\lambda_{obs} - \lambda_{emit}}{\lambda_{emit}} = \frac{v}{c}$（低速近似），遥远星系光谱红移<br/>
+                • <strong>哈勃定律：</strong>$v = H_0 d$，宇宙膨胀速度与距离成正比，$H_0 \approx 70$ km/(s·Mpc)<br/>
+                • <strong>宇宙年龄估算：</strong>$t_0 \approx \frac{1}{H_0} \approx 138$ 亿年<br/>
+                • <strong>黑体辐射：</strong>宇宙微波背景辐射（CMB）温度2.7K，验证大爆炸理论
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">⚡ 室温超导争议与科学精神</h3>
+            <p><strong>热点背景：</strong>2023年韩国团队宣称发现LK-99室温超导材料引发全球复现热潮，2025年最终证实该材料并非超导体，但推动了高温超导研究进展和铜氧化物超导机理探索。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>超导特性：</strong>零电阻、完全抗磁性（迈斯纳效应）、临界温度$T_c$<br/>
+                • <strong>BCS理论：</strong>电子通过声子媒介形成库珀对，$T_c \propto \Theta_D e^{-1/N(0)V}$<br/>
+                • <strong>磁悬浮原理：</strong>超导体的完全抗磁性产生排斥力，$F \propto \frac{B^2}{\mu_0}$<br/>
+                • <strong>科学方法论：</strong>可重复性原则、同行评议、证伪主义
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">🚁 低空经济与eVTOL飞行器</h3>
+            <p><strong>热点背景：</strong>2025年中国低空经济政策放开，亿航智能获全球首张eVTOL（电动垂直起降飞行器）适航证，深圳-珠海航线开通，开启城市空中交通新时代。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>升力原理：</strong>旋翼产生升力 $L = \frac{1}{2}\rho v^2 A C_L$，伯努利方程应用<br/>
+                • <strong>能量效率：</strong>电动系统效率 $\eta \approx 90\%$，远高于内燃机（30%）<br/>
+                • <strong>电池能量密度：</strong>当前约300 Wh/kg，续航瓶颈，$E = mgh + \frac{1}{2}mv^2 + W_{阻力}$<br/>
+                • <strong>噪声控制：</strong>旋翼噪声与叶尖速度5次方成正比，$P \propto v^5$
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">🌞 钙钛矿太阳能电池效率突破</h3>
+            <p><strong>热点背景：</strong>2025年钙钛矿/晶硅叠层太阳能电池效率突破33.9%，接近肖克利-奎伊瑟极限，商业化进程加速，有望大幅降低光伏发电成本。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>光电效应：</strong>$h\nu = W + E_k$，光子能量大于逸出功才能产生光电子<br/>
+                • <strong>禁带宽度：</strong>钙钛矿 $E_g \approx 1.5-1.6$ eV，接近太阳光谱峰值<br/>
+                • <strong>叠层结构：</strong>顶电池吸收高能光子，底电池吸收低能光子，减少热损失<br/>
+                • <strong>肖克利-奎伊瑟极限：</strong>单结电池理论最高效率约33%，叠层可突破此限制
+            </div>
+            <div class="formula-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-color: #5f27cd; color: white;">
+                <strong>太阳能电池效率计算：</strong><br/>
+                $\eta = \frac{P_{out}}{P_{in}} = \frac{J_{sc} \cdot V_{oc} \cdot FF}{P_{in}}$<br/>
+                其中 $J_{sc}$ 为短路电流密度，$V_{oc}$ 为开路电压，$FF$ 为填充因子
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">🔬 量子计算实用化进展</h3>
+            <p><strong>热点背景：</strong>2025年中国"九章三号"光量子计算机实现255光子操纵，在图论问题、机器学习等特定任务上展现量子优势，量子计算走向实用化。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>量子叠加：</strong>量子比特可同时处于|0⟩和|1⟩叠加态，$|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$<br/>
+                • <strong>量子纠缠：</strong>多量子比特形成纠缠态，实现并行计算<br/>
+                • <strong>波粒二象性：</strong>光子既是粒子又是波，干涉实现量子算法<br/>
+                • <strong>测不准原理：</strong>量子测量会坍缩叠加态，量子纠错技术挑战
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #5f27cd;">🌍 碳中和与核聚变能源</h3>
+            <p><strong>热点背景：</strong>2025年中国提出2060年碳中和路线图，核聚变被视为终极清洁能源，EAST、CFETR等装置持续突破，商业化时间表提前至2035年。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>质能方程：</strong>$E = \Delta m \cdot c^2$，氘氚聚变质量亏损0.3%，释放17.6 MeV<br/>
+                • <strong>库仑势垒：</strong>$V_C = \frac{1}{4\pi\varepsilon_0}\frac{e^2}{r} \approx 0.5$ MeV，需高温克服<br/>
+                • <strong>劳森判据：</strong>$n\tau_E T > 3\times 10^{21}$ keV·s/m³，实现能量盈亏平衡条件<br/>
+                • <strong>等离子体约束：</strong>磁镜、托卡马克、仿星器三种主要方式
+            </div>
+        </div>
+    </div>
+
+    <!-- 2026社会热点扩展知识 -->
+    <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-left: 5px solid #e74c3c;">
+        <div class="module-title" style="color: #c0392b;">🌍 2026社会热点与物理前沿</div>
+        
+        <div class="section">
+            <h3 style="color: #c0392b;">🔬 可控核聚变突破与"人造太阳"</h3>
+            <p><strong>热点背景：</strong>2025-2026年，国际热核聚变实验堆（ITER）取得重大进展，中国"人造太阳"EAST装置实现403秒稳态高约束模式等离子体运行，创造世界纪录。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>核聚变原理：</strong>轻核聚变成重核，质量亏损释放能量 $E=mc^2$<br/>
+                • <strong>反应方程：</strong>$^2_1H + ^3_1H \rightarrow ^4_2He + ^1_0n + 17.6$ MeV<br/>
+                • <strong>条件：</strong>温度需达1亿度以上，使氘氚克服库仑势垒<br/>
+                • <strong>约束方式：</strong>磁约束（托卡马克）、惯性约束
+            </div>
+            <div class="warning">
+                <strong>高考预测：</strong>可能考查聚变反应方程配平、能量计算、与裂变对比等知识点
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🛰️ 中国空间站与微重力物理</h3>
+            <p><strong>热点背景：</strong>2026年中国空间站全面建成并进入应用与发展阶段，开展多项微重力物理实验，包括冷原子钟、流体物理、燃烧科学等。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>完全失重：</strong>空间站轨道处 $g' \approx 8.7 m/s^2$，但因自由落体而失重<br/>
+                • <strong>轨道速度：</strong>$v = \sqrt{\frac{GM}{r}} \approx 7.7$ km/s（近地轨道）<br/>
+                • <strong>周期：</strong>$T = 2\pi\sqrt{\frac{r^3}{GM}} \approx 90$ 分钟<br/>
+                • <strong>时间膨胀：</strong>狭义相对论效应 $t' = t\sqrt{1-v^2/c^2}$，广义相对论引力红移
+            </div>
+            <div class="formula-box" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-color: #e74c3c;">
+                <strong>双生子佯谬简化计算：</strong><br/>
+                空间站运行1年，地球上时间多流逝约 $0.01$ 秒（需同时考虑狭义和广义相对论效应）
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🔋 固态电池与新能源革命</h3>
+            <p><strong>热点背景：</strong>2026年固态电池技术取得突破，能量密度达500 Wh/kg，充电时间缩短至10分钟，有望彻底解决电动汽车续航焦虑。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>电动势：</strong>固态电解质离子电导率提升，内阻降低<br/>
+                • <strong>能量密度：</strong>$\rho_E = \frac{E}{m}$，单位Wh/kg或J/kg<br/>
+                • <strong>充电功率：</strong>$P = UI$，快充技术需解决散热问题 $Q = I^2Rt$<br/>
+                • <strong>光电转换：</strong>钙钛矿太阳能电池效率突破26%
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🌊 量子通信与信息安全</h3>
+            <p><strong>热点背景：</strong>2026年"墨子号"量子科学实验卫星完成洲际量子密钥分发，构建覆盖全球的量子通信网络原型。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>量子纠缠：</strong>两个粒子形成关联态，测量一个瞬间决定另一个状态<br/>
+                • <strong>不确定性原理：</strong>$\Delta x \cdot \Delta p \geq \frac{\hbar}{2}$，无法同时精确测量<br/>
+                • <strong>光子能量：</strong>$E = h\nu = \frac{hc}{\lambda}$，通信波段选择<br/>
+                • <strong>光纤传输：</strong>全反射原理，临界角 $\sin C = \frac{1}{n}$
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🌡️ 极端天气与热力学</h3>
+            <p><strong>热点背景：</strong>2026年全球极端天气频发，厄尔尼诺现象导致多地创历史高温，引发对气候变化与能量平衡的深入思考。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>温室效应：</strong>CO₂等气体吸收红外辐射，大气层向外辐射能量 $P = \sigma T^4$<br/>
+                • <strong>热平衡：</strong>地球吸收太阳辐射功率 = 向外辐射功率<br/>
+                • <strong>斯特藩-玻尔兹曼定律：</strong>$j^* = \sigma T^4$，$\sigma = 5.67 \times 10^{-8} W/(m^2 \cdot K^4)$<br/>
+                • <strong>热机效率：</strong>卡诺效率 $\eta = 1 - \frac{T_c}{T_h}$，地热发电应用
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">📱 AI芯片与半导体物理</h3>
+            <p><strong>热点背景：</strong>2026年国产AI芯片实现7nm工艺量产，算力达1000 TOPS，支撑大模型本地化部署。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>能带理论：</strong>导体、半导体、绝缘体的能带结构差异<br/>
+                • <strong>PN结：</strong>内建电场 $E_{bi} = \frac{kT}{q}\ln\frac{N_A N_D}{n_i^2}$<br/>
+                • <strong>摩尔定律：</strong>晶体管数量每18-24个月翻倍，面临量子隧穿极限<br/>
+                • <strong>光电效应：</strong>光刻机使用极紫外光（EUV，波长13.5nm）
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🧠 脑机接口与神经工程</h3>
+            <p><strong>热点背景：</strong>2026年Neuralink完成首例人体临床试验，中国"北脑二号"实现猕猴意念控制机械臂，脑机接口技术从实验室走向临床应用。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>神经电信号：</strong>动作电位约100mV，频率1-100Hz，需高灵敏度电极检测<br/>
+                • <strong>电磁屏蔽：</strong>脑电信号微弱（μV级），需法拉第笼屏蔽环境干扰<br/>
+                • <strong>信号处理：</strong>傅里叶变换分析脑电频谱，滤波去除工频干扰（50Hz）<br/>
+                • <strong>生物相容性：</strong>电极材料与脑组织界面阻抗匹配，减少免疫排斥
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🌊 深海探测与极端环境物理</h3>
+            <p><strong>热点背景：</strong>2026年"奋斗者"号完成环大洋洲载人深潜科考，中国建成全球首个全海深载人潜水器体系，挑战马里亚纳海沟11000米深渊。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>液体压强：</strong>$p = \rho gh$，万米深海压强约110 MPa（1100个大气压）<br/>
+                • <strong>浮力原理：</strong>深潜器通过抛载铁砂实现下潜，抛载上浮<br/>
+                • <strong>材料强度：</strong>钛合金耐压球壳，屈服强度需大于工作应力3倍以上<br/>
+                • <strong>声学通信：</strong>水声传播速度 $c = \sqrt{\frac{K}{\rho}} \approx 1500$ m/s，用于深海数据传输
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">🚀 可重复使用火箭技术</h3>
+            <p><strong>热点背景：</strong>2026年SpaceX星舰完成首次轨道级回收，中国长征十号实现垂直着陆，可重复使用火箭大幅降低发射成本，开启商业航天新时代。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>动量守恒：</strong>火箭推进 $F = \frac{dm}{dt}v_e$，推力与喷气速度成正比<br/>
+                • <strong>齐奥尔科夫斯基公式：</strong>$\Delta v = v_e \ln\frac{m_0}{m_1}$，质量比决定速度增量<br/>
+                • <strong>能量回收：</strong>着陆缓冲利用发动机反推，机械能转化为热能和化学能<br/>
+                • <strong>再入热防护：</strong>气动加热 $q \propto \rho v^3$，需耐高温材料保护
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #c0392b;">💡 新型显示技术：Micro LED</h3>
+            <p><strong>热点背景：</strong>2026年Micro LED显示技术实现大规模量产，像素密度达5000 PPI，亮度超5000 nit，功耗仅为OLED的50%，应用于AR/VR设备。</p>
+            <div class="key-point">
+                <strong>物理考点链接：</strong><br/>
+                • <strong>半导体发光：</strong>电子跃迁释放光子 $E = h\nu = \frac{hc}{\lambda}$，决定发光颜色<br/>
+                • <strong>量子效率：</strong>内量子效率（载流子复合发光比例）可达90%以上<br/>
+                • <strong>光提取效率：</strong>全反射限制光出射，表面粗化或光子晶体提高效率<br/>
+                • <strong>色域覆盖：</strong>Micro LED半峰宽窄（20-40nm），色域达NTSC 120%以上
+            </div>
+        </div>
+    </div>
+</body>
+</html>

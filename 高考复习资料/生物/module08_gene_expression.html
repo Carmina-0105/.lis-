@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块8：基因的本质与表达 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #4facfe;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #4facfe; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #4facfe;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #4facfe;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #4facfe;
+        }
+        h3 {
+            color: #00c6ff;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #4facfe20, #00f2fe20);
+            border-left: 4px solid #4facfe;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #4facfe;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #4facfe;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #4facfe;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #4facfe15, #00f2fe15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4facfe;
+        }
+        .dna-structure {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module07_gene_chromosome.html">← 上一模块</a>
+                <a href="module09_variation.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🧬 模块8：基因的本质与表达</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：15-20分</span>
+                <span class="tag tag-key">难度：★★★★☆</span>
+                <span class="tag tag-formula">计算与理解并重</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>DNA结构</strong><br/>
+                        双螺旋模型
+                    </div>
+                    <div class="network-item">
+                        <strong>DNA复制</strong><br/>
+                        半保留复制
+                    </div>
+                    <div class="network-item">
+                        <strong>转录</strong><br/>
+                        DNA→RNA
+                    </div>
+                    <div class="network-item">
+                        <strong>翻译</strong><br/>
+                        RNA→蛋白质
+                    </div>
+                    <div class="network-item">
+                        <strong>中心法则</strong><br/>
+                        遗传信息流动
+                    </div>
+                    <div class="network-item">
+                        <strong>基因控制性状</strong><br/>
+                        直接/间接控制
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、DNA分子的结构</h2>
+
+            <h3>1.1 DNA双螺旋结构模型</h3>
+            <div class="key-point">
+                <strong>DNA双螺旋结构的特点（沃森和克里克，1953年）：</strong><br/><br/>
+                1. <strong>反向平行：</strong>两条脱氧核苷酸链按反向平行方式盘旋成双螺旋结构<br/>
+                2. <strong>外侧骨架：</strong>脱氧核糖和磷酸交替连接，排列在外侧，构成基本骨架<br/>
+                3. <strong>内侧碱基：</strong>碱基排列在内侧，通过氢键连接成碱基对<br/>
+                4. <strong>碱基互补配对：</strong>A与T配对（2个氢键），G与C配对（3个氢键）
+            </div>
+
+            <div class="dna-structure">
+                <h4>🧬 DNA双螺旋结构示意</h4>
+                <p style="line-height: 2;">
+                    5'-磷酸-脱氧核糖-碱基-3'<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+                    3'-碱基-脱氧核糖-磷酸-5'<br/><br/>
+                    A ═══ T（2个氢键）<br/>
+                    G ≡≡≡ C（3个氢键）
+                </p>
+            </div>
+
+            <h3>1.2 DNA分子的特性</h3>
+            <div class="key-point">
+                <strong>1. 多样性：</strong>碱基对的排列顺序千变万化<br/>
+                若有n个碱基对，可能的排列方式有4ⁿ种<br/><br/>
+                <strong>2. 特异性：</strong>每个DNA分子有特定的碱基排列顺序<br/><br/>
+                <strong>3. 稳定性：</strong>磷酸和脱氧核糖交替连接形成稳定骨架；碱基互补配对原则保证了复制的准确
+            </div>
+
+            <h3>1.3 DNA分子中的碱基数量关系</h3>
+            <div class="formula-box">
+                <div class="title">碱基互补配对原则的应用</div>
+                <p style="line-height: 2;">
+                    在双链DNA分子中：<br/>
+                    • A = T，G = C<br/>
+                    • A + G = T + C = A + C = T + G = 50%（嘌呤 = 嘧啶）<br/>
+                    • (A + T) / (G + C) 比值因DNA而异<br/><br/>
+                    在单链DNA中：<br/>
+                    • A₁ = T₂，T₁ = A₂，G₁ = C₂，C₁ = G₂<br/>
+                    • 一条链的(A+T)/(G+C) = 另一条链的(A+T)/(G+C) = 双链的(A+T)/(G+C)
+                </p>
+            </div>
+
+            <h2>二、DNA分子的复制</h2>
+
+            <h3>2.1 DNA复制的基本概念</h3>
+            <div class="key-point">
+                <strong>复制时间：</strong>有丝分裂间期和减数第一次分裂前的间期<br/><br/>
+                <strong>复制场所：</strong>细胞核（主要）、线粒体、叶绿体<br/><br/>
+                <strong>复制条件：</strong><br/>
+                • 模板：DNA的两条链<br/>
+                • 原料：四种游离的脱氧核苷酸<br/>
+                • 能量：ATP<br/>
+                • 酶：解旋酶、DNA聚合酶等
+            </div>
+
+            <h3>2.2 DNA复制的过程</h3>
+            <div class="formula-box">
+                <div class="title">DNA复制过程（边解旋边复制）</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>① 解旋：</strong>在解旋酶作用下，DNA双链解开，形成两条单链<br/>
+                    <strong>② 合成子链：</strong>以两条母链为模板，在DNA聚合酶作用下，按照碱基互补配对原则合成子链<br/>
+                    <strong>③ 形成子代DNA：</strong>每条子链与对应的母链盘绕成双螺旋结构，形成两个子代DNA分子<br/><br/>
+                    <strong>特点：</strong>边解旋边复制、半保留复制、多起点复制（真核生物）
+                </p>
+            </div>
+
+            <h3>2.3 DNA复制的特点——半保留复制</h3>
+            <div class="key-point">
+                <strong>半保留复制：</strong>新合成的每个DNA分子中，都保留了原来DNA分子中的一条链。<br/><br/>
+                <strong>证明实验（梅塞尔森和斯塔尔，1958年）：</strong><br/>
+                用¹⁵N标记大肠杆菌的DNA，然后转移到¹⁴N培养基中培养，通过密度梯度离心分析DNA密度变化，证明了DNA的半保留复制。
+            </div>
+
+            <div class="formula-box">
+                <div class="title">DNA复制相关计算</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>1. DNA复制n次后：</strong><br/>
+                    • DNA分子总数：2ⁿ个<br/>
+                    • 含母链的DNA分子：2个<br/>
+                    • 只含母链的DNA分子：0个<br/>
+                    • 含子链的DNA分子：2ⁿ个<br/>
+                    • 只含子链的DNA分子：2ⁿ - 2个<br/><br/>
+                    <strong>2. 所需原料计算：</strong><br/>
+                    若DNA分子中某碱基为m个，复制n次需要该游离脱氧核苷酸：m × (2ⁿ - 1)个<br/>
+                    第n次复制需要：m × 2ⁿ⁻¹个
+                </p>
+            </div>
+
+            <h2>三、基因的表达</h2>
+
+            <h3>3.1 基因指导蛋白质的合成</h3>
+            <div class="key-point">
+                <strong>基因表达：</strong>基因通过指导蛋白质的合成来控制性状的过程，包括转录和翻译两个阶段。
+            </div>
+
+            <h3>3.2 转录</h3>
+            <div class="formula-box">
+                <div class="title">转录过程（DNA → RNA）</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>场所：</strong>细胞核（主要）<br/>
+                    <strong>模板：</strong>DNA的一条链（模板链/反义链）<br/>
+                    <strong>原料：</strong>四种核糖核苷酸<br/>
+                    <strong>酶：</strong>RNA聚合酶<br/>
+                    <strong>能量：</strong>ATP<br/><br/>
+                    <strong>过程：</strong><br/>
+                    ① DNA双链解开，RNA聚合酶结合到启动子<br/>
+                    ② 按照碱基互补配对原则合成RNA（A-U，T-A，G-C，C-G）<br/>
+                    ③ RNA链延伸，到达终止子后释放<br/>
+                    ④ DNA双链恢复
+                </p>
+            </div>
+
+            <h3>3.3 翻译</h3>
+            <div class="formula-box">
+                <div class="title">翻译过程（RNA → 蛋白质）</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>场所：</strong>核糖体<br/>
+                    <strong>模板：</strong>mRNA<br/>
+                    <strong>原料：</strong>20种氨基酸<br/>
+                    <strong>转运工具：</strong>tRNA<br/>
+                    <strong>酶和能量：</strong>多种酶、ATP<br/><br/>
+                    <strong>过程：</strong><br/>
+                    ① mRNA与核糖体结合<br/>
+                    ② tRNA携带氨基酸进入核糖体，反密码子与mRNA上的密码子配对<br/>
+                    ③ 氨基酸之间形成肽键<br/>
+                    ④ 核糖体沿mRNA移动，读取下一个密码子<br/>
+                    ⑤ 到达终止密码子，肽链释放，盘曲折叠形成蛋白质
+                </p>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>📝 转录 vs 复制</h4>
+                    <p><strong>相同点：</strong></p>
+                    <ul>
+                        <li>都以DNA为模板</li>
+                        <li>都遵循碱基互补配对</li>
+                        <li>都需要酶和能量</li>
+                    </ul>
+                    <p><strong>不同点：</strong></p>
+                    <ul>
+                        <li>复制：两条链都作模板，产物是DNA</li>
+                        <li>转录：一条链作模板，产物是RNA</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>🔄 转录 vs 翻译</h4>
+                    <table style="font-size: 0.9em;">
+                        <tr>
+                            <th>项目</th>
+                            <th>转录</th>
+                            <th>翻译</th>
+                        </tr>
+                        <tr>
+                            <td>场所</td>
+                            <td>细胞核</td>
+                            <td>核糖体</td>
+                        </tr>
+                        <tr>
+                            <td>模板</td>
+                            <td>DNA一条链</td>
+                            <td>mRNA</td>
+                        </tr>
+                        <tr>
+                            <td>原料</td>
+                            <td>核糖核苷酸</td>
+                            <td>氨基酸</td>
+                        </tr>
+                        <tr>
+                            <td>产物</td>
+                            <td>RNA</td>
+                            <td>蛋白质</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <h3>3.4 遗传密码子</h3>
+            <div class="key-point">
+                <strong>密码子：</strong>mRNA上决定一个氨基酸的三个相邻碱基。<br/><br/>
+                <strong>特点：</strong><br/>
+                • 64种密码子，其中61种编码氨基酸，3种终止密码子（UAA、UAG、UGA）<br/>
+                • 起始密码子：AUG（编码甲硫氨酸）<br/>
+                • 一种氨基酸可对应多种密码子（密码子的简并性）<br/>
+                • 所有生物共用一套遗传密码（密码子的通用性）
+            </div>
+
+            <h2>四、中心法则</h2>
+
+            <h3>4.1 中心法则的内容</h3>
+            <div class="formula-box">
+                <div class="title">中心法则图解</div>
+                <p style="font-size: 1.1em; line-height: 2.5;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复制<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DNA ─────────→ DNA<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓转录&emsp;&emsp;&nbsp;&nbsp;↑逆转录<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;↓<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RNA ──翻译──→ 蛋白质<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓复制<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RNA
+                </p>
+            </div>
+
+            <div class="key-point">
+                <strong>中心法则各过程的适用范围：</strong><br/>
+                • DNA复制：绝大多数生物<br/>
+                • 转录和翻译：绝大多数生物<br/>
+                • RNA复制：RNA病毒（如烟草花叶病毒）<br/>
+                • 逆转录：逆转录病毒（如HIV）
+            </div>
+
+            <h2>五、基因对性状的控制</h2>
+
+            <h3>5.1 基因控制性状的两条途径</h3>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>🔧 直接控制</h4>
+                    <p><strong>途径：</strong>基因 → 蛋白质结构 → 性状</p>
+                    <p><strong>实例：</strong></p>
+                    <ul>
+                        <li>镰刀型细胞贫血症：血红蛋白基因突变 → 血红蛋白结构异常 → 红细胞呈镰刀状</li>
+                        <li>囊性纤维病：CFTR基因突变 → CFTR蛋白结构异常 → 肺部等疾病</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>⚙️ 间接控制</h4>
+                    <p><strong>途径：</strong>基因 → 酶的合成 → 代谢过程 → 性状</p>
+                    <p><strong>实例：</strong></p>
+                    <ul>
+                        <li>白化病：酪氨酸酶基因突变 → 不能合成酪氨酸酶 → 不能合成黑色素 → 白化</li>
+                        <li>苯丙酮尿症：苯丙氨酸羟化酶基因突变 → 代谢异常 → 智力低下</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>5.2 基因与性状的关系</h3>
+            <div class="key-point">
+                <strong>1. 一个基因控制一个性状（简单情况）</strong><br/><br/>
+                <strong>2. 一个基因影响多个性状（一因多效）：</strong><br/>
+                如豌豆的圆皱基因不仅控制粒形，还影响淀粉代谢和甜度<br/><br/>
+                <strong>3. 多个基因控制一个性状（多因一效）：</strong><br/>
+                如人的身高、肤色等数量性状<br/><br/>
+                <strong>4. 基因与环境共同决定性状：</strong><br/>
+                表现型 = 基因型 + 环境条件
+            </div>
+
+            <h2>六、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>DNA结构</strong><br/>
+                        • 双螺旋特点<br/>
+                        • 碱基互补配对<br/>
+                        • 碱基数量关系
+                    </div>
+                    <div class="network-item">
+                        <strong>DNA复制</strong><br/>
+                        • 半保留复制<br/>
+                        • 复制过程<br/>
+                        • 相关计算
+                    </div>
+                    <div class="network-item">
+                        <strong>转录</strong><br/>
+                        • 模板与原料<br/>
+                        • 碱基配对<br/>
+                        • 与复制的区别
+                    </div>
+                    <div class="network-item">
+                        <strong>翻译</strong><br/>
+                        • 密码子<br/>
+                        • tRNA功能<br/>
+                        • 核糖体作用
+                    </div>
+                    <div class="network-item">
+                        <strong>中心法则</strong><br/>
+                        • 信息流动<br/>
+                        • 逆转录<br/>
+                        • RNA复制
+                    </div>
+                    <div class="network-item">
+                        <strong>基因控制性状</strong><br/>
+                        • 直接控制<br/>
+                        • 间接控制<br/>
+                        • 基因与环境
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国乙卷】</strong>一个DNA分子中，G和C之和占全部碱基的46%，其中一条链的A和C分别占该链碱基总数的28%和22%，则该DNA分子的另一条链中，A和C分别占该链碱基总数的（  ）</p>
+                <p>A. 26%、24%&nbsp;&nbsp;&nbsp;&nbsp;B. 24%、26%&nbsp;&nbsp;&nbsp;&nbsp;C. 28%、22%&nbsp;&nbsp;&nbsp;&nbsp;D. 22%、28%</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：A</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>已知：G+C = 46%，则A+T = 54%</p>
+                <p>在双链中：A = T = 27%，G = C = 23%</p>
+                <p>设该DNA的两条链为1链和2链</p>
+                <p>已知1链：A₁ = 28%，C₁ = 22%</p>
+                <p>因为A = (A₁ + A₂)/2，所以27% = (28% + A₂)/2，解得A₂ = 26%</p>
+                <p>因为C = (C₁ + C₂)/2，所以23% = (22% + C₂)/2，解得C₂ = 24%</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module07_gene_chromosome.html">← 上一模块</a>
+                    <a href="module09_variation.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

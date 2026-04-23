@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>化学复习 · 物质的量与化学计算</title>
+<script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .calculation-step {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .unit-conversion {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .practice-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border: 2px solid #e91e63;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>📐 物质的量与化学计算</h1>
+<div class="subtitle">化学计算的基石 · 从微观到宏观的桥梁</div>
+<div class="module-box">
+<div class="module-title">🎯 模块核心</div>
+<p style="font-size: 1.1em;">
+<strong>物质的量</strong>是连接微观粒子与宏观质量的桥梁，是化学计算的核心工具。掌握物质的量的计算，就掌握了化学方程式计算、溶液浓度计算、气体计算等所有化学计算的基础。
+            </p>
+<p style="margin-top: 15px;">
+<strong>高考分值：</strong>约12-18分（选择题6-9分 + 计算题6-9分）<br/>
+<strong>难度系数：</strong>⭐⭐⭐（中等偏易，但必须熟练掌握）<br/>
+<strong>核心公式：</strong>$n = \frac{N}{N_A} = \frac{m}{M} = \frac{V}{V_m} = c \cdot V$
+            </p>
+</div>
+<h2>第一章 物质的量的基本概念</h2>
+<div class="section">
+<h3>1.1 物质的量（n）</h3>
+<div class="key-point">
+<strong>💡 定义：</strong>物质的量是表示含有一定数目粒子集合体的物理量，单位是<strong>摩尔（mol）</strong>。
+            </div>
+<div class="key-point">
+<strong>💡 理解要点：</strong>
+                <ul>
+<li>物质的量是国际单位制中7个基本物理量之一</li>
+<li>1mol任何粒子所含的粒子数均为阿伏伽德罗常数个</li>
+<li>使用物质的量时必须指明粒子种类（原子、分子、离子、电子等）</li>
+<li>粒子数可以是整数，也可以不是整数</li>
+</ul>
+</div>
+<div class="formula-box">
+<strong>基本公式：</strong><br/>
+                $n = \frac{N}{N_A}$
+            </div>
+<table>
+<tr>
+<th>物理量</th>
+<th>符号</th>
+<th>单位</th>
+<th>数值/说明</th>
+</tr>
+<tr>
+<td>物质的量</td>
+<td>$n$</td>
+<td>mol（摩尔）</td>
+<td>表示粒子数目的物理量</td>
+</tr>
+<tr>
+<td>阿伏伽德罗常数</td>
+<td>$N_A$</td>
+<td>$mol^{-1}$</td>
+<td>$N_A = 6.02 \times 10^{23} mol^{-1}$</td>
+</tr>
+<tr>
+<td>粒子数</td>
+<td>$N$</td>
+<td>个</td>
+<td>微观粒子的数目</td>
+</tr>
+</table>
+<div class="example">
+<strong>📝 例题1：</strong>1mol H₂O中含有多少个水分子？多少个氢原子？多少个氧原子？多少个电子？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>物质的量 $n(H_2O) = 1mol$<br/>
+                2. <strong>确定求解目标：</strong>水分子数、氢原子数、氧原子数、电子数<br/>
+                3. <strong>选择公式：</strong>使用 $N = n \cdot N_A$ 计算粒子数<br/>
+                4. <strong>分析分子组成：</strong>H₂O分子含2个H原子、1个O原子，共3个原子<br/>
+                5. <strong>计算电子数：</strong>H有1个电子，O有8个电子，每个H₂O分子含 $1\times2 + 8 = 10$ 个电子<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $n(H_2O) = 1mol$，$N_A = 6.02 \times 10^{23} mol^{-1}$<br/><br/>
+                ① <strong>水分子数：</strong><br/>
+                根据公式 $N = n \cdot N_A$<br/>
+                $N(H_2O) = 1mol \times 6.02 \times 10^{23} mol^{-1} = 6.02 \times 10^{23}$ 个<br/><br/>
+                ② <strong>氢原子数：</strong><br/>
+                每个H₂O分子含2个H原子<br/>
+                $N(H) = 2 \times N(H_2O) = 2 \times 6.02 \times 10^{23} = 1.204 \times 10^{24}$ 个<br/><br/>
+                ③ <strong>氧原子数：</strong><br/>
+                每个H₂O分子含1个O原子<br/>
+                $N(O) = 1 \times N(H_2O) = 6.02 \times 10^{23}$ 个<br/><br/>
+                ④ <strong>电子数：</strong><br/>
+                每个H原子含1个电子，每个O原子含8个电子<br/>
+                每个H₂O分子含电子数 = $1\times2 + 8 = 10$ 个<br/>
+                $N(e^-) = 10 \times N(H_2O) = 10 \times 6.02 \times 10^{23} = 6.02 \times 10^{24}$ 个<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • 粒子数计算的核心公式：$N = n \cdot N_A$<br/>
+                • 原子数 = 分子数 × 每个分子中所含该原子的个数<br/>
+                • 电子数计算：先确定每个分子的电子总数，再乘以分子数
+            </div>
+</div>
+<div class="section">
+<h3>1.2 摩尔质量（M）</h3>
+<div class="key-point">
+<strong>💡 定义：</strong>单位物质的量的物质所具有的质量叫做摩尔质量。
+            </div>
+<div class="formula-box">
+<strong>计算公式：</strong><br/>
+                $M = \frac{m}{n}$ 或 $m = n \cdot M$ 或 $n = \frac{m}{M}$
+            </div>
+<table>
+<tr>
+<th>物理量</th>
+<th>符号</th>
+<th>单位</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>摩尔质量</td>
+<td>$M$</td>
+<td>$g/mol$（或 $g·mol^{-1}$）</td>
+<td>注意单位！不是g！</td>
+</tr>
+<tr>
+<td>质量</td>
+<td>$m$</td>
+<td>g</td>
+<td>宏观物质的质量</td>
+</tr>
+<tr>
+<td>物质的量</td>
+<td>$n$</td>
+<td>mol</td>
+<td>物质的量</td>
+</tr>
+</table>
+<div class="key-point">
+<strong>💡 重要规律：</strong>
+                <ul>
+<li>摩尔质量以g/mol为单位时，数值上等于该物质的相对原子质量或相对分子质量</li>
+<li>相对原子质量：$M(H) = 1 g/mol$，$M(O) = 16 g/mol$，$M(Na) = 23 g/mol$</li>
+<li>相对分子质量：$M(H_2O) = 18 g/mol$，$M(CO_2) = 44 g/mol$，$M(H_2SO_4) = 98 g/mol$</li>
+</ul>
+</div>
+<div class="warning">
+<strong>⚠️ 常见错误：</strong>
+                <ul>
+<li>❌ $M = 18g$（错误单位）</li>
+<li>✅ $M = 18g/mol$（正确单位）</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题2：</strong>9g H₂O的物质的量是多少？含有多少个水分子？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>质量 $m(H_2O) = 9g$<br/>
+                2. <strong>确定求解目标：</strong>物质的量 $n$、水分子数 $N$<br/>
+                3. <strong>确定摩尔质量：</strong>$H_2O$ 的相对分子质量 = $1\times2 + 16 = 18$，所以 $M(H_2O) = 18g/mol$<br/>
+                4. <strong>第一步：</strong>用 $n = \frac{m}{M}$ 求物质的量<br/>
+                5. <strong>第二步：</strong>用 $N = n \cdot N_A$ 求分子数<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $m(H_2O) = 9g$，$M(H_2O) = 18g/mol$，$N_A = 6.02 \times 10^{23} mol^{-1}$<br/><br/>
+                ① <strong>求物质的量：</strong><br/>
+                根据公式 $n = \frac{m}{M}$<br/>
+                $n(H_2O) = \frac{9g}{18g/mol} = 0.5mol$<br/><br/>
+                ② <strong>求水分子数：</strong><br/>
+                根据公式 $N = n \cdot N_A$<br/>
+                $N(H_2O) = 0.5mol \times 6.02 \times 10^{23} mol^{-1} = 3.01 \times 10^{23}$ 个<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • 注意区分质量 $m$（单位：g）和摩尔质量 $M$（单位：g/mol）<br/>
+                • 计算时注意单位约分：$\frac{g}{g/mol} = mol$<br/>
+                • 结果用科学计数法表示，注意有效数字
+            </div>
+</div>
+<h2>第二章 气体摩尔体积</h2>
+<div class="section">
+<h3>2.1 气体摩尔体积（Vₘ）</h3>
+<div class="key-point">
+<strong>💡 定义：</strong>单位物质的量的气体所占的体积叫做气体摩尔体积。
+            </div>
+<div class="formula-box">
+<strong>计算公式：</strong><br/>
+                $V_m = \frac{V}{n}$ 或 $V = n \cdot V_m$ 或 $n = \frac{V}{V_m}$
+            </div>
+<table>
+<tr>
+<th>物理量</th>
+<th>符号</th>
+<th>单位</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>气体摩尔体积</td>
+<td>$V_m$</td>
+<td>$L/mol$</td>
+<td>与温度、压强有关</td>
+</tr>
+<tr>
+<td>气体体积</td>
+<td>$V$</td>
+<td>L（或m³）</td>
+<td>注意单位换算</td>
+</tr>
+<tr>
+<td>物质的量</td>
+<td>$n$</td>
+<td>mol</td>
+<td>气体的物质的量</td>
+</tr>
+</table>
+<div class="unit-conversion">
+<strong>🔄 标准状况（STP）：</strong>
+                <ul>
+<li><strong>条件：</strong>0℃（273K），101kPa（1标准大气压）</li>
+<li><strong>标准状况下气体摩尔体积：</strong>$V_m = 22.4 L/mol$</li>
+<li><strong>适用范围：</strong>只适用于气体（包括混合气体）</li>
+</ul>
+</div>
+<div class="warning">
+<strong>⚠️ 重要提醒：</strong>
+                <ul>
+<li>❌ 标准状况下，水（H₂O）是液态，不能用22.4L/mol</li>
+<li>❌ 标准状况下，SO₃是固态，不能用22.4L/mol</li>
+<li>❌ 标准状况下，酒精（C₂H₅OH）是液态，不能用22.4L/mol</li>
+<li>❌ 标准状况下，苯（C₆H₆）是液态，不能用22.4L/mol</li>
+<li>✅ 标准状况下，H₂、O₂、N₂、CO₂、Cl₂、NH₃等都是气体，可以用22.4L/mol</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题3：</strong>标准状况下，11.2L CO₂的物质的量是多少？质量是多少？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>标准状况下，$V(CO_2) = 11.2L$<br/>
+                2. <strong>确定求解目标：</strong>物质的量 $n$、质量 $m$<br/>
+                3. <strong>判断适用条件：</strong>CO₂在标准状况下是气体，可用 $V_m = 22.4L/mol$<br/>
+                4. <strong>第一步：</strong>用 $n = \frac{V}{V_m}$ 求物质的量<br/>
+                5. <strong>第二步：</strong>先求 $M(CO_2)$，再用 $m = n \cdot M$ 求质量<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知标准状况下 $V(CO_2) = 11.2L$，$V_m = 22.4L/mol$<br/><br/>
+                ① <strong>求物质的量：</strong><br/>
+                根据公式 $n = \frac{V}{V_m}$<br/>
+                $n(CO_2) = \frac{11.2L}{22.4L/mol} = 0.5mol$<br/><br/>
+                ② <strong>求质量：</strong><br/>
+                $M(CO_2) = 12 + 16\times2 = 44g/mol$<br/>
+                根据公式 $m = n \cdot M$<br/>
+                $m(CO_2) = 0.5mol \times 44g/mol = 22g$<br/><br/>
+<strong>【答】</strong>CO₂的物质的量为0.5mol，质量为22g。<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • 标准状况下气体计算：$n = \frac{V}{22.4}$（V单位为L）<br/>
+                • 常见气体摩尔质量要熟记：$M(CO_2)=44$，$M(O_2)=32$，$M(N_2)=28$，$M(H_2)=2$<br/>
+                • 三步法：$V \rightarrow n \rightarrow m$ 或 $m \rightarrow n \rightarrow V$
+            </div>
+</div>
+<div class="section">
+<h3>2.2 阿伏伽德罗定律及其推论</h3>
+<div class="key-point">
+<strong>💡 阿伏伽德罗定律：</strong>同温同压下，相同体积的任何气体含有相同数目的分子。
+            </div>
+<div class="formula-box">
+<strong>数学表达式：</strong><br/>
+                同温同压下：$\frac{V_1}{V_2} = \frac{n_1}{n_2} = \frac{N_1}{N_2}$
+            </div>
+<div class="summary-box">
+<strong>📋 阿伏伽德罗定律的推论：</strong>
+                <table>
+<tr>
+<th>条件</th>
+<th>推论</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>同温同压</td>
+<td>$\frac{V_1}{V_2} = \frac{n_1}{n_2}$</td>
+<td>体积比等于物质的量比</td>
+</tr>
+<tr>
+<td>同温同容</td>
+<td>$\frac{p_1}{p_2} = \frac{n_1}{n_2}$</td>
+<td>压强比等于物质的量比</td>
+</tr>
+<tr>
+<td>同温同压</td>
+<td>$\frac{\rho_1}{\rho_2} = \frac{M_1}{M_2}$</td>
+<td>密度比等于摩尔质量比（相对密度）</td>
+</tr>
+<tr>
+<td>同温同压同体积</td>
+<td>$\frac{m_1}{m_2} = \frac{M_1}{M_2}$</td>
+<td>质量比等于摩尔质量比</td>
+</tr>
+</table>
+</div>
+<div class="example">
+<strong>📝 例题4：</strong>同温同压下，等质量的CO和CO₂相比较，下列叙述正确的是（）<br/>
+                A. 体积比为7:11  B. 体积比为11:7  C. 密度比为7:11  D. 密度比为11:7<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>同温同压下，CO和CO₂质量相等（设为m）<br/>
+                2. <strong>确定求解目标：</strong>体积比和密度比<br/>
+                3. <strong>确定相关公式：</strong><br/>
+                   • 同温同压下：$\frac{V_1}{V_2} = \frac{n_1}{n_2}$（阿伏伽德罗定律推论）<br/>
+                   • 同温同压下：$\frac{\rho_1}{\rho_2} = \frac{M_1}{M_2}$（相对密度）<br/>
+                4. <strong>计算摩尔质量：</strong>$M(CO) = 28g/mol$，$M(CO_2) = 44g/mol$<br/>
+                5. <strong>计算物质的量：</strong>$n = \frac{m}{M}$，质量相同时，n与M成反比<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>设CO和CO₂的质量都为m<br/><br/>
+                ① <strong>计算物质的量：</strong><br/>
+                $n(CO) = \frac{m}{M(CO)} = \frac{m}{28}mol$<br/>
+                $n(CO_2) = \frac{m}{M(CO_2)} = \frac{m}{44}mol$<br/><br/>
+                ② <strong>计算体积比：</strong><br/>
+                同温同压下，$\frac{V(CO)}{V(CO_2)} = \frac{n(CO)}{n(CO_2)} = \frac{m/28}{m/44} = \frac{44}{28} = \frac{11}{7}$<br/>
+                即体积比为 11:7，选项B正确<br/><br/>
+                ③ <strong>计算密度比：</strong><br/>
+                同温同压下，$\frac{\rho(CO)}{\rho(CO_2)} = \frac{M(CO)}{M(CO_2)} = \frac{28}{44} = \frac{7}{11}$<br/>
+                即密度比为 7:11，选项C正确<br/><br/>
+<strong>【答案】</strong>B、C<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>口诀：</strong>"同温同压，体积比=物质的量比=摩尔质量反比"<br/>
+                • <strong>密度比：</strong>同温同压下，密度比等于摩尔质量比（相对密度）<br/>
+                • <strong>等质量问题：</strong>质量相同时，n与M成反比，即摩尔质量越大，物质的量越小
+            </div>
+</div>
+<h2>第三章 物质的量浓度</h2>
+<div class="section">
+<h3>3.1 物质的量浓度（c）</h3>
+<div class="key-point">
+<strong>💡 定义：</strong>单位体积溶液中所含溶质的物质的量，叫做物质的量浓度。
+            </div>
+<div class="formula-box">
+<strong>计算公式：</strong><br/>
+                $c = \frac{n}{V}$ 或 $n = c \cdot V$ 或 $V = \frac{n}{c}$
+            </div>
+<table>
+<tr>
+<th>物理量</th>
+<th>符号</th>
+<th>单位</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>物质的量浓度</td>
+<td>$c$</td>
+<td>$mol/L$（或 $mol·L^{-1}$）</td>
+<td>注意溶液体积，不是溶剂体积</td>
+</tr>
+<tr>
+<td>溶质的物质的量</td>
+<td>$n$</td>
+<td>mol</td>
+<td>溶质的物质的量</td>
+</tr>
+<tr>
+<td>溶液体积</td>
+<td>$V$</td>
+<td>L</td>
+<td>注意单位换算：1L = 1000mL</td>
+</tr>
+</table>
+<div class="warning">
+<strong>⚠️ 重要提醒：</strong>
+                <ul>
+<li>溶液体积 ≠ 溶剂体积</li>
+<li>计算时注意单位换算：mL → L（除以1000）</li>
+<li>溶液体积一般通过溶液质量和密度计算：$V = \frac{m}{\rho}$</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题5：</strong>将40g NaOH溶于水配成500mL溶液，求该溶液的物质的量浓度。<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>溶质质量 $m(NaOH) = 40g$，溶液体积 $V = 500mL$<br/>
+                2. <strong>确定求解目标：</strong>物质的量浓度 $c$<br/>
+                3. <strong>确定公式：</strong>$c = \frac{n}{V}$，需要先求 $n$<br/>
+                4. <strong>计算物质的量：</strong>用 $n = \frac{m}{M}$ 计算<br/>
+                5. <strong>单位换算：</strong>将体积从mL换算为L<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $m(NaOH) = 40g$，$V = 500mL = 0.5L$<br/><br/>
+                ① <strong>计算NaOH的摩尔质量：</strong><br/>
+                $M(NaOH) = 23 + 16 + 1 = 40g/mol$<br/><br/>
+                ② <strong>计算NaOH的物质的量：</strong><br/>
+                根据公式 $n = \frac{m}{M}$<br/>
+                $n(NaOH) = \frac{40g}{40g/mol} = 1mol$<br/><br/>
+                ③ <strong>计算物质的量浓度：</strong><br/>
+                根据公式 $c = \frac{n}{V}$<br/>
+                $c(NaOH) = \frac{1mol}{0.5L} = 2mol/L$<br/><br/>
+<strong>【答】</strong>该NaOH溶液的物质的量浓度为2mol/L。<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • ⚠️ <strong>溶液体积 ≠ 溶剂体积：</strong>题目说的是"配成500mL溶液"，不是"加入500mL水"<br/>
+                • ⚠️ <strong>单位换算：</strong>计算前必须将mL换算为L，$500mL = 0.5L$<br/>
+                • ⚠️ <strong>浓度单位：</strong>物质的量浓度单位是mol/L，不是mol<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • 基本公式：$c = \frac{n}{V} = \frac{m}{M \cdot V}$<br/>
+                • 计算步骤：$m \rightarrow n \rightarrow c$ 或直接用 $c = \frac{m}{M \cdot V}$
+            </div>
+</div>
+<div class="section">
+<h3>3.2 物质的量浓度与质量分数的换算</h3>
+<div class="formula-box">
+<strong>换算公式：</strong><br/>
+                $c = \frac{1000 \cdot \rho \cdot w}{M}$
+            </div>
+<div class="key-point">
+<strong>💡 公式说明：</strong>
+                <ul>
+<li>$c$：物质的量浓度（mol/L）</li>
+<li>$\rho$：溶液密度（g/cm³）</li>
+<li>$w$：溶质质量分数（小数或百分数化成小数）</li>
+<li>$M$：溶质摩尔质量（g/mol）</li>
+<li>1000：单位换算系数（cm³ → L）</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题6：</strong>已知浓硫酸的密度为1.84g/cm³，质量分数为98%，求其物质的量浓度。<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>密度 $\rho = 1.84g/cm³$，质量分数 $w = 98\%$<br/>
+                2. <strong>确定求解目标：</strong>物质的量浓度 $c$<br/>
+                3. <strong>选择公式：</strong>使用换算公式 $c = \frac{1000 \cdot \rho \cdot w}{M}$<br/>
+                4. <strong>确定摩尔质量：</strong>$H_2SO_4$ 的相对分子质量 = $1\times2 + 32 + 16\times4 = 98$<br/>
+                5. <strong>单位换算：</strong>质量分数化为小数：$98\% = 0.98$<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $\rho = 1.84g/cm³$，$w = 98\% = 0.98$<br/><br/>
+                ① <strong>计算H₂SO₄的摩尔质量：</strong><br/>
+                $M(H_2SO_4) = 1\times2 + 32 + 16\times4 = 98g/mol$<br/><br/>
+                ② <strong>代入公式计算：</strong><br/>
+                根据公式 $c = \frac{1000 \cdot \rho \cdot w}{M}$<br/>
+                $c = \frac{1000 \times 1.84 \times 0.98}{98} = \frac{1803.2}{98} = 18.4mol/L$<br/><br/>
+<strong>【答】</strong>该浓硫酸的物质的量浓度为18.4mol/L。<br/><br/>
+<strong>【公式推导】</strong><br/>
+                假设溶液体积为1L（1000mL）：<br/>
+                溶液质量 = $1000mL \times 1.84g/cm³ = 1840g$<br/>
+                溶质质量 = $1840g \times 98\% = 1803.2g$<br/>
+                溶质的物质的量 = $\frac{1803.2g}{98g/mol} = 18.4mol$<br/>
+                物质的量浓度 = $\frac{18.4mol}{1L} = 18.4mol/L$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • 公式：$c = \frac{1000 \cdot \rho \cdot w}{M}$（$\rho$单位：g/cm³）<br/>
+                • 1000是单位换算系数：将cm³换算为L<br/>
+                • 注意：质量分数要化成小数代入计算
+            </div>
+</div>
+<div class="section">
+<h3>3.3 溶液的稀释与混合</h3>
+<div class="key-point">
+<strong>💡 稀释定律：</strong>稀释前后溶质的物质的量不变
+            </div>
+<div class="formula-box">
+<strong>稀释公式：</strong><br/>
+                $c_1 \cdot V_1 = c_2 \cdot V_2$
+            </div>
+<div class="key-point">
+<strong>💡 说明：</strong>
+                <ul>
+<li>$c_1$、$V_1$：稀释前溶液的浓度和体积</li>
+<li>$c_2$、$V_2$：稀释后溶液的浓度和体积</li>
+<li>稀释前后溶质的物质的量不变：$n_1 = n_2$</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题7：</strong>如何用18.4mol/L的浓硫酸配制500mL 1mol/L的稀硫酸？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>浓硫酸浓度 $c_1 = 18.4mol/L$，目标浓度 $c_2 = 1mol/L$，目标体积 $V_2 = 500mL$<br/>
+                2. <strong>确定求解目标：</strong>需要浓硫酸的体积 $V_1$ 及配制步骤<br/>
+                3. <strong>选择原理：</strong>稀释定律——稀释前后溶质的物质的量不变<br/>
+                4. <strong>确定公式：</strong>$c_1 \cdot V_1 = c_2 \cdot V_2$<br/>
+                5. <strong>计算所需体积：</strong>解方程求 $V_1$<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $c_1 = 18.4mol/L$，$c_2 = 1mol/L$，$V_2 = 500mL$<br/><br/>
+                ① <strong>计算所需浓硫酸体积：</strong><br/>
+                根据稀释定律：$c_1 \cdot V_1 = c_2 \cdot V_2$<br/>
+                $18.4mol/L \times V_1 = 1mol/L \times 500mL$<br/>
+                $V_1 = \frac{1 \times 500}{18.4} = 27.2mL$<br/><br/>
+                ② <strong>配制步骤：</strong>
+                <ol>
+<li><strong>计算：</strong>计算需要27.2mL浓硫酸</li>
+<li><strong>量取：</strong>用量筒量取27.2mL浓硫酸</li>
+<li><strong>稀释：</strong>将浓硫酸沿烧杯壁缓慢注入约200mL蒸馏水中，边加边搅拌（<strong>酸入水！</strong>）</li>
+<li><strong>冷却：</strong>冷却至室温（浓硫酸稀释放热）</li>
+<li><strong>转移：</strong>转移至500mL容量瓶</li>
+<li><strong>洗涤：</strong>用蒸馏水洗涤烧杯和玻璃棒2-3次，洗液转入容量瓶</li>
+<li><strong>定容：</strong>加蒸馏水至接近刻度线1-2cm处，改用胶头滴管滴加至刻度线</li>
+<li><strong>摇匀：</strong>塞好瓶塞，反复颠倒摇匀</li>
+</ol><br/>
+<strong>【答】</strong>需要量取27.2mL浓硫酸，按上述步骤配制。<br/><br/>
+<strong>【核心要点】</strong><br/>
+                • <strong>稀释定律本质：</strong>$n_1 = n_2$（稀释前后溶质的物质的量不变）<br/>
+                • <strong>安全操作：</strong>浓硫酸稀释必须"酸入水"，不能"水入酸"<br/>
+                • <strong>温度控制：</strong>必须冷却至室温后再转移，防止容量瓶受热变形<br/>
+                • <strong>洗涤转移：</strong>烧杯和玻璃棒必须洗涤2-3次，确保溶质全部转移
+            </div>
+<div class="warning">
+<strong>⚠️ 浓硫酸稀释注意事项：</strong>
+                <ul>
+<li><strong>酸入水，沿器壁，慢慢倒，不断搅</strong></li>
+<li>绝对禁止将水倒入浓硫酸中（会引起暴沸，液体飞溅）</li>
+<li>稀释过程中会放出大量热，需冷却至室温后再转移</li>
+<li>如果不慎将浓硫酸溅到皮肤上，应立即用大量水冲洗，再涂上3%-5%的NaHCO₃溶液</li>
+</ul>
+</div>
+</div>
+<h2>第四章 一定物质的量浓度溶液的配制</h2>
+<div class="section">
+<h3>4.1 配制步骤</h3>
+<div class="calculation-step">
+<strong>配制一定物质的量浓度溶液的步骤（七字诀）：</strong><br/>
+                <strong>计称溶转洗定摇</strong>
+                <ol>
+<li><strong>计</strong>——计算：计算所需溶质的质量或浓溶液的体积</li>
+<li><strong>称</strong>——称量：用托盘天平称量固体溶质（左物右码）</li>
+<li><strong>溶</strong>——溶解：在烧杯中用适量蒸馏水溶解</li>
+<li><strong>转</strong>——转移：将溶液沿玻璃棒注入容量瓶</li>
+<li><strong>洗</strong>——洗涤：用蒸馏水洗涤烧杯和玻璃棒2-3次，洗液转入容量瓶</li>
+<li><strong>定</strong>——定容：加蒸馏水至接近刻度线1-2cm处，改用胶头滴管滴加至刻度线</li>
+<li><strong>摇</strong>——摇匀：塞好瓶塞，反复颠倒摇匀</li>
+</ol>
+</div>
+<div class="key-point">
+<strong>💡 所需仪器：</strong>
+                <ul>
+<li>托盘天平（带砝码）、药匙（固体溶质）</li>
+<li>量筒（液体溶质或浓溶液）</li>
+<li>烧杯、玻璃棒</li>
+<li>容量瓶（规格根据所需体积选择：50mL、100mL、250mL、500mL、1000mL）</li>
+<li>胶头滴管</li>
+</ul>
+</div>
+<div class="warning">
+<strong>⚠️ 容量瓶使用注意事项：</strong>
+                <ul>
+<li>容量瓶上标有：温度、容积、刻度线</li>
+<li>使用前必须检查是否漏水</li>
+<li>不能加热、不能溶解固体、不能长期储存溶液</li>
+<li>只能配制与容量瓶规格相同体积的溶液</li>
+</ul>
+</div>
+</div>
+<div class="section">
+<h3>4.2 误差分析</h3>
+<div class="summary-box">
+<strong>📋 误差分析依据：</strong>$c = \frac{n}{V}$，分析操作对n或V的影响
+            </div>
+<table>
+<tr>
+<th>操作</th>
+<th>对n的影响</th>
+<th>对V的影响</th>
+<th>对c的影响</th>
+</tr>
+<tr>
+<td>砝码生锈</td>
+<td>n偏大</td>
+<td>V不变</td>
+<td>c偏大</td>
+</tr>
+<tr>
+<td>砝码缺角</td>
+<td>n偏小</td>
+<td>V不变</td>
+<td>c偏小</td>
+</tr>
+<tr>
+<td>左码右物（使用游码）</td>
+<td>n偏小</td>
+<td>V不变</td>
+<td>c偏小</td>
+</tr>
+<tr>
+<td>转移时溶液洒出</td>
+<td>n偏小</td>
+<td>V不变</td>
+<td>c偏小</td>
+</tr>
+<tr>
+<td>未洗涤烧杯和玻璃棒</td>
+<td>n偏小</td>
+<td>V不变</td>
+<td>c偏小</td>
+</tr>
+<tr>
+<td>定容时俯视刻度线</td>
+<td>n不变</td>
+<td>V偏小</td>
+<td>c偏大</td>
+</tr>
+<tr>
+<td>定容时仰视刻度线</td>
+<td>n不变</td>
+<td>V偏大</td>
+<td>c偏小</td>
+</tr>
+<tr>
+<td>定容后摇匀，液面下降，再加水</td>
+<td>n不变</td>
+<td>V偏大</td>
+<td>c偏小</td>
+</tr>
+<tr>
+<td>容量瓶洗净后未干燥</td>
+<td>n不变</td>
+<td>V不变</td>
+<td>c不变</td>
+</tr>
+</table>
+</div>
+<h2>第五章 化学方程式计算</h2>
+<div class="section">
+<h3>5.1 化学方程式计算的基本步骤</h3>
+<div class="calculation-step">
+<strong>计算步骤：</strong>
+                <ol>
+<li><strong>写</strong>——写出配平的化学方程式</li>
+<li><strong>标</strong>——标出相关物质的化学计量数</li>
+<li><strong>列</strong>——列出已知量和未知量</li>
+<li><strong>解</strong>——列比例式求解</li>
+<li><strong>答</strong>——简明写出答案</li>
+</ol>
+</div>
+<div class="key-point">
+<strong>💡 计算技巧：</strong>
+                <ul>
+<li><strong>守恒法：</strong>质量守恒、电荷守恒、电子守恒</li>
+<li><strong>差量法：</strong>利用反应前后质量差、体积差等进行计算</li>
+<li><strong>关系式法：</strong>找出已知物质与待求物质之间的物质的量关系</li>
+<li><strong>极值法：</strong>用于混合物计算，假设全部为某一组分</li>
+<li><strong>十字交叉法：</strong>用于混合物中各组分含量的计算</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题8：</strong>将5.6g铁粉加入100mL 2mol/L的硫酸铜溶液中，充分反应后，求：<br/>
+                (1) 生成铜的质量<br/>
+                (2) 反应后溶液中Fe²⁺的物质的量浓度（假设体积不变）<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>$m(Fe) = 5.6g$，$c(CuSO_4) = 2mol/L$，$V = 100mL = 0.1L$<br/>
+                2. <strong>确定求解目标：</strong>(1) 生成Cu的质量；(2) $c(Fe^{2+})$<br/>
+                3. <strong>写出化学方程式：</strong>$Fe + CuSO_4 = FeSO_4 + Cu$<br/>
+                4. <strong>计算各物质的量：</strong>分别计算Fe和CuSO₄的物质的量<br/>
+                5. <strong>判断过量：</strong>根据化学计量数（1:1）判断哪种物质过量<br/>
+                6. <strong>按不足量计算：</strong>根据不足量的物质计算产物<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $m(Fe) = 5.6g$，$c(CuSO_4) = 2mol/L$，$V = 0.1L$<br/><br/>
+                ① <strong>写出反应方程式：</strong><br/>
+                $Fe + CuSO_4 = FeSO_4 + Cu$<br/><br/>
+                ② <strong>计算各反应物的物质的量：</strong><br/>
+                $n(Fe) = \frac{m}{M} = \frac{5.6g}{56g/mol} = 0.1mol$<br/>
+                $n(CuSO_4) = c \cdot V = 2mol/L \times 0.1L = 0.2mol$<br/><br/>
+                ③ <strong>判断过量：</strong><br/>
+                根据方程式，Fe与CuSO₄按1:1反应<br/>
+                需要CuSO₄：0.1mol，实际有CuSO₄：0.2mol<br/>
+                ∵ $0.1mol &lt; 0.2mol$ ∴ Fe不足，CuSO₄过量<br/>
+                按Fe的量进行计算<br/><br/>
+                ④ <strong>计算生成铜的质量：</strong><br/>
+                根据方程式：$n(Cu) = n(Fe) = 0.1mol$<br/>
+                $m(Cu) = n \cdot M = 0.1mol \times 64g/mol = 6.4g$<br/><br/>
+                ⑤ <strong>计算Fe²⁺的物质的量浓度：</strong><br/>
+                根据方程式：$n(Fe^{2+}) = n(Fe) = 0.1mol$<br/>
+                $c(Fe^{2+}) = \frac{n}{V} = \frac{0.1mol}{0.1L} = 1mol/L$<br/><br/>
+<strong>【答】</strong>(1) 生成铜的质量为6.4g；(2) 反应后溶液中Fe²⁺的物质的量浓度为1mol/L。<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>过量判断三步法：</strong>①计算各物质的量 ②根据计量数比较 ③确定不足量物质<br/>
+                • <strong>计算原则：</strong>按不足量的物质进行计算<br/>
+                • <strong>注意：</strong>溶液体积不变时，$c = \frac{n}{V_{溶液}}$，不是$V_{溶剂}}$
+            </div>
+</div>
+<div class="section">
+<h3>5.2 过量计算</h3>
+<div class="key-point">
+<strong>💡 过量计算步骤：</strong>
+                <ol>
+<li>写出配平的化学方程式</li>
+<li>计算各反应物的物质的量</li>
+<li>根据化学计量数判断哪种物质过量</li>
+<li>按不足量的物质进行计算</li>
+</ol>
+</div>
+<div class="example">
+<strong>📝 例题9：</strong>将10g NaOH与10g HCl混合反应，求生成的NaCl的质量。<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>$m(NaOH) = 10g$，$m(HCl) = 10g$<br/>
+                2. <strong>确定求解目标：</strong>生成NaCl的质量<br/>
+                3. <strong>写出化学方程式：</strong>$NaOH + HCl = NaCl + H_2O$<br/>
+                4. <strong>计算各物质的量：</strong>分别计算NaOH和HCl的物质的量<br/>
+                5. <strong>判断过量：</strong>根据化学计量数（1:1）判断哪种物质过量<br/>
+                6. <strong>按不足量计算：</strong>根据不足量的物质计算产物NaCl<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $m(NaOH) = 10g$，$m(HCl) = 10g$<br/><br/>
+                ① <strong>写出反应方程式：</strong><br/>
+                $NaOH + HCl = NaCl + H_2O$<br/><br/>
+                ② <strong>计算各反应物的物质的量：</strong><br/>
+                $M(NaOH) = 23 + 16 + 1 = 40g/mol$<br/>
+                $n(NaOH) = \frac{m}{M} = \frac{10g}{40g/mol} = 0.25mol$<br/><br/>
+                $M(HCl) = 1 + 35.5 = 36.5g/mol$<br/>
+                $n(HCl) = \frac{m}{M} = \frac{10g}{36.5g/mol} = 0.274mol$<br/><br/>
+                ③ <strong>判断过量：</strong><br/>
+                根据方程式，NaOH与HCl按1:1反应<br/>
+                ∵ $0.25mol &lt; 0.274mol$ ∴ NaOH不足，HCl过量<br/>
+                按NaOH的量进行计算<br/><br/>
+                ④ <strong>计算生成NaCl的质量：</strong><br/>
+                根据方程式：$n(NaCl) = n(NaOH) = 0.25mol$<br/>
+                $M(NaCl) = 23 + 35.5 = 58.5g/mol$<br/>
+                $m(NaCl) = n \cdot M = 0.25mol \times 58.5g/mol = 14.6g$<br/><br/>
+<strong>【答】</strong>生成NaCl的质量为14.6g。<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • HCl的摩尔质量是36.5g/mol，不是35.5g/mol（Cl的原子量）<br/>
+                • 不能直接按质量比10:10=1:1判断，必须换算为物质的量比<br/>
+                • 等质量的NaOH和HCl，由于摩尔质量不同，物质的量也不同
+            </div>
+</div>
+<h2>第六章 综合计算技巧</h2>
+<div class="section">
+<h3>6.1 守恒法</h3>
+<div class="technique">
+<strong>🔧 质量守恒：</strong>化学反应前后，参加反应的各物质的质量总和等于反应后生成的各物质的质量总和。
+            </div>
+<div class="technique">
+<strong>🔧 电荷守恒：</strong>溶液中阳离子所带正电荷总数等于阴离子所带负电荷总数，溶液呈电中性。
+            </div>
+<div class="technique">
+<strong>🔧 电子守恒：</strong>氧化还原反应中，氧化剂得到的电子总数等于还原剂失去的电子总数。
+            </div>
+<div class="example">
+<strong>📝 例题10（电子守恒）：</strong>用0.1mol/L的Na₂SO₃溶液30mL恰好将2×10⁻³mol的XO₄⁻还原，则元素X在还原产物中的化合价是（）<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>$c(Na_2SO_3) = 0.1mol/L$，$V = 30mL$，$n(XO_4^-) = 2\times10^{-3}mol$<br/>
+                2. <strong>确定求解目标：</strong>X在还原产物中的化合价<br/>
+                3. <strong>分析氧化还原过程：</strong><br/>
+                   • Na₂SO₃是还原剂，被氧化，S元素化合价升高<br/>
+                   • XO₄⁻是氧化剂，被还原，X元素化合价降低<br/>
+                4. <strong>计算电子转移：</strong><br/>
+                   • S从+4价升至+6价，每个S失去2个电子<br/>
+                   • X从+7价降至+x价，每个X得到(7-x)个电子<br/>
+                5. <strong>应用电子守恒：</strong>失去的电子总数 = 得到的电子总数<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $c(Na_2SO_3) = 0.1mol/L$，$V = 30mL = 0.03L$，$n(XO_4^-) = 2\times10^{-3}mol$<br/><br/>
+                ① <strong>分析氧化过程（Na₂SO₃被氧化）：</strong><br/>
+                Na₂SO₃ → Na₂SO₄，S元素化合价：+4 → +6<br/>
+                每个S原子失去电子数 = $6 - 4 = 2$ 个<br/>
+                $n(Na_2SO_3) = c \cdot V = 0.1mol/L \times 0.03L = 0.003mol$<br/>
+                失去电子总数 = $0.003mol \times 2 = 0.006mol$<br/><br/>
+                ② <strong>分析还原过程（XO₄⁻被还原）：</strong><br/>
+                XO₄⁻中，设X化合价为+a，则 $a + (-2)\times4 = -1$，解得 $a = +7$<br/>
+                设还原产物中X化合价为+x<br/>
+                每个X原子得到电子数 = $(7-x)$ 个<br/>
+                得到电子总数 = $2\times10^{-3}mol \times (7-x)$<br/><br/>
+                ③ <strong>应用电子守恒列方程：</strong><br/>
+                失去的电子总数 = 得到的电子总数<br/>
+                $0.006 = 2\times10^{-3} \times (7-x)$<br/>
+                $3 = 7 - x$<br/>
+                $x = 4$<br/><br/>
+<strong>【答案】</strong>X在还原产物中的化合价为 <strong>+4</strong>，选项选对应+4价的选项。<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>电子守恒法步骤：</strong>①标化合价 ②算电子转移 ③列守恒方程<br/>
+                • <strong>氧化剂：</strong>得电子，化合价降低；<strong>还原剂：</strong>失电子，化合价升高<br/>
+                • <strong>关键：</strong>准确计算每个原子得失电子数，注意化学计量数<br/>
+                • <strong>技巧：</strong>离子中元素化合价计算：各元素化合价代数和 = 离子电荷数
+            </div>
+</div>
+<div class="section">
+<h3>6.2 差量法</h3>
+<div class="technique">
+<strong>🔧 差量法原理：</strong>利用反应前后质量差、体积差、物质的量差等进行计算。
+            </div>
+<div class="example">
+<strong>📝 例题11：</strong>将足量铁粉放入100mL 1mol/L的CuSO₄溶液中，充分反应后，过滤、洗涤、干燥，得到固体多少克？固体质量增加了多少克？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>$c(CuSO_4) = 1mol/L$，$V = 100mL = 0.1L$，Fe粉足量<br/>
+                2. <strong>确定求解目标：</strong>(1) 固体总质量；(2) 固体质量增加量<br/>
+                3. <strong>写出反应方程式：</strong>$Fe + CuSO_4 = FeSO_4 + Cu$<br/>
+                4. <strong>分析固体质量变化：</strong><br/>
+                   • 反应前固体：Fe粉（足量，部分反应）<br/>
+                   • 反应后固体：剩余Fe粉 + 生成的Cu<br/>
+                   • 每1mol Fe反应，溶解56g Fe，析出64g Cu<br/>
+                   • 固体质量变化：$\Delta m = 64g - 56g = +8g$（增加8g）<br/>
+                5. <strong>计算CuSO₄的物质的量：</strong>确定反应了多少mol<br/>
+                6. <strong>应用差量法：</strong>根据反应的量计算质量变化<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知 $c(CuSO_4) = 1mol/L$，$V = 0.1L$<br/><br/>
+                ① <strong>写出反应方程式：</strong><br/>
+                $Fe + CuSO_4 = FeSO_4 + Cu$<br/><br/>
+                ② <strong>计算CuSO₄的物质的量：</strong><br/>
+                $n(CuSO_4) = c \cdot V = 1mol/L \times 0.1L = 0.1mol$<br/><br/>
+                ③ <strong>分析固体质量变化（差量法）：</strong><br/>
+                根据方程式，每1mol Fe反应：<br/>
+                • 溶解（进入溶液）的Fe质量：$M(Fe) = 56g/mol$<br/>
+                • 析出（附着在固体上）的Cu质量：$M(Cu) = 64g/mol$<br/>
+                • 固体质量变化：$\Delta m = 64g - 56g = +8g$（增加8g）<br/><br/>
+                ④ <strong>计算固体质量增加量：</strong><br/>
+                反应了0.1mol CuSO₄，则固体质量增加：<br/>
+                $\Delta m = 0.1mol \times 8g/mol = 0.8g$<br/><br/>
+                ⑤ <strong>计算生成Cu的质量：</strong><br/>
+                $n(Cu) = n(CuSO_4) = 0.1mol$<br/>
+                $m(Cu) = n \cdot M = 0.1mol \times 64g/mol = 6.4g$<br/><br/>
+                ⑥ <strong>计算固体总质量：</strong><br/>
+                设加入Fe粉质量为 $m$<br/>
+                反应消耗的Fe质量：$0.1mol \times 56g/mol = 5.6g$<br/>
+                剩余Fe粉质量：$m - 5.6g$<br/>
+                固体总质量 = 剩余Fe粉 + Cu = $(m - 5.6g) + 6.4g = m + 0.8g$<br/><br/>
+<strong>【答】</strong>固体总质量为 $(m + 0.8)g$（其中 $m$ 为加入Fe粉的质量），固体质量增加了0.8g。<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>差量法原理：</strong>利用反应前后固体（或气体、溶液）质量差进行计算<br/>
+                • <strong>固体质量变化分析：</strong><br/>
+                  - 金属置换反应：$\Delta m = M(析出金属) - M(溶解金属)$<br/>
+                  - 若 $\Delta m &gt; 0$，固体质量增加；若 $\Delta m &lt; 0$，固体质量减少<br/>
+                • <strong>优点：</strong>不需要知道反应物的具体质量，只需知道变化的量<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • ⚠️ "足量铁粉"意味着CuSO₄完全反应，按CuSO₄的量计算<br/>
+                • ⚠️ 固体质量增加 ≠ 生成Cu的质量，而是 Cu质量 - 消耗Fe质量<br/>
+                • ⚠️ 固体总质量包括剩余的铁和生成的铜
+            </div>
+</div>
+<div class="section">
+<h3>6.3 关系式法</h3>
+<div class="technique">
+<strong>🔧 关系式法：</strong>找出已知物质与待求物质之间的物质的量关系，一步计算。
+            </div>
+<div class="example">
+<strong>📝 例题12：</strong>用含杂质10%的石灰石（主要成分为CaCO₃）与足量盐酸反应，制取4.48L（标准状况）CO₂，需要石灰石多少克？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确已知条件：</strong>标准状况下 $V(CO_2) = 4.48L$，石灰石含杂质10%（即含CaCO₃ 90%）<br/>
+                2. <strong>确定求解目标：</strong>需要石灰石的质量<br/>
+                3. <strong>写出反应方程式：</strong>$CaCO_3 + 2HCl = CaCl_2 + H_2O + CO_2\uparrow$<br/>
+                4. <strong>找出关系式：</strong>从方程式看出 $CaCO_3 \sim CO_2$（1:1关系）<br/>
+                5. <strong>计算CO₂的物质的量：</strong>用 $n = \frac{V}{V_m}$<br/>
+                6. <strong>计算纯CaCO₃质量：</strong>根据关系式，$n(CaCO_3) = n(CO_2)$<br/>
+                7. <strong>计算石灰石质量：</strong>考虑杂质含量，石灰石质量 = $\frac{m(CaCO_3)}{纯度}$<br/><br/>
+<strong>【规范解答】</strong><br/>
+                <strong>解：</strong>已知标准状况下 $V(CO_2) = 4.48L$，石灰石纯度 = $1 - 10\% = 90\% = 0.9$<br/><br/>
+                ① <strong>写出反应方程式：</strong><br/>
+                $CaCO_3 + 2HCl = CaCl_2 + H_2O + CO_2\uparrow$<br/><br/>
+                ② <strong>找出关系式：</strong><br/>
+                从方程式可知：$CaCO_3 \sim CO_2$（物质的量比为1:1）<br/><br/>
+                ③ <strong>计算CO₂的物质的量：</strong><br/>
+                $n(CO_2) = \frac{V}{V_m} = \frac{4.48L}{22.4L/mol} = 0.2mol$<br/><br/>
+                ④ <strong>计算纯CaCO₃的物质的量和质量：</strong><br/>
+                根据关系式：$n(CaCO_3) = n(CO_2) = 0.2mol$<br/>
+                $M(CaCO_3) = 40 + 12 + 16\times3 = 100g/mol$<br/>
+                $m(CaCO_3) = n \cdot M = 0.2mol \times 100g/mol = 20g$<br/><br/>
+                ⑤ <strong>计算石灰石的质量：</strong><br/>
+                石灰石含CaCO₃ 90%，则：<br/>
+                石灰石质量 = $\frac{m(CaCO_3)}{纯度} = \frac{20g}{0.9} = 22.2g$<br/><br/>
+<strong>【答】</strong>需要石灰石22.2克。<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>关系式法步骤：</strong>①写方程式 ②找关系 ③算已知 ④推未知<br/>
+                • <strong>杂质计算：</strong>纯物质质量 = 不纯物质质量 × 纯度<br/>
+                • <strong>反推不纯物质：</strong>不纯物质质量 = $\frac{纯物质质量}{纯度}$<br/>
+                • <strong>注意：</strong>纯度 = 1 - 杂质质量分数<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • ⚠️ 注意是纯物质还是不纯物质，题目问的是石灰石（含杂质），不是纯CaCO₃<br/>
+                • ⚠️ 标准状况下气体才能用22.4L/mol<br/>
+                • ⚠️ 关系式中的化学计量数要配平后再确定
+            </div>
+</div>
+<h2>第七章 易错点总结与防范</h2>
+<div class="section">
+<h3>7.1 常见易错点</h3>
+<table>
+<tr>
+<th>易错点</th>
+<th>错误示例</th>
+<th>正确做法</th>
+</tr>
+<tr>
+<td>标准状况判断</td>
+<td>认为22.4L/mol适用于所有物质</td>
+<td>只适用于气体，水、SO₃等不适用</td>
+</tr>
+<tr>
+<td>溶液体积</td>
+<td>将溶剂体积当作溶液体积</td>
+<td>溶液体积 ≠ 溶剂体积</td>
+</tr>
+<tr>
+<td>单位换算</td>
+<td>mL忘记换算成L</td>
+<td>1L = 1000mL，计算时注意单位统一</td>
+</tr>
+<tr>
+<td>摩尔质量单位</td>
+<td>M = 18g</td>
+<td>M = 18g/mol</td>
+</tr>
+<tr>
+<td>化学方程式配平</td>
+<td>未配平就计算</td>
+<td>必须先配平，再计算物质的量关系</td>
+</tr>
+<tr>
+<td>过量判断</td>
+<td>不考虑过量问题</td>
+<td>先判断哪种物质过量，按不足量计算</td>
+</tr>
+<tr>
+<td>溶质判断</td>
+<td>Na₂O₂溶于水，溶质算成Na₂O₂</td>
+<td>Na₂O₂与水反应，溶质是NaOH</td>
+</tr>
+<tr>
+<td>结晶水合物</td>
+<td>CuSO₄·5H₂O溶于水，溶质算成CuSO₄·5H₂O</td>
+<td>溶质是CuSO₄，结晶水成为溶剂</td>
+</tr>
+</table>
+</div>
+<div class="section">
+<h3>7.2 阿伏伽德罗常数题常见陷阱</h3>
+<div class="warning">
+<strong>⚠️ 常见陷阱：</strong>
+                <ul>
+<li>❌ 标准状况下，水、酒精、SO₃等为液态或固态，不能用22.4L/mol</li>
+<li>❌ 稀有气体是单原子分子（He、Ne等），不是双原子</li>
+<li>❌ 可逆反应不能进行到底，反应物转化率小于100%</li>
+<li>❌ 胶体粒子是多个分子的集合体，不是单个分子</li>
+<li>❌ 没有说明体积时，不能计算粒子数</li>
+<li>❌ 注意隐含反应（如NO₂与N₂O₄的平衡）</li>
+</ul>
+</div>
+</div>
+<h2>第八章 氧化还原反应（整合补充）</h2>
+<div class="section">
+<h3>8.1 氧化还原反应基础</h3>
+<div class="key-point">
+<strong>💡 基本概念：</strong>
+                <ul>
+<li><strong>氧化反应：</strong>失去电子，化合价升高，被氧化</li>
+<li><strong>还原反应：</strong>得到电子，化合价降低，被还原</li>
+<li><strong>氧化剂：</strong>得电子，化合价降低，被还原，具有氧化性</li>
+<li><strong>还原剂：</strong>失电子，化合价升高，被氧化，具有还原性</li>
+</ul>
+<p><strong>口诀：</strong>升失氧还（升价、失电子、被氧化、作还原剂），降得还氧（降价、得电子、被还原、作氧化剂）</p>
+</div>
+<div class="formula-box">
+<strong>电子守恒核心公式：</strong><br/>
+                氧化剂得电子总数 = 还原剂失电子总数<br/>
+                $n_{(氧化剂)} \times 变价原子数 \times |化合价变化| = n_{(还原剂)} \times 变价原子数 \times |化合价变化|$
+            </div>
+</div>
+<div class="section">
+<h3>8.2 常见氧化剂还原剂及产物</h3>
+<table>
+<tr>
+<th>氧化剂</th>
+<th>还原产物（酸性）</th>
+<th>典型反应</th>
+</tr>
+<tr>
+<td>KMnO₄（酸性）</td>
+<td>Mn²⁺（无色）</td>
+<td>MnO₄⁻ + 5e⁻ + 8H⁺ → Mn²⁺ + 4H₂O</td>
+</tr>
+<tr>
+<td>K₂Cr₂O₇（酸性）</td>
+<td>Cr³⁺（绿色）</td>
+<td>Cr₂O₇²⁻ + 6e⁻ + 14H⁺ → 2Cr³⁺ + 7H₂O</td>
+</tr>
+<tr>
+<td>HNO₃（浓）</td>
+<td>NO₂</td>
+<td>Cu + 4HNO₃(浓) = Cu(NO₃)₂ + 2NO₂↑ + 2H₂O</td>
+</tr>
+<tr>
+<td>HNO₃（稀）</td>
+<td>NO</td>
+<td>3Cu + 8HNO₃(稀) = 3Cu(NO₃)₂ + 2NO↑ + 4H₂O</td>
+</tr>
+<tr>
+<td>浓H₂SO₄（加热）</td>
+<td>SO₂</td>
+<td>Cu + 2H₂SO₄(浓) △ CuSO₄ + SO₂↑ + 2H₂O</td>
+</tr>
+<tr>
+<td>Cl₂</td>
+<td>Cl⁻</td>
+<td>歧化反应：Cl₂ + 2NaOH = NaCl + NaClO + H₂O</td>
+</tr>
+<tr>
+<td>Fe³⁺</td>
+<td>Fe²⁺</td>
+<td>2Fe³⁺ + Fe = 3Fe²⁺</td>
+</tr>
+<tr>
+<td>H₂O₂（氧化剂）</td>
+<td>H₂O</td>
+<td>H₂O₂ + 2Fe²⁺ + 2H⁺ = 2Fe³⁺ + 2H₂O</td>
+</tr>
+</table>
+<div class="key-point">
+<strong>💡 歧化反应与归中反应：</strong>
+                <ul>
+<li><strong>歧化反应：</strong>同一元素既升又降。例：Cl₂ + 2NaOH = NaCl + NaClO + H₂O（Cl：0→-1和+1）</li>
+<li><strong>归中反应：</strong>同一元素高低价态向中间价态靠拢。例：2H₂S + SO₂ = 3S↓ + 2H₂O（S：-2→0，+4→0）</li>
+<li><strong>价态规律：</strong>相邻价态不反应，相间价态归中间，跳位转化是歧化</li>
+</ul>
+</div>
+</div>
+<div class="section">
+<h3>8.3 氧化性还原性强弱比较</h3>
+<div class="key-point">
+<strong>💡 判断依据：</strong>
+                <ol>
+<li><strong>方程式判断：</strong>氧化性：氧化剂 &gt; 氧化产物；还原性：还原剂 &gt; 还原产物</li>
+<li><strong>活动性顺序：</strong>金属单质还原性：K &gt; Ca &gt; Na &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Sn &gt; Pb &gt; (H) &gt; Cu &gt; Hg &gt; Ag &gt; Pt &gt; Au；对应阳离子氧化性相反</li>
+<li><strong>反应条件：</strong>反应条件越简单，氧化性/还原性越强</li>
+<li><strong>产物价态：</strong>相同还原剂被不同氧化剂氧化，氧化剂氧化性越强，还原剂升价越高</li>
+</ol>
+</div>
+</div>
+
+<h2>第九章 离子反应（整合补充）</h2>
+<div class="section">
+<h3>9.1 离子方程式书写规则</h3>
+<div class="warning">
+<strong>⚠️ 拆写规则（关键）：</strong>
+                <ul>
+<li><strong>必须拆：</strong>强酸、强碱、可溶性盐（查溶解性表）</li>
+<li><strong>不能拆：</strong>单质、氧化物、难溶物、弱电解质（弱酸、弱碱、水）、非电解质、固体间的反应</li>
+<li><strong>微溶物处理：</strong>澄清溶液拆（如澄清石灰水Ca²⁺ + 2OH⁻），悬浊液不拆（如石灰乳Ca(OH)₂）</li>
+<li><strong>酸式盐：</strong>NaHSO₄在水中拆为Na⁺ + H⁺ + SO₄²⁻；NaHCO₃拆为Na⁺ + HCO₃⁻（HCO₃⁻弱酸酸式根不拆）</li>
+</ul>
+</div>
+</div>
+<div class="section">
+<h3>9.2 离子共存判断（高频考点）</h3>
+<div class="key-point">
+<strong>💡 不能共存的情况：</strong>
+                <ol>
+<li><strong>生成沉淀：</strong>Ba²⁺与SO₄²⁻、CO₃²⁻；Ag⁺与Cl⁻、Br⁻、I⁻；Ca²⁺与CO₃²⁻、SO₄²⁻（微溶）；Mg²⁺、Fe³⁺、Al³⁺、Cu²⁺、Fe²⁺与OH⁻</li>
+<li><strong>生成气体：</strong>H⁺与CO₃²⁻、HCO₃⁻、SO₃²⁻、HSO₃⁻、S²⁻、HS⁻</li>
+<li><strong>生成弱电解质：</strong>H⁺与OH⁻、CH₃COO⁻、F⁻、ClO⁻、CN⁻等；OH⁻与NH₄⁺</li>
+<li><strong>氧化还原：</strong>Fe³⁺与I⁻、S²⁻；NO₃⁻(H⁺)与Fe²⁺、I⁻、SO₃²⁻、S²⁻；MnO₄⁻(H⁺)、Cr₂O₇²⁻(H⁺)、ClO⁻与还原性离子</li>
+<li><strong>双水解彻底：</strong>Al³⁺与CO₃²⁻、HCO₃⁻、S²⁻、HS⁻、AlO₂⁻；Fe³⁺与CO₃²⁻、HCO₃⁻、AlO₂⁻</li>
+<li><strong>络合反应：</strong>Fe³⁺与SCN⁻（血红色）、C₆H₅O⁻；Ag⁺与NH₃·H₂O（过量生成银氨络离子）</li>
+</ol>
+</div>
+<div class="key-point">
+<strong>💡 隐含条件分析：</strong>
+                <ul>
+<li><strong>无色溶液：</strong>排除Cu²⁺（蓝）、Fe³⁺（黄）、Fe²⁺（浅绿）、MnO₄⁻（紫红）、Cr₂O₇²⁻（橙）</li>
+<li><strong>酸性溶液：</strong>pH &lt; 7、使石蕊变红、与Zn反应放H₂ → 隐含H⁺，NO₃⁻在酸性下具强氧化性</li>
+<li><strong>碱性溶液：</strong>pH &gt; 7、使石蕊变蓝/酚酞变红 → 隐含OH⁻</li>
+<li><strong>水电离c(H⁺) = 10⁻¹² mol/L：</strong>可能是强酸或强碱抑制了水的电离</li>
+</ul>
+</div>
+</div>
+
+<h2>第十章 晶体结构计算（整合补充）</h2>
+<div class="section">
+<h3>10.1 晶胞计算基本公式</h3>
+<div class="formula-box">
+<strong>晶胞密度计算：</strong><br/><br/>
+                ρ = (Z × M) / (Nₐ × V)<br/><br/>
+                Z：晶胞中粒子数（均摊法计算）<br/>
+                M：摩尔质量 (g/mol)<br/>
+                Nₐ：阿伏伽德罗常数 (6.02×10²³ mol⁻¹)<br/>
+                V：晶胞体积 (cm³)<br/><br/>
+<strong>单位换算：</strong><br/>
+                1 pm = 10⁻¹⁰ cm = 10⁻¹² m<br/>
+                1 nm = 10⁻⁷ cm = 10⁻⁹ m<br/>
+                1 Å = 10⁻⁸ cm = 10⁻¹⁰ m<br/><br/>
+                立方晶胞：V = a³（a为边长）
+            </div>
+</div>
+<div class="section">
+<h3>10.2 均摊法计算晶胞粒子数</h3>
+<table>
+<tr>
+<th>位置</th>
+<th>顶点</th>
+<th>棱上</th>
+<th>面心</th>
+<th>体心</th>
+</tr>
+<tr>
+<td>贡献</td>
+<td>1/8</td>
+<td>1/4</td>
+<td>1/2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>8个晶胞共用</td>
+<td>4个晶胞共用</td>
+<td>2个晶胞共用</td>
+<td>独占</td>
+</tr>
+</table>
+<div class="example">
+<strong>📝 典型晶胞计算示例：</strong><br/><br/>
+<strong>NaCl型（面心立方）：</strong><br/>
+                Na⁺：12条棱×1/4 + 1个体心 = 4个<br/>
+                Cl⁻：8个顶点×1/8 + 6个面心×1/2 = 4个<br/>
+                Z = 4个NaCl单元<br/><br/>
+<strong>CsCl型（体心立方）：</strong><br/>
+                Cs⁺：1个体心 = 1个<br/>
+                Cl⁻：8个顶点×1/8 = 1个<br/>
+                Z = 1个CsCl单元<br/><br/>
+<strong>金刚石（原子晶体）：</strong><br/>
+                8个顶点×1/8 + 6个面心×1/2 + 4个体内 = 8个C原子<br/>
+                每个C连4个键，每键被2C共享，共16个C-C键/晶胞
+            </div>
+</div>
+
+<h2>第十一章 滴定计算与误差分析（整合补充）</h2>
+<div class="section">
+<h3>11.1 中和滴定计算</h3>
+<div class="formula-box">
+<strong>计算公式：</strong><br/><br/>
+                c(待) = [c(标) × V(标) × n(待)] / [V(待) × n(标)]<br/><br/>
+                其中n为酸碱的元数（如H₂SO₄为2元，Na₂CO₃与HCl反应到终点为2元或1元）<br/><br/>
+<strong>关键：</strong>准确判断终点，正确读取体积（保留2位小数），单位统一
+            </div>
+</div>
+<div class="section">
+<h3>11.2 氧化还原滴定</h3>
+<div class="grid-2">
+<div class="card">
+<h4>🔹 高锰酸钾法</h4>
+<p>MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O</p>
+<p>指示剂：自身指示剂（紫色→无色）</p>
+<p>应用：测Fe²⁺、H₂C₂O₄、H₂O₂等</p>
+<p>注意：不用额外加指示剂，终点为微红色30s不褪</p>
+</div>
+<div class="card">
+<h4>🔹 碘量法</h4>
+<p>I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</p>
+<p>指示剂：淀粉（蓝色→无色）</p>
+<p>应用：测Cu²⁺、ClO⁻、H₂O₂等</p>
+<p>注意：近终点时加淀粉，防止包裹I₂</p>
+</div>
+</div>
+</div>
+<div class="section">
+<h3>11.3 滴定误差分析</h3>
+<table>
+<tr>
+<th>操作</th>
+<th>V(标)变化</th>
+<th>c(待)结果</th>
+<th>原因</th>
+</tr>
+<tr>
+<td>滴定管未润洗（装标准液）</td>
+<td>偏大</td>
+<td>偏高</td>
+<td>标准液被稀释，耗量增多</td>
+</tr>
+<tr>
+<td>锥形瓶润洗</td>
+<td>偏大</td>
+<td>偏高</td>
+<td>待测液增多</td>
+</tr>
+<tr>
+<td>滴定前尖嘴有气泡，滴后无</td>
+<td>偏大</td>
+<td>偏高</td>
+<td>读数包含气泡体积</td>
+</tr>
+<tr>
+<td>滴后尖嘴有气泡</td>
+<td>偏小</td>
+<td>偏低</td>
+<td>实际滴出液少</td>
+</tr>
+<tr>
+<td>读数俯视初读数</td>
+<td>偏大</td>
+<td>偏高</td>
+<td>V(标) = 末 - 初，初读偏小</td>
+</tr>
+<tr>
+<td>读数仰视末读数</td>
+<td>偏大</td>
+<td>偏高</td>
+<td>末读偏大</td>
+</tr>
+<tr>
+<td>待测液溅出</td>
+<td>偏小</td>
+<td>偏低</td>
+<td>溶质减少</td>
+</tr>
+<tr>
+<td>标准液滴到锥形瓶外</td>
+<td>偏大</td>
+<td>偏高</td>
+<td>无效消耗标准液</td>
+</tr>
+</table>
+</div>
+
+<h2>第十二章 有机化学计算（整合补充）</h2>
+<div class="section">
+<h3>12.1 燃烧法确定分子式</h3>
+<div class="formula-box">
+<strong>燃烧通式：</strong><br/><br/>
+                CₓHᵧO₂ + (x + y/4 - z/2)O₂ → xCO₂ + y/2H₂O<br/><br/>
+<strong>计算方法：</strong><br/>
+                n(C) = n(CO₂) = m(CO₂)/44<br/>
+                n(H) = 2n(H₂O) = 2m(H₂O)/18<br/>
+                n(O) = [m(有机物) - 12n(C) - n(H)]/16<br/><br/>
+<strong>最简式法：</strong><br/>
+                求出C:H:O最简整数比，结合相对分子质量确定分子式
+            </div>
+</div>
+<div class="section">
+<h3>12.2 不饱和度计算</h3>
+<div class="grid-2">
+<div class="card">
+<h4>🔹 公式</h4>
+<p>Ω = (2C + 2 + N - H - X) / 2</p>
+<p>其中：C碳数，N氮数，H氢数，X卤素数</p>
+<p>氧不影响不饱和度</p>
+</div>
+<div class="card">
+<h4>🔹 结构对应</h4>
+<p>Ω = 1：一个双键或一个环</p>
+<p>Ω = 2：两个双键/一个三键/两个环/一个双键+一个环</p>
+<p>Ω = 4：可能含苯环（苯环Ω=4，3个双键+1个环）</p>
+</div>
+</div>
+</div>
+<div class="section">
+<h3>12.3 官能团定量计算</h3>
+<table>
+<tr>
+<th>官能团</th>
+<th>定量反应</th>
+<th>计量关系</th>
+<th>应用</th>
+</tr>
+<tr>
+<td>-CHO</td>
+<td>银镜反应</td>
+<td>-CHO ~ 2Ag</td>
+<td>醛基含量测定</td>
+</tr>
+<tr>
+<td>-CHO</td>
+<td>与新制Cu(OH)₂</td>
+<td>-CHO ~ Cu₂O</td>
+<td>醛基检验与测定</td>
+</tr>
+<tr>
+<td>-OH（醇）</td>
+<td>与Na反应</td>
+<td>2-OH ~ H₂</td>
+<td>羟基数目测定</td>
+</tr>
+<tr>
+<td>-COOH</td>
+<td>与NaHCO₃</td>
+<td>-COOH ~ CO₂</td>
+<td>羧基检验与测定</td>
+</tr>
+<tr>
+<td>C=C</td>
+<td>与Br₂加成</td>
+<td>C=C ~ Br₂</td>
+<td>双键数目测定</td>
+</tr>
+<tr>
+<td>苯环</td>
+<td>与H₂加成</td>
+<td>苯环 ~ 3H₂</td>
+<td>验证苯环结构</td>
+</tr>
+</table>
+</div>
+
+<div class="practice-box">
+<h3>📝 巩固练习</h3>
+<p><strong>练习1：</strong>标准状况下，11.2L CO和CO₂的混合气体质量为18g，求两种气体的物质的量之比。</p>
+<p><strong>练习2：</strong>将20g NaOH溶于水配成500mL溶液，求该溶液的物质的量浓度。若取该溶液100mL稀释至500mL，求稀释后溶液的浓度。</p>
+<p><strong>练习3：</strong>用足量CO还原Fe₂O₃，得到11.2g铁，求生成的CO₂在标准状况下的体积。</p>
+<p><strong>练习4：</strong>将5.6g铁粉加入100mL 1mol/L的CuCl₂溶液中，充分反应后，求生成的铜的质量和溶液中Fe²⁺的浓度。</p>
+<p><strong>练习5：</strong>用0.1mol/L的Na₂SO₃溶液30mL恰好将2×10⁻³mol的XO₄⁻还原，则元素X在还原产物中的化合价是多少？</p>
+<p><strong>练习6（新增）：</strong>某晶胞为立方体，边长为a pm，晶胞中含有4个原子，摩尔质量为M g/mol，求该晶体的密度。</p>
+<p><strong>练习7（新增）：</strong>某有机物0.1mol完全燃烧，生成0.3mol CO₂和0.3mol H₂O，求该有机物的分子式。</p>
+</div>
+<div class="nav-links">
+<a href="index.html">← 返回主页</a>
+<a href="elements_and_compounds.html">下一模块：元素化合物 →</a>
+</div>
+</div>
+</body>
+</html>

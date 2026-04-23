@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>融合专题：代谢与遗传 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #667eea; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .summary-box {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="experiments.html">← 上一模块</a>
+                <a href="fusion_ecology_evolution.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🔄 融合专题：代谢与遗传</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：10-15分</span>
+                <span class="tag tag-key">难度：★★★★★</span>
+                <span class="tag tag-formula">跨模块综合</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识融合网络</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>光合作用与基因</strong><br/>
+                        • 色素合成基因<br/>
+                        • 酶基因表达
+                    </div>
+                    <div class="network-item">
+                        <strong>呼吸作用与遗传</strong><br/>
+                        • 线粒体DNA<br/>
+                        • 母系遗传
+                    </div>
+                    <div class="network-item">
+                        <strong>代谢疾病</strong><br/>
+                        • 遗传代谢病<br/>
+                        • 基因治疗
+                    </div>
+                    <div class="network-item">
+                        <strong>基因表达调控</strong><br/>
+                        • 诱导酶合成<br/>
+                        • 代谢途径调控
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞分化</strong><br/>
+                        • 基因选择性表达<br/>
+                        • 代谢特征差异
+                    </div>
+                    <div class="network-item">
+                        <strong>进化与代谢</strong><br/>
+                        • 代谢途径进化<br/>
+                        • 适应性进化
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、光合作用与基因表达的融合</h2>
+
+            <h3>1.1 叶绿体基因与光合作用</h3>
+            <div class="key-point">
+                <strong>叶绿体是半自主性细胞器：</strong><br/>
+                • 含有DNA、RNA、核糖体，能合成部分自身需要的蛋白质<br/>
+                • 叶绿体DNA编码部分光合色素合成酶和光合作用相关蛋白<br/>
+                • 大部分叶绿体蛋白由核基因编码，在细胞质中合成后转运进入叶绿体
+            </div>
+
+            <h3>1.2 基因突变对光合作用的影响</h3>
+            <div class="example">
+                <div class="title">案例分析：白化苗的形成</div>
+                <p><strong>现象：</strong>某些植物突变体呈现白化现象，无法进行光合作用</p>
+                <p><strong>原因分析：</strong></p>
+                <ul>
+                    <li>控制叶绿素合成酶的基因突变 → 无法合成叶绿素</li>
+                    <li>控制类囊体结构的基因突变 → 光反应无法进行</li>
+                    <li>控制卡尔文循环酶的基因突变 → 暗反应受阻</li>
+                </ul>
+                <p><strong>遗传特点：</strong>核基因突变遵循孟德尔遗传定律；叶绿体基因突变表现为母系遗传</p>
+            </div>
+
+            <h2>二、细胞呼吸与遗传的融合</h2>
+
+            <h3>2.1 线粒体DNA与母系遗传</h3>
+            <div class="key-point">
+                <strong>线粒体DNA（mtDNA）的特点：</strong><br/>
+                • 环状双链DNA，独立于核DNA<br/>
+                • 编码部分呼吸链蛋白、rRNA和tRNA<br/>
+                • 表现为母系遗传：受精卵中的线粒体几乎全部来自卵细胞
+            </div>
+
+            <div class="formula-box">
+                <div class="title">线粒体遗传病特点</div>
+                <p>• 母系遗传：母亲患病，子女全部患病；父亲患病，子女不患病</p>
+                <p>• 异质性：细胞中突变型和野生型线粒体共存</p>
+                <p>• 阈值效应：突变mtDNA达到一定比例才表现症状</p>
+                <p>• 常见疾病：线粒体肌病、Leber遗传性视神经病变等</p>
+            </div>
+
+            <h2>三、代谢疾病的遗传基础</h2>
+
+            <h3>3.1 遗传代谢病概述</h3>
+            <table>
+                <tr>
+                    <th>疾病名称</th>
+                    <th>遗传方式</th>
+                    <th>代谢缺陷</th>
+                    <th>临床表现</th>
+                </tr>
+                <tr>
+                    <td>苯丙酮尿症</td>
+                    <td>常染色体隐性遗传</td>
+                    <td>苯丙氨酸羟化酶缺陷</td>
+                    <td>智力低下、癫痫、皮肤白皙</td>
+                </tr>
+                <tr>
+                    <td>白化病</td>
+                    <td>常染色体隐性遗传</td>
+                    <td>酪氨酸酶缺陷</td>
+                    <td>皮肤、毛发、眼睛缺乏黑色素</td>
+                </tr>
+                <tr>
+                    <td>半乳糖血症</td>
+                    <td>常染色体隐性遗传</td>
+                    <td>半乳糖-1-磷酸尿苷转移酶缺陷</td>
+                    <td>肝脾肿大、白内障、智力低下</td>
+                </tr>
+                <tr>
+                    <td>蚕豆病</td>
+                    <td>X染色体隐性遗传</td>
+                    <td>葡萄糖-6-磷酸脱氢酶（G6PD）缺陷</td>
+                    <td>溶血性贫血</td>
+                </tr>
+            </table>
+
+            <h2>四、基因表达调控与代谢</h2>
+
+            <h3>4.1 酶的诱导合成</h3>
+            <div class="key-point">
+                <strong>乳糖操纵子模型（原核生物）：</strong><br/>
+                • 结构基因：编码利用乳糖的酶（β-半乳糖苷酶等）<br/>
+                • 调控基因：编码阻遏蛋白<br/>
+                • 启动子：RNA聚合酶结合位点<br/>
+                • 操纵基因：阻遏蛋白结合位点<br/><br/>
+                <strong>调控机制：</strong><br/>
+                • 无乳糖时：阻遏蛋白结合操纵基因，结构基因不表达<br/>
+                • 有乳糖时：乳糖作为诱导物与阻遏蛋白结合，使其不能结合操纵基因，结构基因表达
+            </div>
+
+            <h2>五、细胞分化与代谢特征</h2>
+
+            <h3>5.1 细胞分化中的基因选择性表达</h3>
+            <div class="key-point">
+                <strong>不同细胞的代谢特征差异：</strong><br/>
+                • 红细胞：无细胞核和线粒体，只能进行无氧呼吸<br/>
+                • 肌肉细胞：线粒体丰富，有氧呼吸能力强<br/>
+                • 神经细胞：能量需求大，主要依赖有氧呼吸<br/>
+                • 肝细胞：代谢功能多样，含有丰富酶系
+            </div>
+
+            <h2>六、综合应用与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 综合考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>半自主性细胞器</strong><br/>
+                        • 叶绿体DNA<br/>
+                        • 线粒体DNA<br/>
+                        • 核质互作
+                    </div>
+                    <div class="network-item">
+                        <strong>母系遗传</strong><br/>
+                        • 遗传特点<br/>
+                        • 系谱分析<br/>
+                        • 计算概率
+                    </div>
+                    <div class="network-item">
+                        <strong>代谢疾病</strong><br/>
+                        • 遗传方式<br/>
+                        • 发病机理<br/>
+                        • 诊断预防
+                    </div>
+                    <div class="network-item">
+                        <strong>基因调控</strong><br/>
+                        • 操纵子模型<br/>
+                        • 诱导酶<br/>
+                        • 阻遏蛋白
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞分化</strong><br/>
+                        • 选择性表达<br/>
+                        • 代谢差异<br/>
+                        • 功能特化
+                    </div>
+                    <div class="network-item">
+                        <strong>跨模块综合</strong><br/>
+                        • 代谢+遗传<br/>
+                        • 结构+功能<br/>
+                        • 进化+适应
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 综合例题</div>
+                <p><strong>题目：</strong>某植物突变体叶片呈现黄绿色，无法正常生长。研究发现该突变是由核基因突变引起的，该基因编码叶绿素合成途径中的一种关键酶。请分析：</p>
+                <p>(1) 该突变体叶片呈现黄绿色的原因是什么？</p>
+                <p>(2) 若该突变基因为隐性基因（a），野生型基因为A，现用纯合突变体与野生型杂交，F₁自交得到F₂，F₂的表现型及比例如何？</p>
+                <p>(3) 该突变体不能正常生长的主要原因是什么？</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：</strong></p>
+                <p>(1) 突变导致叶绿素合成酶缺陷，无法正常合成叶绿素，叶片呈现黄绿色（类胡萝卜素颜色）。</p>
+                <p>(2) F₂表现型及比例为：野生型（绿色）:突变型（黄绿色）= 3:1。遗传图解：P: AA × aa → F₁: Aa → F₂: 1AA:2Aa:1aa（3绿色:1黄绿色）。</p>
+                <p>(3) 缺乏叶绿素无法进行光合作用，不能合成有机物，因此不能正常生长。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="experiments.html">← 上一模块</a>
+                    <a href="fusion_ecology_evolution.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

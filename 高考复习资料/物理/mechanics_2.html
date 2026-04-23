@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 力学模块（下）曲线运动与能量</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #f5576c;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .integration {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border: 3px solid #28a745;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+        }
+        canvas {
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            background: white;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 物理极致复习 · 力学模块（下）</h1>
+        <div class="subtitle">曲线运动、万有引力、机械能 | 2026陕西新高考专用</div>
+
+        <!-- 模块四：曲线运动 -->
+        <div class="module-box">
+            <div class="module-title">🎯 模块四：曲线运动与抛体运动</div>
+            
+            <div class="section">
+                <h3>4.1 曲线运动基础</h3>
+                <div class="formula-box">
+                    <p>条件：$F_{合}$ 与 $v$ 不共线（$F_{合} \perp v$ 时速度大小不变）</p>
+                    <p>特点：速度方向沿切线，$F_{合}$ 指向轨迹凹侧</p>
+                    <p>分解：$a_x = \frac{F_x}{m}$，$a_y = \frac{F_y}{m}$（独立性原理）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🎪 曲线运动三要素：</strong><br/>
+                    • <span class="highlight">切向加速度 $a_\tau$</span>：改变速度大小（$a_\tau = \frac{dv}{dt}$）<br/>
+                    • <span class="highlight">法向加速度 $a_n$</span>：改变速度方向（$a_n = \frac{v^2}{\rho}$，$\rho$为曲率半径）<br/>
+                    • <span class="highlight">合加速度</span>：$a = \sqrt{a_\tau^2 + a_n^2}$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>4.2 平抛运动（分解思想典范）</h3>
+                <div class="formula-box">
+                    <p>水平方向：$x = v_0t$，$v_x = v_0$（匀速直线）</p>
+                    <p>竖直方向：$y = \frac{1}{2}gt^2$，$v_y = gt$（自由落体）</p>
+                    <p>合速度：$v = \sqrt{v_0^2 + (gt)^2}$，$\tan\theta = \frac{gt}{v_0}$</p>
+                    <p>合位移：$s = \sqrt{x^2 + y^2}$，$\tan\alpha = \frac{gt}{2v_0}$</p>
+                    <p><strong>重要推论：</strong>$\tan\theta = 2\tan\alpha$（速度偏角=2×位移偏角）</p>
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="projectileCanvas" width="600" height="400"></canvas>
+                    <p><em>平抛运动轨迹与分解</em></p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 平抛运动解题模板：</strong><br/>
+                    1. 建立坐标系：原点为抛出点，x水平，y竖直向下<br/>
+                    2. 列方程：$x = v_0t$，$y = \frac{1}{2}gt^2$<br/>
+                    3. 消去 $t$ 得轨迹方程：$y = \frac{g}{2v_0^2}x^2$（抛物线）<br/>
+                    4. 几何关系：利用斜面倾角 $\theta$，有 $\tan\theta = \frac{y}{x}$
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 平抛常见变式：</strong><br/>
+                    • <span class="highlight">斜面平抛</span>：落在斜面上时 $\tan\theta = \frac{y}{x}$，时间 $t = \frac{2v_0\tan\theta}{g}$<br/>
+                    • <span class="highlight">垂直撞斜面</span>：$v_x = v_0$，$v_y = gt$，$\tan\theta = \frac{v_x}{v_y}$<br/>
+                    • <span class="highlight">最小位移</span>：垂直斜面抛出时位移最小
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>4.3 圆周运动</h3>
+                <div class="formula-box">
+                    <p>线速度：$v = \frac{2\pi r}{T} = \omega r$</p>
+                    <p>角速度：$\omega = \frac{2\pi}{T} = 2\pi f$</p>
+                    <p>向心加速度：$a = \frac{v^2}{r} = \omega^2 r = \omega v = \frac{4\pi^2}{T^2}r$</p>
+                    <p>向心力：$F = m\frac{v^2}{r} = m\omega^2 r = m\frac{4\pi^2}{T^2}r$</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>传动类型</th>
+                        <th>特点</th>
+                        <th>关系</th>
+                        <th>应用场景</th>
+                    </tr>
+                    <tr>
+                        <td>同轴转动</td>
+                        <td>同一转轴</td>
+                        <td>$\omega$ 相同，$v \propto r$</td>
+                        <td>地球自转、陀螺</td>
+                    </tr>
+                    <tr>
+                        <td>皮带传动</td>
+                        <td>边缘接触</td>
+                        <td>$v$ 相同，$\omega \propto \frac{1}{r}$</td>
+                        <td>自行车轮、传送带</td>
+                    </tr>
+                    <tr>
+                        <td>齿轮传动</td>
+                        <td>齿合接触</td>
+                        <td>$\frac{\omega_1}{\omega_2} = \frac{r_2}{r_1} = \frac{N_2}{N_1}$</td>
+                        <td>机械钟表、汽车变速箱</td>
+                    </tr>
+                </table>
+
+                <div class="key-point">
+                    <strong>🎡 竖直平面圆周运动临界条件：</strong><br/>
+                    1. <span class="highlight">绳模型（无支撑）</span>：最高点 $v_{min} = \sqrt{gr}$，$T = 0$<br/>
+                    2. <span class="highlight">杆模型（有支撑）</span>：最高点 $v_{min} = 0$，$N = mg$（支持力）<br/>
+                    3. <span class="highlight">拱桥模型</span>：最高点 $v_{max} = \sqrt{gr}$，$N = 0$（飞起临界）<br/>
+                    4. <span class="highlight">管道模型</span>：同杆模型，内外壁均可施力
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块五：万有引力 -->
+        <div class="module-box">
+            <div class="module-title">🌍 模块五：万有引力与航天</div>
+            
+            <div class="section">
+                <h3>5.1 万有引力定律</h3>
+                <div class="formula-box">
+                    <p>$\displaystyle F = G\frac{Mm}{r^2}$，$G = 6.67 \times 10^{-11} \text{N·m}^2/\text{kg}^2$</p>
+                    <p>黄金代换：$GM = gR^2$（近地时 $r \approx R$）</p>
+                    <p>密度公式：$\rho = \frac{3g}{4\pi GR}$ 或 $\rho = \frac{3\pi}{GT^2}$（近地卫星）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🚀 天体运动核心思想：</strong><br/>
+                    万有引力提供向心力：$G\frac{Mm}{r^2} = m\frac{v^2}{r} = m\omega^2 r = m\frac{4\pi^2}{T^2}r = ma$<br/>
+                    <span class="highlight">口诀：</span>"高轨低速大周期，大机大势小动能"
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>5.2 卫星运动参数（记住结论）</h3>
+                <table>
+                    <tr>
+                        <th>物理量</th>
+                        <th>公式</th>
+                        <th>与 $r$ 关系</th>
+                    </tr>
+                    <tr>
+                        <td>线速度 $v$</td>
+                        <td>$v = \sqrt{\frac{GM}{r}}$</td>
+                        <td>$v \propto \frac{1}{\sqrt{r}}$</td>
+                    </tr>
+                    <tr>
+                        <td>角速度 $\omega$</td>
+                        <td>$\omega = \sqrt{\frac{GM}{r^3}}$</td>
+                        <td>$\omega \propto \frac{1}{r^{3/2}}$</td>
+                    </tr>
+                    <tr>
+                        <td>周期 $T$</td>
+                        <td>$T = 2\pi\sqrt{\frac{r^3}{GM}}$</td>
+                        <td>$T \propto r^{3/2}$（开普勒第三定律）</td>
+                    </tr>
+                    <tr>
+                        <td>向心加速度 $a$</td>
+                        <td>$a = \frac{GM}{r^2}$</td>
+                        <td>$a \propto \frac{1}{r^2}$</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>5.3 宇宙速度</h3>
+                <div class="formula-box">
+                    <p>第一宇宙速度（环绕速度）：$v_1 = \sqrt{gR} = \sqrt{\frac{GM}{R}} \approx 7.9 \text{km/s}$</p>
+                    <p>第二宇宙速度（脱离速度）：$v_2 = \sqrt{2}v_1 \approx 11.2 \text{km/s}$</p>
+                    <p>第三宇宙速度（逃逸速度）：$v_3 \approx 16.7 \text{km/s}$</p>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 卫星变轨问题：</strong><br/>
+                    • <span class="highlight">加速升轨</span>：$v \uparrow$ → 离心运动 → $r \uparrow$ → $v \downarrow$（最终 $v$ 变小）<br/>
+                    • <span class="highlight">减速降轨</span>：$v \downarrow$ → 近心运动 → $r \downarrow$ → $v \uparrow$（最终 $v$ 变大）<br/>
+                    • <span class="highlight">变轨点</span>：加速度 $a$ 相同（同一点 $r$ 相同），速度不同（外轨>内轨）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>5.4 双星与多星系统</h3>
+                <div class="formula-box">
+                    <p>双星：$\omega_1 = \omega_2 = \omega$，$m_1r_1 = m_2r_2$，$r_1 + r_2 = L$</p>
+                    <p>$G\frac{m_1m_2}{L^2} = m_1\omega^2r_1 = m_2\omega^2r_2$</p>
+                    <p>周期：$T = 2\pi\sqrt{\frac{L^3}{G(m_1+m_2)}}$</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🌟 双星问题解题要点：</strong><br/>
+                    1. 两星角速度（周期）相等<br/>
+                    2. 向心力由彼此万有引力提供（大小相等）<br/>
+                    3. 轨道半径与质量成反比：$\frac{r_1}{r_2} = \frac{m_2}{m_1}$<br/>
+                    4. 总质量：$M = m_1 + m_2 = \frac{4\pi^2L^3}{GT^2}$
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块六：机械能 -->
+        <div class="module-box">
+            <div class="module-title">⚡ 模块六：机械能守恒与能量守恒</div>
+            
+            <div class="section">
+                <h3>6.1 功与功率</h3>
+                <div class="formula-box">
+                    <p>功：$W = Fx\cos\theta$（$\theta$ 为 $F$ 与 $x$ 夹角）</p>
+                    <p>功率：$P = \frac{W}{t} = Fv\cos\theta$</p>
+                    <p>机车启动：$P = Fv$，$F - f = ma$</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🚗 机车启动两种模式：</strong><br/>
+                    1. <span class="highlight">恒定功率启动</span>：$P$ 不变，$v \uparrow$ → $F \downarrow$ → $a \downarrow$ → 匀速（$F = f$）<br/>
+                    2. <span class="highlight">恒定加速度启动</span>：$a$ 不变，$F$ 不变，$v \uparrow$ → $P \uparrow$ → 达 $P_{额}$ 后变功率启动<br/>
+                    最大速度：$v_m = \frac{P}{f}$（两种模式最终相同）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>6.2 动能定理（功能关系核心）</h3>
+                <div class="formula-box">
+                    <p>$W_{合} = \Delta E_k = \frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2$</p>
+                    <p>或：$W_G + W_N + W_f + W_{其他} = \Delta E_k$</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>✨ 动能定理应用五步法：</strong><br/>
+                    1. <span class="highlight">选对象</span>：明确研究对象（单体或系统）<br/>
+                    2. <span class="highlight">找过程</span>：确定初末状态（速度、位置）<br/>
+                    3. <span class="highlight">算功</span>：分析所有力做功（正功、负功、零功）<br/>
+                    4. <span class="highlight">列方程</span>：$W_{合} = \Delta E_k$<br/>
+                    5. <span class="highlight">求解</span>：注意矢量方向，功的正负
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 动能定理注意事项：</strong><br/>
+                    • 适用于直线、曲线、恒力、变力、单个、连续过程<br/>
+                    • 功是过程量，能是状态量<br/>
+                    • 保守力做功与路径无关（重力、弹力、万有引力）<br/>
+                    • 摩擦力做功与路径有关（生热 $Q = f \cdot \Delta x_{相对}$）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>6.3 机械能守恒</h3>
+                <div class="formula-box">
+                    <p>条件：只有重力或弹力做功（$W_{其他} = 0$）</p>
+                    <p>表达式：$E_{k1} + E_{p1} = E_{k2} + E_{p2}$</p>
+                    <p>或：$\Delta E_k = -\Delta E_p$（动能增加=势能减少）</p>
+                    <p>或：$\Delta E_A = -\Delta E_B$（A增加=B减少，系统内）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 机械能守恒判断三步法：</strong><br/>
+                    1. 看是否有非保守力做功（摩擦力、推力等）<br/>
+                    2. 看是否有机械能与其他能转化（爆炸、燃烧等）<br/>
+                    3. 看是否有系统外能量输入（电动机、人做功等）<br/>
+                    <span class="highlight">注意：</span>单物体机械能守恒条件严格；系统机械能守恒可含内弹力
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>6.4 能量守恒与功能关系</h3>
+                <div class="formula-box">
+                    <p>能量守恒：$E_{初} = E_{末}$ 或 $\Delta E_{增} = \Delta E_{减}$</p>
+                    <p>摩擦生热：$Q = f \cdot x_{相对}$</p>
+                    <p>功能原理：$W_{非保守力} = \Delta E_{机械}$</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>力做功</th>
+                        <th>能量转化</th>
+                        <th>关系式</th>
+                    </tr>
+                    <tr>
+                        <td>重力做功 $W_G$</td>
+                        <td>重力势能 $E_p$</td>
+                        <td>$W_G = -\Delta E_p$</td>
+                    </tr>
+                    <tr>
+                        <td>弹力做功 $W_弹$</td>
+                        <td>弹性势能 $E_{弹}$</td>
+                        <td>$W_弹 = -\Delta E_{弹}$</td>
+                    </tr>
+                    <tr>
+                        <td>合外力做功 $W_{合}$</td>
+                        <td>动能 $E_k$</td>
+                        <td>$W_{合} = \Delta E_k$</td>
+                    </tr>
+                    <tr>
+                        <td>非保守力做功 $W_{非}$</td>
+                        <td>机械能 $E$</td>
+                        <td>$W_{非} = \Delta E$</td>
+                    </tr>
+                    <tr>
+                        <td>摩擦力做功 $W_f$</td>
+                        <td>内能 $Q$</td>
+                        <td>$Q = |W_f|$（相对滑动）</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 融合总结 -->
+        <div class="integration">
+            <h2>🔗 力学模块融合总结</h2>
+            <div class="section">
+                <h3>曲线运动+能量综合</h3>
+                <p><strong>1. 平抛+能量：</strong>机械能守恒 $\frac{1}{2}mv_0^2 + mgh_1 = \frac{1}{2}mv^2 + mgh_2$</p>
+                <p><strong>2. 圆周+能量：</strong>临界条件 + 动能定理，如 $mg(2R) = \frac{1}{2}mv^2 - \frac{1}{2}mv_0^2$</p>
+                <p><strong>3. 天体+能量：</strong>机械能 $E = -G\frac{Mm}{2a}$（椭圆轨道，$a$为半长轴）</p>
+                <p><strong>4. 传送带+能量：</strong>$Q = f \cdot \Delta x$，电动机多消耗能量 $\Delta E = Q + \Delta E_k$</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="mechanics_1.html">← 上一页：力学模块（上）</a>
+            <a href="electromagnetism_1.html">下一页：电磁学模块 →</a>
+        </div>
+    </div>
+
+    <script>//<![CDATA[
+
+        // 平抛运动轨迹绘制
+        const canvas = document.getElementById('projectileCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fillRect(0, 0, 600, 400);
+        
+        // 坐标轴
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(50, 350);
+        ctx.lineTo(550, 350);
+        ctx.moveTo(50, 350);
+        ctx.lineTo(50, 50);
+        ctx.stroke();
+        
+        // 标签
+        ctx.font = '16px Arial';
+        ctx.fillStyle = '#333';
+        ctx.fillText('x', 560, 355);
+        ctx.fillText('y', 35, 40);
+        ctx.fillText('O', 35, 370);
+        
+        // 抛物线轨迹
+        ctx.strokeStyle = '#e74c3c';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        const v0 = 50, g = 9.8, scale = 5;
+        for (let t = 0; t <= 3; t += 0.05) {
+            const x = 50 + v0 * t * scale;
+            const y = 350 - 0.5 * g * t * t * scale;
+            if (t === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        
+        // 速度分解（某一点）
+        const t = 2;
+        const px = 50 + v0 * t * scale;
+        const py = 350 - 0.5 * g * t * t * scale;
+        
+        // 水平速度
+        ctx.strokeStyle = '#3498db';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(px + 60, py);
+        ctx.stroke();
+        ctx.fillStyle = '#3498db';
+        ctx.fillText('v₀', px + 70, py + 5);
+        
+        // 竖直速度
+        ctx.strokeStyle = '#2ecc71';
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(px, py + g * t * scale * 2);
+        ctx.stroke();
+        ctx.fillStyle = '#2ecc71';
+        ctx.fillText('gt', px + 5, py + g * t * scale * 2 + 20);
+        
+        // 合速度
+        ctx.strokeStyle = '#9b59b6';
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(px + 60, py + g * t * scale * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#9b59b6';
+        ctx.fillText('v', px + 65, py + g * t * scale);
+        
+        // 位移
+        ctx.strokeStyle = '#f39c12';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(50, 350);
+        ctx.lineTo(px, py);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        
+        // 标注
+        ctx.fillStyle = '#e74c3c';
+        ctx.font = 'bold 18px Arial';
+        ctx.fillText('平抛运动轨迹', 200, 50);
+        
+        ctx.fillStyle = '#666';
+        ctx.font = '14px Arial';
+        ctx.fillText('水平: 匀速直线', 400, 100);
+        ctx.fillText('竖直: 自由落体', 400, 120);
+    
+//]]></script>
+</body>
+</html>

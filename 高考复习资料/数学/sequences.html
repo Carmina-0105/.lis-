@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学复习 · 数列（完整版）</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #00a8e8;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        .chapter {
+            background: #e6f7ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #00a8e8;
+        }
+        .section {
+            background: #f0faff;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #b3e0ff;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .formula-box {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2196f3;
+            font-family: 'Courier New', monospace;
+        }
+        .example {
+            background: #fff8e1;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #ff9800;
+        }
+        .solution {
+            background: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .analysis {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+        }
+        .technique {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .practice {
+            background: #fce4ec;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e91e63;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            color: #00a8e8;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #00a8e8;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background: #00a8e8;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .knowledge-map {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px dashed #9c27b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 数列（完整版）</h1>
+        <p class="subtitle">高考核心模块 · 约10分 · 公式与技巧并重</p>
+        
+        <div class="module-box">
+            <div class="module-title">🎯 模块定位与考情分析</div>
+            <p><strong>分值分布：</strong>约10分（1-2道选填 + 可能1道解答题）</p>
+            <p><strong>难度层次：</strong>基础题为主，压轴题可能涉及数列与函数/不等式综合</p>
+            <p><strong>核心考点：</strong></p>
+            <ul>
+                <li>等差数列：通项、求和、性质</li>
+                <li>等比数列：通项、求和、性质</li>
+                <li>数列求和：公式法、错位相减、裂项相消、分组求和</li>
+                <li>递推数列：累加法、累乘法、构造法</li>
+            </ul>
+            <p><strong>2026考向预测：</strong>数列与不等式综合、新定义数列、数列与函数结合</p>
+        </div>
+
+        <div class="knowledge-map">
+            <h3>🗺️ 知识网络图</h3>
+            <p><strong>数列基础：</strong>数列概念 → 通项公式 → 递推公式 → 前n项和</p>
+            <p><strong>等差数列：</strong>定义 → 通项公式 → 等差中项 → 前n项和 → 性质</p>
+            <p><strong>等比数列：</strong>定义 → 通项公式 → 等比中项 → 前n项和 → 性质</p>
+            <p><strong>数列求和：</strong>公式法 → 错位相减 → 裂项相消 → 分组求和 → 倒序相加</p>
+            <p><strong>递推数列：</strong>累加法 → 累乘法 → 构造等差/等比 → 特征根法</p>
+        </div>
+
+        <h2>第一章 等差数列</h2>
+        
+        <div class="chapter">
+            <h3>1.1 等差数列的基本概念与公式</h3>
+            
+            <div class="section">
+                <h4>一、等差数列定义</h4>
+                <div class="key-point">
+                    <strong>定义：</strong>如果一个数列从第二项起，每一项与它的前一项的差等于同一个常数，这个数列就叫做等差数列。<br/><br/>
+                    即：$a_{n+1} - a_n = d$（d为常数，称为公差）
+                </div>
+                
+                <div class="formula-box">
+                    <strong>等差数列核心公式：</strong><br/><br/>
+                    
+                    <strong>1. 通项公式：</strong><br/>
+                    $a_n = a_1 + (n-1)d$<br/>
+                    $a_n = a_m + (n-m)d$（推广式）<br/><br/>
+                    
+                    <strong>2. 等差中项：</strong><br/>
+                    若a, A, b成等差数列，则 $A = \frac{a+b}{2}$<br/><br/>
+                    
+                    <strong>3. 前n项和公式：</strong><br/>
+                    $S_n = \frac{n(a_1+a_n)}{2}$<br/>
+                    $S_n = na_1 + \frac{n(n-1)}{2}d$<br/>
+                    $S_n = \frac{d}{2}n^2 + (a_1-\frac{d}{2})n$（关于n的二次函数）<br/><br/>
+                    
+                    <strong>4. 重要性质：</strong><br/>
+                    • 若$m+n=p+q$，则$a_m+a_n=a_p+a_q$<br/>
+                    • $S_n, S_{2n}-S_n, S_{3n}-S_{2n}$成等差数列<br/>
+                    • 等差数列中，$a_n = S_n - S_{n-1}$（n≥2）
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题1（原创）：</strong>已知等差数列{an}中，$a_3 = 5$，$a_7 = 13$，求通项公式和前n项和公式。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查等差数列基本量的计算，以及方程思想。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【分析思路】</strong><br/>
+                        已知两项，可以列方程组求出$a_1$和d，再写通项公式。<br/><br/>
+                        
+                        <strong>【规范解答】</strong><br/>
+                        设首项为$a_1$，公差为d<br/><br/>
+                        
+                        由$a_3 = 5$：$a_1 + 2d = 5$ ... ①<br/>
+                        由$a_7 = 13$：$a_1 + 6d = 13$ ... ②<br/><br/>
+                        
+                        ②-①：$4d = 8$，∴ $d = 2$<br/><br/>
+                        
+                        代入①：$a_1 + 4 = 5$，∴ $a_1 = 1$<br/><br/>
+                        
+                        <strong>通项公式：</strong>$a_n = 1 + (n-1)×2 = 2n - 1$<br/><br/>
+                        
+                        <strong>前n项和：</strong>$S_n = \frac{n(1+2n-1)}{2} = \frac{n·2n}{2} = n^2$<br/><br/>
+                        
+                        或：$S_n = n×1 + \frac{n(n-1)}{2}×2 = n + n(n-1) = n^2$
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 等差数列基本量：$a_1, d, n, a_n, S_n$——知三求二<br/>
+                        • 列方程组是通用方法<br/>
+                        • 也可以用性质：$d = \frac{a_7-a_3}{7-3} = \frac{13-5}{4} = 2$
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>二、等差数列的性质应用</h4>
+                
+                <div class="example">
+                    <strong>📝 例题2（原创）：</strong>等差数列{an}中，$a_3 + a_8 + a_{13} = 12$，求$a_8$和$S_{15}$。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查等差数列性质：若$m+n=2p$，则$a_m+a_n=2a_p$。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【分析思路】</strong><br/>
+                        观察下标：3+13=16=2×8，所以$a_3+a_{13}=2a_8$。<br/><br/>
+                        
+                        <strong>【规范解答】</strong><br/>
+                        ∵ 3 + 13 = 16 = 2×8<br/>
+                        ∴ $a_3 + a_{13} = 2a_8$<br/><br/>
+                        
+                        ∴ $a_3 + a_8 + a_{13} = 2a_8 + a_8 = 3a_8 = 12$<br/><br/>
+                        
+                        ∴ <strong>$a_8 = 4$</strong><br/><br/>
+                        
+                        求$S_{15}$：<br/>
+                        $S_{15} = \frac{15(a_1+a_{15})}{2} = \frac{15×2a_8}{2} = 15a_8 = 15×4 = $ <strong>60</strong><br/><br/>
+                        
+                        （注：$a_1+a_{15}=2a_8$因为1+15=16=2×8）
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 性质：若$m+n=p+q$，则$a_m+a_n=a_p+a_q$<br/>
+                        • 特别地，若$m+n=2p$，则$a_m+a_n=2a_p$<br/>
+                        • $S_{2n-1} = (2n-1)a_n$（奇数项和=项数×中间项）<br/>
+                        • 看到等差数列求和问题，先想能否用性质简化
+                    </div>
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题3（2024新课标风格）：</strong>等差数列{an}的前n项和为$S_n$，若$S_3 = 3$，$S_6 = 15$，求$S_9$。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查等差数列片段和性质：$S_n, S_{2n}-S_n, S_{3n}-S_{2n}$成等差数列。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【方法一：用性质】</strong><br/>
+                        由性质：$S_3, S_6-S_3, S_9-S_6$成等差数列<br/><br/>
+                        
+                        即：$3, 15-3, S_9-15$成等差数列<br/>
+                        即：$3, 12, S_9-15$成等差数列<br/><br/>
+                        
+                        ∴ $2×12 = 3 + (S_9-15)$<br/>
+                        $24 = S_9 - 12$<br/>
+                        <strong>$S_9 = 36$</strong><br/><br/>
+                        
+                        <strong>【方法二：基本量法】</strong><br/>
+                        $S_3 = 3a_1 + 3d = 3$ ... ①<br/>
+                        $S_6 = 6a_1 + 15d = 15$ ... ②<br/><br/>
+                        
+                        由①：$a_1 + d = 1$<br/>
+                        由②：$2a_1 + 5d = 5$<br/><br/>
+                        
+                        解得：$d = 1, a_1 = 0$<br/><br/>
+                        
+                        $S_9 = 9a_1 + 36d = 0 + 36 = $ <strong>36</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 片段和性质：$S_n, S_{2n}-S_n, S_{3n}-S_{2n}$成等差数列，公差为$n^2d$<br/>
+                        • 这个性质可以大大简化计算<br/>
+                        • 基本量法是通用方法，但计算量较大
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>三、等差数列的最值问题</h4>
+                
+                <div class="example">
+                    <strong>📝 例题4（原创）：</strong>等差数列{an}中，$a_1 = 13$，$S_3 = S_{11}$，求$S_n$的最大值。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查等差数列前n项和的二次函数性质，以及最值问题。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【分析思路】</strong><br/>
+                        $S_n$是关于n的二次函数，$S_3=S_{11}$说明对称轴在n=7处。<br/><br/>
+                        
+                        <strong>【规范解答】</strong><br/>
+                        设公差为d<br/><br/>
+                        
+                        $S_3 = 3×13 + \frac{3×2}{2}d = 39 + 3d$<br/>
+                        $S_{11} = 11×13 + \frac{11×10}{2}d = 143 + 55d$<br/><br/>
+                        
+                        由$S_3 = S_{11}$：<br/>
+                        $39 + 3d = 143 + 55d$<br/>
+                        $52d = -104$<br/>
+                        $d = -2$<br/><br/>
+                        
+                        ∴ $a_n = 13 + (n-1)×(-2) = 15 - 2n$<br/><br/>
+                        
+                        令$a_n ≥ 0$：$15 - 2n ≥ 0$，$n ≤ 7.5$<br/><br/>
+                        
+                        ∴ 当n=7时，$S_n$取得最大值：<br/>
+                        $S_7 = \frac{7(13+a_7)}{2} = \frac{7(13+1)}{2} = \frac{7×14}{2} = $ <strong>49</strong><br/><br/>
+                        
+                        或用公式：$S_7 = 7×13 + \frac{7×6}{2}×(-2) = 91 - 42 = 49$
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • $S_n$是开口向下的抛物线（d&lt;0时），有最大值<br/>
+                        • 求$S_n$最大值的两种方法：<br/>
+                          ① 找最后一个正项：令$a_n≥0$，求最大n<br/>
+                          ② 用二次函数：对称轴处取最值<br/>
+                        • $S_3=S_{11}$说明对称轴为$n=(3+11)/2=7$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>第二章 等比数列</h2>
+        
+        <div class="chapter">
+            <h3>2.1 等比数列的基本概念与公式</h3>
+            
+            <div class="section">
+                <h4>一、等比数列定义</h4>
+                <div class="key-point">
+                    <strong>定义：</strong>如果一个数列从第二项起，每一项与它的前一项的比等于同一个常数，这个数列就叫做等比数列。<br/><br/>
+                    即：$\frac{a_{n+1}}{a_n} = q$（q为常数，称为公比，$q ≠ 0$）
+                </div>
+                
+                <div class="formula-box">
+                    <strong>等比数列核心公式：</strong><br/><br/>
+                    
+                    <strong>1. 通项公式：</strong><br/>
+                    $a_n = a_1 · q^{n-1}$<br/>
+                    $a_n = a_m · q^{n-m}$（推广式）<br/><br/>
+                    
+                    <strong>2. 等比中项：</strong><br/>
+                    若a, G, b成等比数列，则 $G^2 = ab$，即 $G = ±\sqrt{ab}$<br/>
+                    （注意：等比中项有两个，互为相反数）<br/><br/>
+                    
+                    <strong>3. 前n项和公式：</strong><br/>
+                    当$q = 1$时：$S_n = na_1$<br/>
+                    当$q ≠ 1$时：$S_n = \frac{a_1(1-q^n)}{1-q} = \frac{a_1-a_nq}{1-q}$<br/><br/>
+                    
+                    <strong>4. 重要性质：</strong><br/>
+                    • 若$m+n=p+q$，则$a_m·a_n=a_p·a_q$<br/>
+                    • $S_n, S_{2n}-S_n, S_{3n}-S_{2n}$成等比数列（$q≠-1$时）<br/>
+                    • 等比数列中，偶数项同号，奇数项同号
+                </div>
+
+                <div class="warning">
+                    <strong>【易错提醒】</strong><br/>
+                    ⚠️ 等比数列中不能有0！$a_n ≠ 0$，$q ≠ 0$<br/>
+                    ⚠️ 求等比中项时，注意有两个值$±\sqrt{ab}$<br/>
+                    ⚠️ 用求和公式时，先判断$q=1$还是$q≠1$<br/>
+                    ⚠️ 等比数列片段和性质要求$q≠-1$
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题5（原创）：</strong>等比数列{an}中，$a_2 = 6$，$a_5 = 48$，求通项公式和前n项和公式。<br/><br/>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/>
+                        设首项为$a_1$，公比为q<br/><br/>
+                        
+                        由$a_2 = 6$：$a_1q = 6$ ... ①<br/>
+                        由$a_5 = 48$：$a_1q^4 = 48$ ... ②<br/><br/>
+                        
+                        ②÷①：$q^3 = 8$，∴ $q = 2$<br/><br/>
+                        
+                        代入①：$a_1 = 3$<br/><br/>
+                        
+                        <strong>通项公式：</strong>$a_n = 3×2^{n-1}$<br/><br/>
+                        
+                        <strong>前n项和：</strong>$S_n = \frac{3(1-2^n)}{1-2} = 3(2^n-1) = 3·2^n - 3$
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 等比数列基本量：$a_1, q, n, a_n, S_n$——知三求二<br/>
+                        • 已知两项求公比：$q^{n-m} = \frac{a_n}{a_m}$<br/>
+                        • 注意：等比数列中所有项同号（当q&gt;0时）
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>二、等比数列的性质应用</h4>
+                
+                <div class="example">
+                    <strong>📝 例题6（原创）：</strong>等比数列{an}的各项均为正数，且$a_5·a_6 + a_4·a_7 = 18$，求$\log_3a_1 + \log_3a_2 + ... + \log_3a_{10}$。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查等比数列性质：若$m+n=p+q$，则$a_m·a_n=a_p·a_q$，以及对数运算。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【分析思路】</strong><br/>
+                        注意到5+6=4+7=11，所以$a_5·a_6 = a_4·a_7$。<br/><br/>
+                        
+                        <strong>【规范解答】</strong><br/>
+                        ∵ 5+6 = 4+7 = 11<br/>
+                        ∴ $a_5·a_6 = a_4·a_7$<br/><br/>
+                        
+                        由$a_5·a_6 + a_4·a_7 = 18$：<br/>
+                        $2a_5·a_6 = 18$<br/>
+                        $a_5·a_6 = 9$<br/><br/>
+                        
+                        注意到1+10=2+9=3+8=4+7=5+6=11<br/>
+                        ∴ $a_1·a_{10} = a_2·a_9 = a_3·a_8 = a_4·a_7 = a_5·a_6 = 9$<br/><br/>
+                        
+                        $a_1·a_2·...·a_{10} = (a_1·a_{10})(a_2·a_9)(a_3·a_8)(a_4·a_7)(a_5·a_6) = 9^5 = 3^{10}$<br/><br/>
+                        
+                        ∴ $\log_3a_1 + \log_3a_2 + ... + \log_3a_{10}$<br/>
+                        $= \log_3(a_1·a_2·...·a_{10})$<br/>
+                        $= \log_3(3^{10})$<br/>
+                        $= $ <strong>10</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 性质：若$m+n=p+q$，则$a_m·a_n=a_p·a_q$<br/>
+                        • 特别地，若$m+n=2p$，则$a_m·a_n=a_p^2$<br/>
+                        • 对数求和：$\log a_1 + \log a_2 + ... = \log(a_1·a_2·...)$<br/>
+                        • 等比数列中，距离两端等远的两项积相等
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>第三章 数列求和</h2>
+        
+        <div class="chapter">
+            <h3>3.1 常见数列求和方法</h3>
+            
+            <div class="section">
+                <h4>一、公式法</h4>
+                <div class="formula-box">
+                    <strong>基本公式：</strong><br/><br/>
+                    
+                    <strong>1. 等差数列：</strong>$S_n = \frac{n(a_1+a_n)}{2} = na_1 + \frac{n(n-1)}{2}d$<br/><br/>
+                    
+                    <strong>2. 等比数列：</strong>$S_n = \frac{a_1(1-q^n)}{1-q}$（$q≠1$）<br/><br/>
+                    
+                    <strong>3. 自然数和：</strong>$1+2+3+...+n = \frac{n(n+1)}{2}$<br/><br/>
+                    
+                    <strong>4. 自然数平方和：</strong>$1^2+2^2+...+n^2 = \frac{n(n+1)(2n+1)}{6}$<br/><br/>
+                    
+                    <strong>5. 自然数立方和：</strong>$1^3+2^3+...+n^3 = [\frac{n(n+1)}{2}]^2$
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>二、错位相减法</h4>
+                <div class="key-point">
+                    <strong>适用：</strong>等差×等比型数列，即$c_n = a_n·b_n$，其中{an}是等差数列，{bn}是等比数列<br/><br/>
+                    
+                    <strong>步骤：</strong><br/>
+                    1. 写出$S_n = c_1 + c_2 + ... + c_n$<br/>
+                    2. 两边乘公比q：$qS_n = qc_1 + qc_2 + ... + qc_n$<br/>
+                    3. 两式相减（错位相减）<br/>
+                    4. 化简求解
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题7（原创）：</strong>已知数列{an}的通项公式为$a_n = (2n-1)·2^n$，求前n项和$S_n$。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查错位相减法，这是高考解答题常考题型。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        $S_n = 1·2^1 + 3·2^2 + 5·2^3 + ... + (2n-1)·2^n$ ... ①<br/><br/>
+                        
+                        两边乘2：<br/>
+                        $2S_n = 1·2^2 + 3·2^3 + 5·2^4 + ... + (2n-1)·2^{n+1}$ ... ②<br/><br/>
+                        
+                        ①-②：<br/>
+                        $-S_n = 1·2^1 + (3-1)·2^2 + (5-3)·2^3 + ... + [(2n-1)-(2n-3)]·2^n - (2n-1)·2^{n+1}$<br/><br/>
+                        
+                        $-S_n = 2 + 2·2^2 + 2·2^3 + ... + 2·2^n - (2n-1)·2^{n+1}$<br/><br/>
+                        
+                        $-S_n = 2 + 2(2^2 + 2^3 + ... + 2^n) - (2n-1)·2^{n+1}$<br/><br/>
+                        
+                        括号内是等比数列求和：$2^2 + 2^3 + ... + 2^n = \frac{4(2^{n-1}-1)}{2-1} = 2^{n+1} - 4$<br/><br/>
+                        
+                        $-S_n = 2 + 2(2^{n+1} - 4) - (2n-1)·2^{n+1}$<br/>
+                        $= 2 + 2^{n+2} - 8 - (2n-1)·2^{n+1}$<br/>
+                        $= 2^{n+2} - 6 - (2n-1)·2^{n+1}$<br/>
+                        $= 2·2^{n+1} - 6 - (2n-1)·2^{n+1}$<br/>
+                        $= [2-(2n-1)]·2^{n+1} - 6$<br/>
+                        $= (3-2n)·2^{n+1} - 6$<br/><br/>
+                        
+                        ∴ <strong>$S_n = (2n-3)·2^{n+1} + 6$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 错位相减法适用于"等差×等比"型数列<br/>
+                        • 关键步骤：写出$S_n$和$qS_n$，错位相减<br/>
+                        • 注意对齐：$c_k$与$qc_{k-1}$对齐<br/>
+                        • 最后化简时要仔细，容易出错
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>【易错提醒】</strong><br/>
+                        ⚠️ 相减时注意符号！最后一项是减去的<br/>
+                        ⚠️ 等比数列求和时，注意项数<br/>
+                        ⚠️ 最后化简要彻底
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>三、裂项相消法</h4>
+                <div class="key-point">
+                    <strong>适用：</strong>通项可拆成两项之差的形式<br/><br/>
+                    
+                    <strong>常见裂项公式：</strong><br/>
+                    1. $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$<br/><br/>
+                    2. $\frac{1}{n(n+k)} = \frac{1}{k}(\frac{1}{n} - \frac{1}{n+k})$<br/><br/>
+                    3. $\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}(\frac{1}{2n-1} - \frac{1}{2n+1})$<br/><br/>
+                    4. $\frac{1}{\sqrt{n}+\sqrt{n+1}} = \sqrt{n+1} - \sqrt{n}$
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题8（原创）：</strong>已知$a_n = \frac{1}{n(n+2)}$，求数列{an}的前n项和$S_n$。<br/><br/>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        $a_n = \frac{1}{n(n+2)} = \frac{1}{2}(\frac{1}{n} - \frac{1}{n+2})$<br/><br/>
+                        
+                        $S_n = \frac{1}{2}[(1-\frac{1}{3}) + (\frac{1}{2}-\frac{1}{4}) + (\frac{1}{3}-\frac{1}{5}) + ... + (\frac{1}{n}-\frac{1}{n+2})]$<br/><br/>
+                        
+                        观察抵消规律：<br/>
+                        -1/3与+1/3抵消<br/>
+                        -1/4与后面的+1/4抵消<br/>
+                        ...<br/><br/>
+                        
+                        剩余：$1 + \frac{1}{2} - \frac{1}{n+1} - \frac{1}{n+2}$<br/><br/>
+                        
+                        $S_n = \frac{1}{2}[\frac{3}{2} - \frac{1}{n+1} - \frac{1}{n+2}]$<br/>
+                        $= \frac{3}{4} - \frac{1}{2(n+1)} - \frac{1}{2(n+2)}$<br/>
+                        $= $ <strong>$\frac{3}{4} - \frac{2n+3}{2(n+1)(n+2)}$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 裂项相消法关键是找到合适的裂项方式<br/>
+                        • 注意系数：$\frac{1}{n(n+k)} = \frac{1}{k}(\frac{1}{n} - \frac{1}{n+k})$<br/>
+                        • 写几项观察抵消规律，确定剩余哪些项<br/>
+                        • 一般剩余：前面正的几项 + 后面负的几项
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>第四章 递推数列</h2>
+        
+        <div class="chapter">
+            <h3>4.1 递推数列求通项</h3>
+            
+            <div class="section">
+                <h4>一、累加法</h4>
+                <div class="key-point">
+                    <strong>适用：</strong>$a_{n+1} - a_n = f(n)$型递推式<br/><br/>
+                    
+                    <strong>方法：</strong><br/>
+                    $a_n = a_1 + (a_2-a_1) + (a_3-a_2) + ... + (a_n-a_{n-1})$<br/>
+                    $= a_1 + f(1) + f(2) + ... + f(n-1)$
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题9（原创）：</strong>数列{an}中，$a_1 = 1$，$a_{n+1} = a_n + 2n$，求通项公式$a_n$。<br/><br/>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        由$a_{n+1} - a_n = 2n$<br/><br/>
+                        
+                        当n≥2时：<br/>
+                        $a_n = a_1 + (a_2-a_1) + (a_3-a_2) + ... + (a_n-a_{n-1})$<br/>
+                        $= 1 + 2×1 + 2×2 + ... + 2(n-1)$<br/>
+                        $= 1 + 2[1 + 2 + ... + (n-1)]$<br/>
+                        $= 1 + 2·\frac{(n-1)n}{2}$<br/>
+                        $= 1 + n(n-1)$<br/>
+                        $= n^2 - n + 1$<br/><br/>
+                        
+                        验证n=1：$a_1 = 1-1+1 = 1$ ✓<br/><br/>
+                        
+                        ∴ <strong>$a_n = n^2 - n + 1$</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>二、累乘法</h4>
+                <div class="key-point">
+                    <strong>适用：</strong>$\frac{a_{n+1}}{a_n} = f(n)$型递推式（$a_n ≠ 0$）<br/><br/>
+                    
+                    <strong>方法：</strong><br/>
+                    $a_n = a_1 · \frac{a_2}{a_1} · \frac{a_3}{a_2} · ... · \frac{a_n}{a_{n-1}}$<br/>
+                    $= a_1 · f(1) · f(2) · ... · f(n-1)$
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题10（原创）：</strong>数列{an}中，$a_1 = 1$，$a_{n+1} = \frac{n}{n+1}·a_n$，求通项公式$a_n$。<br/><br/>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        由$\frac{a_{n+1}}{a_n} = \frac{n}{n+1}$<br/><br/>
+                        
+                        当n≥2时：<br/>
+                        $a_n = a_1 · \frac{a_2}{a_1} · \frac{a_3}{a_2} · ... · \frac{a_n}{a_{n-1}}$<br/>
+                        $= 1 · \frac{1}{2} · \frac{2}{3} · \frac{3}{4} · ... · \frac{n-1}{n}$<br/><br/>
+                        
+                        观察约分规律：分子分母交叉约分<br/>
+                        $= \frac{1}{n}$<br/><br/>
+                        
+                        验证n=1：$a_1 = 1/1 = 1$ ✓<br/><br/>
+                        
+                        ∴ <strong>$a_n = \frac{1}{n}$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 累乘法适用于比值型递推式<br/>
+                        • 关键是观察约分规律<br/>
+                        • 最后一定要验证n=1是否成立
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>三、构造法</h4>
+                <div class="key-point">
+                    <strong>适用：</strong>$a_{n+1} = pa_n + q$型递推式（p,q为常数，p≠1）<br/><br/>
+                    
+                    <strong>方法：</strong>设$a_{n+1} + λ = p(a_n + λ)$，解出λ，构造等比数列<br/><br/>
+                    
+                    由$a_{n+1} + λ = pa_n + q + λ = p(a_n + \frac{q+λ}{p})$<br/>
+                    令$λ = \frac{q+λ}{p}$，解得$λ = \frac{q}{p-1}$
+                </div>
+
+                <div class="example">
+                    <strong>📝 例题11（原创）：</strong>数列{an}中，$a_1 = 1$，$a_{n+1} = 2a_n + 1$，求通项公式$a_n$。<br/><br/>
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查构造法求递推数列通项，这是高考常考题型。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        设$a_{n+1} + λ = 2(a_n + λ)$<br/>
+                        则$a_{n+1} = 2a_n + λ$<br/><br/>
+                        
+                        与$a_{n+1} = 2a_n + 1$对比，得$λ = 1$<br/><br/>
+                        
+                        ∴ $a_{n+1} + 1 = 2(a_n + 1)$<br/><br/>
+                        
+                        令$b_n = a_n + 1$，则$b_{n+1} = 2b_n$，且$b_1 = a_1 + 1 = 2$<br/><br/>
+                        
+                        ∴ {bn}是首项为2，公比为2的等比数列<br/><br/>
+                        
+                        $b_n = 2×2^{n-1} = 2^n$<br/><br/>
+                        
+                        ∴ <strong>$a_n = b_n - 1 = 2^n - 1$</strong><br/><br/>
+                        
+                        验证：$a_1 = 2^1-1 = 1$ ✓
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • $a_{n+1} = pa_n + q$型：构造$a_{n+1}+λ=p(a_n+λ)$<br/>
+                        • 解出$λ = \frac{q}{p-1}$<br/>
+                        • {an+λ}是等比数列，公比为p<br/>
+                        • 也可以用待定系数法直接求
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="trigonometry.html">← 上一模块：三角函数</a>
+            <a href="solid_geometry.html">下一模块：立体几何 →</a>
+        </div>
+    </div>
+</body>
+</html>

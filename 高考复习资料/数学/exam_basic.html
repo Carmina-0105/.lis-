@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学基础试卷 | 2026高考复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .nav a:hover { background: #667eea; color: white; }
+        .exam-paper {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .exam-header {
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        .exam-title {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .exam-subtitle {
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .exam-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 1.4em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        .question-number {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .question-content {
+            margin-bottom: 15px;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .options p {
+            margin: 8px 0;
+        }
+        .answer-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px dashed #667eea;
+        }
+        .answer-title {
+            font-size: 1.6em;
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .answer-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+        }
+        .difficulty-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .difficulty-basic { background: #27ae60; color: white; }
+        .score-box {
+            position: fixed;
+            right: 30px;
+            top: 100px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            width: 200px;
+        }
+        .score-title { font-weight: bold; color: #667eea; margin-bottom: 10px; }
+        .score-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        @media (max-width: 1200px) {
+            .score-box { display: none; }
+        }
+        @media (max-width: 768px) {
+            .exam-paper { padding: 20px; }
+            .exam-title { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="exam_advanced.html">进阶试卷 →</a>
+            </div>
+        </div>
+
+        <div class="score-box">
+            <div class="score-title">📝 答题卡</div>
+            <div style="font-size: 0.9em; color: #666; margin-bottom: 15px;">记录你的答案</div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; font-size: 0.8em;">
+                <div>1. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>2. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>3. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>4. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>5. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>6. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>7. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+                <div>8. <input type="text" style="width: 30px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"></div>
+            </div>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+                <div style="font-size: 0.85em; color: #666;">目标分数：90+</div>
+                <div style="font-size: 0.85em; color: #666;">建议用时：60分钟</div>
+            </div>
+        </div>
+
+        <div class="exam-paper">
+            <div class="exam-header">
+                <div class="exam-title">2026年高考数学基础试卷</div>
+                <div class="exam-subtitle">立足基础 · 稳扎稳打 · 查漏补缺</div>
+                <div class="exam-info">
+                    <span>⏱️ 考试时间：60分钟</span>
+                    <span>📝 满分：100分</span>
+                    <span>📊 难度：基础</span>
+                    <span>🎯 目标：90分+</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">一、选择题（每题5分，共40分）</div>
+                
+                <div class="question">
+                    <div class="question-number">1. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        已知集合 $A = \{x | x^2 - 3x + 2 = 0\}$，$B = \{x | 0 < x < 5, x \in \mathbb{N}\}$，则满足 $A \subseteq C \subseteq B$ 的集合 $C$ 的个数为（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. 1</p>
+                        <p>B. 2</p>
+                        <p>C. 3</p>
+                        <p>D. 4</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">2. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        复数 $z$ 满足 $(1+i)z = 2$，则 $|z| = $（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. 1</p>
+                        <p>B. $\sqrt{2}$</p>
+                        <p>C. 2</p>
+                        <p>D. $2\sqrt{2}$</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">3. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        函数 $f(x) = \sqrt{\log_2 x - 1}$ 的定义域为（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. $(0, +\infty)$</p>
+                        <p>B. $[2, +\infty)$</p>
+                        <p>C. $(1, +\infty)$</p>
+                        <p>D. $[1, +\infty)$</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">4. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        已知向量 $\vec{a} = (1, 2)$，$\vec{b} = (3, x)$，若 $\vec{a} \perp \vec{b}$，则 $x = $（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. $-\frac{3}{2}$</p>
+                        <p>B. $-3$</p>
+                        <p>C. $\frac{3}{2}$</p>
+                        <p>D. 6</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">5. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        在等差数列 $\{a_n\}$ 中，$a_3 + a_7 = 10$，$a_5 = 6$，则公差 $d = $（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. 1</p>
+                        <p>B. $\frac{1}{2}$</p>
+                        <p>C. 2</p>
+                        <p>D. $-1$</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">6. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        若 $\sin(\frac{\pi}{2} + \alpha) = \frac{1}{3}$，则 $\cos 2\alpha = $（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. $-\frac{7}{9}$</p>
+                        <p>B. $-\frac{1}{3}$</p>
+                        <p>C. $\frac{1}{3}$</p>
+                        <p>D. $\frac{7}{9}$</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">7. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        抛物线 $y^2 = 4x$ 的焦点到双曲线 $\frac{x^2}{4} - \frac{y^2}{12} = 1$ 的渐近线的距离为（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. $\frac{\sqrt{3}}{2}$</p>
+                        <p>B. $\frac{\sqrt{6}}{2}$</p>
+                        <p>C. $\sqrt{3}$</p>
+                        <p>D. $\frac{2\sqrt{3}}{3}$</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">8. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        从2名男同学和3名女同学中任选2人参加社区服务，则选中的2人都是女同学的概率为（ ）
+                    </div>
+                    <div class="options">
+                        <p>A. 0.6</p>
+                        <p>B. 0.5</p>
+                        <p>C. 0.4</p>
+                        <p>D. 0.3</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">二、填空题（每题5分，共20分）</div>
+                
+                <div class="question">
+                    <div class="question-number">9. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        曲线 $y = 2\ln x$ 在点 $(1, 0)$ 处的切线方程为 __________
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">10. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        已知圆锥的顶点为 $S$，母线 $SA$，$SB$ 所成角的余弦值为 $\frac{7}{8}$，$SA$ 与圆锥底面所成角为 $45°$，若 $\triangle SAB$ 的面积为 $5\sqrt{15}$，则该圆锥的侧面积为 __________
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">11. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        等比数列 $\{a_n\}$ 满足 $a_1 + a_2 = -1$，$a_1 - a_3 = -3$，则 $a_4 = $ __________
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">12. <span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        已知函数 $f(x) = \begin{cases} x^2 + 2x + a - 2, & x \leq 0 \\ -x^2 + 2x - 2a, & x > 0 \end{cases}$，若对任意 $x \in [-3, +\infty)$，$f(x) \leq |x|$ 恒成立，则 $a$ 的取值范围是 __________
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">三、解答题（共40分）</div>
+                
+                <div class="question">
+                    <div class="question-number">13.（12分）<span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        在 $\triangle ABC$ 中，内角 $A$，$B$，$C$ 所对的边分别为 $a$，$b$，$c$。已知 $b\sin C + c\sin B = 4a\sin B\sin C$，$b^2 + c^2 - a^2 = 8$，求 $\triangle ABC$ 的面积。
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">14.（12分）<span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        如图，在三棱锥 $P-ABC$ 中，$AB = BC = 2\sqrt{2}$，$PA = PB = PC = AC = 4$，$O$ 为 $AC$ 的中点。<br/>
+                        （1）证明：$PO \perp$ 平面 $ABC$；<br/>
+                        （2）若点 $M$ 在棱 $BC$ 上，且二面角 $M-PA-C$ 为 $30°$，求 $PC$ 与平面 $PAM$ 所成角的正弦值。
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">15.（16分）<span class="difficulty-badge difficulty-basic">基础</span></div>
+                    <div class="question-content">
+                        已知函数 $f(x) = e^x - ax^2$。<br/>
+                        （1）若 $a = 1$，证明：当 $x \geq 0$ 时，$f(x) \geq 1$；<br/>
+                        （2）若 $f(x)$ 在 $(0, +\infty)$ 只有一个零点，求 $a$。
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-section">
+                <div class="answer-title">参考答案</div>
+                
+                <div class="answer-item"><strong>1.</strong> D</div>
+                <div class="answer-item"><strong>2.</strong> B</div>
+                <div class="answer-item"><strong>3.</strong> B</div>
+                <div class="answer-item"><strong>4.</strong> A</div>
+                <div class="answer-item"><strong>5.</strong> A</div>
+                <div class="answer-item"><strong>6.</strong> A</div>
+                <div class="answer-item"><strong>7.</strong> A</div>
+                <div class="answer-item"><strong>8.</strong> D</div>
+                <div class="answer-item"><strong>9.</strong> $y = 2x - 2$</div>
+                <div class="answer-item"><strong>10.</strong> $40\sqrt{2}\pi$</div>
+                <div class="answer-item"><strong>11.</strong> $-8$</div>
+                <div class="answer-item"><strong>12.</strong> $[\frac{1}{8}, 2]$</div>
+                <div class="answer-item"><strong>13.</strong> $\frac{2\sqrt{3}}{3}$</div>
+                <div class="answer-item"><strong>14.</strong> （1）略 （2）$\frac{\sqrt{3}}{4}$</div>
+                <div class="answer-item"><strong>15.</strong> （1）略 （2）$a = \frac{e^2}{4}$</div>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="exam_advanced.html">进阶试卷 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

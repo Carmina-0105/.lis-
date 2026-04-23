@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 融合使用技巧与综合提升</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .hero-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        .hero-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #f5576c;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .strategy-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border: 3px solid #00b894;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .checklist {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .checklist li {
+            list-style: none;
+            padding: 5px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 物理极致复习 · 融合使用技巧</h1>
+        <div class="subtitle">知识整合、解题策略、应试技巧 | 2026陕西新高考专用</div>
+
+        <div class="hero-box">
+            <h2>🚀 从 17 分到满分的逆袭之路</h2>
+            <p style="font-size: 1.2em; margin-top: 10px;">
+                你目前的物理成绩是17分，但这只是起点。通过系统性的模块化复习和科学的融合训练，<br/>
+                物理完全可以成为你的提分科目。记住：<span class="highlight" style="background: rgba(255,255,255,0.3); color: white;">基础题占70%，中档题占20%，难题占10%</span><br/>
+                抓住基础，稳定中档，难题尽力，物理80+不是梦！
+            </p>
+        </div>
+
+        <!-- 跨模块融合 -->
+        <div class="module-box">
+            <div class="module-title">🔗 跨模块知识融合</div>
+            
+            <div class="section">
+                <h3>力学+电磁学融合（最重要）</h3>
+                <div class="strategy-box">
+                    <h4>🎯 带电粒子在复合场中的运动</h4>
+                    <p><strong>模型1：电场+重力场</strong></p>
+                    <p>• 等效重力法：$F_{等效} = qE + mg$，$g' = g + \frac{qE}{m}$（同向）或 $|g - \frac{qE}{m}|$（反向）</p>
+                    <p>• 应用：单摆周期 $T = 2\pi\sqrt{\frac{L}{g'}}$，竖直圆周运动临界条件</p>
+                    
+                    <p><strong>模型2：电场+磁场（速度选择器）</strong></p>
+                    <p>• 平衡条件：$qE = qvB$ → $v = \frac{E}{B}$</p>
+                    <p>• 应用：筛选特定速度粒子，质谱仪前置</p>
+                    
+                    <p><strong>模型3：电磁感应+力学</strong></p>
+                    <p>• 单棒模型：$F_{安} = \frac{B^2L^2v}{R}$，牛顿第二定律 $F - \frac{B^2L^2v}{R} = ma$</p>
+                    <p>• 能量转化：$W_{外} = \Delta E_k + Q$，$Q = \frac{B^2L^2v^2}{R}t$</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>⚡ 电磁感应+电路+能量</h4>
+                    <p><strong>解题流程：</strong></p>
+                    <p>1. 找电源：切割磁感线的部分相当于电源，$E = BLv$ 或 $E = n\frac{\Delta\Phi}{\Delta t}$</p>
+                    <p>2. 画电路：确定内外电路，求总电阻 $R_{总}$</p>
+                    <p>3. 求电流：$I = \frac{E}{R_{总}}$，安培力 $F = BIL$</p>
+                    <p>4. 列方程：牛顿第二定律或平衡方程</p>
+                    <p>5. 算能量：$Q = I^2Rt$ 或能量守恒</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>能量观点贯穿始终</h3>
+                <table>
+                    <tr>
+                        <th>模块</th>
+                        <th>能量形式</th>
+                        <th>守恒/转化</th>
+                        <th>关键公式</th>
+                    </tr>
+                    <tr>
+                        <td>力学</td>
+                        <td>动能、势能、机械能</td>
+                        <td>机械能守恒（只有重力/弹力做功）</td>
+                        <td>$E_{k1} + E_{p1} = E_{k2} + E_{p2}$</td>
+                    </tr>
+                    <tr>
+                        <td>电磁学</td>
+                        <td>电势能、电场能</td>
+                        <td>$W_{电} = -\Delta E_p$</td>
+                        <td>$E_p = q\varphi$，$W = qU$</td>
+                    </tr>
+                    <tr>
+                        <td>电磁感应</td>
+                        <td>电能、焦耳热</td>
+                        <td>克服安培力做功=电能=焦耳热</td>
+                        <td>$Q = W_{克安} = \frac{E^2}{R}t$</td>
+                    </tr>
+                    <tr>
+                        <td>近代物理</td>
+                        <td>核能、质能</td>
+                        <td>质能方程</td>
+                        <td>$E = mc^2$，$\Delta E = \Delta mc^2$</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 解题策略 -->
+        <div class="module-box">
+            <div class="module-title">🎯 分题型解题策略</div>
+            
+            <div class="section">
+                <h3>选择题解题技巧（40分左右）</h3>
+                <div class="technique">
+                    <strong>1. 排除法：</strong>先排除明显错误的选项，缩小范围<br/>
+                    <strong>2. 特殊值法：</strong>取 $m=1$、$\theta=0°$、$t=0$ 等简化计算<br/>
+                    <strong>3. 量纲法：</strong>检查单位是否匹配（如求速度，选项中出现 $\text{m}^2/\text{s}$ 必错）<br/>
+                    <strong>4. 极限法：</strong>让某个量趋于0或无穷大，看结果是否合理<br/>
+                    <strong>5. 图像法：</strong>利用 $v-t$ 图、$F-x$ 图等面积、斜率物理意义<br/>
+                    <strong>6. 对称性法：</strong>利用对称性简化问题（如等势面对称、运动对称）
+                </div>
+
+                <div class="key-point">
+                    <strong>🚀 选择题抢分策略：</strong><br/>
+                    • 单选题：确保前6题全对（基础题），第7-8题尽量拿分<br/>
+                    • 多选题：宁缺毋滥，不确定的选项不选，确保拿部分分<br/>
+                    • 时间控制：平均每题2-3分钟，难的先跳过
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>实验题解题模板（15分左右）</h3>
+                <div class="strategy-box">
+                    <h4>📝 力学实验答题模板</h4>
+                    <p><strong>纸带数据处理：</strong></p>
+                    <p>① 求速度：$v_n = \frac{x_n + x_{n+1}}{2T}$（注意单位换算 $\text{cm} \rightarrow \text{m}$）</p>
+                    <p>② 求加速度：逐差法 $a = \frac{(x_4+x_5+x_6)-(x_1+x_2+x_3)}{9T^2}$</p>
+                    <p>③ 作图：$v-t$ 图，描点连线，斜率即加速度</p>
+                    
+                    <p><strong>验证机械能守恒：</strong></p>
+                    <p>① 计算 $\Delta E_p = mg\Delta h$</p>
+                    <p>② 计算 $\Delta E_k = \frac{1}{2}m(v_2^2 - v_1^2)$</p>
+                    <p>③ 比较 $\Delta E_p$ 与 $\Delta E_k$（允许 $\Delta E_p > \Delta E_k$，因存在阻力）</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>⚡ 电学实验答题模板</h4>
+                    <p><strong>电路连接：</strong>先画电路图，再连实物图（先串后并，注意正负极）</p>
+                    <p><strong>器材选择：</strong></p>
+                    <p>• 电压表/电流表：指针偏转在 $\frac{1}{3} \sim \frac{2}{3}$ 量程最佳</p>
+                    <p>• 滑动变阻器：限流式选阻值相近，分压式选阻值小的</p>
+                    <p><strong>数据处理：</strong></p>
+                    <p>• 作图：坐标轴标注物理量和单位，描点连线（直线用直尺，曲线用平滑曲线）</p>
+                    <p>• 求斜率：在直线上取两点（不是数据点），$k = \frac{\Delta y}{\Delta x}$</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>计算题答题规范（32分左右）</h3>
+                <div class="warning">
+                    <strong>⚠️ 计算题失分重灾区：</strong><br/>
+                    1. 只有结果没有过程 → <span class="highlight">过程分全丢</span><br/>
+                    2. 不写原始公式直接代数据 → <span class="highlight">扣公式分</span><br/>
+                    3. 不写单位或单位错误 → <span class="highlight">扣结果分</span><br/>
+                    4. 字母符号混用，下标混乱 → <span class="highlight">扣卷面分</span><br/>
+                    5. 不写"解"和"答"，步骤跳跃 → <span class="highlight">印象分低</span>
+                </div>
+
+                <div class="checklist">
+                    <strong>✅ 计算题标准答题步骤：</strong>
+                    <li>写"解："（或"解：设..."）</li>
+                    <li>写原始公式（用题目给的字母）</li>
+                    <li>代入数据（带单位）</li>
+                    <li>计算结果（带单位，科学计数法）</li>
+                    <li>写"答：..."</li>
+                </div>
+
+                <div class="technique">
+                    <strong>📝 示例（规范写法）：</strong><br/>
+                    <em>解：由牛顿第二定律得</em><br/>
+                    $F - \mu mg = ma$<br/><br/>
+                    <em>代入数据</em><br/>
+                    $10 - 0.2 \times 2 \times 10 = 2a$<br/><br/>
+                    <em>解得</em><br/>
+                    $a = 3 \text{m/s}^2$<br/><br/>
+                    <em>由运动学公式</em><br/>
+                    $v = v_0 + at = 0 + 3 \times 5 = 15 \text{m/s}$<br/><br/>
+                    <em>答：物体的加速度为 $3 \text{m/s}^2$，5s末的速度为 $15 \text{m/s}$。</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- 复习规划 -->
+        <div class="module-box">
+            <div class="module-title">📅 60天逆袭复习规划</div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>第1-20天：基础重建期</h4>
+                    <p>• 目标：掌握所有基础概念和公式，确保选择题前6题全对</p>
+                    <p>• 重点：力学（运动学、牛顿定律）、电学（电场、电路）</p>
+                    <p>• 方法：每天1个模块，背诵公式+做基础题20道</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>第21-40天：能力提升期</h4>
+                    <p>• 目标：掌握中档题解题方法，实验题拿满分</p>
+                    <p>• 重点：曲线运动、电磁感应、物理实验</p>
+                    <p>• 方法：专题训练，总结模型（传送带、板块、单棒等）</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>第41-55天：综合冲刺期</h4>
+                    <p>• 目标：跨模块综合题，提高解题速度</p>
+                    <p>• 重点：力电综合、电磁感应综合、热光原</p>
+                    <p>• 方法：限时训练（选择15分钟，实验10分钟，计算25分钟）</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>第56-60天：调整状态期</h4>
+                    <p>• 目标：查漏补缺，调整心态</p>
+                    <p>• 重点：回顾错题，记忆易忘公式</p>
+                    <p>• 方法：看错题本，做1-2套真题保持手感，不再做新题</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 必背公式 -->
+        <div class="module-box">
+            <div class="module-title">📚 考前必背公式清单</div>
+            <div class="section">
+                <h3>力学（每天必看）</h3>
+                <div class="formula-box">
+                    <p>$v = v_0 + at$ | $x = v_0t + \frac{1}{2}at^2$ | $v^2 - v_0^2 = 2ax$</p>
+                    <p>$F = ma$ | $f = \mu N$ | $W = Fx\cos\theta$ | $P = Fv$</p>
+                    <p>$E_k = \frac{1}{2}mv^2$ | $E_p = mgh$ | $E_p = \frac{1}{2}kx^2$</p>
+                    <p>$F_向 = m\frac{v^2}{r} = m\omega^2r$ | $G\frac{Mm}{r^2} = m\frac{v^2}{r}$</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3>电磁学（每天必看）</h3>
+                <div class="formula-box">
+                    <p>$F = k\frac{Q_1Q_2}{r^2}$ | $E = \frac{F}{q} = k\frac{Q}{r^2} = \frac{U}{d}$</p>
+                    <p>$W = qU = -\Delta E_p$ | $C = \frac{Q}{U} = \frac{\varepsilon S}{4\pi kd}$</p>
+                    <p>$I = \frac{E}{R+r}$ | $P = I^2R = \frac{E^2R}{(R+r)^2}$</p>
+                    <p>$F = BIL$ | $f = qvB$ | $r = \frac{mv}{qB}$ | $T = \frac{2\pi m}{qB}$</p>
+                    <p>$E = BLv = n\frac{\Delta\Phi}{\Delta t}$ | $F_安 = \frac{B^2L^2v}{R}$</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最终鼓励 -->
+        <div class="hero-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <h2>💪 相信自己，你可以的！</h2>
+            <p style="font-size: 1.3em; margin-top: 15px;">
+                物理从17分到及格（60分）只需要掌握基础<br/>
+                从及格到良好（75分）需要掌握中档题<br/>
+                从良好到优秀（90分）需要细节和熟练度<br/><br/>
+                <strong>你现在有5个月的时间，完全来得及！</strong><br/><br/>
+                每天进步一点点，高考物理不是梦！
+            </p>
+        </div>
+
+        <!-- 物理模型大全 -->
+        <div class="module-box">
+            <div class="module-title">🔧 物理模型大全（高考必考）</div>
+            
+            <div class="section">
+                <h3>模型1：传送带模型</h3>
+                <div class="strategy-box">
+                    <h4>🎯 水平传送带</h4>
+                    <p><strong>情景1：物块初速度为0</strong></p>
+                    <p>• 加速度：$a = \mu g$</p>
+                    <p>• 共速时间：$t = \frac{v_{带}}{\mu g}$</p>
+                    <p>• 相对位移：$\Delta x = v_{带}t - \frac{1}{2}\mu gt^2 = \frac{v_{带}^2}{2\mu g}$</p>
+                    <p>• 痕迹长度（摩擦生热）：$Q = \mu mg \cdot \Delta x$</p>
+                    
+                    <p><strong>情景2：物块有初速度（与传送带同向）</strong></p>
+                    <p>• 若 $v_{物} &lt; v_{带}$：先加速后匀速，$t_{加} = \frac{v_{带}-v_{物}}{\mu g}$</p>
+                    <p>• 若 $v_{物} > v_{带}$：先减速后匀速，$t_{减} = \frac{v_{物}-v_{带}}{\mu g}$</p>
+                    
+                    <p><strong>情景3：物块初速度与传送带反向</strong></p>
+                    <p>• 先减速至0，再反向加速，最终共速或掉下</p>
+                    <p>• 判断是否掉下：减速位移 $x = \frac{v_{物}^2}{2\mu g}$ 与传送带长度比较</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 倾斜传送带</h4>
+                    <p><strong>关键：比较 $\mu$ 与 $\tan\theta$</strong></p>
+                    <p>• 若 $\mu > \tan\theta$：物块最终能与传送带相对静止</p>
+                    <p>• 若 $\mu &lt; \tan\theta$：物块一直加速，不能共速</p>
+                    <p>• 上滑时：$a = g(\sin\theta + \mu\cos\theta)$（相对下滑）</p>
+                    <p>• 下滑时：$a = g(\sin\theta - \mu\cos\theta)$（相对上滑）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>💡 解题步骤：</strong><br/>
+                    1. 确定相对运动方向，判断摩擦力方向<br/>
+                    2. 求加速度 $a = \frac{F_{合}}{m}$<br/>
+                    3. 计算共速时间和位移<br/>
+                    4. 判断是否共速，计算总时间和痕迹长度
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型2：板块模型（滑块-滑板）</h3>
+                <div class="strategy-box">
+                    <h4>🎯 地面光滑情况</h4>
+                    <p><strong>基本方程：</strong></p>
+                    <p>• 滑块：$a_1 = \frac{F - \mu mg}{m_1}$ 或 $a_1 = \mu g$（仅摩擦力）</p>
+                    <p>• 滑板：$a_2 = \frac{\mu mg}{m_2}$</p>
+                    <p>• 共速条件：$v_1 + a_1t = a_2t$（假设滑块有初速度）</p>
+                    <p>• 相对位移：$\Delta x = x_1 - x_2$</p>
+                    
+                    <p><strong>临界条件：</strong></p>
+                    <p>• 不滑落条件：$\Delta x \leq L$（滑板长度）</p>
+                    <p>• 恰好不掉下：$\Delta x = L$，共速时到达边缘</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 地面粗糙情况</h4>
+                    <p><strong>滑板受力分析：</strong></p>
+                    <p>• 水平方向：$\mu_1m_1g - \mu_2(m_1+m_2)g = m_2a_2$</p>
+                    <p>• 判断滑板是否运动：比较 $\mu_1m_1g$ 与 $\mu_2(m_1+m_2)g$</p>
+                    
+                    <p><strong>两种情景：</strong></p>
+                    <p>• 若 $\mu_1m_1g \leq \mu_2(m_1+m_2)g$：滑板静止，滑块减速</p>
+                    <p>• 若 $\mu_1m_1g > \mu_2(m_1+m_2)g$：滑板加速，系统复杂</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>💡 解题技巧：</strong><br/>
+                    1. 画受力分析图，标出各物体加速度方向<br/>
+                    2. 分别列牛顿第二定律方程<br/>
+                    3. 找位移关系（相对位移 = 板长）<br/>
+                    4. 用v-t图像辅助分析更直观
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型3：弹簧模型</h3>
+                <div class="strategy-box">
+                    <h4>🎯 弹簧分离问题</h4>
+                    <p><strong>分离条件：</strong>两物体间弹力 $N = 0$，加速度相同</p>
+                    <p>• 对A：$F_{弹} - m_Ag = m_Aa$</p>
+                    <p>• 对B：$F - m_Bg = m_Ba$</p>
+                    <p>• 分离时：$a_A = a_B$，$N = 0$</p>
+                    
+                    <p><strong>常见情景：</strong></p>
+                    <p>• 竖直弹簧：原长位置分离（若初始压缩）</p>
+                    <p>• 水平弹簧：弹力提供加速度时分离</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 弹簧能量问题</h4>
+                    <p><strong>能量守恒：</strong>$E_{k1} + E_{p1} + E_{弹1} = E_{k2} + E_{p2} + E_{弹2}$</p>
+                    <p>• 弹性势能：$E_p = \frac{1}{2}kx^2$（x为形变量）</p>
+                    <p>• 最大弹性势能：速度为0时，或共速时（碰撞模型）</p>
+                    <p>• 弹簧做功：$W = -\Delta E_p = \frac{1}{2}kx_1^2 - \frac{1}{2}kx_2^2$</p>
+                </div>
+
+                <div class="technique">
+                    <strong>📝 重要结论：</strong><br/>
+                    • 弹簧振子周期：$T = 2\pi\sqrt{\frac{m}{k}}$<br/>
+                    • 简谐运动对称性：关于平衡位置对称的两点，加速度大小相等、速度大小相等<br/>
+                    • 弹簧连接体：加速度相同，内力按质量分配
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型4：碰撞模型</h3>
+                <div class="strategy-box">
+                    <h4>🎯 弹性碰撞（动量守恒+动能守恒）</h4>
+                    <p><strong>基本方程：</strong></p>
+                    <p>• 动量守恒：$m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'$</p>
+                    <p>• 动能守恒：$\frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 = \frac{1}{2}m_1v_1'^2 + \frac{1}{2}m_2v_2'^2$</p>
+                    
+                    <p><strong>速度公式（一静一动）：</strong></p>
+                    <p>• $v_1' = \frac{m_1-m_2}{m_1+m_2}v_1$</p>
+                    <p>• $v_2' = \frac{2m_1}{m_1+m_2}v_1$</p>
+                    
+                    <p><strong>特殊情况：</strong></p>
+                    <p>• $m_1 = m_2$：交换速度，$v_1' = 0$，$v_2' = v_1$</p>
+                    <p>• $m_1 \gg m_2$：$v_1' \approx v_1$，$v_2' \approx 2v_1$</p>
+                    <p>• $m_1 \ll m_2$：$v_1' \approx -v_1$，$v_2' \approx 0$</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 完全非弹性碰撞（共速）</h4>
+                    <p><strong>特点：</strong>碰后共速，动能损失最大</p>
+                    <p>• 动量守恒：$m_1v_1 + m_2v_2 = (m_1+m_2)v_{共}$</p>
+                    <p>• 共速：$v_{共} = \frac{m_1v_1 + m_2v_2}{m_1+m_2}$</p>
+                    <p>• 动能损失：$\Delta E_k = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 - \frac{1}{2}(m_1+m_2)v_{共}^2$</p>
+                    <p>• 转化为内能或弹性势能：$Q = \Delta E_k$</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 非弹性碰撞（一般情况）</h4>
+                    <p><strong>恢复系数：</strong>$e = \frac{v_2' - v_1'}{v_1 - v_2}$</p>
+                    <p>• $e = 1$：弹性碰撞</p>
+                    <p>• $e = 0$：完全非弹性碰撞</p>
+                    <p>• $0 &lt; e &lt; 1$：一般非弹性碰撞</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型5：电磁感应单棒/双棒模型</h3>
+                <div class="strategy-box">
+                    <h4>🎯 单棒模型（电阻棒或电容棒）</h4>
+                    <p><strong>电阻棒（受恒力F）：</strong></p>
+                    <p>• 感应电动势：$E = BLv$</p>
+                    <p>• 感应电流：$I = \frac{BLv}{R}$</p>
+                    <p>• 安培力：$F_安 = \frac{B^2L^2v}{R}$（阻力）</p>
+                    <p>• 牛顿定律：$F - \frac{B^2L^2v}{R} = ma$</p>
+                    <p>• 最终匀速：$v_m = \frac{FR}{B^2L^2}$，$a = 0$</p>
+                    
+                    <p><strong>电容棒：</strong></p>
+                    <p>• 充电电流：$I = \frac{\Delta Q}{\Delta t} = C\frac{\Delta U}{\Delta t} = CBL\frac{\Delta v}{\Delta t} = CBLa$</p>
+                    <p>• 安培力：$F_安 = BIL = B^2L^2Ca$</p>
+                    <p>• 等效质量：$m' = m + B^2L^2C$，匀加速运动</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 双棒模型（光滑导轨）</h4>
+                    <p><strong>等距双棒（一动一静）：</strong></p>
+                    <p>• 动量守恒：$m_1v_0 = m_1v_1 + m_2v_2$</p>
+                    <p>• 最终共速：$v_{共} = \frac{m_1v_0}{m_1+m_2}$</p>
+                    <p>• 回路电荷量：$q = \frac{m_1(v_0-v_{共})}{BL} = \frac{m_1m_2v_0}{(m_1+m_2)BL}$</p>
+                    <p>• 焦耳热：$Q = \frac{1}{2}m_1v_0^2 - \frac{1}{2}(m_1+m_2)v_{共}^2$</p>
+                    
+                    <p><strong>不等距双棒：</strong></p>
+                    <p>• 动量不守恒（安培力不等）</p>
+                    <p>• 用动量定理分别列方程</p>
+                    <p>• 稳定条件：$E_1 = E_2$，即 $B_1L_1v_1 = B_2L_2v_2$</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>💡 电磁感应解题流程：</strong><br/>
+                    1. 确定电源：切割磁感线的部分<br/>
+                    2. 画等效电路：内阻、外阻<br/>
+                    3. 求感应电流：$I = \frac{E}{R_{总}}$<br/>
+                    4. 求安培力：$F = BIL$<br/>
+                    5. 列牛顿定律或能量方程
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型6：带电粒子在复合场中的运动</h3>
+                <div class="strategy-box">
+                    <h4>🎯 电场+重力场</h4>
+                    <p><strong>等效重力法：</strong></p>
+                    <p>• 等效重力加速度：$g' = \frac{\sqrt{(mg)^2+(qE)^2}}{m}$</p>
+                    <p>• 等效重力方向：与竖直方向夹角 $\tan\theta = \frac{qE}{mg}$</p>
+                    <p>• 应用：单摆周期 $T = 2\pi\sqrt{\frac{L}{g'}}$</p>
+                    <p>• 竖直圆周运动临界速度：$v_{临} = \sqrt{g'R}$（最高点）</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 电场+磁场（速度选择器）</h4>
+                    <p><strong>直线运动条件：</strong>$qE = qvB$，即 $v = \frac{E}{B}$</p>
+                    <p>• 与电荷量、质量无关</p>
+                    <p>• 只选择速度，不选择粒子种类</p>
+                    <p>• 应用：质谱仪前置筛选</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 磁场中的圆周运动</h4>
+                    <p><strong>基本公式：</strong></p>
+                    <p>• 半径：$r = \frac{mv}{qB} = \frac{p}{qB} = \frac{\sqrt{2mE_k}}{qB}$</p>
+                    <p>• 周期：$T = \frac{2\pi m}{qB}$（与速度无关）</p>
+                    <p>• 运动时间：$t = \frac{\theta}{2\pi}T = \frac{\theta m}{qB}$</p>
+                    
+                    <p><strong>边界问题：</strong></p>
+                    <p>• 直线边界：入射角 = 出射角，对称性</p>
+                    <p>• 圆形边界：指向圆心入射，背离圆心出射</p>
+                    <p>• 矩形边界：找圆心，定半径，画轨迹</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 物理模型示意图 -->
+        <div class="module-box">
+            <div class="module-title">🎨 物理模型示意图与动画演示</div>
+            
+            <div class="section">
+                <h3>模型1：传送带模型示意图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <div style="text-align: center;">
+                        <svg width="300" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <!-- 水平传送带 -->
+                            <rect x="20" y="80" width="260" height="40" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <!-- 滚轮 -->
+                            <circle cx="40" cy="100" r="15" fill="#666"/>
+                            <circle cx="260" cy="100" r="15" fill="#666"/>
+                            <!-- 物块 -->
+                            <rect x="100" y="55" width="40" height="25" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                            <!-- 速度箭头 -->
+                            <path d="M 120 40 L 160 40" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)"/>
+                            <text x="130" y="35" font-size="12" fill="#27ae60">v₀=0</text>
+                            <path d="M 200 90 L 240 90" stroke="#3498db" stroke-width="3" marker-end="url(#arrowhead)"/>
+                            <text x="210" y="85" font-size="12" fill="#3498db">v带</text>
+                            <!-- 摩擦力 -->
+                            <path d="M 110 70 L 130 70" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            <text x="115" y="65" font-size="10" fill="#e67e22">f</text>
+                            <!-- 标签 -->
+                            <text x="150" y="180" font-size="14" fill="#2c3e50" text-anchor="middle">水平传送带（物块初速为0）</text>
+                            <!-- 箭头定义 -->
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="currentColor"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <svg width="300" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <!-- 倾斜传送带 -->
+                            <polygon points="40,160 260,40 260,80 40,200" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            <!-- 物块 -->
+                            <polygon points="120,115 140,105 140,130 120,140" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                            <!-- 重力 -->
+                            <path d="M 130 127 L 130 157" stroke="#8e44ad" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                            <text x="135" y="150" font-size="10" fill="#8e44ad">mg</text>
+                            <!-- 支持力 -->
+                            <path d="M 130 127 L 110 137" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                            <text x="95" y="140" font-size="10" fill="#27ae60">N</text>
+                            <!-- 摩擦力 -->
+                            <path d="M 130 127 L 150 117" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                            <text x="152" y="115" font-size="10" fill="#e67e22">f</text>
+                            <!-- 角度 -->
+                            <path d="M 60 180 Q 70 170 80 175" stroke="#f39c12" stroke-width="1.5" fill="none"/>
+                            <text x="75" y="190" font-size="12" fill="#f39c12">θ</text>
+                            <!-- 标签 -->
+                            <text x="150" y="180" font-size="14" fill="#2c3e50" text-anchor="middle">倾斜传送带受力分析</text>
+                            <defs>
+                                <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="key-point">
+                    <strong>💡 关键理解：</strong>水平传送带看相对运动方向判断摩擦力；倾斜传送带关键比较μ与tanθ
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型2：板块模型示意图</h3>
+                <div style="text-align: center;">
+                    <svg width="500" height="250" style="border: 1px solid #ddd; background: #f8f9fa;">
+                        <!-- 地面 -->
+                        <line x1="20" y1="200" x2="480" y2="200" stroke="#333" stroke-width="3"/>
+                        <!-- 滑板 -->
+                        <rect x="100" y="160" width="200" height="40" fill="#3498db" stroke="#2980b9" stroke-width="2" opacity="0.7"/>
+                        <text x="200" y="185" font-size="14" fill="#fff" text-anchor="middle">滑板 M</text>
+                        <!-- 滑块 -->
+                        <rect x="120" y="120" width="50" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                        <text x="145" y="145" font-size="12" fill="#fff" text-anchor="middle">m</text>
+                        <!-- 滑块初速度 -->
+                        <path d="M 145 100 L 145 70" stroke="#8e44ad" stroke-width="3" marker-end="url(#arrowhead3)"/>
+                        <text x="150" y="85" font-size="12" fill="#8e44ad">v₀</text>
+                        <!-- 滑块受力 -->
+                        <path d="M 145 120 L 145 100" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                        <text x="125" y="110" font-size="10" fill="#e67e22">f₁</text>
+                        <!-- 滑板受力 -->
+                        <path d="M 200 160 L 200 140" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                        <text x="210" y="150" font-size="10" fill="#e67e22">f₂</text>
+                        <!-- 加速度标注 -->
+                        <path d="M 170 135 L 190 135" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                        <text x="180" y="130" font-size="10" fill="#27ae60">a₁</text>
+                        <path d="M 250 175 L 270 175" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                        <text x="260" y="170" font-size="10" fill="#27ae60">a₂</text>
+                        <!-- 长度标注 -->
+                        <line x1="100" y1="220" x2="300" y2="220" stroke="#95a5a6" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="100" y1="215" x2="100" y2="225" stroke="#95a5a6" stroke-width="1"/>
+                        <line x1="300" y1="215" x2="300" y2="225" stroke="#95a5a6" stroke-width="1"/>
+                        <text x="200" y="235" font-size="12" fill="#2c3e50" text-anchor="middle">L（滑板长度）</text>
+                        <!-- 标题 -->
+                        <text x="250" y="30" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">板块模型（地面光滑）</text>
+                        <defs>
+                            <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-point">
+                    <strong>💡 关键理解：</strong>滑块减速，滑板加速，最终共速。临界条件：相对位移=板长时恰好不掉下
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型3：碰撞模型示意图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <div style="text-align: center;">
+                        <svg width="320" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="160" y="25" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">弹性碰撞（一静一动）</text>
+                            <!-- 碰前 -->
+                            <circle cx="60" cy="80" r="25" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+                            <text x="60" y="85" font-size="12" fill="#fff" text-anchor="middle">m₁</text>
+                            <path d="M 60 45 L 60 20" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead4)"/>
+                            <text x="75" y="35" font-size="12" fill="#e74c3c">v₁</text>
+                            
+                            <circle cx="200" cy="80" r="25" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2"/>
+                            <text x="200" y="85" font-size="12" fill="#fff" text-anchor="middle">m₂</text>
+                            <text x="200" y="120" font-size="10" fill="#7f8c8d">静止</text>
+                            
+                            <!-- 箭头 -->
+                            <path d="M 130 80 L 160 80" stroke="#333" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                            <text x="145" y="75" font-size="12" fill="#333">碰</text>
+                            
+                            <!-- 碰后 -->
+                            <circle cx="60" cy="160" r="25" fill="#3498db" stroke="#2980b9" stroke-width="2" opacity="0.6"/>
+                            <text x="60" y="165" font-size="12" fill="#fff" text-anchor="middle">m₁</text>
+                            <path d="M 35 160 L 10 160" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                            <text x="20" y="155" font-size="10" fill="#e74c3c">v₁'</text>
+                            
+                            <circle cx="200" cy="160" r="25" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2"/>
+                            <text x="200" y="165" font-size="12" fill="#fff" text-anchor="middle">m₂</text>
+                            <path d="M 225 160 L 250 160" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                            <text x="240" y="155" font-size="10" fill="#27ae60">v₂'</text>
+                            
+                            <defs>
+                                <marker id="arrowhead4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div style="text-align: center;">
+                        <svg width="320" height="200" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <text x="160" y="25" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="bold">完全非弹性碰撞（共速）</text>
+                            <!-- 碰前 -->
+                            <circle cx="60" cy="80" r="25" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+                            <text x="60" y="85" font-size="12" fill="#fff" text-anchor="middle">m₁</text>
+                            <path d="M 60 45 L 60 20" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead5)"/>
+                            <text x="75" y="35" font-size="12" fill="#e74c3c">v₁</text>
+                            
+                            <circle cx="200" cy="80" r="25" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2"/>
+                            <text x="200" y="85" font-size="12" fill="#fff" text-anchor="middle">m₂</text>
+                            <path d="M 200 45 L 200 20" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead5)"/>
+                            <text x="215" y="35" font-size="12" fill="#e74c3c">v₂</text>
+                            
+                            <!-- 箭头 -->
+                            <path d="M 130 80 L 160 80" stroke="#333" stroke-width="2" marker-end="url(#arrowhead5)"/>
+                            
+                            <!-- 碰后（粘在一起） -->
+                            <ellipse cx="130" cy="160" rx="50" ry="30" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+                            <text x="130" y="165" font-size="12" fill="#fff" text-anchor="middle">m₁+m₂</text>
+                            <path d="M 130 125 L 130 100" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead5)"/>
+                            <text x="145" y="115" font-size="12" fill="#27ae60">v共</text>
+                            
+                            <defs>
+                                <marker id="arrowhead5" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="key-point">
+                    <strong>💡 关键理解：</strong>弹性碰撞动能守恒，完全非弹性碰撞动能损失最大（转化为内能或形变能）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型4：电磁感应单棒模型动画演示</h3>
+                <div style="text-align: center;">
+                    <canvas id="emCanvas" width="600" height="300" style="border: 2px solid #3498db; background: #f8f9fa;"></canvas>
+                    <p style="margin-top: 10px; color: #666;">
+                        <button onclick="startEMAnimation()" style="padding: 8px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">开始动画</button>
+                        <button onclick="stopEMAnimation()" style="padding: 8px 20px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">停止动画</button>
+                    </p>
+                    <p style="color: #2c3e50; font-size: 14px;">
+                        <span style="color: #e74c3c;">红色箭头</span>：外力F | 
+                        <span style="color: #27ae60;">绿色箭头</span>：安培力F安 | 
+                        <span style="color: #3498db;">蓝色</span>：感应电流方向
+                    </p>
+                </div>
+                <div class="key-point">
+                    <strong>💡 动态理解：</strong>导体棒从静止开始加速，随着速度增大，感应电动势增大，电流增大，安培力增大，加速度减小，最终匀速运动
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>模型5：带电粒子在磁场中运动示意图</h3>
+                <div style="text-align: center;">
+                    <svg width="500" height="300" style="border: 1px solid #ddd; background: #f8f9fa;">
+                        <text x="250" y="25" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">带电粒子在匀强磁场中的圆周运动</text>
+                        
+                        <!-- 磁场区域 -->
+                        <rect x="50" y="50" width="400" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="70" y="70" font-size="12" fill="#3498db">磁场 B（垂直纸面向里）</text>
+                        
+                        <!-- 圆形轨迹 -->
+                        <circle cx="250" cy="150" r="80" fill="none" stroke="#e74c3c" stroke-width="3"/>
+                        
+                        <!-- 粒子 -->
+                        <circle cx="170" cy="150" r="8" fill="#e74c3c"/>
+                        <text x="165" y="154" font-size="10" fill="#fff">+</text>
+                        
+                        <!-- 速度方向 -->
+                        <path d="M 170 150 L 170 110" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead6)"/>
+                        <text x="175" y="125" font-size="12" fill="#27ae60">v</text>
+                        
+                        <!-- 洛伦兹力 -->
+                        <path d="M 170 150 L 210 150" stroke="#8e44ad" stroke-width="3" marker-end="url(#arrowhead6)"/>
+                        <text x="190" y="145" font-size="12" fill="#8e44ad">F洛</text>
+                        
+                        <!-- 圆心和半径 -->
+                        <circle cx="250" cy="150" r="3" fill="#333"/>
+                        <text x="255" y="145" font-size="10" fill="#333">O</text>
+                        <line x1="250" y1="150" x2="170" y2="150" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+                        <text x="200" y="170" font-size="12" fill="#f39c12">r</text>
+                        
+                        <!-- 公式 -->
+                        <text x="400" y="100" font-size="14" fill="#2c3e50" text-anchor="middle">$qvB = m\frac{v^2}{r}$</text>
+                        <text x="400" y="120" font-size="14" fill="#2c3e50" text-anchor="middle">$r = \frac{mv}{qB}$</text>
+                        <text x="400" y="140" font-size="14" fill="#2c3e50" text-anchor="middle">$T = \frac{2\pi m}{qB}$</text>
+                        
+                        <defs>
+                            <marker id="arrowhead6" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-point">
+                    <strong>💡 关键理解：</strong>洛伦兹力提供向心力，粒子做匀速圆周运动。半径与速度成正比，周期与速度无关
+                </div>
+            </div>
+        </div>
+
+        <!-- 易错点专项突破 -->
+        <div class="module-box">
+            <div class="module-title">⚠️ 易错点专项突破</div>
+            
+            <div class="section">
+                <h3>一、概念辨析易错点</h3>
+                <table>
+                    <tr>
+                        <th>易混概念</th>
+                        <th>区别要点</th>
+                        <th>典型错误</th>
+                    </tr>
+                    <tr>
+                        <td>作用力与反作用力<br/>vs<br/>平衡力</td>
+                        <td>作用对象（两个物体vs同一物体）<br/>力的性质（相同vs可以不同）<br/>同时性（同时产生消失vs不一定）</td>
+                        <td>认为作用力与反作用力可以抵消</td>
+                    </tr>
+                    <tr>
+                        <td>速度<br/>vs<br/>加速度</td>
+                        <td>速度大≠加速度大<br/>速度为0≠加速度为0<br/>加速度减小≠速度减小</td>
+                        <td>加速度减小就认为速度减小</td>
+                    </tr>
+                    <tr>
+                        <td>向心力<br/>vs<br/>离心力</td>
+                        <td>向心力是实际受力<br/>离心力是惯性效应，不是真实力</td>
+                        <td>画受力分析时画离心力</td>
+                    </tr>
+                    <tr>
+                        <td>功<br/>vs<br/>功率</td>
+                        <td>功是能量转化的量度<br/>功率是做功的快慢<br/>$W = Pt$，但$W$大不一定$P$大</td>
+                        <td>功率大就认为做功多</td>
+                    </tr>
+                    <tr>
+                        <td>场强<br/>vs<br/>电势</td>
+                        <td>场强是矢量，描述力的性质<br/>电势是标量，描述能的性质<br/>$E$大≠$\varphi$大</td>
+                        <td>认为场强大的地方电势高</td>
+                    </tr>
+                    <tr>
+                        <td>磁通量<br/>vs<br/>磁通量变化率</td>
+                        <td>$\Phi = BS$<br/>$\frac{\Delta\Phi}{\Delta t}$<br/>感应电动势与变化率成正比</td>
+                        <td>磁通量为0就认为感应电动势为0</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>二、常见计算错误</h3>
+                <div class="warning">
+                    <strong>1. 单位换算错误</strong><br/>
+                    • cm→m忘记除以100<br/>
+                    • g→kg忘记除以1000<br/>
+                    • km/h→m/s乘以3.6（应该是除以3.6）<br/>
+                    • 角度→弧度：$\theta(rad) = \theta(°) \times \frac{\pi}{180}$<br/><br/>
+                    
+                    <strong>2. 矢量方向错误</strong><br/>
+                    • 规定正方向后，与正方向相反的物理量要加负号<br/>
+                    • 功的正负：力与位移夹角大于90°做负功<br/>
+                    • 电势的正负：与零势面选取有关<br/><br/>
+                    
+                    <strong>3. 有效数字错误</strong><br/>
+                    • 题目要求保留2位有效数字，结果写成3位<br/>
+                    • 中间计算保留过多位数，最后才四舍五入<br/>
+                    • 测量结果的有效数字与测量工具精度不匹配<br/><br/>
+                    
+                    <strong>4. 公式适用条件不清</strong><br/>
+                    • $v^2 - v_0^2 = 2ax$只适用于匀变速直线运动<br/>
+                    • $F = ma$只适用于惯性系<br/>
+                    • $E = BLv$要求B、L、v三者互相垂直
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>三、图像理解误区</h3>
+                <table>
+                    <tr>
+                        <th>图像类型</th>
+                        <th>横纵坐标</th>
+                        <th>斜率意义</th>
+                        <th>面积意义</th>
+                        <th>常见错误</th>
+                    </tr>
+                    <tr>
+                        <td>$v-t$图</td>
+                        <td>t-v</td>
+                        <td>加速度a</td>
+                        <td>位移x</td>
+                        <td>把曲线当成运动轨迹</td>
+                    </tr>
+                    <tr>
+                        <td>$x-t$图</td>
+                        <td>t-x</td>
+                        <td>速度v</td>
+                        <td>无</td>
+                        <td>斜率为负就认为物体反向运动（可能正方向选取问题）</td>
+                    </tr>
+                    <tr>
+                        <td>$a-t$图</td>
+                        <td>t-a</td>
+                        <td>加速度变化率</td>
+                        <td>速度变化量$\Delta v$</td>
+                        <td>面积意义记错</td>
+                    </tr>
+                    <tr>
+                        <td>$F-x$图</td>
+                        <td>x-F</td>
+                        <td>无</td>
+                        <td>功W</td>
+                        <td>力随位移变化时，直接用$W=Fx$计算</td>
+                    </tr>
+                    <tr>
+                        <td>$E_k-x$图</td>
+                        <td>x-$E_k$</td>
+                        <td>合外力F</td>
+                        <td>无</td>
+                        <td>由$E_k = \frac{1}{2}mv^2$认为斜率是mv</td>
+                    </tr>
+                    <tr>
+                        <td>$\Phi-t$图</td>
+                        <td>t-$\Phi$</td>
+                        <td>感应电动势E（负值）</td>
+                        <td>无</td>
+                        <td>斜率绝对值就是E，不考虑方向</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>四、实验常见错误</h3>
+                <div class="technique">
+                    <strong>1. 纸带数据处理</strong><br/>
+                    • 单位未换算：纸带上标的是cm，计算时要用m<br/>
+                    • 时间间隔搞错：若每5个点取一个计数点，$T = 0.1s$不是$0.02s$<br/>
+                    • 逐差法用错：应该是$(x_4+x_5+x_6)-(x_1+x_2+x_3)$除以$9T^2$，不是$3T^2$<br/><br/>
+                    
+                    <strong>2. 电路实验</strong><br/>
+                    • 电表量程选错：指针偏转太小（量程太大）或超过满偏（量程太小）<br/>
+                    • 滑动变阻器接错：限流式接成$-\frac{1}{1}$，分压式接成$-\frac{1}{1}$<br/>
+                    • 正负极接反：电流从负接线柱流入<br/>
+                    • 读数错误：电压表/电流表最小刻度是0.1还是0.2，估读位数不同<br/><br/>
+                    
+                    <strong>3. 作图问题</strong><br/>
+                    • 坐标轴未标注物理量和单位<br/>
+                    • 描点过大或过小，看不清<br/>
+                    • 连线过所有点（应该是平滑曲线或直线，不要求过所有点）<br/>
+                    • 求斜率时取的数据点不是图线上的点
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>五、审题常见失误</h3>
+                <div class="key-point">
+                    <strong>1. 忽略关键条件</strong><br/>
+                    • "光滑"→忽略摩擦力<br/>
+                    • "从静止开始"→$v_0 = 0$<br/>
+                    • "恰好"、"刚好"→临界条件<br/>
+                    • "不计空气阻力"→只受重力<br/>
+                    • "弹性碰撞"→动能守恒<br/><br/>
+                    
+                    <strong>2. 误解题意</strong><br/>
+                    • "第几秒内"vs"几秒内"：第3秒内是$t \in [2,3]$，3秒内是$t \in [0,3]$<br/>
+                    • "位移"vs"路程"：位移是矢量，路程是标量<br/>
+                    • "平均速度"vs"瞬时速度"：平均速度$\bar{v} = \frac{\Delta x}{\Delta t}$<br/>
+                    • "增加"vs"增加到"：增加3倍是原来的4倍，增加到3倍是原来的3倍<br/><br/>
+                    
+                    <strong>3. 漏看隐含条件</strong><br/>
+                    • 圆周运动最高点：$v \geq \sqrt{gR}$（绳模型）或$v \geq 0$（杆模型）<br/>
+                    • 恰好不滑出：到达边缘时共速<br/>
+                    • 弹簧原长：弹性势能为0，但可能有弹力
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>六、答题规范问题</h3>
+                <div class="warning">
+                    <strong>1. 计算题失分点</strong><br/>
+                    • 不写"解"和"答"<br/>
+                    • 只有公式没有代入数据的过程<br/>
+                    • 结果不带单位或单位错误<br/>
+                    • 有效数字与题目要求不符<br/>
+                    • 字母符号混用（如$m$和$M$、$v$和$V$）<br/><br/>
+                    
+                    <strong>2. 符号规范</strong><br/>
+                    • 物理量用斜体：$m$、$v$、$a$<br/>
+                    • 单位用正体：m、s、kg<br/>
+                    • 下标规范：$v_0$（初速度）、$v_t$（末速度）、$E_k$（动能）<br/>
+                    • 不要自创符号，用题目给的或通用符号<br/><br/>
+                    
+                    <strong>3. 文字表述</strong><br/>
+                    • "由牛顿第二定律得"→"由牛顿第二定律$F=ma$得"<br/>
+                    • "由图可知"→要具体说明从图中得到什么信息<br/>
+                    • "解得"→要有计算过程，不能直接写答案
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="experiments.html">← 上一页：实验专题</a>
+            <a href="index.html">返回首页</a>
+        </div>
+    </div>
+
+    <script>//<![CDATA[
+
+        // 电磁感应单棒模型动画
+        let emAnimationId = null;
+        let rodPosition = 50;
+        let rodVelocity = 0;
+        let time = 0;
+        
+        function drawEMScene() {
+            const canvas = document.getElementById('emCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            // 清空画布
+            ctx.fillStyle = '#f8f9fa';
+            ctx.fillRect(0, 0, 600, 300);
+            
+            // 绘制导轨
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(50, 100);
+            ctx.lineTo(550, 100);
+            ctx.moveTo(50, 200);
+            ctx.lineTo(550, 200);
+            ctx.stroke();
+            
+            // 绘制磁场区域（虚线框）
+            ctx.strokeStyle = '#3498db';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.strokeRect(50, 70, 500, 160);
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#3498db';
+            ctx.font = '14px Arial';
+            ctx.fillText('匀强磁场 B（垂直纸面向里）', 60, 90);
+            
+            // 绘制电阻
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 2;
+            const resistorX = 500;
+            ctx.beginPath();
+            ctx.moveTo(resistorX, 100);
+            ctx.lineTo(resistorX, 115);
+            for (let i = 0; i < 5; i++) {
+                ctx.lineTo(resistorX + 5 + i * 8, 115 + (i % 2 === 0 ? 15 : -15));
+            }
+            ctx.lineTo(resistorX + 45, 200);
+            ctx.lineTo(resistorX, 200);
+            ctx.stroke();
+            ctx.fillStyle = '#e74c3c';
+            ctx.fillText('R', resistorX + 15, 165);
+            
+            // 绘制导体棒
+            const rodX = rodPosition;
+            ctx.fillStyle = '#27ae60';
+            ctx.fillRect(rodX - 5, 95, 10, 110);
+            ctx.strokeStyle = '#1e8449';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(rodX - 5, 95, 10, 110);
+            
+            // 导体棒标签
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 12px Arial';
+            ctx.fillText('L', rodX - 3, 155);
+            
+            // 绘制外力F
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(rodX - 30, 150);
+            ctx.lineTo(rodX - 5, 150);
+            ctx.stroke();
+            // 箭头
+            ctx.beginPath();
+            ctx.moveTo(rodX - 5, 150);
+            ctx.lineTo(rodX - 12, 145);
+            ctx.lineTo(rodX - 12, 155);
+            ctx.closePath();
+            ctx.fillStyle = '#e74c3c';
+            ctx.fill();
+            ctx.fillStyle = '#e74c3c';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText('F', rodX - 25, 140);
+            
+            // 绘制安培力
+            const fMagnetic = rodVelocity * 2; // 简化的安培力大小
+            if (fMagnetic > 0.5) {
+                ctx.strokeStyle = '#27ae60';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(rodX + 5, 150);
+                ctx.lineTo(rodX + 5 + fMagnetic * 10, 150);
+                ctx.stroke();
+                // 箭头
+                ctx.beginPath();
+                ctx.moveTo(rodX + 5 + fMagnetic * 10, 150);
+                ctx.lineTo(rodX + 5 + fMagnetic * 10 - 7, 145);
+                ctx.lineTo(rodX + 5 + fMagnetic * 10 - 7, 155);
+                ctx.closePath();
+                ctx.fillStyle = '#27ae60';
+                ctx.fill();
+                ctx.fillStyle = '#27ae60';
+                ctx.font = '12px Arial';
+                ctx.fillText('F安', rodX + 10 + fMagnetic * 5, 140);
+            }
+            
+            // 绘制感应电流方向
+            if (rodVelocity > 0.1) {
+                ctx.strokeStyle = '#3498db';
+                ctx.lineWidth = 2;
+                // 上导轨电流方向
+                ctx.beginPath();
+                ctx.moveTo(rodX + 20, 85);
+                ctx.lineTo(resistorX - 20, 85);
+                ctx.stroke();
+                // 箭头
+                ctx.beginPath();
+                ctx.moveTo(resistorX - 20, 85);
+                ctx.lineTo(resistorX - 27, 80);
+                ctx.lineTo(resistorX - 27, 90);
+                ctx.closePath();
+                ctx.fillStyle = '#3498db';
+                ctx.fill();
+                
+                // 下导轨电流方向
+                ctx.beginPath();
+                ctx.moveTo(resistorX - 20, 215);
+                ctx.lineTo(rodX + 20, 215);
+                ctx.stroke();
+                // 箭头
+                ctx.beginPath();
+                ctx.moveTo(rodX + 20, 215);
+                ctx.lineTo(rodX + 27, 210);
+                ctx.lineTo(rodX + 27, 220);
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.fillStyle = '#3498db';
+                ctx.font = '12px Arial';
+                ctx.fillText('I', (rodX + resistorX) / 2, 80);
+                ctx.fillText('I', (rodX + resistorX) / 2, 225);
+            }
+            
+            // 绘制速度指示
+            if (rodVelocity > 0.1) {
+                ctx.strokeStyle = '#8e44ad';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(rodX, 70);
+                ctx.lineTo(rodX + rodVelocity * 20, 70);
+                ctx.stroke();
+                // 箭头
+                ctx.beginPath();
+                ctx.moveTo(rodX + rodVelocity * 20, 70);
+                ctx.lineTo(rodX + rodVelocity * 20 - 7, 65);
+                ctx.lineTo(rodX + rodVelocity * 20 - 7, 75);
+                ctx.closePath();
+                ctx.fillStyle = '#8e44ad';
+                ctx.fill();
+                ctx.fillStyle = '#8e44ad';
+                ctx.font = '12px Arial';
+                ctx.fillText('v', rodX + rodVelocity * 10, 60);
+            }
+            
+            // 显示参数
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = '14px Arial';
+            ctx.fillText('速度 v = ' + rodVelocity.toFixed(2) + ' m/s', 50, 250);
+            ctx.fillText('安培力 F安 = ' + (rodVelocity * 2).toFixed(2) + ' N', 250, 250);
+            ctx.fillText('电流 I = ' + (rodVelocity * 0.5).toFixed(2) + ' A', 450, 250);
+            
+            // 公式说明
+            ctx.fillStyle = '#7f8c8d';
+            ctx.font = '12px Arial';
+            ctx.fillText('E = BLv    I = E/R    F安 = BIL = B²L²v/R', 50, 280);
+        }
+        
+        function updateEMPhysics() {
+            // 简化的物理模拟
+            const F = 2; // 外力
+            const B = 1; // 磁场强度
+            const L = 1; // 导体棒长度
+            const R = 2; // 电阻
+            const m = 1; // 质量
+            
+            // 计算安培力
+            const emf = B * L * rodVelocity; // 感应电动势
+            const current = emf / R; // 感应电流
+            const fMagnetic = B * L * current; // 安培力
+            
+            // 计算加速度
+            const acceleration = (F - fMagnetic) / m;
+            
+            // 更新速度
+            rodVelocity += acceleration * 0.05;
+            
+            // 更新位置
+            rodPosition += rodVelocity * 2;
+            
+            // 边界检查
+            if (rodPosition > 480) {
+                rodPosition = 50;
+                rodVelocity = 0;
+            }
+            
+            time += 0.05;
+        }
+        
+        function animateEM() {
+            updateEMPhysics();
+            drawEMScene();
+            emAnimationId = requestAnimationFrame(animateEM);
+        }
+        
+        function startEMAnimation() {
+            if (!emAnimationId) {
+                rodPosition = 50;
+                rodVelocity = 0;
+                time = 0;
+                animateEM();
+            }
+        }
+        
+        function stopEMAnimation() {
+            if (emAnimationId) {
+                cancelAnimationFrame(emAnimationId);
+                emAnimationId = null;
+            }
+        }
+        
+        // 初始绘制
+        drawEMScene();
+    
+//]]></script>
+</body>
+</html>

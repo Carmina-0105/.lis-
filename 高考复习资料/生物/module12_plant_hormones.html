@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块12：植物的激素调节 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #56ab2f;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #56ab2f; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #56ab2f;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #56ab2f;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #56ab2f;
+        }
+        h3 {
+            color: #2d8a4e;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #d4fc7920, #96e6a120);
+            border-left: 4px solid #56ab2f;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #56ab2f;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #56ab2f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #56ab2f, #96e6a1);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #56ab2f;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #d4fc7915, #96e6a115);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #56ab2f;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module11_regulation.html">← 上一模块</a>
+                <a href="module13_population.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🌱 模块12：植物的激素调节</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：10-15分</span>
+                <span class="tag tag-key">难度：★★★☆☆</span>
+                <span class="tag tag-formula">实验设计重点</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>生长素</strong><br/>
+                        产生、运输、作用
+                    </div>
+                    <div class="network-item">
+                        <strong>两重性</strong><br/>
+                        低促高抑
+                    </div>
+                    <div class="network-item">
+                        <strong>向光性</strong><br/>
+                        生长素分布不均
+                    </div>
+                    <div class="network-item">
+                        <strong>赤霉素</strong><br/>
+                        促进生长
+                    </div>
+                    <div class="network-item">
+                        <strong>细胞分裂素</strong><br/>
+                        促进分裂
+                    </div>
+                    <div class="network-item">
+                        <strong>脱落酸</strong><br/>
+                        抑制生长
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、生长素的发现</h2>
+
+            <h3>1.1 生长素发现史</h3>
+            <table>
+                <tr>
+                    <th>科学家</th>
+                    <th>实验</th>
+                    <th>结论</th>
+                </tr>
+                <tr>
+                    <td>达尔文</td>
+                    <td>胚芽鞘向光性实验</td>
+                    <td>单侧光照射使胚芽鞘的尖端产生某种"影响"，传递到下部伸长区，造成背光面比向光面生长快</td>
+                </tr>
+                <tr>
+                    <td>鲍森·詹森</td>
+                    <td>琼脂片实验</td>
+                    <td>胚芽鞘尖端产生的影响可以透过琼脂片传递给下部</td>
+                </tr>
+                <tr>
+                    <td>拜尔</td>
+                    <td>黑暗条件下切取尖端实验</td>
+                    <td>胚芽鞘的弯曲生长是因为尖端产生的影响在其下部分布不均匀造成的</td>
+                </tr>
+                <tr>
+                    <td>温特</td>
+                    <td>琼脂块实验</td>
+                    <td>造成胚芽鞘弯曲的是一种化学物质，命名为生长素</td>
+                </tr>
+            </table>
+
+            <h3>1.2 植物向光性的解释</h3>
+            <div class="key-point">
+                <strong>向光性产生的原因：</strong><br/><br/>
+                单侧光照射后，胚芽鞘背光一侧的生长素含量多于向光一侧，导致背光侧生长快于向光侧，从而造成向光弯曲。<br/><br/>
+                <strong>注意：</strong>向光侧和背光侧的生长素都是促进生长的，只是背光侧浓度更高，促进作用更强。
+            </div>
+
+            <h2>二、生长素的产生、运输和分布</h2>
+
+            <h3>2.1 生长素的产生</h3>
+            <div class="key-point">
+                <strong>合成部位：</strong>主要在幼嫩的芽、叶和发育中的种子<br/><br/>
+                <strong>合成原料：</strong>色氨酸（一种氨基酸）<br/><br/>
+                <strong>化学本质：</strong>吲哚乙酸（IAA）
+            </div>
+
+            <h3>2.2 生长素的运输</h3>
+            <div class="formula-box">
+                <div class="title">生长素的运输方式</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>1. 极性运输：</strong><br/>
+                    • 方向：从形态学上端运输到形态学下端<br/>
+                    • 方式：主动运输（需要载体和能量）<br/>
+                    • 特点：不受重力影响，是细胞的固有特性<br/><br/>
+                    <strong>2. 非极性运输：</strong><br/>
+                    • 在成熟组织中，通过韧皮部进行<br/>
+                    • 运输方向与植物形态学方向无关<br/><br/>
+                    <strong>3. 横向运输：</strong><br/>
+                    • 发生在尖端<br/>
+                    • 由单侧光、重力等外界刺激引起
+                </p>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ 极性运输的理解：</strong><br/>
+                • 极性运输是主动运输，需要消耗能量<br/>
+                • 极性运输与重力无关，即使将植物倒置，生长素仍然从形态学上端向下端运输<br/>
+                • 形态学上端：植物生长方向的一端（如茎尖、根尖）<br/>
+                • 形态学下端：背离生长方向的一端
+            </div>
+
+            <h2>三、生长素的生理作用</h2>
+
+            <h3>3.1 生长素作用的两重性</h3>
+            <div class="key-point">
+                <strong>两重性：</strong>生长素既能促进生长，也能抑制生长；既能促进发芽，也能抑制发芽；既能防止落花落果，也能疏花疏果。<br/><br/>
+                <strong>影响因素：</strong><br/>
+                • 生长素浓度<br/>
+                • 植物器官的种类<br/>
+                • 细胞的成熟程度
+            </div>
+
+            <div class="formula-box">
+                <div class="title">不同器官对生长素的敏感程度</div>
+                <p style="font-size: 1.1em; line-height: 2;">
+                    <strong>根 > 芽 > 茎</strong><br/><br/>
+                    最适浓度：根（10⁻¹⁰ mol/L）< 芽（10⁻⁸ mol/L）< 茎（10⁻⁴ mol/L）<br/><br/>
+                    同一浓度的生长素对不同器官作用不同：<br/>
+                    • 对茎是促进作用的浓度，对根可能是抑制作用
+                </p>
+            </div>
+
+            <h3>3.2 生长素类似物的应用</h3>
+            <table>
+                <tr>
+                    <th>应用</th>
+                    <th>原理</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>促进扦插枝条生根</td>
+                    <td>适宜浓度的生长素促进根的生长</td>
+                    <td>NAA处理扦插枝条</td>
+                </tr>
+                <tr>
+                    <td>促进果实发育</td>
+                    <td>生长素促进子房发育成果实</td>
+                    <td>培育无子番茄</td>
+                </tr>
+                <tr>
+                    <td>防止落花落果</td>
+                    <td>适宜浓度的生长素可以防止花果脱落</td>
+                    <td>棉花的保蕾保铃</td>
+                </tr>
+                <tr>
+                    <td>疏花疏果</td>
+                    <td>高浓度生长素抑制生长</td>
+                    <td>果树的疏花疏果</td>
+                </tr>
+                <tr>
+                    <td>除草剂</td>
+                    <td>高浓度生长素抑制甚至杀死植物</td>
+                    <td>2,4-D作为双子叶植物除草剂</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ 无子果实形成的原理：</strong><br/>
+                • <strong>无子番茄：</strong>用适宜浓度的生长素处理未受粉的子房，促进子房发育成果实（不可遗传）<br/>
+                • <strong>无子西瓜：</strong>三倍体西瓜，减数分裂时染色体联会紊乱，不能形成正常配子（可遗传）<br/>
+                • <strong>香蕉：</strong>天然三倍体，无种子
+            </div>
+
+            <h2>四、其他植物激素</h2>
+
+            <h3>4.1 五种植物激素的比较</h3>
+            <table>
+                <tr>
+                    <th>激素名称</th>
+                    <th>合成部位</th>
+                    <th>主要作用</th>
+                </tr>
+                <tr>
+                    <td>生长素</td>
+                    <td>幼嫩的芽、叶、发育中的种子</td>
+                    <td>促进细胞伸长生长，促进扦插枝条生根，促进果实发育</td>
+                </tr>
+                <tr>
+                    <td>赤霉素</td>
+                    <td>未成熟的种子、幼根、幼芽</td>
+                    <td>促进细胞伸长，促进种子萌发和果实发育，解除休眠</td>
+                </tr>
+                <tr>
+                    <td>细胞分裂素</td>
+                    <td>主要是根尖</td>
+                    <td>促进细胞分裂，延缓叶片衰老</td>
+                </tr>
+                <tr>
+                    <td>脱落酸</td>
+                    <td>根冠、萎蔫的叶片等</td>
+                    <td>抑制细胞分裂，促进叶和果实的衰老和脱落，促进休眠</td>
+                </tr>
+                <tr>
+                    <td>乙烯</td>
+                    <td>植物体各个部位</td>
+                    <td>促进果实成熟，促进叶片脱落</td>
+                </tr>
+            </table>
+
+            <h3>4.2 植物激素间的相互作用</h3>
+            <div class="key-point">
+                <strong>协同作用：</strong><br/>
+                • 生长素和赤霉素：都促进细胞伸长<br/>
+                • 生长素和细胞分裂素：都促进植物生长<br/>
+                • 脱落酸和乙烯：都促进叶片脱落<br/><br/>
+                <strong>拮抗作用：</strong><br/>
+                • 生长素促进生长，脱落酸抑制生长<br/>
+                • 赤霉素促进种子萌发，脱落酸抑制种子萌发<br/>
+                • 细胞分裂素延缓衰老，脱落酸促进衰老
+            </div>
+
+            <h2>五、植物生长调节剂的应用</h2>
+
+            <h3>5.1 植物生长调节剂的概念</h3>
+            <div class="key-point">
+                <strong>植物生长调节剂：</strong>人工合成的对植物的生长发育有调节作用的化学物质。<br/><br/>
+                <strong>优点：</strong><br/>
+                • 原料广泛<br/>
+                • 容易合成<br/>
+                • 效果稳定（因为植物体内没有分解这些物质的酶）
+            </div>
+
+            <h2>六、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>生长素发现</strong><br/>
+                        • 达尔文实验<br/>
+                        • 温特实验<br/>
+                        • 向光性原理
+                    </div>
+                    <div class="network-item">
+                        <strong>运输方式</strong><br/>
+                        • 极性运输<br/>
+                        • 横向运输<br/>
+                        • 非极性运输
+                    </div>
+                    <div class="network-item">
+                        <strong>两重性</strong><br/>
+                        • 低促高抑<br/>
+                        • 器官敏感性<br/>
+                        • 顶端优势
+                    </div>
+                    <div class="network-item">
+                        <strong>应用</strong><br/>
+                        • 促进生根<br/>
+                        • 无子果实<br/>
+                        • 除草剂
+                    </div>
+                    <div class="network-item">
+                        <strong>其他激素</strong><br/>
+                        • 赤霉素<br/>
+                        • 细胞分裂素<br/>
+                        • 脱落酸、乙烯
+                    </div>
+                    <div class="network-item">
+                        <strong>相互作用</strong><br/>
+                        • 协同作用<br/>
+                        • 拮抗作用<br/>
+                        • 实验设计
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>下列关于植物激素的叙述，正确的是（  ）</p>
+                <p>A. 生长素的极性运输与光照方向有关</p>
+                <p>B. 植物激素都能促进植物生长</p>
+                <p>C. 生长素浓度越高，促进生长的效果越好</p>
+                <p>D. 乙烯能促进果实成熟</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：D</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A错误：生长素的极性运输是从形态学上端向下端运输，与光照方向无关；横向运输才与光照有关。</p>
+                <p>B错误：植物激素不都能促进生长，如脱落酸抑制生长，乙烯促进成熟和脱落。</p>
+                <p>C错误：生长素具有两重性，浓度过高会抑制生长。</p>
+                <p>D正确：乙烯的主要作用是促进果实成熟。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module11_regulation.html">← 上一模块</a>
+                    <a href="module13_population.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

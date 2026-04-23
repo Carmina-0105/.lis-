@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>化学复习 · 有机化学基础</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #11998e;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #11998e;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #38ef7d;
+            padding-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #11998e;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #11998e;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(17, 153, 142, 0.4);
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .structure-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .reaction-type {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border: 2px solid #9c27b0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 有机化学基础</h1>
+        <div class="subtitle">烃类 · 烃的衍生物 · 有机反应类型 · 有机推断</div>
+
+        <div class="module-box">
+            <div class="module-title">🎯 模块核心</div>
+            <p style="font-size: 1.1em;">
+                <strong>有机化学</strong>是研究有机化合物的组成、结构、性质、制备方法与应用的科学。高考中主要考查有机物的结构、性质、反应类型以及有机推断与合成。
+            </p>
+            <p style="margin-top: 15px;">
+                <strong>高考分值：</strong>约15-20分（选择题6分 + 有机推断题12-15分）<br/>
+                <strong>重点：</strong>官能团性质、有机反应类型、同分异构体、有机推断
+            </p>
+        </div>
+
+        <h2>第一章 烃类化合物</h2>
+        
+        <div class="section">
+            <h3>1.1 烷烃</h3>
+            <div class="structure-box">
+                <strong>🔸 通式：</strong>$C_nH_{2n+2}$（n≥1）<br/>
+                <strong>🔸 结构特点：</strong>碳碳单键，链状结构，饱和烃<br/>
+                <strong>🔸 代表物：</strong>甲烷（CH₄）
+            </div>
+            <div class="key-point">
+                <strong>💡 甲烷的性质：</strong><br/>
+                <strong>物理性质：</strong>无色无味气体，密度比空气小，难溶于水<br/><br/>
+                <strong>化学性质（稳定，光照条件下与卤素反应）：</strong>
+                <ul>
+                    <li>氧化反应：$CH_4 + 2O_2 \stackrel{点燃}{\longrightarrow} CO_2 + 2H_2O$</li>
+                    <li>取代反应：$CH_4 + Cl_2 \stackrel{光照}{\longrightarrow} CH_3Cl + HCl$</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>1.2 烯烃</h3>
+            <div class="structure-box">
+                <strong>🔸 通式：</strong>$C_nH_{2n}$（n≥2）<br/>
+                <strong>🔸 结构特点：</strong>含碳碳双键，不饱和烃<br/>
+                <strong>🔸 代表物：</strong>乙烯（C₂H₄）
+            </div>
+            <div class="key-point">
+                <strong>💡 乙烯的性质：</strong><br/>
+                <strong>物理性质：</strong>无色稍有气味气体，密度略小于空气，难溶于水<br/><br/>
+                <strong>化学性质（活泼，易发生加成、氧化反应）：</strong>
+                <ul>
+                    <li>氧化反应：$C_2H_4 + 3O_2 \stackrel{点燃}{\longrightarrow} 2CO_2 + 2H_2O$（火焰明亮，有黑烟）<br/>
+                    使酸性KMnO₄溶液褪色</li>
+                    <li>加成反应：<br/>
+                    与Br₂：$CH_2=CH_2 + Br_2 → CH_2BrCH_2Br$（使溴水褪色）<br/>
+                    与H₂：$CH_2=CH_2 + H_2 \stackrel{Ni,\Delta}{\longrightarrow} CH_3CH_3$<br/>
+                    与HCl：$CH_2=CH_2 + HCl \stackrel{催化剂}{\longrightarrow} CH_3CH_2Cl$<br/>
+                    与H₂O：$CH_2=CH_2 + H_2O \stackrel{催化剂}{\longrightarrow} CH_3CH_2OH$</li>
+                    <li>加聚反应：$nCH_2=CH_2 \stackrel{催化剂}{\longrightarrow} [CH_2-CH_2]_n$</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>1.3 炔烃</h3>
+            <div class="structure-box">
+                <strong>🔸 通式：</strong>$C_nH_{2n-2}$（n≥2）<br/>
+                <strong>🔸 结构特点：</strong>含碳碳三键，不饱和烃<br/>
+                <strong>🔸 代表物：</strong>乙炔（C₂H₂）
+            </div>
+            <div class="key-point">
+                <strong>💡 乙炔的性质：</strong><br/>
+                <strong>物理性质：</strong>无色无味气体，密度比空气小，微溶于水<br/><br/>
+                <strong>化学性质：</strong>
+                <ul>
+                    <li>氧化反应：火焰明亮，有浓烟（含碳量高）</li>
+                    <li>加成反应：与烯烃类似，可发生1:1或1:2加成</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>1.4 芳香烃</h3>
+            <div class="structure-box">
+                <strong>🔸 代表物：</strong>苯（C₆H₆）<br/>
+                <strong>🔸 结构特点：</strong>平面正六边形，碳碳键是介于单键和双键之间的特殊键
+            </div>
+            <div class="key-point">
+                <strong>💡 苯的性质：</strong><br/>
+                <strong>物理性质：</strong>无色液体，有特殊气味，不溶于水，密度比水小，有毒<br/><br/>
+                <strong>化学性质（稳定，难加成，易取代）：</strong>
+                <ul>
+                    <li>氧化反应：$2C_6H_6 + 15O_2 \stackrel{点燃}{\longrightarrow} 12CO_2 + 6H_2O$（火焰明亮，浓烟）</li>
+                    <li>取代反应：<br/>
+                    卤代：$C_6H_6 + Br_2 \stackrel{FeBr_3}{\longrightarrow} C_6H_5Br + HBr$<br/>
+                    硝化：$C_6H_6 + HNO_3 \stackrel{浓H_2SO_4,\Delta}{\longrightarrow} C_6H_5NO_2 + H_2O$</li>
+                    <li>加成反应：$C_6H_6 + 3H_2 \stackrel{Ni,\Delta}{\longrightarrow} C_6H_{12}$（环己烷）</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 甲苯的性质：</strong><br/>
+                甲苯比苯活泼，甲基使苯环邻、对位氢活泼，易发生取代反应。<br/>
+                硝化反应：生成2,4,6-三硝基甲苯（TNT，炸药）
+            </div>
+        </div>
+
+        <h2>第二章 烃的衍生物</h2>
+
+        <div class="section">
+            <h3>2.1 卤代烃</h3>
+            <div class="structure-box">
+                <strong>🔸 官能团：</strong>-X（卤素原子）<br/>
+                <strong>🔸 代表物：</strong>溴乙烷（C₂H₅Br）
+            </div>
+            <div class="key-point">
+                <strong>💡 溴乙烷的化学性质：</strong>
+                <ul>
+                    <li>水解反应（取代反应）：<br/>
+                    $C_2H_5Br + NaOH \stackrel{H_2O,\Delta}{\longrightarrow} C_2H_5OH + NaBr$</li>
+                    <li>消去反应：<br/>
+                    $C_2H_5Br + NaOH \stackrel{乙醇,\Delta}{\longrightarrow} CH_2=CH_2↑ + NaBr + H_2O$</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <strong>⚠️ 消去反应条件：</strong>与卤素原子相连的碳原子的邻位碳原子上必须有氢原子。
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2.2 醇</h3>
+            <div class="structure-box">
+                <strong>🔸 官能团：</strong>-OH（羟基）<br/>
+                <strong>🔸 代表物：</strong>乙醇（C₂H₅OH）
+            </div>
+            <div class="key-point">
+                <strong>💡 乙醇的化学性质：</strong>
+                <ul>
+                    <li>与活泼金属反应：<br/>
+                    $2C_2H_5OH + 2Na → 2C_2H_5ONa + H_2↑$</li>
+                    <li>氧化反应：<br/>
+                    燃烧：$C_2H_5OH + 3O_2 \stackrel{点燃}{\longrightarrow} 2CO_2 + 3H_2O$<br/>
+                    催化氧化：$2C_2H_5OH + O_2 \stackrel{Cu/Ag,\Delta}{\longrightarrow} 2CH_3CHO + 2H_2O$<br/>
+                    使酸性KMnO₄溶液褪色</li>
+                    <li>消去反应：<br/>
+                    $C_2H_5OH \stackrel{浓H_2SO_4,170℃}{\longrightarrow} CH_2=CH_2↑ + H_2O$</li>
+                    <li>酯化反应（见羧酸部分）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2.3 酚</h3>
+            <div class="structure-box">
+                <strong>🔸 官能团：</strong>-OH（直接连在苯环上）<br/>
+                <strong>🔸 代表物：</strong>苯酚（C₆H₅OH）
+            </div>
+            <div class="key-point">
+                <strong>💡 苯酚的性质：</strong><br/>
+                <strong>物理性质：</strong>无色晶体，有特殊气味，常温下微溶于水，温度高于65℃时与水互溶，有毒，有腐蚀性<br/><br/>
+                <strong>化学性质：</strong>
+                <ul>
+                    <li>弱酸性（俗称石炭酸）：<br/>
+                    $C_6H_5OH + NaOH → C_6H_5ONa + H_2O$<br/>
+                    酸性：H₂CO₃ &gt; C₆H₅OH &gt; HCO₃⁻</li>
+                    <li>取代反应（与浓溴水）：<br/>
+                    生成2,4,6-三溴苯酚白色沉淀（用于苯酚的定性检验和定量测定）</li>
+                    <li>显色反应：与FeCl₃溶液显紫色（用于检验酚羟基）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2.4 醛</h3>
+            <div class="structure-box">
+                <strong>🔸 官能团：</strong>-CHO（醛基）<br/>
+                <strong>🔸 代表物：</strong>乙醛（CH₃CHO）
+            </div>
+            <div class="key-point">
+                <strong>💡 乙醛的化学性质：</strong>
+                <ul>
+                    <li>氧化反应：<br/>
+                    银镜反应：$CH_3CHO + 2Ag(NH_3)_2OH \stackrel{\Delta}{\longrightarrow} CH_3COONH_4 + 2Ag↓ + 3NH_3 + H_2O$<br/>
+                    与新制Cu(OH)₂：$CH_3CHO + 2Cu(OH)_2 + NaOH \stackrel{\Delta}{\longrightarrow} CH_3COONa + Cu_2O↓ + 3H_2O$<br/>
+                    催化氧化：$2CH_3CHO + O_2 \stackrel{催化剂,\Delta}{\longrightarrow} 2CH_3COOH$</li>
+                    <li>还原反应（加成反应）：<br/>
+                    $CH_3CHO + H_2 \stackrel{Ni,\Delta}{\longrightarrow} CH_3CH_2OH$</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2.5 羧酸</h3>
+            <div class="structure-box">
+                <strong>🔸 官能团：</strong>-COOH（羧基）<br/>
+                <strong>🔸 代表物：</strong>乙酸（CH₃COOH）
+            </div>
+            <div class="key-point">
+                <strong>💡 乙酸的化学性质：</strong>
+                <ul>
+                    <li>酸性：弱酸，但比碳酸强<br/>
+                    $2CH_3COOH + Na_2CO_3 → 2CH_3COONa + H_2O + CO_2↑$</li>
+                    <li>酯化反应：<br/>
+                    $CH_3COOH + C_2H_5OH \underset{\Delta}{\stackrel{浓H_2SO_4}{\rightleftharpoons}} CH_3COOC_2H_5 + H_2O$</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <strong>⚠️ 酯化反应要点：</strong>
+                <ul>
+                    <li>酸脱羟基，醇脱氢</li>
+                    <li>浓H₂SO₄作催化剂和吸水剂</li>
+                    <li>可逆反应，加热使平衡正向移动</li>
+                    <li>饱和Na₂CO₃溶液作用：吸收乙醇、中和乙酸、降低酯的溶解度</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2.6 酯</h3>
+            <div class="structure-box">
+                <strong>🔸 官能团：</strong>-COO-（酯基）<br/>
+                <strong>🔸 代表物：</strong>乙酸乙酯（CH₃COOCH₂CH₃）
+            </div>
+            <div class="key-point">
+                <strong>💡 酯的性质：</strong><br/>
+                <strong>物理性质：</strong>低级酯有芳香气味，密度一般比水小，难溶于水<br/><br/>
+                <strong>化学性质（水解反应）：</strong>
+                <ul>
+                    <li>酸性条件下水解（可逆）：<br/>
+                    $CH_3COOC_2H_5 + H_2O \underset{\Delta}{\stackrel{稀H_2SO_4}{\rightleftharpoons}} CH_3COOH + C_2H_5OH$</li>
+                    <li>碱性条件下水解（皂化反应，不可逆）：<br/>
+                    $CH_3COOC_2H_5 + NaOH \stackrel{\Delta}{\longrightarrow} CH_3COONa + C_2H_5OH$</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>第三章 有机反应类型总结</h2>
+
+        <div class="section">
+            <h3>3.1 基本反应类型</h3>
+            <table>
+                <tr>
+                    <th>反应类型</th>
+                    <th>定义</th>
+                    <th>特点</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>取代反应</td>
+                    <td>有机物分子里的某些原子或原子团被其他原子或原子团所替代的反应</td>
+                    <td>有进有出</td>
+                    <td>烷烃卤代、苯的硝化、酯化、水解</td>
+                </tr>
+                <tr>
+                    <td>加成反应</td>
+                    <td>有机物分子中不饱和键两端的原子与其他原子或原子团直接结合生成新化合物的反应</td>
+                    <td>只进不出</td>
+                    <td>烯烃与H₂、Br₂、HCl、H₂O加成</td>
+                </tr>
+                <tr>
+                    <td>消去反应</td>
+                    <td>有机化合物在一定条件下，从一个分子中脱去一个或几个小分子（如H₂O、HX等），而生成含不饱和键化合物的反应</td>
+                    <td>只出不进</td>
+                    <td>醇消去、卤代烃消去</td>
+                </tr>
+                <tr>
+                    <td>氧化反应</td>
+                    <td>有机物分子中加氧或去氢的反应</td>
+                    <td>-</td>
+                    <td>燃烧、催化氧化、使KMnO₄褪色</td>
+                </tr>
+                <tr>
+                    <td>还原反应</td>
+                    <td>有机物分子中加氢或去氧的反应</td>
+                    <td>-</td>
+                    <td>醛与H₂加成、硝基苯还原</td>
+                </tr>
+                <tr>
+                    <td>加聚反应</td>
+                    <td>由不饱和的单体聚合生成高分子化合物的反应</td>
+                    <td>无小分子生成</td>
+                    <td>乙烯加聚、丙烯加聚</td>
+                </tr>
+                <tr>
+                    <td>缩聚反应</td>
+                    <td>单体间相互反应生成高分子，同时还生成小分子（如H₂O、HX等）的反应</td>
+                    <td>有小分子生成</td>
+                    <td>酯化缩聚、氨基酸缩聚</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>第四章 同分异构体</h2>
+
+        <div class="section">
+            <h3>4.1 同分异构体的类型</h3>
+            <div class="key-point">
+                <strong>💡 同分异构体：</strong>分子式相同，结构不同的化合物。
+            </div>
+            <table>
+                <tr>
+                    <th>异构类型</th>
+                    <th>形成原因</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>碳链异构</td>
+                    <td>碳骨架不同</td>
+                    <td>正丁烷与异丁烷</td>
+                </tr>
+                <tr>
+                    <td>位置异构</td>
+                    <td>官能团位置不同</td>
+                    <td>1-丙醇与2-丙醇</td>
+                </tr>
+                <tr>
+                    <td>官能团异构</td>
+                    <td>官能团不同</td>
+                    <td>乙醇（醇）与二甲醚（醚）</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>4.2 同分异构体书写技巧</h3>
+            <div class="key-point">
+                <strong>💡 烷烃同分异构体书写（减碳法）：</strong>
+                <ol>
+                    <li>写出最长碳链</li>
+                    <li>减少一个碳原子作甲基，移动位置</li>
+                    <li>减少两个碳原子作乙基或两个甲基，移动位置</li>
+                    <li>检查是否有重复</li>
+                </ol>
+            </div>
+            <div class="example">
+                <strong>📝 己烷（C₆H₁₄）的同分异构体：</strong><br/>
+                1. 直链：CH₃CH₂CH₂CH₂CH₂CH₃（正己烷）<br/>
+                2. 一个甲基：2-甲基戊烷、3-甲基戊烷<br/>
+                3. 两个甲基：2,2-二甲基丁烷、2,3-二甲基丁烷<br/>
+                共5种
+            </div>
+        </div>
+
+        <h2>第五章 有机化学拓展（整合补充）</h2>
+
+        <div class="section">
+            <h3>5.1 系统命名法详解</h3>
+            <div class="key-point">
+                <strong>💡 系统命名法步骤：</strong>
+                <ol>
+                    <li><strong>选主链：</strong>含官能团的最长碳链（官能团优先：-COOH &gt; -CHO &gt; -OH &gt; -NH₂ &gt; C=C &gt; C≡C &gt; 苯环 &gt; 支链）</li>
+                    <li><strong>编号：</strong>从离官能团最近的一端开始，使官能团位次最小；若官能团在中间，使取代基位次之和最小</li>
+                    <li><strong>写名称：</strong>取代基位置-取代基名称-母体名称（官能团位置-母体）</li>
+                </ol>
+                <p><strong>注意：</strong>官能团位次为1时可省略；取代基按次序规则排列（甲基&lt;乙基&lt;丙基...）</p>
+            </div>
+            <div class="formula-box">
+                <strong>结构表示方法：</strong><br/>
+                分子式：C₂H₆O（仅表示原子种类和数目）<br/>
+                结构式：画出所有化学键<br/>
+                结构简式：CH₃CH₂OH（合并相同原子团）<br/>
+                键线式：拐点或端点为碳，省略氢，官能团保留（如：OH、CHO、COOH）
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.2 同分异构体类型详解</h3>
+            <table>
+                <tr>
+                    <th>异构类型</th>
+                    <th>定义/特点</th>
+                    <th>典型实例</th>
+                </tr>
+                <tr>
+                    <td>碳链异构</td>
+                    <td>碳骨架不同</td>
+                    <td>正丁烷与异丁烷</td>
+                </tr>
+                <tr>
+                    <td>位置异构</td>
+                    <td>官能团位置不同</td>
+                    <td>1-丙醇与2-丙醇；邻、间、对二甲苯</td>
+                </tr>
+                <tr>
+                    <td>官能团异构</td>
+                    <td>官能团不同，分子式相同</td>
+                    <td>CₙH₂ₙ：烯烃与环烷烃；CₙH₂ₙ₊₂O：醇与醚；CₙH₂ₙO：醛、酮、烯醇</td>
+                </tr>
+                <tr>
+                    <td>立体异构</td>
+                    <td>顺反异构、对映异构</td>
+                    <td>顺-2-丁烯与反-2-丁烯；手性碳化合物</td>
+                </tr>
+            </table>
+            <div class="warning">
+                <strong>⚠️ 同分异构体书写技巧（减碳法）：</strong>
+                <p>以C₆H₁₄（己烷）为例：</p>
+                <ol>
+                    <li>直链：CH₃CH₂CH₂CH₂CH₂CH₃</li>
+                    <li>减一个碳作甲基：主链5碳，甲基可在2位或3位 → 2-甲基戊烷、3-甲基戊烷</li>
+                    <li>减两个碳作乙基或两个甲基：主链4碳，两个甲基可在2,2位或2,3位</li>
+                </ol>
+                <p><strong>记忆：</strong>C₁-C₁₀烷烃同分异构体数：1,1,1,2,3,5,9,18,35,75</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.3 有机反应类型总结（完整版）</h3>
+            <table>
+                <tr>
+                    <th>反应类型</th>
+                    <th>定义/特点</th>
+                    <th>典型实例</th>
+                </tr>
+                <tr>
+                    <td>取代反应</td>
+                    <td>有机物分子中某些原子或原子团被其他原子或原子团替代</td>
+                    <td>烷烃卤代、苯的卤代/硝化/磺化、醇与HX、酯化、水解</td>
+                </tr>
+                <tr>
+                    <td>加成反应</td>
+                    <td>不饱和键两端的原子直接结合其他原子或原子团</td>
+                    <td>C=C、C≡C与H₂、X₂、HX、H₂O；苯环加氢；C=O加氢</td>
+                </tr>
+                <tr>
+                    <td>消去反应</td>
+                    <td>从分子中脱去小分子（H₂O、HX等）形成不饱和键</td>
+                    <td>醇分子内脱水（浓H₂SO₄/170℃）；卤代烃脱HX（NaOH/醇/△）</td>
+                </tr>
+                <tr>
+                    <td>氧化反应</td>
+                    <td>加氧或去氢（有机化学定义）</td>
+                    <td>燃烧、催化氧化（醇→醛）、KMnO₄氧化、银镜反应</td>
+                </tr>
+                <tr>
+                    <td>还原反应</td>
+                    <td>加氢或去氧</td>
+                    <td>C=C、C≡C、C=O、NO₂与H₂加成（催化氢化）</td>
+                </tr>
+                <tr>
+                    <td>聚合反应</td>
+                    <td>小分子生成高分子</td>
+                    <td>加聚（C=C打开）；缩聚（生成高分子的同时脱去小分子）</td>
+                </tr>
+                <tr>
+                    <td>显色反应</td>
+                    <td>特征颜色变化</td>
+                    <td>苯酚+FeCl₃→紫色；淀粉+I₂→蓝色；蛋白质+浓HNO₃→黄色</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>5.4 烯烃加成规律</h3>
+            <div class="key-point">
+                <strong>💡 马氏规则与反马氏：</strong>
+                <ul>
+                    <li><strong>马氏规则：</strong>不对称烯烃与HX加成，H加在含H较多的C上（如：丙烯+HBr → 2-溴丙烷）</li>
+                    <li><strong>反马氏规则：</strong>在过氧化物存在下，HBr与不对称烯烃加成，Br加在含H较多的C上（自由基机理）</li>
+                    <li><strong>硼氢化-氧化：</strong>反马氏加水，生成伯醇（如：R-CH=CH₂ → R-CH₂-CH₂OH）</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 二烯烃（共轭二烯）：</strong>
+                <p>1,3-丁二烯：CH₂=CH-CH=CH₂，可发生1,2-加成和1,4-加成</p>
+                <ul>
+                    <li>1,2-加成：Br₂加在C1、C2上（低温有利）</li>
+                    <li>1,4-加成：Br₂加在C1、C4上，C2、C3形成双键（高温有利）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.5 苯的同系物特性</h3>
+            <div class="key-point">
+                <strong>💡 取代基定位效应：</strong>
+                <ul>
+                    <li><strong>邻对位定位基（活化苯环）：</strong>-CH₃、-OH、-NH₂、-X（卤素弱钝化但邻对位）→ 新取代基进入邻对位</li>
+                    <li><strong>间位定位基（钝化苯环）：</strong>-NO₂、-CHO、-COOH、-SO₃H → 新取代基进入间位</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 侧链氧化：</strong>与苯环直接相连的C上有H时，可被KMnO₄氧化为-COOH（不论侧链多长，都变成苯甲酸）
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.6 醇的消去与催化氧化规律</h3>
+            <table>
+                <tr>
+                    <th>醇的结构</th>
+                    <th>消去反应</th>
+                    <th>催化氧化产物</th>
+                </tr>
+                <tr>
+                    <td>R-CH₂-OH（伯醇）</td>
+                    <td>能（邻位有H）</td>
+                    <td>R-CHO（醛）</td>
+                </tr>
+                <tr>
+                    <td>R₁-CH(R₂)-OH（仲醇）</td>
+                    <td>能（邻位有H）</td>
+                    <td>R₁-CO-R₂（酮）</td>
+                </tr>
+                <tr>
+                    <td>R₁-C(R₂)(R₃)-OH（叔醇）</td>
+                    <td>能（邻位有H）</td>
+                    <td>不能氧化（无α-H）</td>
+                </tr>
+                <tr>
+                    <td>CH₃OH（甲醇）</td>
+                    <td>不能（无邻位C）</td>
+                    <td>HCHO（甲醛）</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>5.7 酚的特殊反应</h3>
+            <div class="key-point">
+                <strong>💡 苯酚的酸性：</strong>C₆H₅OH ⇌ C₆H₅O⁻ + H⁺（酸性：H₂CO₃ &gt; C₆H₅OH &gt; HCO₃⁻）
+                <ul>
+                    <li>与Na反应生成C₆H₅ONa + H₂</li>
+                    <li>与NaOH反应生成C₆H₅ONa + H₂O</li>
+                    <li>与Na₂CO₃反应生成C₆H₅ONa + NaHCO₃（不能生成CO₂）</li>
+                    <li>通入CO₂：C₆H₅ONa + CO₂ + H₂O → C₆H₅OH↓ + NaHCO₃（无论CO₂过量与否都生成NaHCO₃）</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 酚的取代反应（邻对位）：</strong>与浓溴水生成2,4,6-三溴苯酚（白色沉淀，用于定性检验）
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.8 银镜反应实验要点</h3>
+            <div class="example">
+                <strong>【实验步骤与注意事项】</strong>
+                <ol>
+                    <li>银氨溶液配制：向AgNO₃溶液中滴加稀氨水，至沉淀恰好溶解<br/>
+                    Ag⁺ + NH₃·H₂O = AgOH↓ + NH₄⁺<br/>
+                    AgOH + 2NH₃·H₂O = [Ag(NH₃)₂]⁺ + OH⁻ + 2H₂O</li>
+                    <li>反应条件：水浴加热（60-70℃），不能直接加热（会生成黑色Ag₂O沉淀）</li>
+                    <li>试管要求：洁净（可用热NaOH洗），否则银镜不均匀</li>
+                    <li>反应后试管洗涤：用稀HNO₃（Ag溶于HNO₃）</li>
+                    <li>甲醛的特殊性：HCHO + 4[Ag(NH₃)₂]OH → (NH₄)₂CO₃ + 4Ag↓ + 6NH₃ + 2H₂O（1mol醛基生成4mol Ag）</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.9 卤代烃在合成中的桥梁作用</h3>
+            <div class="key-point">
+                <strong>💡 卤代烃是引入官能团的重要中间体：</strong>
+                <ul>
+                    <li>引入-OH：卤代烃水解</li>
+                    <li>引入C=C：卤代烃消去</li>
+                    <li>增长碳链：与Na反应或格氏试剂反应</li>
+                    <li>引入-CN：与NaCN取代，再水解得-COOH</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>第六章 有机推断技巧</h2>
+
+        <div class="section">
+            <h3>6.1 有机推断的突破口</h3>
+            <div class="key-point">
+                <strong>💡 特征反应条件：</strong>
+                <ul>
+                    <li>光照：烷烃卤代</li>
+                    <li>Ni/△、H₂：加成反应（还原反应）</li>
+                    <li>浓H₂SO₄/△：酯化、消去、硝化</li>
+                    <li>NaOH水溶液/△：卤代烃水解、酯水解</li>
+                    <li>NaOH醇溶液/△：卤代烃消去</li>
+                    <li>Cu/Ag、△：醇的催化氧化</li>
+                    <li>银氨溶液/△：醛基的氧化</li>
+                    <li>新制Cu(OH)₂/△：醛基的氧化</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 特征现象：</strong>
+                <ul>
+                    <li>使溴水褪色：含碳碳双键、三键或醛基</li>
+                    <li>使酸性KMnO₄褪色：含碳碳双键、三键、醛基或苯的同系物</li>
+                    <li>银镜反应：含醛基</li>
+                    <li>与FeCl₃显紫色：含酚羟基</li>
+                    <li>与浓溴水产生白色沉淀：含酚羟基</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>4.2 同分异构体书写技巧</h3>
+            <div class="key-point">
+                <strong>💡 书写顺序：</strong>
+                <ol>
+                    <li>碳链异构：主链由长到短，支链由整到散</li>
+                    <li>位置异构：官能团位置依次移动</li>
+                    <li>官能团异构：考虑不同类别物质</li>
+                </ol>
+            </div>
+            <div class="example">
+                <strong>📝 C₄H₈O的同分异构体（醛和酮）：</strong><br/><br/>
+                醛类：CH₃CH₂CH₂CHO（丁醛）、(CH₃)₂CHCHO（异丁醛）<br/><br/>
+                酮类：CH₃COCH₂CH₃（丁酮）
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>4.3 常见官能团异构关系</h3>
+            <table>
+                <tr>
+                    <th>分子式通式</th>
+                    <th>可能的官能团异构</th>
+                </tr>
+                <tr>
+                    <td>CₙH₂ₙ</td>
+                    <td>烯烃、环烷烃</td>
+                </tr>
+                <tr>
+                    <td>CₙH₂ₙ₋₂</td>
+                    <td>炔烃、二烯烃、环烯烃</td>
+                </tr>
+                <tr>
+                    <td>CₙH₂ₙ₊₂O</td>
+                    <td>醇、醚</td>
+                </tr>
+                <tr>
+                    <td>CₙH₂ₙO</td>
+                    <td>醛、酮、烯醇、环醇、环醚</td>
+                </tr>
+                <tr>
+                    <td>CₙH₂ₙO₂</td>
+                    <td>羧酸、酯、羟基醛、羟基酮</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>第五章 有机推断与合成</h2>
+
+        <div class="section">
+            <h3>5.1 有机推断突破口</h3>
+            <div class="key-point">
+                <strong>💡 特征反应条件：</strong>
+                <ul>
+                    <li>光照：烷烃卤代</li>
+                    <li>Ni/△、H₂：加成反应（烯、炔、醛、酮、苯环）</li>
+                    <li>浓H₂SO₄/△：酯化、醇消去、硝化</li>
+                    <li>NaOH/H₂O/△：卤代烃水解、酯水解</li>
+                    <li>NaOH/醇/△：卤代烃消去</li>
+                    <li>Cu/Ag/△：醇催化氧化</li>
+                    <li>银氨溶液/△：醛氧化</li>
+                    <li>新制Cu(OH)₂/△：醛氧化</li>
+                </ul>
+            </div>
+            <div class="key-point">
+                <strong>💡 特征现象：</strong>
+                <ul>
+                    <li>使溴水褪色：烯烃、炔烃、醛、酚</li>
+                    <li>使酸性KMnO₄褪色：烯、炔、醇、醛、苯的同系物</li>
+                    <li>银镜反应：含醛基（-CHO）</li>
+                    <li>砖红色沉淀：含醛基（与新制Cu(OH)₂）</li>
+                    <li>显色反应（FeCl₃紫色）：含酚羟基</li>
+                    <li>白色沉淀（溴水）：含酚羟基</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.2 有机合成路线设计</h3>
+            <div class="key-point">
+                <strong>💡 合成原则：</strong>
+                <ol>
+                    <li>原料易得、成本低廉</li>
+                    <li>步骤简单、副反应少</li>
+                    <li>产物易分离、纯度高</li>
+                    <li>原子利用率高、绿色环保</li>
+                </ol>
+            </div>
+            <div class="example">
+                <strong>📝 由乙烯合成乙酸乙酯：</strong><br/><br/>
+                CH₂=CH₂ + H₂O →[催化剂] CH₃CH₂OH<br/>
+                2CH₃CH₂OH + O₂ →[Cu/△] 2CH₃CHO + 2H₂O<br/>
+                2CH₃CHO + O₂ →[催化剂] 2CH₃COOH<br/>
+                CH₃COOH + CH₃CH₂OH ⇌[浓H₂SO₄/△] CH₃COOCH₂CH₃ + H₂O
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>5.3 有机计算</h3>
+            <div class="formula-box">
+                <strong>燃烧通式：</strong><br/>
+                CₓHᵧ + (x + y/4)O₂ → xCO₂ + (y/2)H₂O<br/>
+                CₓHᵧO₂ + (x + y/4 - z/2)O₂ → xCO₂ + (y/2)H₂O
+            </div>
+            <div class="key-point">
+                <strong>💡 重要规律：</strong>
+                <ul>
+                    <li>等物质的量有机物燃烧，耗氧量看(x + y/4 - z/2)</li>
+                    <li>等质量烃燃烧，含氢量越高，耗氧量越多</li>
+                    <li>最简式相同的有机物，等质量燃烧产物相同</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 有机化学结构示意图 -->
+        <div class="module-box">
+            <div class="module-title">🎨 有机分子结构与反应示意图</div>
+            
+            <div class="section">
+                <h3>常见官能团结构示意图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                    <!-- 烷烃 -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <svg width="120" height="100" style="background: white; border-radius: 4px;">
+                            <text x="60" y="20" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">甲烷 (CH₄)</text>
+                            <!-- 碳原子 -->
+                            <circle cx="60" cy="55" r="12" fill="#333"/>
+                            <text x="60" y="59" font-size="10" fill="#fff" text-anchor="middle">C</text>
+                            <!-- 氢原子 -->
+                            <circle cx="60" cy="30" r="8" fill="#e74c3c"/>
+                            <text x="60" y="33" font-size="8" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="85" cy="55" r="8" fill="#e74c3c"/>
+                            <text x="85" y="58" font-size="8" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="60" cy="80" r="8" fill="#e74c3c"/>
+                            <text x="60" y="83" font-size="8" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="35" cy="55" r="8" fill="#e74c3c"/>
+                            <text x="35" y="58" font-size="8" fill="#fff" text-anchor="middle">H</text>
+                            <!-- 键 -->
+                            <line x1="60" y1="43" x2="60" y2="38" stroke="#333" stroke-width="2"/>
+                            <line x1="72" y1="55" x2="77" y2="55" stroke="#333" stroke-width="2"/>
+                            <line x1="60" y1="67" x2="60" y2="72" stroke="#333" stroke-width="2"/>
+                            <line x1="48" y1="55" x2="43" y2="55" stroke="#333" stroke-width="2"/>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 5px;">正四面体结构</p>
+                    </div>
+                    
+                    <!-- 乙烯 -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <svg width="140" height="100" style="background: white; border-radius: 4px;">
+                            <text x="70" y="20" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">乙烯 (C₂H₄)</text>
+                            <!-- 双键 -->
+                            <line x1="55" y1="55" x2="85" y2="55" stroke="#333" stroke-width="3"/>
+                            <line x1="55" y1="50" x2="85" y2="50" stroke="#333" stroke-width="2"/>
+                            <!-- 碳原子 -->
+                            <circle cx="55" cy="52" r="10" fill="#333"/>
+                            <text x="55" y="55" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <circle cx="85" cy="52" r="10" fill="#333"/>
+                            <text x="85" y="55" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <!-- 氢原子 -->
+                            <circle cx="35" cy="35" r="7" fill="#e74c3c"/>
+                            <text x="35" y="38" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="35" cy="70" r="7" fill="#e74c3c"/>
+                            <text x="35" y="73" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="105" cy="35" r="7" fill="#e74c3c"/>
+                            <text x="105" y="38" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="105" cy="70" r="7" fill="#e74c3c"/>
+                            <text x="105" y="73" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <!-- 键 -->
+                            <line x1="48" y1="45" x2="40" y2="40" stroke="#333" stroke-width="2"/>
+                            <line x1="48" y1="60" x2="40" y2="65" stroke="#333" stroke-width="2"/>
+                            <line x1="92" y1="45" x2="100" y2="40" stroke="#333" stroke-width="2"/>
+                            <line x1="92" y1="60" x2="100" y2="65" stroke="#333" stroke-width="2"/>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 5px;">平面结构，双键</p>
+                    </div>
+                    
+                    <!-- 乙炔 -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <svg width="140" height="100" style="background: white; border-radius: 4px;">
+                            <text x="70" y="20" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">乙炔 (C₂H₂)</text>
+                            <!-- 三键 -->
+                            <line x1="55" y1="55" x2="85" y2="55" stroke="#333" stroke-width="4"/>
+                            <line x1="55" y1="48" x2="85" y2="48" stroke="#333" stroke-width="2"/>
+                            <line x1="55" y1="62" x2="85" y2="62" stroke="#333" stroke-width="2"/>
+                            <!-- 碳原子 -->
+                            <circle cx="55" cy="55" r="10" fill="#333"/>
+                            <text x="55" y="58" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <circle cx="85" cy="55" r="10" fill="#333"/>
+                            <text x="85" y="58" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <!-- 氢原子 -->
+                            <circle cx="30" cy="55" r="7" fill="#e74c3c"/>
+                            <text x="30" y="58" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="110" cy="55" r="7" fill="#e74c3c"/>
+                            <text x="110" y="58" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <!-- 键 -->
+                            <line x1="45" y1="55" x2="37" y2="55" stroke="#333" stroke-width="2"/>
+                            <line x1="95" y1="55" x2="103" y2="55" stroke="#333" stroke-width="2"/>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 5px;">直线结构，三键</p>
+                    </div>
+                    
+                    <!-- 苯 -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <svg width="120" height="110" style="background: white; border-radius: 4px;">
+                            <text x="60" y="20" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">苯 (C₆H₆)</text>
+                            <!-- 六边形 -->
+                            <polygon points="60,35 85,50 85,80 60,95 35,80 35,50" fill="none" stroke="#333" stroke-width="2"/>
+                            <!-- 大π键 -->
+                            <circle cx="60" cy="65" r="18" fill="none" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <!-- 氢原子 -->
+                            <circle cx="60" cy="22" r="6" fill="#3498db"/>
+                            <text x="60" y="25" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="95" cy="40" r="6" fill="#3498db"/>
+                            <text x="95" y="43" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="95" cy="90" r="6" fill="#3498db"/>
+                            <text x="95" y="93" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="60" cy="108" r="6" fill="#3498db"/>
+                            <text x="60" y="111" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="25" cy="90" r="6" fill="#3498db"/>
+                            <text x="25" y="93" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="25" cy="40" r="6" fill="#3498db"/>
+                            <text x="25" y="43" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 5px;">平面正六边形，大π键</p>
+                    </div>
+                    
+                    <!-- 乙醇 -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <svg width="160" height="100" style="background: white; border-radius: 4px;">
+                            <text x="80" y="20" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">乙醇 (C₂H₅OH)</text>
+                            <!-- 碳链 -->
+                            <line x1="40" y1="55" x2="70" y2="55" stroke="#333" stroke-width="3"/>
+                            <line x1="70" y1="55" x2="100" y2="55" stroke="#333" stroke-width="2"/>
+                            <!-- 碳原子 -->
+                            <circle cx="40" cy="55" r="10" fill="#333"/>
+                            <text x="40" y="58" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <circle cx="70" cy="55" r="10" fill="#333"/>
+                            <text x="70" y="58" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <!-- 氧原子 -->
+                            <circle cx="100" cy="55" r="10" fill="#e74c3c"/>
+                            <text x="100" y="58" font-size="9" fill="#fff" text-anchor="middle">O</text>
+                            <!-- 氢原子 -->
+                            <circle cx="25" cy="40" r="6" fill="#3498db"/>
+                            <text x="25" y="43" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="25" cy="70" r="6" fill="#3498db"/>
+                            <text x="25" y="73" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="55" cy="35" r="6" fill="#3498db"/>
+                            <text x="55" y="38" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="85" cy="35" r="6" fill="#3498db"/>
+                            <text x="85" y="38" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="115" cy="40" r="6" fill="#3498db"/>
+                            <text x="115" y="43" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="130" cy="55" r="6" fill="#3498db"/>
+                            <text x="130" y="58" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <!-- 键 -->
+                            <line x1="32" y1="48" x2="28" y2="44" stroke="#333" stroke-width="1.5"/>
+                            <line x1="32" y1="62" x2="28" y2="66" stroke="#333" stroke-width="1.5"/>
+                            <line x1="48" y1="48" x2="52" y2="40" stroke="#333" stroke-width="1.5"/>
+                            <line x1="78" y1="48" x2="82" y2="40" stroke="#333" stroke-width="1.5"/>
+                            <line x1="108" y1="50" x2="112" y2="44" stroke="#333" stroke-width="1.5"/>
+                            <line x1="110" y1="55" x2="124" y2="55" stroke="#333" stroke-width="1.5"/>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 5px;">含羟基(-OH)</p>
+                    </div>
+                    
+                    <!-- 乙酸 -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <svg width="160" height="100" style="background: white; border-radius: 4px;">
+                            <text x="80" y="20" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">乙酸 (CH₃COOH)</text>
+                            <!-- 碳链 -->
+                            <line x1="40" y1="55" x2="70" y2="55" stroke="#333" stroke-width="3"/>
+                            <!-- 双键氧 -->
+                            <line x1="70" y1="55" x2="85" y2="35" stroke="#333" stroke-width="3"/>
+                            <circle cx="90" cy="28" r="9" fill="#e74c3c"/>
+                            <text x="90" y="31" font-size="8" fill="#fff" text-anchor="middle">O</text>
+                            <!-- 单键氧 -->
+                            <line x1="70" y1="55" x2="100" y2="55" stroke="#333" stroke-width="2"/>
+                            <circle cx="110" cy="55" r="9" fill="#e74c3c"/>
+                            <text x="110" y="58" font-size="8" fill="#fff" text-anchor="middle">O</text>
+                            <!-- 氢 -->
+                            <line x1="110" y1="55" x2="125" y2="55" stroke="#333" stroke-width="2"/>
+                            <circle cx="132" cy="55" r="6" fill="#3498db"/>
+                            <text x="132" y="58" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <!-- 碳原子 -->
+                            <circle cx="40" cy="55" r="10" fill="#333"/>
+                            <text x="40" y="58" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <circle cx="70" cy="55" r="10" fill="#333"/>
+                            <text x="70" y="58" font-size="9" fill="#fff" text-anchor="middle">C</text>
+                            <!-- 甲基氢 -->
+                            <circle cx="25" cy="40" r="6" fill="#3498db"/>
+                            <text x="25" y="43" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="25" cy="70" r="6" fill="#3498db"/>
+                            <text x="25" y="73" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                            <circle cx="40" cy="30" r="6" fill="#3498db"/>
+                            <text x="40" y="33" font-size="7" fill="#fff" text-anchor="middle">H</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 5px;">含羧基(-COOH)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>有机反应类型示意图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 取代反应 -->
+                    <div style="text-align: center; flex: 1; min-width: 280px; max-width: 350px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e74c3c; margin-bottom: 10px;">取代反应</h4>
+                        <svg width="300" height="80" style="background: white; border-radius: 4px;">
+                            <!-- 反应物 -->
+                            <text x="40" y="30" font-size="14" fill="#333">R-X</text>
+                            <text x="100" y="30" font-size="14" fill="#333">+</text>
+                            <text x="140" y="30" font-size="14" fill="#333">Y⁻</text>
+                            <!-- 箭头 -->
+                            <path d="M 180 40 L 230 40" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowOrg)"/>
+                            <!-- 产物 -->
+                            <text x="270" y="30" font-size="14" fill="#333">R-Y</text>
+                            <text x="40" y="65" font-size="14" fill="#333">+</text>
+                            <text x="80" y="65" font-size="14" fill="#333">X⁻</text>
+                            <!-- 说明 -->
+                            <text x="150" y="75" font-size="11" fill="#666" text-anchor="middle">原子或基团被取代</text>
+                            <defs>
+                                <marker id="arrowOrg" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 12px; color: #666; margin-top: 8px;">例：CH₄ + Cl₂ → CH₃Cl + HCl</p>
+                    </div>
+                    
+                    <!-- 加成反应 -->
+                    <div style="text-align: center; flex: 1; min-width: 280px; max-width: 350px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #3498db; margin-bottom: 10px;">加成反应</h4>
+                        <svg width="300" height="80" style="background: white; border-radius: 4px;">
+                            <!-- 反应物 -->
+                            <text x="30" y="35" font-size="14" fill="#333">C=C</text>
+                            <text x="90" y="35" font-size="14" fill="#333">+</text>
+                            <text x="130" y="35" font-size="14" fill="#333">A-B</text>
+                            <!-- 箭头 -->
+                            <path d="M 170 40 L 220 40" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowOrg2)"/>
+                            <!-- 产物 -->
+                            <text x="265" y="35" font-size="14" fill="#333">-C-C-</text>
+                            <text x="275" y="55" font-size="12" fill="#333">| |</text>
+                            <text x="275" y="70" font-size="12" fill="#333">A B</text>
+                            <!-- 说明 -->
+                            <text x="150" y="75" font-size="11" fill="#666" text-anchor="middle">双键/三键打开，加上原子</text>
+                            <defs>
+                                <marker id="arrowOrg2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 12px; color: #666; margin-top: 8px;">例：CH₂=CH₂ + H₂ → CH₃CH₃</p>
+                    </div>
+                    
+                    <!-- 消去反应 -->
+                    <div style="text-align: center; flex: 1; min-width: 280px; max-width: 350px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #9b59b6; margin-bottom: 10px;">消去反应</h4>
+                        <svg width="300" height="90" style="background: white; border-radius: 4px;">
+                            <!-- 反应物 -->
+                            <text x="20" y="35" font-size="14" fill="#333">-C-C-</text>
+                            <text x="30" y="55" font-size="12" fill="#333">| |</text>
+                            <text x="30" y="70" font-size="12" fill="#333">H X</text>
+                            <!-- 条件 -->
+                            <text x="80" y="45" font-size="11" fill="#e74c3c">浓H₂SO₄</text>
+                            <text x="80" y="60" font-size="11" fill="#e74c3c">△</text>
+                            <!-- 箭头 -->
+                            <path d="M 130 45 L 170 45" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowOrg3)"/>
+                            <!-- 产物 -->
+                            <text x="220" y="35" font-size="14" fill="#333">C=C</text>
+                            <text x="200" y="65" font-size="14" fill="#333">+ HX</text>
+                            <!-- 说明 -->
+                            <text x="150" y="85" font-size="11" fill="#666" text-anchor="middle">脱去小分子，形成双键</text>
+                            <defs>
+                                <marker id="arrowOrg3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 12px; color: #666; margin-top: 8px;">例：C₂H₅OH → C₂H₄ + H₂O</p>
+                    </div>
+                    
+                    <!-- 氧化反应 -->
+                    <div style="text-align: center; flex: 1; min-width: 280px; max-width: 350px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e67e22; margin-bottom: 10px;">氧化反应</h4>
+                        <svg width="300" height="80" style="background: white; border-radius: 4px;">
+                            <!-- 反应物 -->
+                            <text x="30" y="35" font-size="14" fill="#333">R-CHO</text>
+                            <!-- 箭头 -->
+                            <path d="M 100 40 L 150 40" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowOrg4)"/>
+                            <text x="125" y="30" font-size="10" fill="#e74c3c">[O]</text>
+                            <!-- 产物 -->
+                            <text x="210" y="35" font-size="14" fill="#333">R-COOH</text>
+                            <!-- 说明 -->
+                            <text x="150" y="70" font-size="11" fill="#666" text-anchor="middle">加氧或去氢</text>
+                            <defs>
+                                <marker id="arrowOrg4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 12px; color: #666; margin-top: 8px;">例：2CH₃CHO + O₂ → 2CH₃COOH</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>同分异构体数目规律图</h3>
+                <div style="text-align: center;">
+                    <svg width="600" height="350" style="border: 1px solid #ddd; background: #f8f9fa; border-radius: 8px;">
+                        <text x="300" y="25" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">烷烃同分异构体数目随碳原子数变化</text>
+                        
+                        <!-- 坐标轴 -->
+                        <line x1="60" y1="300" x2="560" y2="300" stroke="#333" stroke-width="2"/>
+                        <line x1="60" y1="300" x2="60" y2="50" stroke="#333" stroke-width="2"/>
+                        <text x="570" y="305" font-size="12" fill="#333">碳原子数n</text>
+                        <text x="40" y="40" font-size="12" fill="#333">同分异构体数</text>
+                        
+                        <!-- 刻度 -->
+                        <text x="100" y="320" font-size="11" fill="#666">1</text>
+                        <text x="160" y="320" font-size="11" fill="#666">2</text>
+                        <text x="220" y="320" font-size="11" fill="#666">3</text>
+                        <text x="280" y="320" font-size="11" fill="#666">4</text>
+                        <text x="340" y="320" font-size="11" fill="#666">5</text>
+                        <text x="400" y="320" font-size="11" fill="#666">6</text>
+                        <text x="460" y="320" font-size="11" fill="#666">7</text>
+                        <text x="520" y="320" font-size="11" fill="#666">8</text>
+                        
+                        <text x="45" y="305" font-size="11" fill="#666">0</text>
+                        <text x="45" y="250" font-size="11" fill="#666">5</text>
+                        <text x="40" y="200" font-size="11" fill="#666">10</text>
+                        <text x="40" y="150" font-size="11" fill="#666">15</text>
+                        
+                        <!-- 柱状图 -->
+                        <rect x="90" y="295" width="20" height="5" fill="#3498db"/>
+                        <text x="100" y="290" font-size="10" fill="#3498db" text-anchor="middle">1</text>
+                        
+                        <rect x="150" y="295" width="20" height="5" fill="#3498db"/>
+                        <text x="160" y="290" font-size="10" fill="#3498db" text-anchor="middle">1</text>
+                        
+                        <rect x="210" y="295" width="20" height="5" fill="#3498db"/>
+                        <text x="220" y="290" font-size="10" fill="#3498db" text-anchor="middle">1</text>
+                        
+                        <rect x="270" y="270" width="20" height="30" fill="#e74c3c"/>
+                        <text x="280" y="265" font-size="10" fill="#e74c3c" text-anchor="middle">2</text>
+                        
+                        <rect x="330" y="240" width="20" height="60" fill="#9b59b6"/>
+                        <text x="340" y="235" font-size="10" fill="#9b59b6" text-anchor="middle">3</text>
+                        
+                        <rect x="390" y="180" width="20" height="120" fill="#f39c12"/>
+                        <text x="400" y="175" font-size="10" fill="#f39c12" text-anchor="middle">5</text>
+                        
+                        <rect x="450" y="120" width="20" height="180" fill="#27ae60"/>
+                        <text x="460" y="115" font-size="10" fill="#27ae60" text-anchor="middle">9</text>
+                        
+                        <rect x="510" y="60" width="20" height="240" fill="#e67e22"/>
+                        <text x="520" y="55" font-size="10" fill="#e67e22" text-anchor="middle">18</text>
+                        
+                        <!-- 说明 -->
+                        <text x="300" y="345" font-size="12" fill="#666" text-anchor="middle">注：n=1,2,3时只有1种结构（甲烷、乙烷、丙烷无同分异构体）</text>
+                    </svg>
+                </div>
+                <div class="key-point">
+                    <strong>💡 记忆技巧：</strong>甲烷到丙烷没有同分异构体，丁烷2种，戊烷3种，己烷5种，庚烷9种，辛烷18种。碳原子数越多，同分异构体数目增长越快。
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="reaction_principles.html">← 上一模块</a>
+            <a href="experiments.html">下一模块：化学实验 →</a>
+        </div>
+
+        <!-- 2025社会热点扩展知识 -->
+        <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-left: 5px solid #9b59b6;">
+            <div class="module-title" style="color: #8e44ad;">🌍 2025社会热点与有机化学前沿</div>
+            
+            <div class="section">
+                <h3 style="color: #8e44ad;">🏆 点击化学与生物正交化学</h3>
+                <p><strong>热点背景：</strong>2022年诺贝尔化学奖授予Carolyn Bertozzi、Morten Meldal和K. Barry Sharpless，表彰他们在点击化学和生物正交化学方面的贡献。2025年这些技术在药物递送和生物成像领域取得重大突破。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>叠氮-炔环加成：</strong>$R-N_3 + R'-C≡CH \stackrel{Cu(I)}{\longrightarrow} R-N_3-C=C-R'$，区域选择性生成1,4-二取代三唑<br/>
+                    • <strong>应变促进反应：</strong>环辛炔（DBCO）无需铜催化，与叠氮快速反应，生物相容性好<br/>
+                    • <strong>生物正交性：</strong>反应在生理条件下进行，不干扰天然生化过程<br/>
+                    • <strong>应用：</strong>抗体药物偶联物（ADC）、活体细胞标记、靶向治疗
+                </div>
+                <div class="formula-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-color: #9b59b6;">
+                    <strong>铜催化叠氮-炔环加成（CuAAC）：</strong><br/>
+                    机理：Cu(I)活化端炔形成铜乙炔化物，与叠氮配位后发生[3+2]环加成<br/>
+                    特点：原子经济性100%，反应条件温和，产物纯化简单
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">🌱 非粮生物质转化</h3>
+                <p><strong>热点背景：</strong>2025年中国科学家实现秸秆、木屑等农林废弃物高效转化为航空煤油和高附加值化学品，不与人争粮、不与粮争地，助力"双碳"目标。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>纤维素结构：</strong>$[C_6H_7O_2(OH)_3]_n$，β-1,4-糖苷键连接葡萄糖单元<br/>
+                    • <strong>水解反应：</strong>酸或酶催化断裂糖苷键，生成葡萄糖 $C_6H_{12}O_6$<br/>
+                    • <strong>脱水反应：</strong>葡萄糖 → 5-羟甲基糠醛（HMF）→ 2,5-呋喃二甲酸（FDCA），聚酯单体<br/>
+                    • <strong>加氢脱氧：</strong>木质素催化加氢制备芳香烃，$Ar-OH + H_2 \rightarrow Ar-H + H_2O$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">💊 GLP-1类减肥药化学</h3>
+                <p><strong>热点背景：</strong>2023-2025年司美格鲁肽（Ozempic/Wegovy）、替尔泊肽等GLP-1受体激动剂引爆全球减肥市场，揭示多肽药物化学修饰的重要性。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>多肽结构：</strong>氨基酸通过肽键（-CO-NH-）连接，司美格鲁肽含31个氨基酸<br/>
+                    • <strong>化学修饰：</strong>第26位赖氨酸连接C18脂肪酸侧链，延长半衰期<br/>
+                    • <strong>保护基策略：</strong>固相合成中Fmoc/tBu保护基选择性脱除<br/>
+                    • <strong>手性控制：</strong>氨基酸均为L-构型，D-构型氨基酸增加酶稳定性
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">🔋 有机液流电池</h3>
+                <p><strong>热点背景：</strong>2025年有机液流电池技术取得突破，使用蒽醌、紫罗碱等有机分子作为活性材料，成本较钒液流电池降低50%，适合大规模储能。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>蒽醌氧化还原：</strong>蒽醌-2,7-二磺酸（AQDS）可逆还原为蒽氢醌，2电子转移<br/>
+                    • <strong>紫罗碱类：</strong>联吡啶盐（$MV^{2+}$）还原为自由基阳离子（$MV^{+•}$），显色反应<br/>
+                    • <strong>电化学窗口：</strong>有机分子氧化还原电位可调，通过取代基修饰实现<br/>
+                    • <strong>溶解度优化：</strong>引入磺酸基、季铵基增加水溶性，提高能量密度
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">🧪 自动化合成与AI辅助</h3>
+                <p><strong>热点背景：</strong>2025年AI驱动的自动化合成平台普及，化学家只需输入目标分子结构，系统自动设计合成路线、优化反应条件、执行实验操作。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>逆合成分析：</strong>从目标分子逆向拆解为简单前体，识别关键断键位置<br/>
+                    • <strong>反应数据库：</strong>数百万反应案例训练机器学习模型，预测反应可行性<br/>
+                    • <strong>选择性预测：</strong>基于分子轨道理论预测区域选择性、立体选择性<br/>
+                    • <strong>流动化学：</strong>自动化微反应器实现连续合成，在线监测（IR、NMR）反馈控制
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">💊 ADC抗体药物偶联物</h3>
+                <p><strong>热点背景：</strong>2025年ADC药物（抗体-药物偶联物）迎来爆发期，通过点击化学将细胞毒素精准递送至肿瘤细胞，实现"魔法子弹"概念，全球市场规模突破百亿美元。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>连接子化学：</strong>可裂解连接子（腙键、二硫键）在肿瘤细胞内释放药物<br/>
+                    • <strong>药物载荷：</strong>美登素、奥瑞他汀等微管抑制剂，IC₅₀达pM级<br/>
+                    • <strong>定点偶联：</strong>工程化半胱氨酸、非天然氨基酸实现均一DAR（药物抗体比）<br/>
+                    • <strong>药代动力学：</strong>抗体部分延长半衰期，EPR效应靶向肿瘤组织
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">🌱 CO₂合成淀粉与蛋白质</h3>
+                <p><strong>热点背景：</strong>2025年中国科学家实现从CO₂人工合成淀粉和蛋白质，合成效率是农业种植的8.5倍，为粮食安全和碳中和提供颠覆性技术路径。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>人工合成淀粉：</strong>$6CO_2 + 11H_2 \rightarrow C_6H_{10}O_5 + 7H_2O$，多酶级联催化<br/>
+                    • <strong>中心碳代谢：</strong>CO₂ → 甲醇 → 甲醛 → 二羟基丙酮 → 葡萄糖-6-磷酸<br/>
+                    • <strong>蛋白质合成：</strong>CO₂ → 乙酸 → 氨基酸 → 蛋白质，氮源来自氨或硝酸盐<br/>
+                    • <strong>能量效率：</strong>光能/电能驱动， circumvent 光合作用光抑制限制
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">🔋 有机电极材料</h3>
+                <p><strong>热点背景：</strong>2025年有机电极材料（羰基化合物、导电聚合物）实现商业化，资源可再生、环境友好，为可持续能源存储提供新方案。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>羰基氧化还原：</strong>$C=O + Li^+ + e^- \rightleftharpoons C-O^-Li^+$，可逆储锂<br/>
+                    • <strong>聚苯胺：</strong>导电聚合物，氧化态（翠绿亚胺盐）与还原态（隐色体）可逆转变<br/>
+                    • <strong>共轭结构：</strong>π电子离域稳定电荷，提高电导率和循环稳定性<br/>
+                    • <strong>结构设计：</strong>引入吸电子基团（-NO₂、-CN）提高氧化还原电位
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #8e44ad;">🧬 基因编辑与核酸化学</h3>
+                <p><strong>热点背景：</strong>2025年CRISPR基因编辑技术获诺贝尔奖后持续突破，碱基编辑、先导编辑实现精准单碱基修改，治疗遗传疾病进入临床试验阶段。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>DNA结构：</strong>双螺旋，A-T（2氢键）、G-C（3氢键）碱基配对<br/>
+                    • <strong>磷酸二酯键：</strong>连接核苷酸，$3'-OH + 5'-磷酸 \rightarrow 磷酸二酯键 + H_2O$<br/>
+                    • <strong>sgRNA设计：</strong>20nt引导序列与靶DNA互补配对，PAM序列识别<br/>
+                    • <strong>脱氨酶：</strong>胞嘧啶脱氨酶（CBE）、腺嘌呤脱氨酶（ABE）实现C→T、A→G转换
+                </div>
+            </div>
+        </div>
+
+        <!-- 2026社会热点扩展知识 -->
+        <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); border-left: 5px solid #27ae60;">
+            <div class="module-title" style="color: #1e8449;">🌍 2026社会热点与有机化学前沿</div>
+            
+            <div class="section">
+                <h3 style="color: #1e8449;">🧬 mRNA疫苗与核酸化学</h3>
+                <p><strong>热点背景：</strong>2026年mRNA疫苗技术获得诺贝尔化学奖延续影响，新一代个性化肿瘤疫苗进入临床试验，可针对患者特定肿瘤突变定制。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>核酸结构：</strong>mRNA由核糖核苷酸通过磷酸二酯键连接，含A、U、G、C四种碱基<br/>
+                    • <strong>修饰核苷：</strong>假尿嘧啶（Ψ）替代尿嘧啶可降低免疫原性，提高稳定性<br/>
+                    • <strong>脂质纳米颗粒（LNP）：</strong>可离子化阳离子脂质包封mRNA，pH响应性释放<br/>
+                    • <strong>有机磷酸酯：</strong>磷酸基团与羟基酯化，$R-O-PO_3^{2-}$ 结构
+                </div>
+                <div class="formula-box" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); border-color: #27ae60;">
+                    <strong>核苷酸结构通式：</strong><br/>
+                    碱基—核糖—磷酸（5'→3'磷酸二酯键连接）<br/>
+                    修饰mRNA：尿嘧啶 → 假尿嘧啶（C5位糖苷键改为C1'-C5连接）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🌱 生物基材料与绿色化学</h3>
+                <p><strong>热点背景：</strong>2026年生物基材料市场规模突破千亿，从玉米、甘蔗等生物质制备的PE、PET实现商业化，碳足迹较石油基降低60%。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>生物乙醇脱水：</strong>$C_2H_5OH \stackrel{催化剂, 高温}{\longrightarrow} CH_2=CH_2↑ + H_2O$，制备乙烯<br/>
+                    • <strong>生物PE合成：</strong>乙烯聚合 $nCH_2=CH_2 \stackrel{引发剂}{\longrightarrow} [CH_2-CH_2]_n$<br/>
+                    • <strong>对苯二甲酸：</strong>生物基PX（对二甲苯）氧化制备，$CH_3-C_6H_4-CH_3 \rightarrow HOOC-C_6H_4-COOH$<br/>
+                    • <strong>原子经济性：</strong>绿色化学12原则，原子利用率100%的理想反应
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">💊 AI辅助药物设计</h3>
+                <p><strong>热点背景：</strong>2026年AI设计的小分子药物获批上市，研发周期从10年缩短至3年，成功率提高3倍，开启制药新纪元。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>手性药物：</strong>沙利度胺事件警示手性重要性，单一异构体药效和毒性差异巨大<br/>
+                    • <strong>分子对接：</strong>药物分子与靶点蛋白结合，氢键、疏水作用、范德华力<br/>
+                    • <strong>构效关系（SAR）：</strong>官能团修饰影响活性，$logP$（脂水分配系数）优化<br/>
+                    • <strong>杂环化合物：</strong>吡啶、嘧啶、咪唑等杂环是药物骨架的重要组成部分
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🔋 有机太阳能电池</h3>
+                <p><strong>热点背景：</strong>2026年有机太阳能电池效率突破20%，柔性、轻质、可印刷的特性使其在建筑一体化光伏（BIPV）领域大放异彩。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>共轭聚合物：</strong>聚噻吩、聚苯乙烯撑等，π电子离域形成导电通道<br/>
+                    • <strong>富勒烯衍生物：</strong>PC₆₀BM、PC₇₀BM作为电子受体，球形共轭结构<br/>
+                    • <strong>能级匹配：</strong>给体HOMO与受体LUMO能级差决定开路电压 $V_{oc}$<br/>
+                    • <strong>光电转换：</strong>激子产生→扩散→分离→传输，涉及π→π*跃迁
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🧪 流动化学与微反应器</h3>
+                <p><strong>热点背景：</strong>2026年连续流合成技术在制药工业普及，微反应器实现危险反应的安全高效进行，反应时间从小时缩短至秒级。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>反应动力学：</strong>连续流动反应器（CSTR、PFR）停留时间分布 $\tau = V/Q$<br/>
+                    • <strong>硝化反应：</strong>$Ar-H + HNO_3 \stackrel{H_2SO_4}{\longrightarrow} Ar-NO_2 + H_2O$，微反应器提高安全性<br/>
+                    • <strong>传热强化：</strong>微通道比表面积大，传热系数高，温度控制精确<br/>
+                    • <strong>选择性控制：</strong>快速混合避免副反应，提高目标产物选择性
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🌊 海洋塑料降解酶</h3>
+                <p><strong>热点背景：</strong>2026年科学家改造PET水解酶，降解效率提高6倍，可在10小时内将塑料瓶分解为对苯二甲酸和乙二醇，实现塑料循环经济。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>PET结构：</strong>聚对苯二甲酸乙二醇酯，$[OCH_2CH_2OOC-C_6H_4-CO]_n$，酯键连接<br/>
+                    • <strong>酶催化机理：</strong>活性位点丝氨酸亲核进攻羰基碳，形成四面体中间体<br/>
+                    • <strong>酯水解：</strong>$-COO- + H_2O \stackrel{酶}{\longrightarrow} -COOH + -OH$，可逆反应<br/>
+                    • <strong>蛋白质结构：</strong>一级结构（氨基酸序列）决定高级结构和催化活性
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🔬 共价有机框架（COFs）</h3>
+                <p><strong>热点背景：</strong>2026年COFs材料在气体分离、催化、储能领域实现商业化应用，比表面积超5000 m²/g，结构可精确设计，是有机多孔材料的新星。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>构筑单元：</strong>刚性有机分子（硼酸、胺、醛）通过共价键连接<br/>
+                    • <strong>亚胺键形成：</strong>$-CHO + H_2N- \rightarrow -CH=N- + H_2O$，可逆缩合反应<br/>
+                    • <strong>拓扑设计：</strong>二维层状或三维网络结构，孔径精确调控（0.8-5 nm）<br/>
+                    • <strong>应用：</strong>H₂存储、CO₂捕获、质子传导、异相催化
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">💊 PROTAC靶向蛋白降解</h3>
+                <p><strong>热点背景：</strong>2026年PROTAC（蛋白降解靶向嵌合体）药物获批上市，利用细胞泛素-蛋白酶体系统选择性降解致病蛋白，解决"不可成药"靶点难题。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>三元复合物：</strong>PROTAC同时结合靶蛋白和E3泛素连接酶，形成三元复合物<br/>
+                    • <strong>分子设计：</strong>靶蛋白配体-连接子-E3配体，优化长度和柔性<br/>
+                    • <strong>点击化学应用：</strong>CuAAC反应高效合成，快速筛选优化<br/>
+                    • <strong>催化机制：</strong>一个PROTAC分子可多次循环降解多个靶蛋白分子
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🌱 人工光合系统</h3>
+                <p><strong>热点背景：</strong>2026年人工光合系统效率突破10%，模拟自然界Z型电子传递链，将H₂O氧化与CO₂还原在空间上分离，实现太阳能到化学能高效转化。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>光敏剂：</strong>Ru(bpy)₃²⁺等金属配合物，吸收可见光产生激发态<br/>
+                    • <strong>电子传递：</strong>氧化还原介体（甲基紫精、二茂铁）传递电子<br/>
+                    • <strong>水氧化催化剂：</strong>IrO₂、Co₃O₄等金属氧化物，$2H_2O \rightarrow O_2 + 4H^+ + 4e^-$<br/>
+                    • <strong>CO₂还原：</strong>分子催化剂（Re、Ru配合物）或酶催化还原为CO、HCOOH
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #1e8449;">🧪 超分子自组装材料</h3>
+                <p><strong>热点背景：</strong>2026年超分子化学在药物递送、组织工程领域取得突破，利用非共价相互作用（氢键、π-π堆积、疏水作用）构建功能材料。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>主客体化学：</strong>环糊精、杯芳烃包合疏水分子，形成包合物<br/>
+                    • <strong>氢键自组装：</strong>脲基嘧啶酮（UPy）四重氢键，$K_{assoc} \approx 10^8$ M⁻¹<br/>
+                    • <strong>π-π堆积：</strong>芳香环面对面或边对面排列，距离3.3-3.8 Å<br/>
+                    • <strong>刺激响应性：</strong>pH、温度、光触发组装/解组装，实现可控释放
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

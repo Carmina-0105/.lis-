@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数学复习 · 集合与常用逻辑用语</title>
+<script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+            font-family: 'Courier New', monospace;
+        }
+        .example {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #ff9800;
+        }
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+        }
+        .technique {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>📐 集合与常用逻辑用语</h1>
+<p class="subtitle">高考必考5分 · 基础送分题 · 必须全对</p>
+<div class="module-box">
+<div class="module-title">🎯 模块定位</div>
+<p><strong>分值：</strong>5分（选择题第1或2题）</p>
+<p><strong>难度：</strong>⭐⭐（基础题）</p>
+<p><strong>目标：</strong>100%正确率，30秒内完成</p>
+<p><strong>核心：</strong>集合运算 + 命题逻辑 + 充要条件</p>
+</div>
+<h2>第一章 集合</h2>
+<div class="section">
+<h3>1.1 集合的基本概念</h3>
+<div class="key-point">
+<strong>💡 集合三要素：</strong>
+<ul>
+<li><strong>确定性：</strong>元素要么属于集合，要么不属于，界限明确</li>
+<li><strong>互异性：</strong>集合中元素互不相同，不能重复</li>
+<li><strong>无序性：</strong>集合中元素没有顺序之分</li>
+</ul>
+</div>
+<div class="formula-box">
+<strong>常用数集符号：</strong><br/>
+                    • 自然数集：$\mathbb{N} = \{0, 1, 2, 3, ...\}$<br/>
+                    • 正整数集：$\mathbb{N}^*$ 或 $\mathbb{N}_+ = \{1, 2, 3, ...\}$<br/>
+                    • 整数集：$\mathbb{Z} = \{..., -2, -1, 0, 1, 2, ...\}$<br/>
+                    • 有理数集：$\mathbb{Q}$<br/>
+                    • 实数集：$\mathbb{R}$<br/>
+                    • 复数集：$\mathbb{C}$
+                </div>
+<div class="warning">
+<strong>⚠️ 注意：</strong>
+<ul>
+<li>$0 \in \mathbb{N}$（新教材规定），但 $0 \notin \mathbb{N}^*$</li>
+<li>元素与集合的关系用 $\in$ 或 $\notin$</li>
+<li>集合与集合的关系用 $\subseteq$、$\supseteq$、$=$ 等</li>
+</ul>
+</div>
+</div>
+<div class="section">
+<h3>1.2 集合的表示方法</h3>
+<div class="key-point">
+<strong>💡 三种表示方法：</strong>
+<ul>
+<li><strong>列举法：</strong>$A = \{1, 2, 3, 4, 5\}$ —— 元素个数少时用</li>
+<li><strong>描述法：</strong>$A = \{x | x^2 - 3x + 2 = 0\}$ —— 最常用</li>
+<li><strong>图示法（Venn图）：</strong>直观展示集合关系</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题1：</strong>用描述法表示下列集合<br/><br/>
+                    (1) 小于10的正奇数组成的集合<br/>
+                    (2) 方程 $x^2 - 5x + 6 = 0$ 的解集<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    1. <strong>明确集合元素特征：</strong>分析题目描述的元素的共同特征<br/>
+                    2. <strong>选择表示方法：</strong>描述法的一般形式为 $\{x | P(x)\}$，其中 $P(x)$ 是元素满足的条件<br/>
+                    3. <strong>注意取值范围：</strong>明确元素 $x$ 的取值范围（如正整数、实数等）<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $\{x \in \mathbb{N}^* | x &lt; 10 \text{ 且 } x \text{ 是奇数}\}$ 或 $\{x | x = 2k-1, k \in \mathbb{N}^*, 1 \leq k \leq 5\}$<br/><br/>
+                    (2) $\{x \in \mathbb{R} | x^2 - 5x + 6 = 0\}$ 或简写为 $\{x | x^2 - 5x + 6 = 0\}$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 描述法格式：$\{代表元素 | 元素满足的条件\}$<br/>
+                    • 当元素范围明确时（如实数），可以省略范围说明<br/>
+                    • 列举法和描述法可以相互转化<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 描述法中竖线"|"不能省略<br/>
+                    • 代表元素要写在最前面<br/>
+                    • 条件描述要准确，避免歧义
+                </div>
+</div>
+<div class="section">
+<h3>1.3 集合间的基本关系</h3>
+<table>
+<tr>
+<th>关系</th>
+<th>符号</th>
+<th>含义</th>
+<th>Venn图</th>
+</tr>
+<tr>
+<td>子集</td>
+<td>$A \subseteq B$</td>
+<td>A中所有元素都在B中</td>
+<td>A在B内</td>
+</tr>
+<tr>
+<td>真子集</td>
+<td>$A \subsetneq B$</td>
+<td>$A \subseteq B$ 且 $A \neq B$</td>
+<td>A在B内，且B比A大</td>
+</tr>
+<tr>
+<td>集合相等</td>
+<td>$A = B$</td>
+<td>$A \subseteq B$ 且 $B \subseteq A$</td>
+<td>两圆重合</td>
+</tr>
+<tr>
+<td>空集</td>
+<td>$\varnothing$</td>
+<td>不含任何元素的集合</td>
+<td>空圆</td>
+</tr>
+</table>
+<div class="formula-box">
+<strong>重要性质：</strong><br/>
+                    1. <strong>空集性质：</strong>$\varnothing \subseteq A$（空集是任何集合的子集）<br/>
+                    2. <strong>自反性：</strong>$A \subseteq A$（任何集合是其自身的子集）<br/>
+                    3. <strong>传递性：</strong>若 $A \subseteq B$ 且 $B \subseteq C$，则 $A \subseteq C$<br/>
+                    4. <strong>子集个数：</strong>含 $n$ 个元素的集合有 $2^n$ 个子集，$2^n - 1$ 个真子集，$2^n - 2$ 个非空真子集
+                </div>
+<div class="example">
+<strong>📝 例题2：</strong>已知集合 $A = \{1, 2, 3\}$，求A的所有子集、真子集、非空真子集的个数<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    1. <strong>确定元素个数：</strong>集合A有3个元素<br/>
+                    2. <strong>应用公式：</strong>子集个数为 $2^n$，真子集为 $2^n - 1$，非空真子集为 $2^n - 2$<br/>
+                    3. <strong>代入计算：</strong>$n = 3$，计算各类子集个数<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    集合A有3个元素，即 $n = 3$<br/><br/>
+                    • 子集个数：$2^3 = 8$ 个<br/>
+                    • 真子集个数：$2^3 - 1 = 7$ 个<br/>
+                    • 非空真子集个数：$2^3 - 2 = 6$ 个<br/><br/>
+<strong>【验证】</strong>所有子集为：$\varnothing, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}$，共8个 ✓<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 子集个数公式：$2^n$（包含空集和本身）<br/>
+                    • 真子集个数公式：$2^n - 1$（去掉本身）<br/>
+                    • 非空真子集个数公式：$2^n - 2$（去掉空集和本身）<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 不要忘记空集 $\varnothing$ 也是子集<br/>
+                    • 真子集不包括集合本身<br/>
+                    • 非空真子集既不包括空集，也不包括集合本身
+                </div>
+</div>
+<div class="section">
+<h3>1.4 集合的基本运算</h3>
+<table>
+<tr>
+<th>运算</th>
+<th>符号</th>
+<th>定义</th>
+<th>Venn图</th>
+</tr>
+<tr>
+<td>交集</td>
+<td>$A \cap B$</td>
+<td>$\{x | x \in A \text{ 且 } x \in B\}$</td>
+<td>两圆重叠部分</td>
+</tr>
+<tr>
+<td>并集</td>
+<td>$A \cup B$</td>
+<td>$\{x | x \in A \text{ 或 } x \in B\}$</td>
+<td>两圆全部区域</td>
+</tr>
+<tr>
+<td>补集</td>
+<td>$\complement_U A$ 或 $A^c$</td>
+<td>$\{x | x \in U \text{ 且 } x \notin A\}$</td>
+<td>全集中圆外部分</td>
+</tr>
+</table>
+<div class="formula-box">
+<strong>运算律：</strong><br/>
+                    1. <strong>交换律：</strong>$A \cap B = B \cap A$，$A \cup B = B \cup A$<br/>
+                    2. <strong>结合律：</strong>$(A \cap B) \cap C = A \cap (B \cap C)$，$(A \cup B) \cup C = A \cup (B \cup C)$<br/>
+                    3. <strong>分配律：</strong>$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$，$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$<br/>
+                    4. <strong>德摩根律：</strong>$\complement_U(A \cap B) = \complement_U A \cup \complement_U B$，$\complement_U(A \cup B) = \complement_U A \cap \complement_U B$
+                </div>
+<div class="example">
+<strong>📝 例题3：</strong>已知全集 $U = \{1, 2, 3, 4, 5, 6\}$，$A = \{1, 2, 3\}$，$B = \{2, 3, 4\}$<br/>
+                    求：(1) $A \cap B$  (2) $A \cup B$  (3) $\complement_U A$  (4) $(\complement_U A) \cap B$<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    1. <strong>交集 $A \cap B$：</strong>找同时在A和B中的元素<br/>
+                    2. <strong>并集 $A \cup B$：</strong>找在A或B中的所有元素（不重复）<br/>
+                    3. <strong>补集 $\complement_U A$：</strong>找在全集U中但不在A中的元素<br/>
+                    4. <strong>混合运算：</strong>先算括号内的，再算括号外的<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $A \cap B = \{2, 3\}$（同时在A和B中的元素）<br/><br/>
+                    (2) $A \cup B = \{1, 2, 3, 4\}$（在A或B中的所有元素）<br/><br/>
+                    (3) $\complement_U A = \{4, 5, 6\}$（在U中但不在A中的元素）<br/><br/>
+                    (4) $(\complement_U A) \cap B = \{4, 5, 6\} \cap \{2, 3, 4\} = \{4\}$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 交集：找"公共"元素<br/>
+                    • 并集：找"所有"元素（去重）<br/>
+                    • 补集：找"剩余"元素<br/>
+                    • 复杂运算：可以借助Venn图直观理解<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 并集要注意去重，相同元素只写一次<br/>
+                    • 补集必须先明确全集U<br/>
+                    • 混合运算注意运算顺序，有括号先算括号内
+                </div>
+</div>
+<h2>第二章 常用逻辑用语</h2>
+<div class="section">
+<h3>2.1 命题及其关系</h3>
+<div class="key-point">
+<strong>💡 命题的定义：</strong>能判断真假的陈述句叫做命题。命题可以是真命题，也可以是假命题。
+                </div>
+<table>
+<tr>
+<th>概念</th>
+<th>定义</th>
+<th>符号</th>
+</tr>
+<tr>
+<td>原命题</td>
+<td>若p，则q</td>
+<td>$p \Rightarrow q$</td>
+</tr>
+<tr>
+<td>逆命题</td>
+<td>若q，则p（条件和结论互换）</td>
+<td>$q \Rightarrow p$</td>
+</tr>
+<tr>
+<td>否命题</td>
+<td>若¬p，则¬q（条件和结论都否定）</td>
+<td>$\neg p \Rightarrow \neg q$</td>
+</tr>
+<tr>
+<td>逆否命题</td>
+<td>若¬q，则¬p（逆命题的否命题）</td>
+<td>$\neg q \Rightarrow \neg p$</td>
+</tr>
+</table>
+<div class="formula-box">
+<strong>重要结论：</strong><br/>
+                    • 原命题与逆否命题<strong>同真同假</strong>（等价）<br/>
+                    • 逆命题与否命题<strong>同真同假</strong>（等价）<br/>
+                    • 原命题为真，逆命题<strong>不一定</strong>为真
+                </div>
+<div class="example">
+<strong>📝 例题4：</strong>写出命题"若 $x &gt; 1$，则 $x^2 &gt; 1$"的逆命题、否命题和逆否命题，并判断真假<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    1. <strong>明确原命题：</strong>条件 $p: x &gt; 1$，结论 $q: x^2 &gt; 1$<br/>
+                    2. <strong>逆命题：</strong>交换条件和结论，即"若q，则p"<br/>
+                    3. <strong>否命题：</strong>否定条件和结论，即"若¬p，则¬q"<br/>
+                    4. <strong>逆否命题：</strong>交换并否定条件和结论，即"若¬q，则¬p"<br/>
+                    5. <strong>判断真假：</strong>利用原命题与逆否命题等价，逆命题与否命题等价<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    原命题：若 $x &gt; 1$，则 $x^2 &gt; 1$  <strong>（真）</strong><br/><br/>
+                    逆命题：若 $x^2 &gt; 1$，则 $x &gt; 1$  <strong>（假）</strong><br/>
+                    反例：$x = -2$ 时，$x^2 = 4 &gt; 1$，但 $x &lt; 1$<br/><br/>
+                    否命题：若 $x \leq 1$，则 $x^2 \leq 1$  <strong>（假）</strong><br/>
+                    反例：$x = -2$ 时，$x \leq 1$，但 $x^2 = 4 &gt; 1$<br/><br/>
+                    逆否命题：若 $x^2 \leq 1$，则 $x \leq 1$  <strong>（真）</strong><br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 四种命题的转化规律：<br/>
+                      - 逆命题：互换条件和结论<br/>
+                      - 否命题：否定条件和结论<br/>
+                      - 逆否命题：既互换又否定<br/>
+                    • 真假判断技巧：<br/>
+                      - 原命题与逆否命题同真假<br/>
+                      - 逆命题与否命题同真假<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 否命题是同时否定条件和结论，不是否定整个命题<br/>
+                    • 命题的否定（¬p）与否命题不同<br/>
+                    • 判断假命题只需举一个反例
+                </div>
+</div>
+<div class="section">
+<h3>2.2 充分条件与必要条件</h3>
+<div class="key-point">
+<strong>💡 定义：</strong>
+<ul>
+<li><strong>充分条件：</strong>若 $p \Rightarrow q$，则p是q的充分条件（有p必有q）</li>
+<li><strong>必要条件：</strong>若 $q \Rightarrow p$，则p是q的必要条件（无p必无q）</li>
+<li><strong>充要条件：</strong>若 $p \Leftrightarrow q$，则p是q的充要条件（p、q等价）</li>
+</ul>
+</div>
+<table>
+<tr>
+<th>条件关系</th>
+<th>符号</th>
+<th>含义</th>
+<th>记忆口诀</th>
+</tr>
+<tr>
+<td>p是q的充分不必要条件</td>
+<td>$p \Rightarrow q$ 且 $q \nRightarrow p$</td>
+<td>有p必有q，有q不一定有p</td>
+<td>小推大</td>
+</tr>
+<tr>
+<td>p是q的必要不充分条件</td>
+<td>$q \Rightarrow p$ 且 $p \nRightarrow q$</td>
+<td>无p必无q，有p不一定有q</td>
+<td>大推小</td>
+</tr>
+<tr>
+<td>p是q的充要条件</td>
+<td>$p \Leftrightarrow q$</td>
+<td>p、q互相推出，等价</td>
+<td>互推</td>
+</tr>
+<tr>
+<td>p是q的既不充分也不必要条件</td>
+<td>$p \nRightarrow q$ 且 $q \nRightarrow p$</td>
+<td>p、q互不相干</td>
+<td>无关</td>
+</tr>
+</table>
+<div class="technique">
+<strong>🎯 判断方法：</strong>
+<ol>
+<li><strong>定义法：</strong>判断 $p \Rightarrow q$ 和 $q \Rightarrow p$ 是否成立</li>
+<li><strong>集合法：</strong>若 $A \subseteq B$，则A是B的充分条件，B是A的必要条件</li>
+<li><strong>等价转化法：</strong>转化为判断命题的真假</li>
+</ol>
+</div>
+<div class="example">
+<strong>📝 例题5：</strong>判断下列各题中p是q的什么条件<br/>
+                    (1) $p: x &gt; 2$，$q: x &gt; 1$<br/>
+                    (2) $p: x = 1$，$q: x^2 = 1$<br/>
+                    (3) $p: a &gt; b$，$q: ac^2 &gt; bc^2$<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    1. <strong>判断 $p \Rightarrow q$ 是否成立：</strong>若p成立，q是否一定成立？<br/>
+                    2. <strong>判断 $q \Rightarrow p$ 是否成立：</strong>若q成立，p是否一定成立？<br/>
+                    3. <strong>根据推出关系确定条件类型：</strong><br/>
+                       - $p \Rightarrow q$ 成立，$q \Rightarrow p$ 不成立 → 充分不必要<br/>
+                       - $p \Rightarrow q$ 不成立，$q \Rightarrow p$ 成立 → 必要不充分<br/>
+                       - 都成立 → 充要<br/>
+                       - 都不成立 → 既不充分也不必要<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) 若 $x &gt; 2$，则必有 $x &gt; 1$，所以 $p \Rightarrow q$ 成立<br/>
+                        若 $x &gt; 1$，不一定有 $x &gt; 2$（如 $x = 1.5$），所以 $q \Rightarrow p$ 不成立<br/>
+                        因此，p是q的<strong>充分不必要条件</strong><br/><br/>
+                    (2) 若 $x = 1$，则 $x^2 = 1$，所以 $p \Rightarrow q$ 成立<br/>
+                        若 $x^2 = 1$，则 $x = 1$ 或 $x = -1$，不一定有 $x = 1$，所以 $q \Rightarrow p$ 不成立<br/>
+                        因此，p是q的<strong>充分不必要条件</strong><br/><br/>
+                    (3) 若 $a &gt; b$，当 $c = 0$ 时，$ac^2 = bc^2 = 0$，所以 $p \Rightarrow q$ 不成立<br/>
+                        若 $ac^2 &gt; bc^2$，则 $c^2 &gt; 0$，必有 $a &gt; b$，所以 $q \Rightarrow p$ 成立<br/>
+                        因此，p是q的<strong>必要不充分条件</strong><br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 判断步骤：<br/>
+                      ① 判断 $p \Rightarrow q$ 是否成立<br/>
+                      ② 判断 $q \Rightarrow p$ 是否成立<br/>
+                      ③ 根据两个推出关系确定条件类型<br/>
+                    • 集合观点：<br/>
+                      - 若 $A \subsetneq B$，则A是B的充分不必要条件<br/>
+                      - 若 $B \subsetneq A$，则A是B的必要不充分条件<br/>
+                      - 若 $A = B$，则A是B的充要条件<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 注意特殊情况（如 $c = 0$）<br/>
+                    • 平方、开方等运算要注意正负<br/>
+                    • 判断时要考虑所有可能的情况
+                </div>
+</div>
+<div class="section">
+<h3>2.3 全称量词与存在量词</h3>
+<div class="key-point">
+<strong>💡 量词：</strong>
+<ul>
+<li><strong>全称量词：</strong>$\forall$（任意、所有、每一个）<br/>
+                        全称命题：$\forall x \in M, p(x)$ —— 对M中所有x，p(x)成立</li>
+<li><strong>存在量词：</strong>$\exists$（存在、至少有一个）<br/>
+                        特称命题：$\exists x \in M, p(x)$ —— 存在M中的x，使p(x)成立</li>
+</ul>
+</div>
+<div class="formula-box">
+<strong>命题的否定：</strong><br/>
+                    • 全称命题的否定是特称命题：<br/>
+                      $\neg(\forall x \in M, p(x)) \equiv \exists x \in M, \neg p(x)$<br/><br/>
+                    • 特称命题的否定是全称命题：<br/>
+                      $\neg(\exists x \in M, p(x)) \equiv \forall x \in M, \neg p(x)$<br/><br/>
+<strong>口诀：</strong>"全称变存在，存在变全称，结论要否定"
+                </div>
+<div class="example">
+<strong>📝 例题6：</strong>写出下列命题的否定，并判断真假<br/>
+                    (1) 原命题：$\forall x \in \mathbb{R}, x^2 + 1 &gt; 0$<br/>
+                    (2) 原命题：$\exists x \in \mathbb{R}, x^2 - x + 1 = 0$<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    1. <strong>确定命题类型：</strong>全称命题（$\forall$）还是特称命题（$\exists$）<br/>
+                    2. <strong>量词转换：</strong>$\forall$ 变 $\exists$，$\exists$ 变 $\forall$<br/>
+                    3. <strong>否定结论：</strong>对原命题的结论进行否定<br/>
+                    4. <strong>判断真假：</strong>原命题与否定命题一真一假<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) 原命题是全称命题<br/>
+                        否定：$\exists x \in \mathbb{R}, x^2 + 1 \leq 0$<br/>
+                        判断：原命题为<strong>真</strong>（因为 $x^2 \geq 0$，所以 $x^2 + 1 \geq 1 &gt; 0$）<br/>
+                        否定命题为<strong>假</strong><br/><br/>
+                    (2) 原命题是特称命题<br/>
+                        否定：$\forall x \in \mathbb{R}, x^2 - x + 1 \neq 0$<br/>
+                        判断：对于 $x^2 - x + 1 = 0$，判别式 $\Delta = (-1)^2 - 4 \times 1 \times 1 = 1 - 4 = -3 &lt; 0$<br/>
+                        方程无实数解，所以原命题为<strong>假</strong>，否定命题为<strong>真</strong><br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 否定规则：<br/>
+                      - $\forall$ 变 $\exists$，$\exists$ 变 $\forall$<br/>
+                      - 结论 $p(x)$ 变 $\neg p(x)$<br/>
+                    • 真假关系：<br/>
+                      - 原命题与否定命题必一真一假<br/>
+                      - 全称命题为真需对所有元素成立；为假只需一个反例<br/>
+                      - 特称命题为真只需一个例子；为假需对所有元素不成立<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 否定命题时，只否定结论，不改变条件中的范围<br/>
+                    • 注意区分"命题的否定"与"否命题"<br/>
+                    • 判断全称命题真假时，找一个反例即可证明为假
+                </div>
+</div>
+<div class="module-box">
+<div class="module-title">🎯 本章方法总结</div>
+<p><strong>1. 集合运算技巧：</strong></p>
+<ul>
+<li>借助Venn图直观理解集合关系</li>
+<li>注意空集的特殊性质</li>
+<li>子集个数公式：$2^n$</li>
+</ul>
+<p><strong>2. 逻辑用语技巧：</strong></p>
+<ul>
+<li>原命题与逆否命题等价</li>
+<li>充分条件：小范围推大范围</li>
+<li>量词否定：全称变存在，存在变全称</li>
+</ul>
+<p><strong>3. 高考应试策略：</strong></p>
+<ul>
+<li>这是送分题，必须全对</li>
+<li>注意审题，特别是范围限制</li>
+<li>用特殊值法快速判断</li>
+</ul>
+</div>
+<div class="nav-links">
+<a href="index.html">← 返回首页</a>
+<a href="functions.html">下一模块：函数与导数 →</a>
+</div>
+</div>
+</body>
+</html>

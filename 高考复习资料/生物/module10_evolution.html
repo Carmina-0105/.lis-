@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块10：现代生物进化理论 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #667eea; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module09_variation.html">← 上一模块</a>
+                <a href="module11_regulation.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🧬 模块10：现代生物进化理论</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：6-10分</span>
+                <span class="tag tag-key">难度：★★★☆☆</span>
+                <span class="tag tag-formula">基因频率计算</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>拉马克学说</strong><br/>
+                        用进废退、获得性遗传
+                    </div>
+                    <div class="network-item">
+                        <strong>达尔文自然选择</strong><br/>
+                        过度繁殖、生存斗争
+                    </div>
+                    <div class="network-item">
+                        <strong>种群基因库</strong><br/>
+                        基因频率、基因型频率
+                    </div>
+                    <div class="network-item">
+                        <strong>突变和基因重组</strong><br/>
+                        进化的原材料
+                    </div>
+                    <div class="network-item">
+                        <strong>自然选择</strong><br/>
+                        决定进化方向
+                    </div>
+                    <div class="network-item">
+                        <strong>隔离</strong><br/>
+                        物种形成的必要条件
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、拉马克的进化学说</h2>
+
+            <h3>1.1 拉马克学说的主要内容</h3>
+            <div class="key-point">
+                <strong>拉马克（法国，1744-1829）：</strong>历史上第一个提出比较完整的进化学说的科学家。<br/><br/>
+                <strong>主要观点：</strong><br/>
+                1. <strong>用进废退：</strong>器官用得越多越发达，不用就会退化<br/>
+                2. <strong>获得性遗传：</strong>后天获得的性状可以遗传给后代<br/><br/>
+                <strong>意义：</strong>否定了神创论和物种不变论，奠定了科学生物进化论的基础。
+            </div>
+
+            <h2>二、达尔文的自然选择学说</h2>
+
+            <h3>2.1 自然选择学说的主要内容</h3>
+            <div class="key-point">
+                <strong>达尔文（英国，1809-1882）：</strong>在《物种起源》中提出了以自然选择学说为核心的生物进化理论。<br/><br/>
+                <strong>自然选择学说的主要内容：</strong><br/>
+                1. <strong>过度繁殖：</strong>生物具有很强的繁殖能力，产生大量后代<br/>
+                2. <strong>生存斗争：</strong>生物与无机环境、种内、种间的斗争<br/>
+                3. <strong>遗传变异：</strong>生物普遍存在变异，且许多变异可以遗传<br/>
+                4. <strong>适者生存：</strong>具有有利变异的个体容易生存并繁殖后代
+            </div>
+
+            <div class="formula-box">
+                <div class="title">自然选择学说的解释模型</div>
+                <p style="line-height: 2; font-size: 1.1em;">
+                    过度繁殖 → 生存斗争 → 遗传变异 → 适者生存<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生物进化
+                </p>
+            </div>
+
+            <h3>2.2 达尔文自然选择学说的评价</h3>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>✅ 贡献</h4>
+                    <ul>
+                        <li>科学地解释了生物进化的原因</li>
+                        <li>解释了生物的多样性和适应性</li>
+                        <li>否定了神创论和物种不变论</li>
+                        <li>使生物学第一次摆脱了神学的束缚</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>⚠️ 局限性</h4>
+                    <ul>
+                        <li>对遗传和变异的本质不能做出科学解释</li>
+                        <li>局限于个体水平</li>
+                        <li>强调物种形成是渐变的结果，不能解释物种大爆发</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>三、现代生物进化理论</h2>
+
+            <h3>3.1 种群是生物进化的基本单位</h3>
+            <div class="key-point">
+                <strong>种群：</strong>生活在一定区域的同种生物的全部个体。<br/><br/>
+                <strong>基因库：</strong>一个种群中全部个体所含有的全部基因。<br/><br/>
+                <strong>基因频率：</strong>在一个种群基因库中，某个基因占全部等位基因数的比率。<br/><br/>
+                <strong>基因型频率：</strong>某种基因型的个体在种群中所占的比率。
+            </div>
+
+            <div class="formula-box">
+                <div class="title">基因频率和基因型频率的计算</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>基因频率计算公式：</strong><br/>
+                    某基因频率 = (该基因的总数 / 该基因及其等位基因的总数) × 100%<br/><br/>
+                    <strong>基因型频率计算公式：</strong><br/>
+                    某基因型频率 = (该基因型的个体数 / 种群总个体数) × 100%<br/><br/>
+                    <strong>哈迪-温伯格定律（理想条件下）：</strong><br/>
+                    设A的基因频率为p，a的基因频率为q，则：<br/>
+                    p + q = 1<br/>
+                    (p + q)² = p² + 2pq + q² = 1<br/>
+                    即：AA的频率 = p²，Aa的频率 = 2pq，aa的频率 = q²
+                </p>
+            </div>
+
+            <h3>3.2 突变和基因重组产生进化的原材料</h3>
+            <div class="key-point">
+                <strong>可遗传变异的来源：</strong><br/>
+                • 基因突变：产生新的等位基因<br/>
+                • 基因重组：产生新的基因型<br/>
+                • 染色体变异：改变基因的数量或排列顺序<br/><br/>
+                <strong>注意：</strong><br/>
+                • 突变和重组都是随机的、不定向的<br/>
+                • 它们只是为进化提供原材料，不能决定进化的方向
+            </div>
+
+            <h3>3.3 自然选择决定生物进化的方向</h3>
+            <div class="key-point">
+                <strong>自然选择的作用：</strong><br/>
+                在自然选择的作用下，种群的基因频率会发生定向改变，导致生物朝着一定的方向不断进化。<br/><br/>
+                <strong>自然选择对基因频率的影响：</strong><br/>
+                • 有利变异的基因频率增加<br/>
+                • 不利变异的基因频率减少<br/><br/>
+                <strong>生物进化的实质：</strong>种群基因频率的改变
+            </div>
+
+            <h3>3.4 隔离导致物种的形成</h3>
+            <div class="key-point">
+                <strong>物种：</strong>能够在自然状态下相互交配并且产生可育后代的一群生物。<br/><br/>
+                <strong>隔离：</strong>不同种群间的个体，在自然条件下基因不能自由交流的现象。<br/><br/>
+                <strong>隔离的类型：</strong><br/>
+                • <strong>地理隔离：</strong>同一种生物由于地理上的障碍而分成不同的种群<br/>
+                • <strong>生殖隔离：</strong>不同物种之间一般不能相互交配，或交配后不能产生可育后代
+            </div>
+
+            <div class="formula-box">
+                <div class="title">物种形成的一般过程</div>
+                <p style="line-height: 2; font-size: 1.1em;">
+                    地理隔离 → 阻断基因交流 → 不同突变和基因重组 → 不同自然选择 →<br/>
+                    基因频率定向改变 → 生殖隔离形成 → 新物种形成<br/><br/>
+                    <strong>注意：</strong>生殖隔离是物种形成的标志，但不是所有物种形成都需要地理隔离（如多倍体植物）
+                </p>
+            </div>
+
+            <h2>四、共同进化与生物多样性的形成</h2>
+
+            <h3>4.1 共同进化</h3>
+            <div class="key-point">
+                <strong>共同进化：</strong>不同物种之间、生物与无机环境之间在相互影响中不断进化和发展。<br/><br/>
+                <strong>实例：</strong><br/>
+                • 捕食者与被捕食者之间的相互选择<br/>
+                • 传粉昆虫与开花植物之间的相互适应<br/>
+                • 寄生生物与宿主之间的相互斗争<br/>
+                • 生物与无机环境之间的相互影响
+            </div>
+
+            <h3>4.2 生物多样性的形成</h3>
+            <div class="key-point">
+                <strong>生物多样性的三个层次：</strong><br/>
+                • <strong>基因多样性：</strong>物种内基因的多样性<br/>
+                • <strong>物种多样性：</strong>一定区域内物种的丰富程度<br/>
+                • <strong>生态系统多样性：</strong>生物群落和生态过程的多样性<br/><br/>
+                <strong>生物多样性的形成：</strong>是漫长进化历程中不同物种之间、生物与无机环境之间共同进化的结果。
+            </div>
+
+            <h2>五、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>拉马克学说</strong><br/>
+                        • 用进废退<br/>
+                        • 获得性遗传
+                    </div>
+                    <div class="network-item">
+                        <strong>达尔文自然选择</strong><br/>
+                        • 四个要点<br/>
+                        • 贡献与局限
+                    </div>
+                    <div class="network-item">
+                        <strong>现代进化理论</strong><br/>
+                        • 种群是单位<br/>
+                        • 基因频率改变
+                    </div>
+                    <div class="network-item">
+                        <strong>基因频率计算</strong><br/>
+                        • 计算公式<br/>
+                        • 哈迪-温伯格
+                    </div>
+                    <div class="network-item">
+                        <strong>隔离与物种</strong><br/>
+                        • 地理隔离<br/>
+                        • 生殖隔离
+                    </div>
+                    <div class="network-item">
+                        <strong>共同进化</strong><br/>
+                        • 概念<br/>
+                        • 生物多样性
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>下列关于现代生物进化理论的叙述，正确的是（  ）</p>
+                <p>A. 生物进化的实质是种群基因型频率的改变</p>
+                <p>B. 突变和基因重组可以决定生物进化的方向</p>
+                <p>C. 地理隔离是物种形成的必要条件</p>
+                <p>D. 自然选择使种群的基因频率发生定向改变</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：D</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A错误：生物进化的实质是种群基因频率的改变，不是基因型频率的改变。</p>
+                <p>B错误：突变和基因重组为进化提供原材料，但不能决定进化方向；自然选择决定进化方向。</p>
+                <p>C错误：隔离是物种形成的必要条件，但地理隔离不是必要条件（如多倍体植物可在同地形成新物种）。</p>
+                <p>D正确：自然选择使种群的基因频率发生定向改变，从而决定生物进化的方向。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module09_variation.html">← 上一模块</a>
+                    <a href="module11_regulation.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

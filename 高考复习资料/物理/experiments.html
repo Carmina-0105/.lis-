@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 实验专题</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #00b894;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 2px solid #00b894;
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #00b894;
+            padding-bottom: 10px;
+            color: #2d3436;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #00b894;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #00b894;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #00b894;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .experiment-card {
+            background: white;
+            border: 3px solid #00b894;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .experiment-title {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 184, 148, 0.4);
+        }
+        .circuit-diagram {
+            background: #fff;
+            border: 2px solid #00b894;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 物理极致复习 · 实验专题</h1>
+        <div class="subtitle">力学实验 + 电学实验 + 选修实验 | 2026陕西新高考专用</div>
+
+        <!-- 力学实验 -->
+        <div class="module-box">
+            <div class="module-title">⚙️ 力学实验</div>
+            
+            <div class="experiment-card">
+                <div class="experiment-title">实验1：研究匀变速直线运动</div>
+                <div class="section">
+                    <h3>原理与器材</h3>
+                    <p><strong>原理：</strong>利用打点计时器记录物体运动时间和位移，分析纸带求加速度</p>
+                    <p><strong>器材：</strong>打点计时器（电磁式：4-6V交流；电火花式：220V交流）、纸带、复写纸、小车、细绳、钩码、刻度尺、导线</p>
+                    
+                    <div class="formula-box">
+                        <p>加速度计算（逐差法）：$\displaystyle a = \frac{(x_4+x_5+x_6)-(x_1+x_2+x_3)}{9T^2}$</p>
+                        <p>瞬时速度：$\displaystyle v_n = \frac{x_n + x_{n+1}}{2T}$</p>
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>📝 数据处理要点：</strong><br/>
+                        • 每隔4个点取一个计数点，$T = 0.1 \text{s}$<br/>
+                        • 作 $v-t$ 图，斜率即为加速度<br/>
+                        • 舍弃初始密集点，从清晰点开始测量<br/>
+                        • 单位换算：$\text{cm} \rightarrow \text{m}$
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ 常见错误：</strong><br/>
+                        • 混淆打点周期（0.02s）和计数点时间间隔（0.1s）<br/>
+                        • 逐差法没有充分利用数据（应该用 $x_4-x_1$、$x_5-x_2$、$x_6-x_3$）<br/>
+                        • 测量时不是从第一个点开始
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验2：探究加速度与力、质量的关系</div>
+                <div class="section">
+                    <h3>控制变量法</h3>
+                    <p><strong>探究 $a-F$ 关系：</strong>控制 $m$ 不变，改变 $F$（钩码重力），测 $a$</p>
+                    <p><strong>探究 $a-m$ 关系：</strong>控制 $F$ 不变，改变 $m$，测 $a$（作 $a-1/m$ 图）</p>
+                    
+                    <div class="circuit-diagram">
+                        <strong>实验装置示意图：</strong><br/><br/>
+                        木板（垫高平衡摩擦力）→ 小车 → 纸带 → 打点计时器<br/>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;↓<br/>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;细绳 → 滑轮 → 钩码（沙桶）
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>🎯 平衡摩擦力操作：</strong><br/>
+                        1. 不挂钩码，让小车连接纸带<br/>
+                        2. 垫高木板一端，轻推小车<br/>
+                        3. 若纸带上点迹均匀，则摩擦力已平衡<br/>
+                        4. 此后实验中不要再动木板倾角！
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ 系统误差分析：</strong><br/>
+                        • 实际拉力 $T = \frac{M}{M+m}mg$，只有当 $m \ll M$ 时 $T \approx mg$<br/>
+                        • 若不平衡摩擦力，$a-F$ 图线在 $F$ 轴有截距<br/>
+                        • 若木板倾角过大，图线在 $a$ 轴有截距
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验3：验证机械能守恒定律</div>
+                <div class="section">
+                    <h3>原理与公式</h3>
+                    <div class="formula-box">
+                        <p>验证：$mgh = \frac{1}{2}mv^2$ 或 $gh = \frac{1}{2}v^2$</p>
+                        <p>速度计算：$\displaystyle v_n = \frac{h_{n+1} - h_{n-1}}{2T}$（不能用 $v = gt$ 或 $v = \sqrt{2gh}$）</p>
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>📝 操作要点：</strong><br/>
+                        • 选用质量大、密度大的重物（减小空气阻力影响）<br/>
+                        • 打点计时器竖直安装，两限位孔在同一竖直线上<br/>
+                        • 先接通电源，后释放纸带<br/>
+                        • 测量下落高度时从第一个点开始
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ 误差分析：</strong><br/>
+                        • 由于空气阻力和摩擦阻力，$\Delta E_p > \Delta E_k$（重力势能减少量略大于动能增加量）<br/>
+                        • 若结果 $\Delta E_k > \Delta E_p$，可能是测量错误或计算错误
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验4：验证动量守恒定律</div>
+                <div class="section">
+                    <h3>碰撞实验</h3>
+                    <div class="formula-box">
+                        <p>验证：$m_1v_1 = m_1v_1' + m_2v_2'$</p>
+                        <p>平抛替代：$v = \frac{x}{t}$，由于 $t$ 相同，验证 $m_1x_1 = m_1x_1' + m_2x_2'$</p>
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <th>碰撞类型</th>
+                            <th>入射球要求</th>
+                            <th>被碰球要求</th>
+                            <th>验证式</th>
+                        </tr>
+                        <tr>
+                            <td>一静一动</td>
+                            <td>$m_1 > m_2$</td>
+                            <td>放支柱上</td>
+                            <td>$m_1OP = m_1OM + m_2ON$</td>
+                        </tr>
+                        <tr>
+                            <td>对心碰撞</td>
+                            <td>半径相同</td>
+                            <td>半径相同</td>
+                            <td>水平位移替代速度</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="technique">
+                        <strong>🎯 操作关键：</strong><br/>
+                        • 斜槽末端必须水平（检验：放小球能静止）<br/>
+                        • 入射球每次从同一位置静止释放<br/>
+                        • 用圆规找平均落点位置<br/>
+                        • $m_1 > m_2$ 防止反弹
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 电学实验 -->
+        <div class="module-box">
+            <div class="module-title">⚡ 电学实验</div>
+            
+            <div class="experiment-card">
+                <div class="experiment-title">实验5：测定金属的电阻率</div>
+                <div class="section">
+                    <h3>螺旋测微器与游标卡尺读数</h3>
+                    <div class="formula-box">
+                        <p>电阻率：$\displaystyle \rho = \frac{RS}{L} = \frac{\pi d^2R}{4L}$</p>
+                        <p>螺旋测微器：固定刻度 + 可动刻度 $\times 0.01 \text{mm}$（估读一位）</p>
+                        <p>游标卡尺：主尺整毫米 + 游标对齐格数 $\times$ 精度（不估读）</p>
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>📝 测量要点：</strong><br/>
+                        • 测直径：在金属丝不同位置、不同方向测3次取平均<br/>
+                        • 测长度：接入电路的有效长度（拉直测量）<br/>
+                        • 电路选择：$R$ 较小用外接法，滑动变阻器用限流或分压<br/>
+                        • 电流不宜过大，防止发热导致电阻率变化
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验6：描绘小灯泡的伏安特性曲线</div>
+                <div class="section">
+                    <h3>电路设计</h3>
+                    <div class="circuit-diagram">
+                        <strong>分压外接法电路：</strong><br/><br/>
+                        电源 → 开关 → 滑动变阻器（分压接法）<br/>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;↓<br/>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;电压表并联在小灯泡两端<br/>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;电流表外接（小电阻）
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>🎯 为什么用分压外接？</strong><br/>
+                        • <span class="highlight">分压</span>：要求电压从0开始连续调节<br/>
+                        • <span class="highlight">外接</span>：小灯泡电阻小，$R_V \gg R_x$，外接误差小<br/>
+                        • 闭合开关前，滑片应置于输出电压最小端（保护电路）
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ 曲线分析：</strong><br/>
+                        • 曲线原因：灯丝电阻随温度升高而增大<br/>
+                        • 曲线斜率表示 $1/R$，斜率减小说明 $R$ 增大<br/>
+                        • 某点电阻：$R = U/I$（该点与原点连线斜率，不是切线斜率）
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验7：测定电源的电动势和内阻</div>
+                <div class="section">
+                    <h3>伏安法</h3>
+                    <div class="formula-box">
+                        <p>原理：$U = E - Ir$</p>
+                        <p>数据处理：作 $U-I$ 图，纵截距 = $E$，斜率绝对值 = $r$</p>
+                        <p>公式法：$\begin{cases} U_1 = E - I_1r \\ U_2 = E - I_2r \end{cases}$ 联立求解</p>
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <th>接法</th>
+                            <th>电路</th>
+                            <th>误差来源</th>
+                            <th>测量值与真实值</th>
+                        </tr>
+                        <tr>
+                            <td>电流表内接</td>
+                            <td>电流表在干路</td>
+                            <td>电压表分流</td>
+                            <td>$E_{测} &lt; E_{真}$，$r_{测} &lt; r_{真}$</td>
+                        </tr>
+                        <tr>
+                            <td>电流表外接</td>
+                            <td>电压表测路端电压</td>
+                            <td>电流表分压</td>
+                            <td>$E_{测} = E_{真}$，$r_{测} > r_{真}$</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="key-point">
+                        <strong>📝 仪器选择：</strong><br/>
+                        • 电压表：根据电源电动势选量程（如3V电源选0-3V）<br/>
+                        • 电流表：估算最大电流 $I_{max} = E/r$<br/>
+                        • 滑动变阻器：阻值与电源内阻相当（几十欧姆）
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验8：练习使用多用电表</div>
+                <div class="section">
+                    <h3>欧姆表原理</h3>
+                    <div class="formula-box">
+                        <p>欧姆表原理：$I = \frac{E}{R_内 + R_x}$，$R_内 = R_g + r + R_0$</p>
+                        <p>中值电阻：$R_中 = R_内$（指针指在刻度盘中央）</p>
+                        <p>欧姆调零：$R_x = 0$ 时，调节 $R_0$ 使指针满偏</p>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>🎯 使用步骤（欧姆档）：</strong><br/>
+                        1. 机械调零：检查指针是否在左端零刻度<br/>
+                        2. 选倍率：使指针尽量指在中值电阻附近<br/>
+                        3. 欧姆调零：两表笔短接，调零旋钮使指针指右端零刻度<br/>
+                        4. 测量：表笔接被测电阻，读数 $\times$ 倍率<br/>
+                        5. 使用后：拨至OFF或交流电压最高档
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ 注意事项：</strong><br/>
+                        • 测电阻时必须断电，不能用手接触表笔金属部分<br/>
+                        • 换倍率必须重新欧姆调零<br/>
+                        • 欧姆表刻度"左大右小"，不均匀（左密右疏）<br/>
+                        • 电池用久后，$E \downarrow$，$R_内 \uparrow$，测量值偏大
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 选修实验 -->
+        <div class="module-box">
+            <div class="module-title">🔬 选修实验</div>
+            
+            <div class="experiment-card">
+                <div class="experiment-title">实验9：测定玻璃的折射率</div>
+                <div class="section">
+                    <h3>插针法</h3>
+                    <div class="formula-box">
+                        <p>$\displaystyle n = \frac{\sin i}{\sin r} = \frac{\sin \theta_1}{\sin \theta_2}$</p>
+                    </div>
+                    <p><strong>步骤：</strong>在白纸上画界面线 $aa'$ 和法线 $NN'$ → 放玻璃砖 → 插 $P_1$、$P_2$ 确定入射光线 → 插 $P_3$、$P_4$ 确定出射光线 → 移去玻璃砖，画光路图 → 量入射角和折射角</p>
+                    
+                    <div class="key-point">
+                        <strong>📝 注意事项：</strong><br/>
+                        • 玻璃砖宽度宜大（减小误差）<br/>
+                        • 入射角不宜过小（减小测量误差）也不宜过大（避免全反射）<br/>
+                        • 不能将玻璃砖当尺子画线<br/>
+                        • 实验过程中玻璃砖与纸面相对位置不变
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-card">
+                <div class="experiment-title">实验10：用双缝干涉测光的波长</div>
+                <div class="section">
+                    <h3>测量原理</h3>
+                    <div class="formula-box">
+                        <p>$\displaystyle \lambda = \frac{d\Delta x}{L}$</p>
+                        <p>条纹间距：$\Delta x = \frac{a}{n-1}$（$n$ 条亮纹间距离为 $a$）</p>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>🎯 测量技巧：</strong><br/>
+                        • 用测量头测 $n$ 条亮纹间距 $a$，求 $\Delta x = a/(n-1)$（减小误差）<br/>
+                        • 分划板中心刻线对齐亮纹中心<br/>
+                        • 双缝与单缝平行，且与光具座垂直<br/>
+                        • 光源、滤光片、单缝、双缝、光屏共轴
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 实验误差分析总结 -->
+        <div class="module-box">
+            <div class="module-title">📊 实验误差分析总结</div>
+            <div class="section">
+                <h3>系统误差 vs 偶然误差</h3>
+                <table>
+                    <tr>
+                        <th>类型</th>
+                        <th>来源</th>
+                        <th>特点</th>
+                        <th>减小方法</th>
+                    </tr>
+                    <tr>
+                        <td>系统误差</td>
+                        <td>仪器缺陷、理论近似、方法不完善</td>
+                        <td>有规律，总是偏大或偏小</td>
+                        <td>改进方法、校准仪器、修正公式</td>
+                    </tr>
+                    <tr>
+                        <td>偶然误差</td>
+                        <td>人为估计、环境波动、仪器噪声</td>
+                        <td>随机，忽大忽小</td>
+                        <td>多次测量取平均、图像法处理数据</td>
+                    </tr>
+                </table>
+                
+                <div class="key-point">
+                    <strong>🎯 图像法处理数据优势：</strong><br/>
+                    • 直观反映物理量关系<br/>
+                    • 容易发现异常数据（坏点）<br/>
+                    • 取平均效果（拟合直线相当于多次平均）<br/>
+                    • 减小偶然误差
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据处理方法详解 -->
+        <div class="module-box">
+            <div class="module-title">📈 数据处理方法详解</div>
+            
+            <div class="section">
+                <h3>一、纸带数据处理方法</h3>
+                <div class="strategy-box">
+                    <h4>🎯 逐差法求加速度</h4>
+                    <p><strong>原理：</strong>充分利用所有数据，减小误差</p>
+                    <div class="formula-box">
+                        设纸带上连续6段位移为 $x_1, x_2, x_3, x_4, x_5, x_6$<br/><br/>
+                        $a = \frac{(x_4+x_5+x_6)-(x_1+x_2+x_3)}{9T^2}$<br/><br/>
+                        或 $a = \frac{(x_4-x_1)+(x_5-x_2)+(x_6-x_3)}{9T^2}$
+                    </div>
+                    <p><strong>注意：</strong></p>
+                    <p>• T是相邻计数点的时间间隔（若每5个点取一个计数点，$T = 0.1s$）</p>
+                    <p>• 单位换算：纸带上的数据通常是cm，要换算成m</p>
+                    <p>• 不能用 $a = \frac{x_2-x_1}{T^2}$ 只取一组数据</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 求瞬时速度</h4>
+                    <div class="formula-box">
+                        <strong>中间时刻瞬时速度 = 平均速度</strong><br/><br/>
+                        $v_n = \frac{x_n + x_{n+1}}{2T}$<br/><br/>
+                        例如：$v_3 = \frac{x_3 + x_4}{2T}$
+                    </div>
+                    <p><strong>应用：</strong>验证机械能守恒时，求某点的瞬时速度</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>二、图像法处理数据</h3>
+                <div class="strategy-box">
+                    <h4>🎯 作图规范</h4>
+                    <p><strong>1. 坐标轴标注</strong></p>
+                    <p>• 横轴下方标注物理量和单位，如 $t/s$、$x/m$</p>
+                    <p>• 纵轴左侧标注物理量和单位，如 $v/(m·s^{-1})$</p>
+                    <p>• 坐标原点标注O</p>
+                    
+                    <p><strong>2. 描点</strong></p>
+                    <p>• 用"+"或"×"标记数据点，大小适中</p>
+                    <p>• 异常点（坏点）要标出，但拟合时可舍去</p>
+                    
+                    <p><strong>3. 连线</strong></p>
+                    <p>• 直线：用直尺画，使点均匀分布在直线两侧</p>
+                    <p>• 曲线：平滑曲线，不要求过所有点</p>
+                    <p>• 剔除明显偏离的点</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 化曲为直方法</h4>
+                    <p>将非线性关系转化为线性关系，便于分析：</p>
+                    <table>
+                        <tr>
+                            <th>原关系</th>
+                            <th>变换方法</th>
+                            <th>线性关系</th>
+                            <th>斜率意义</th>
+                        </tr>
+                        <tr>
+                            <td>$y = kx^n$</td>
+                            <td>取对数</td>
+                            <td>$\ln y = n\ln x + \ln k$</td>
+                            <td>n</td>
+                        </tr>
+                        <tr>
+                            <td>$y = \frac{k}{x}$</td>
+                            <td>横轴取$\frac{1}{x}$</td>
+                            <td>$y = k·\frac{1}{x}$</td>
+                            <td>k</td>
+                        </tr>
+                        <tr>
+                            <td>$y = ax^2 + b$</td>
+                            <td>横轴取$x^2$</td>
+                            <td>$y = ax^2 + b$</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>$T = 2\pi\sqrt{\frac{L}{g}}$</td>
+                            <td>纵轴取$T^2$</td>
+                            <td>$T^2 = \frac{4\pi^2}{g}L$</td>
+                            <td>$\frac{4\pi^2}{g}$</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 求斜率和截距</h4>
+                    <p><strong>注意：</strong>取图线上的点，不是原始数据点</p>
+                    <div class="formula-box">
+                        <strong>斜率：</strong>$k = \frac{\Delta y}{\Delta x}$<br/><br/>
+                        <strong>截距：</strong>直线与y轴交点（x=0时的y值）<br/><br/>
+                        或延长直线与y轴相交
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>三、电表读数规则</h3>
+                <div class="strategy-box">
+                    <h4>🎯 估读方法</h4>
+                    <table>
+                        <tr>
+                            <th>仪器</th>
+                            <th>最小分度</th>
+                            <th>估读位数</th>
+                            <th>示例</th>
+                        </tr>
+                        <tr>
+                            <td>刻度尺（mm）</td>
+                            <td>1mm</td>
+                            <td>估读到0.1mm</td>
+                            <td>12.35cm</td>
+                        </tr>
+                        <tr>
+                            <td>电流表0-0.6A</td>
+                            <td>0.02A</td>
+                            <td>估读到0.01A（半格估读）</td>
+                            <td>0.24A</td>
+                        </tr>
+                        <tr>
+                            <td>电流表0-3A</td>
+                            <td>0.1A</td>
+                            <td>估读到0.01A</td>
+                            <td>1.25A</td>
+                        </tr>
+                        <tr>
+                            <td>电压表0-3V</td>
+                            <td>0.1V</td>
+                            <td>估读到0.01V</td>
+                            <td>2.35V</td>
+                        </tr>
+                        <tr>
+                            <td>电压表0-15V</td>
+                            <td>0.5V</td>
+                            <td>估读到0.1V</td>
+                            <td>11.5V</td>
+                        </tr>
+                        <tr>
+                            <td>电阻箱</td>
+                            <td>各挡不同</td>
+                            <td>不估读，读数相加</td>
+                            <td>×1000档为2，×100档为5...→2500Ω</td>
+                        </tr>
+                        <tr>
+                            <td>游标卡尺</td>
+                            <td>0.1/0.05/0.02mm</td>
+                            <td>不估读</td>
+                            <td>12.3mm（10分度）</td>
+                        </tr>
+                        <tr>
+                            <td>螺旋测微器</td>
+                            <td>0.01mm</td>
+                            <td>估读到0.001mm</td>
+                            <td>2.345mm</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>四、常见实验误差分析</h3>
+                <div class="strategy-box">
+                    <h4>🎯 验证牛顿第二定律</h4>
+                    <p><strong>系统误差来源：</strong></p>
+                    <p>• 未平衡摩擦力或平衡过度 → a-F图像不过原点</p>
+                    <p>• 砂桶质量未远小于小车质量 → 图像末端弯曲</p>
+                    <p>• 绳子与板不平行 → 误差增大</p>
+                    
+                    <p><strong>图像分析：</strong></p>
+                    <p>• a-F图像不过原点（有纵截距）：平衡摩擦力过度</p>
+                    <p>• a-F图像不过原点（有横截距）：未平衡摩擦力或不足</p>
+                    <p>• a-F图像末端向下弯曲：砂桶质量太大，不满足$m \ll M$</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 验证机械能守恒</h4>
+                    <p><strong>系统误差：</strong></p>
+                    <p>• 纸带与限位孔摩擦 → 动能增加量略小于势能减少量</p>
+                    <p>• 空气阻力 → 同上</p>
+                    
+                    <p><strong>数据处理：</strong></p>
+                    <p>• 不需要测量质量（两边都有m，约去）</p>
+                    <p>• 选择点迹清晰的纸带，第1、2点间距约2mm</p>
+                    <p>• 比较$mgh$与$\frac{1}{2}mv^2$是否相等</p>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>🎯 测电源电动势和内阻</h4>
+                    <p><strong>系统误差：</strong></p>
+                    <table>
+                        <tr>
+                            <th>接法</th>
+                            <th>误差来源</th>
+                            <th>测量值与真实值</th>
+                            <th>适用情况</th>
+                        </tr>
+                        <tr>
+                            <td>电流表内接</td>
+                            <td>电压表分流</td>
+                            <td>$E_{测} &lt; E_{真}$，$r_{测} &lt; r_{真}$</td>
+                            <td>小内阻电源</td>
+                        </tr>
+                        <tr>
+                            <td>电流表外接</td>
+                            <td>电流表分压</td>
+                            <td>$E_{测} = E_{真}$，$r_{测} > r_{真}$</td>
+                            <td>大内阻电源</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>五、有效数字与科学记数法</h3>
+                <div class="strategy-box">
+                    <h4>🎯 有效数字规则</h4>
+                    <p><strong>1. 有效数字位数</strong></p>
+                    <p>• 从第一个非零数字开始数</p>
+                    <p>• 3.14（3位）、0.0314（3位）、3.140（4位）</p>
+                    
+                    <p><strong>2. 运算规则</strong></p>
+                    <p>• 加减：以小数点后位数最少为准</p>
+                    <p>  例：12.3 + 0.45 = 12.8（不是12.75）</p>
+                    <p>• 乘除：以有效数字位数最少为准</p>
+                    <p>  例：3.14 × 2.7 = 8.5（不是8.478）</p>
+                    
+                    <p><strong>3. 科学记数法</strong></p>
+                    <p>• 大数：$3.0 \times 10^8$（2位有效数字）</p>
+                    <p>• 小数：$1.6 \times 10^{-19}$（2位有效数字）</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="modern_physics.html">← 上一页：热学光学近代物理</a>
+            <a href="integration.html">下一页：融合使用技巧 →</a>
+        </div>
+    </div>
+</body>
+</html>

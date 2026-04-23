@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块15：生物技术实践 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #e17055;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #e17055; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #e17055;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #e17055;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #e17055;
+        }
+        h3 {
+            color: #d63031;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #ffecd220, #fcb69f20);
+            border-left: 4px solid #e17055;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #e17055;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #e17055;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #e17055, #fab1a0);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #e17055;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #ffecd215, #fcb69f15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #e17055;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module14_ecosystem.html">← 上一模块</a>
+                <a href="module16_modern_biotech.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🔬 模块15：生物技术实践</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：15-20分</span>
+                <span class="tag tag-key">难度：★★★☆☆</span>
+                <span class="tag tag-formula">选修重点</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>传统发酵</strong><br/>
+                        果酒、果醋、腐乳
+                    </div>
+                    <div class="network-item">
+                        <strong>微生物培养</strong><br/>
+                        培养基、灭菌、接种
+                    </div>
+                    <div class="network-item">
+                        <strong>微生物分离</strong><br/>
+                        平板划线、稀释涂布
+                    </div>
+                    <div class="network-item">
+                        <strong>酶的应用</strong><br/>
+                        固定化酶技术
+                    </div>
+                    <div class="network-item">
+                        <strong>DNA技术</strong><br/>
+                        PCR、电泳
+                    </div>
+                    <div class="network-item">
+                        <strong>植物提取</strong><br/>
+                        芳香油、色素
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、传统发酵技术的应用</h2>
+
+            <h3>1.1 果酒和果醋的制作</h3>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>果酒制作</th>
+                    <th>果醋制作</th>
+                </tr>
+                <tr>
+                    <td>菌种</td>
+                    <td>酵母菌（真菌）</td>
+                    <td>醋酸菌（细菌）</td>
+                </tr>
+                <tr>
+                    <td>代谢类型</td>
+                    <td>兼性厌氧</td>
+                    <td>好氧</td>
+                </tr>
+                <tr>
+                    <td>原理</td>
+                    <td>C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂</td>
+                    <td>C₂H₅OH + O₂ → CH₃COOH + H₂O</td>
+                </tr>
+                <tr>
+                    <td>温度</td>
+                    <td>18-25℃</td>
+                    <td>30-35℃</td>
+                </tr>
+                <tr>
+                    <td>氧气</td>
+                    <td>先通气后密封</td>
+                    <td>持续通气</td>
+                </tr>
+            </table>
+
+            <h3>1.2 腐乳的制作</h3>
+            <div class="key-point">
+                <strong>菌种：</strong>主要是毛霉（丝状真菌）<br/><br/>
+                <strong>原理：</strong><br/>
+                • 毛霉等微生物产生的蛋白酶将豆腐中的蛋白质分解成小分子的肽和氨基酸<br/>
+                • 脂肪酶将脂肪分解成甘油和脂肪酸<br/><br/>
+                <strong>制作流程：</strong><br/>
+                让豆腐上长出毛霉 → 加盐腌制 → 加卤汤装瓶 → 密封腌制
+            </div>
+
+            <h2>二、微生物的培养与应用</h2>
+
+            <h3>2.1 培养基</h3>
+            <div class="key-point">
+                <strong>培养基的类型：</strong><br/><br/>
+                • <strong>按物理性质：</strong>液体培养基、固体培养基（加琼脂）<br/>
+                • <strong>按功能：</strong>选择培养基、鉴别培养基<br/><br/>
+                <strong>培养基的基本成分：</strong><br/>
+                • 碳源、氮源、水、无机盐<br/>
+                • 生长因子（特殊营养物质）
+            </div>
+
+            <h3>2.2 无菌技术</h3>
+            <div class="formula-box">
+                <div class="title">消毒与灭菌的比较</div>
+                <table>
+                    <tr>
+                        <th>项目</th>
+                        <th>消毒</th>
+                        <th>灭菌</th>
+                    </tr>
+                    <tr>
+                        <td>概念</td>
+                        <td>使用较温和的物理或化学方法杀死物体表面或内部的部分微生物（不包括芽孢和孢子）</td>
+                        <td>使用强烈的理化因素杀死物体内外所有的微生物，包括芽孢和孢子</td>
+                    </tr>
+                    <tr>
+                        <td>常用方法</td>
+                        <td>煮沸消毒、巴氏消毒、化学药剂消毒、紫外线消毒</td>
+                        <td>灼烧灭菌、干热灭菌、高压蒸汽灭菌</td>
+                    </tr>
+                    <tr>
+                        <td>适用对象</td>
+                        <td>操作空间、操作者衣着、双手等</td>
+                        <td>接种工具、玻璃器皿、培养基等</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>2.3 微生物的接种方法</h3>
+            <div class="key-point">
+                <strong>平板划线法：</strong><br/>
+                • 目的：获得单个菌落<br/>
+                • 特点：菌落密度逐渐降低，最后形成单个菌落<br/><br/>
+                <strong>稀释涂布平板法：</strong><br/>
+                • 目的：获得单个菌落，可用于计数<br/>
+                • 特点：菌落均匀分布，可用于活菌计数
+            </div>
+
+            <h2>三、酶的研究与应用</h2>
+
+            <h3>3.1 固定化酶技术</h3>
+            <div class="key-point">
+                <strong>固定化酶的优点：</strong><br/>
+                • 酶既能与反应物接触，又能与产物分离<br/>
+                • 可以反复利用<br/><br/>
+                <strong>固定化方法：</strong><br/>
+                • 包埋法<br/>
+                • 化学结合法<br/>
+                • 物理吸附法
+            </div>
+
+            <h2>四、DNA和蛋白质技术</h2>
+
+            <h3>4.1 DNA的粗提取与鉴定</h3>
+            <div class="key-point">
+                <strong>原理：</strong><br/>
+                • DNA在不同浓度NaCl溶液中溶解度不同（在0.14mol/L时溶解度最低）<br/>
+                • DNA不溶于酒精，但某些蛋白质溶于酒精<br/><br/>
+                <strong>鉴定：</strong>二苯胺试剂，沸水浴加热后呈蓝色
+            </div>
+
+            <h3>4.2 PCR技术</h3>
+            <div class="formula-box">
+                <div class="title">PCR技术要点</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>原理：</strong>DNA双链复制<br/><br/>
+                    <strong>条件：</strong><br/>
+                    • 模板DNA<br/>
+                    • 引物<br/>
+                    • 四种脱氧核苷酸<br/>
+                    • Taq酶（耐高温DNA聚合酶）<br/><br/>
+                    <strong>过程：</strong><br/>
+                    ① 变性（90-95℃）：DNA双链解开<br/>
+                    ② 复性（55-60℃）：引物与模板结合<br/>
+                    ③ 延伸（70-75℃）：合成子链<br/><br/>
+                    <strong>结果：</strong>DNA呈指数扩增（2ⁿ）
+                </p>
+            </div>
+
+            <h2>五、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>传统发酵</strong><br/>
+                        • 果酒制作<br/>
+                        • 果醋制作<br/>
+                        • 腐乳制作
+                    </div>
+                    <div class="network-item">
+                        <strong>微生物培养</strong><br/>
+                        • 培养基配制<br/>
+                        • 无菌技术<br/>
+                        • 接种方法
+                    </div>
+                    <div class="network-item">
+                        <strong>微生物分离</strong><br/>
+                        • 平板划线<br/>
+                        • 稀释涂布<br/>
+                        • 菌落计数
+                    </div>
+                    <div class="network-item">
+                        <strong>酶的应用</strong><br/>
+                        • 固定化酶<br/>
+                        • 优点
+                        • 方法
+                    </div>
+                    <div class="network-item">
+                        <strong>DNA技术</strong><br/>
+                        • 粗提取<br/>
+                        • PCR<br/>
+                        • 鉴定
+                    </div>
+                    <div class="network-item">
+                        <strong>实验操作</strong><br/>
+                        • 操作步骤<br/>
+                        • 注意事项<br/>
+                        • 结果分析
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>下列关于微生物培养的叙述，正确的是（  ）</p>
+                <p>A. 培养基中必须含有琼脂</p>
+                <p>B. 消毒和灭菌的杀菌程度相同</p>
+                <p>C. 平板划线法可以用于微生物的分离和计数</p>
+                <p>D. 高压蒸汽灭菌法适用于培养基的灭菌</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：D</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A错误：液体培养基不需要加琼脂，只有固体培养基才需要加琼脂。</p>
+                <p>B错误：消毒只杀死部分微生物（不包括芽孢和孢子），灭菌杀死所有微生物（包括芽孢和孢子），杀菌程度不同。</p>
+                <p>C错误：平板划线法可以用于微生物的分离，但不能用于计数；稀释涂布平板法可以用于分离和计数。</p>
+                <p>D正确：高压蒸汽灭菌法是培养基灭菌的常用方法。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module14_ecosystem.html">← 上一模块</a>
+                    <a href="module16_modern_biotech.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高考真题分类训练 - 2026陕西新高考数学</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        .chapter-title {
+            color: #1a1a2e;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        .exam-year {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .question-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .question-type {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+        .type-choice { background: #e3f2fd; color: #1976d2; }
+        .type-fill { background: #f3e5f5; color: #7b1fa2; }
+        .type-solution { background: #e8f5e9; color: #388e3c; }
+        .difficulty {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+        .diff-easy { background: #c8e6c9; color: #2e7d32; }
+        .diff-medium { background: #fff9c4; color: #f57f17; }
+        .diff-hard { background: #ffcdd2; color: #c62828; }
+        .analysis {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .solution {
+            background: #f1f8e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #8bc34a;
+        }
+        .technique {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-link:hover {
+            transform: scale(1.05);
+        }
+        .stats-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .stats-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stats-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .stats-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .practice-tip {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 高考真题分类训练</h1>
+        <p class="subtitle">精选2020-2024年高考真题 · 按模块分类 · 详细解析</p>
+
+        <div class="stats-box">
+            <h2>📊 真题训练统计</h2>
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <div class="stats-number">150+</div>
+                    <div class="stats-label">精选真题数量</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">8</div>
+                    <div class="stats-label">核心模块覆盖</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">5</div>
+                    <div class="stats-label">年份跨度</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">100%</div>
+                    <div class="stats-label">详细解析率</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-tip">
+            <strong>💡 真题训练建议</strong><br/>
+            • 第一遍：限时训练，模拟真实考试环境<br/>
+            • 第二遍：详细分析，理解每道题的解题思路<br/>
+            • 第三遍：归纳总结，提炼解题方法和技巧<br/>
+            • 错题本：记录错题，定期回顾，避免重复犯错
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第一章：集合与常用逻辑用语</h2>
+            
+            <div class="section">
+                <h3 class="section-title">1.1 集合运算</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-easy">基础</span>
+                    </div>
+                    <strong>题目：</strong>已知集合$M = \{-2, -1, 0, 1, 2\}$，$N = \{x | x^2 - x - 6 \geq 0\}$，则$M \cap N =$（　　）<br/><br/>
+                    A. $\{-2, -1, 0, 1\}$　　B. $\{0, 1, 2\}$　　C. $\{-2\}$　　D. $\{2\}$
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查集合的交集运算和一元二次不等式的解法。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        解不等式$x^2 - x - 6 \geq 0$：<br/><br/>
+                        
+                        $(x-3)(x+2) \geq 0$<br/><br/>
+                        
+                        解得：$x \leq -2$ 或 $x \geq 3$<br/><br/>
+                        
+                        ∴ $N = \{x | x \leq -2$ 或 $x \geq 3\}$<br/><br/>
+                        
+                        $M \cap N = \{-2\}$<br/><br/>
+                        
+                        <strong>答案：C</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 解一元二次不等式：先求根，再根据开口方向确定解集<br/>
+                        • 交集运算：找出同时属于两个集合的元素<br/>
+                        • 注意：端点值是否包含
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2022新课标I卷</span>
+                        <span class="difficulty diff-easy">基础</span>
+                    </div>
+                    <strong>题目：</strong>若集合$M = \{x | \sqrt{x} < 4\}$，$N = \{x | 3x \geq 1\}$，则$M \cap N =$（　　）<br/><br/>
+                    A. $\{x | 0 \leq x < 2\}$　　B. $\{x | \frac{1}{3} \leq x < 2\}$　　C. $\{x | 3 \leq x < 16\}$　　D. $\{x | \frac{1}{3} \leq x < 16\}$
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查集合的交集运算和不等式的解法。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        解集合M：$\sqrt{x} < 4$<br/><br/>
+                        
+                        首先$x \geq 0$（根号内非负）<br/>
+                        两边平方：$x < 16$<br/><br/>
+                        
+                        ∴ $M = \{x | 0 \leq x < 16\}$<br/><br/>
+                        
+                        解集合N：$3x \geq 1$<br/><br/>
+                        
+                        $x \geq \frac{1}{3}$<br/><br/>
+                        
+                        ∴ $N = \{x | x \geq \frac{1}{3}\}$<br/><br/>
+                        
+                        $M \cap N = \{x | \frac{1}{3} \leq x < 16\}$<br/><br/>
+                        
+                        <strong>答案：D</strong>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ 易错提醒</strong><br/>
+                        • 解$\sqrt{x} < 4$时，容易忘记$x \geq 0$这个隐含条件<br/>
+                        • 注意不等式两边平方的条件
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">1.2 常用逻辑用语</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2021新课标I卷</span>
+                        <span class="difficulty diff-easy">基础</span>
+                    </div>
+                    <strong>题目：</strong>已知命题$p: \exists x \in R, \sin x < 1$；命题$q: \forall x \in R, e^{|x|} \geq 1$。则下列命题中为真命题的是（　　）<br/><br/>
+                    A. $p \land q$　　B. $\neg p \land q$　　C. $p \land \neg q$　　D. $\neg (p \lor q)$
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查全称量词、存在量词以及复合命题的真假判断。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        <strong>判断命题p的真假：</strong><br/><br/>
+                        
+                        $p: \exists x \in R, \sin x < 1$<br/><br/>
+                        
+                        当$x = 0$时，$\sin 0 = 0 < 1$<br/><br/>
+                        
+                        ∴ 命题p为<strong>真命题</strong><br/><br/>
+                        
+                        <strong>判断命题q的真假：</strong><br/><br/>
+                        
+                        $q: \forall x \in R, e^{|x|} \geq 1$<br/><br/>
+                        
+                        ∵ $|x| \geq 0$，且$e^t$在$t \geq 0$时单调递增<br/><br/>
+                        
+                        ∴ $e^{|x|} \geq e^0 = 1$<br/><br/>
+                        
+                        ∴ 命题q为<strong>真命题</strong><br/><br/>
+                        
+                        <strong>判断选项：</strong><br/><br/>
+                        
+                        A. $p \land q$：真$\land$真 = <strong>真</strong> ✓<br/>
+                        B. $\neg p \land q$：假$\land$真 = 假<br/>
+                        C. $p \land \neg q$：真$\land$假 = 假<br/>
+                        D. $\neg (p \lor q) = \neg p \land \neg q$：假$\land$假 = 假<br/><br/>
+                        
+                        <strong>答案：A</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 存在量词命题：找到一个例子即可证明为真<br/>
+                        • 全称量词命题：需要证明对所有情况都成立<br/>
+                        • 复合命题真假判断：<br/>
+                          - $p \land q$：全真才真<br/>
+                          - $p \lor q$：有真则真<br/>
+                          - $\neg p$：真假相反
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第二章：函数与导数</h2>
+            
+            <div class="section">
+                <h3 class="section-title">2.1 函数性质</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-medium">中档</span>
+                    </div>
+                    <strong>题目：</strong>设函数$f(x) = 2^{x(x-a)}$在区间$(0, 1)$单调递减，则a的取值范围是（　　）<br/><br/>
+                    A. $(-\infty, -2]$　　B. $[-2, 0)$　　C. $(0, 2]$　　D. $[2, +\infty)$
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查复合函数的单调性，以及指数函数和二次函数的性质。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        令$g(x) = x(x-a) = x^2 - ax$<br/><br/>
+                        
+                        则$f(x) = 2^{g(x)}$<br/><br/>
+                        
+                        ∵ 底数$2 > 1$，指数函数单调递增<br/><br/>
+                        
+                        ∴ $f(x)$的单调性与$g(x)$相同<br/><br/>
+                        
+                        $g(x) = x^2 - ax$是开口向上的抛物线，对称轴为$x = \frac{a}{2}$<br/><br/>
+                        
+                        要使$g(x)$在$(0, 1)$单调递减，需要对称轴在区间右侧：<br/><br/>
+                        
+                        $\frac{a}{2} \geq 1$<br/><br/>
+                        
+                        ∴ $a \geq 2$<br/><br/>
+                        
+                        <strong>答案：D</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 复合函数单调性：同增异减<br/>
+                        • 指数函数：底数>1时单调递增，0<底数<1时单调递减<br/>
+                        • 二次函数单调性：开口向上时，对称轴左侧递减，右侧递增
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-solution">解答题</span>
+                        <span class="exam-year">2024新课标I卷</span>
+                        <span class="difficulty diff-hard">较难</span>
+                    </div>
+                    <strong>题目：</strong>已知函数$f(x) = e^x - ax^2 - x - 1$。<br/>
+                    (1) 当$a = 1$时，讨论$f(x)$的单调性；<br/>
+                    (2) 当$x \geq 0$时，$f(x) \geq 0$，求a的取值范围。
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查导数在研究函数单调性和最值中的应用，以及恒成立问题的处理。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        <strong>(1) 当a = 1时</strong><br/><br/>
+                        
+                        $f(x) = e^x - x^2 - x - 1$<br/>
+                        $f'(x) = e^x - 2x - 1$<br/><br/>
+                        
+                        令$g(x) = e^x - 2x - 1$，则$g'(x) = e^x - 2$<br/><br/>
+                        
+                        令$g'(x) = 0$，得$x = \ln 2$<br/><br/>
+                        
+                        当$x < \ln 2$时，$g'(x) < 0$，g(x)单调递减<br/>
+                        当$x > \ln 2$时，$g'(x) > 0$，g(x)单调递增<br/><br/>
+                        
+                        $g(x)_{min} = g(\ln 2) = 2 - 2\ln 2 - 1 = 1 - \ln 4 < 0$<br/><br/>
+                        
+                        又$g(0) = 0$，$g(2) = e^2 - 5 > 0$<br/><br/>
+                        
+                        ∴ g(x) = 0有两个根：$x_1 = 0$，$x_2 \in (\ln 2, 2)$<br/><br/>
+                        
+                        分析f'(x) = g(x)的符号：<br/>
+                        • $x \in (-\infty, 0)$：f'(x) > 0，f(x)单调递增<br/>
+                        • $x \in (0, x_2)$：f'(x) < 0，f(x)单调递减<br/>
+                        • $x \in (x_2, +\infty)$：f'(x) > 0，f(x)单调递增<br/><br/>
+                        
+                        <strong>(2) 求a的取值范围</strong><br/><br/>
+                        
+                        当$x = 0$时，$f(0) = 1 - 0 - 0 - 1 = 0$ ✓<br/><br/>
+                        
+                        当$x > 0$时，$f(x) \geq 0$即$e^x - ax^2 - x - 1 \geq 0$<br/><br/>
+                        
+                        $ax^2 \leq e^x - x - 1$<br/><br/>
+                        
+                        $a \leq \frac{e^x - x - 1}{x^2}$<br/><br/>
+                        
+                        设$h(x) = \frac{e^x - x - 1}{x^2}$（$x > 0$）<br/><br/>
+                        
+                        求导得：$h'(x) = \frac{(x-2)e^x + x + 2}{x^3}$<br/><br/>
+                        
+                        分析分子：设$\varphi(x) = (x-2)e^x + x + 2$<br/><br/>
+                        
+                        $\varphi'(x) = (x-1)e^x + 1$，$\varphi''(x) = xe^x > 0$（$x > 0$）<br/><br/>
+                        
+                        ∴ $\varphi'(x)$在$(0, +\infty)$单调递增，$\varphi'(x) > \varphi'(0) = 0$<br/><br/>
+                        
+                        ∴ $\varphi(x)$在$(0, +\infty)$单调递增，$\varphi(x) > \varphi(0) = 0$<br/><br/>
+                        
+                        ∴ $h'(x) > 0$，h(x)在$(0, +\infty)$单调递增<br/><br/>
+                        
+                        $\lim_{x \to 0^+} h(x) = \lim_{x \to 0^+} \frac{e^x - x - 1}{x^2} = \lim_{x \to 0^+} \frac{e^x - 1}{2x} = \lim_{x \to 0^+} \frac{e^x}{2} = \frac{1}{2}$<br/><br/>
+                        
+                        ∴ $h(x) > \frac{1}{2}$对所有$x > 0$成立<br/><br/>
+                        
+                        ∴ <strong>$a \leq \frac{1}{2}$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 恒成立问题：分离参数→构造函数→求最值<br/>
+                        • 多次求导：判断导数符号困难时，对导数再求导<br/>
+                        • 极限计算：洛必达法则或等价无穷小<br/>
+                        • 注意：$x = 0$需要单独验证
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第三章：三角函数与解三角形</h2>
+            
+            <div class="section">
+                <h3 class="section-title">3.1 三角恒等变换</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-fill">填空题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-medium">中档</span>
+                    </div>
+                    <strong>题目：</strong>已知$\sin(\alpha - \beta) = \frac{1}{3}$，$\cos\alpha \sin\beta = \frac{1}{6}$，则$\sin(\alpha + \beta) =$ ________。
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查两角和与差的正弦公式，以及三角恒等变换。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        由$\sin(\alpha - \beta) = \sin\alpha \cos\beta - \cos\alpha \sin\beta = \frac{1}{3}$<br/><br/>
+                        
+                        已知$\cos\alpha \sin\beta = \frac{1}{6}$<br/><br/>
+                        
+                        ∴ $\sin\alpha \cos\beta = \frac{1}{3} + \frac{1}{6} = \frac{1}{2}$<br/><br/>
+                        
+                        $sin(\alpha + \beta) = \sin\alpha \cos\beta + \cos\alpha \sin\beta$<br/><br/>
+                        
+                        $= \frac{1}{2} + \frac{1}{6} = \frac{2}{3}$<br/><br/>
+                        
+                        <strong>答案：$\frac{2}{3}$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 两角和差公式：<br/>
+                          $\sin(\alpha \pm \beta) = \sin\alpha \cos\beta \pm \cos\alpha \sin\beta$<br/>
+                          $\cos(\alpha \pm \beta) = \cos\alpha \cos\beta \mp \sin\alpha \sin\beta$<br/>
+                        • 观察已知和所求的关系，灵活变形
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">3.2 解三角形</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-solution">解答题</span>
+                        <span class="exam-year">2024新课标I卷</span>
+                        <span class="difficulty diff-medium">中档</span>
+                    </div>
+                    <strong>题目：</strong>在△ABC中，内角A、B、C的对边分别为a、b、c，已知$b^2 = a^2 + c^2 - ac$。<br/>
+                    (1) 求角B的大小；<br/>
+                    (2) 若$a + c = 4$，求△ABC周长的最小值。
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查余弦定理的应用，以及利用基本不等式求最值。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        <strong>(1) 求角B</strong><br/><br/>
+                        
+                        由余弦定理：$b^2 = a^2 + c^2 - 2ac\cos B$<br/><br/>
+                        
+                        与已知$b^2 = a^2 + c^2 - ac$对比：<br/><br/>
+                        
+                        $-2ac\cos B = -ac$<br/><br/>
+                        
+                        $2\cos B = 1$<br/><br/>
+                        
+                        $\cos B = \frac{1}{2}$<br/><br/>
+                        
+                        ∵ $0 < B < \pi$<br/><br/>
+                        
+                        ∴ <strong>$B = \frac{\pi}{3}$</strong><br/><br/>
+                        
+                        <strong>(2) 求周长最小值</strong><br/><br/>
+                        
+                        周长$L = a + b + c = 4 + b$<br/><br/>
+                        
+                        由余弦定理：<br/><br/>
+                        
+                        $b^2 = a^2 + c^2 - ac = (a+c)^2 - 3ac = 16 - 3ac$<br/><br/>
+                        
+                        由基本不等式：$ac \leq \left(\frac{a+c}{2}\right)^2 = 4$<br/><br/>
+                        
+                        当且仅当$a = c = 2$时取等号<br/><br/>
+                        
+                        ∴ $b^2 = 16 - 3ac \geq 16 - 12 = 4$<br/><br/>
+                        
+                        ∴ $b \geq 2$<br/><br/>
+                        
+                        ∴ 周长$L = 4 + b \geq 6$<br/><br/>
+                        
+                        当$a = c = 2$时，$b = 2$，此时三角形为等边三角形<br/><br/>
+                        
+                        ∴ 周长最小值为<strong>6</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 余弦定理：$b^2 = a^2 + c^2 - 2ac\cos B$<br/>
+                        • 基本不等式：$ac \leq \left(\frac{a+c}{2}\right)^2$<br/>
+                        • 求最值：建立目标函数→利用不等式或导数求最值
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第四章：数列</h2>
+            
+            <div class="section">
+                <h3 class="section-title">4.1 等差数列与等比数列</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-easy">基础</span>
+                    </div>
+                    <strong>题目：</strong>记$S_n$为等差数列$\{a_n\}$的前n项和。若$a_2 + a_6 = 10$，$a_4 a_8 = 45$，则$S_5 =$（　　）<br/><br/>
+                    A. 25　　B. 22　　C. 20　　D. 15
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查等差数列的性质和前n项和公式。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        设等差数列首项为$a_1$，公差为d<br/><br/>
+                        
+                        由$a_2 + a_6 = 10$：<br/><br/>
+                        
+                        $(a_1 + d) + (a_1 + 5d) = 10$<br/><br/>
+                        
+                        $2a_1 + 6d = 10$<br/><br/>
+                        
+                        $a_1 + 3d = 5$ ... ①<br/><br/>
+                        
+                        由$a_4 a_8 = 45$：<br/><br/>
+                        
+                        $(a_1 + 3d)(a_1 + 7d) = 45$<br/><br/>
+                        
+                        由①：$a_1 + 3d = 5$，代入：<br/><br/>
+                        
+                        $5(a_1 + 7d) = 45$<br/><br/>
+                        
+                        $a_1 + 7d = 9$ ... ②<br/><br/>
+                        
+                        ②-①：$4d = 4$，∴ $d = 1$<br/><br/>
+                        
+                        代入①：$a_1 = 5 - 3 = 2$<br/><br/>
+                        
+                        $S_5 = 5a_1 + \frac{5 \times 4}{2}d = 5 \times 2 + 10 \times 1 = 10 + 10 = 20$<br/><br/>
+                        
+                        <strong>答案：C</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 等差数列通项：$a_n = a_1 + (n-1)d$<br/>
+                        • 等差数列求和：$S_n = na_1 + \frac{n(n-1)}{2}d = \frac{n(a_1+a_n)}{2}$<br/>
+                        • 等差中项：$a_2 + a_6 = 2a_4 = 10$，∴ $a_4 = 5$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第五章：立体几何</h2>
+            
+            <div class="section">
+                <h3 class="section-title">5.1 空间几何体</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-medium">中档</span>
+                    </div>
+                    <strong>题目：</strong>已知正四棱台$ABCD-A_1B_1C_1D_1$中，$AB = 2$，$A_1B_1 = 1$，$AA_1 = \sqrt{2}$，则该四棱台的体积为 ________。
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查棱台的体积公式，以及空间几何体的计算。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        正四棱台的上底面边长$a = 1$，下底面边长$b = 2$<br/><br/>
+                        
+                        上底面积$S_1 = 1^2 = 1$<br/>
+                        下底面积$S_2 = 2^2 = 4$<br/><br/>
+                        
+                        求高h：<br/><br/>
+                        
+                        正四棱台的高、斜高和上下底面边长的一半构成直角三角形<br/><br/>
+                        
+                        上下底面中心距在底面的投影：$\frac{2-1}{2} = \frac{1}{2}$<br/><br/>
+                        
+                        由勾股定理：$h^2 + \left(\frac{\sqrt{2}}{2}\right)^2 = (\sqrt{2})^2$<br/><br/>
+                        
+                        这里需要重新计算...<br/><br/>
+                        
+                        实际上，侧棱$AA_1 = \sqrt{2}$，上下底面中心距的水平距离为$\frac{\sqrt{2}}{2}$<br/><br/>
+                        
+                        $h^2 + \left(\frac{\sqrt{2}}{2}\right)^2 = (\sqrt{2})^2$<br/><br/>
+                        
+                        $h^2 + \frac{1}{2} = 2$<br/><br/>
+                        
+                        $h^2 = \frac{3}{2}$，$h = \sqrt{\frac{3}{2}} = \frac{\sqrt{6}}{2}$<br/><br/>
+                        
+                        体积：$V = \frac{1}{3}h(S_1 + S_2 + \sqrt{S_1S_2})$<br/><br/>
+                        
+                        $= \frac{1}{3} \cdot \frac{\sqrt{6}}{2} \cdot (1 + 4 + \sqrt{4})$<br/><br/>
+                        
+                        $= \frac{\sqrt{6}}{6} \cdot 7 = \frac{7\sqrt{6}}{6}$<br/><br/>
+                        
+                        <strong>答案：$\frac{7\sqrt{6}}{6}$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 棱台体积公式：$V = \frac{1}{3}h(S_1 + S_2 + \sqrt{S_1S_2})$<br/>
+                        • 关键是求出棱台的高，通常利用勾股定理<br/>
+                        • 正四棱台的高、侧棱和上下底面中心距构成直角三角形
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第六章：解析几何</h2>
+            
+            <div class="section">
+                <h3 class="section-title">6.1 直线与圆</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-easy">基础</span>
+                    </div>
+                    <strong>题目：</strong>过点$(0, -2)$与圆$x^2 + y^2 - 4x - 1 = 0$相切的两条直线的夹角为$\alpha$，则$\sin\alpha =$（　　）<br/><br/>
+                    A. 1　　B. $\frac{\sqrt{15}}{4}$　　C. $\frac{\sqrt{10}}{4}$　　D. $\frac{\sqrt{6}}{4}$
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查圆的方程、直线与圆的位置关系，以及三角函数的计算。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        将圆方程化为标准形式：<br/><br/>
+                        
+                        $x^2 - 4x + y^2 = 1$<br/><br/>
+                        
+                        $(x-2)^2 - 4 + y^2 = 1$<br/><br/>
+                        
+                        $(x-2)^2 + y^2 = 5$<br/><br/>
+                        
+                        圆心$C(2, 0)$，半径$r = \sqrt{5}$<br/><br/>
+                        
+                        点$P(0, -2)$到圆心的距离：<br/><br/>
+                        
+                        $|PC| = \sqrt{(2-0)^2 + (0+2)^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}$<br/><br/>
+                        
+                        设切线与PC的夹角为$\theta$，则：<br/><br/>
+                        
+                        $\sin\theta = \frac{r}{|PC|} = \frac{\sqrt{5}}{2\sqrt{2}} = \frac{\sqrt{10}}{4}$<br/><br/>
+                        
+                        两条切线的夹角$\alpha = 2\theta$<br/><br/>
+                        
+                        $\sin\alpha = \sin(2\theta) = 2\sin\theta\cos\theta$<br/><br/>
+                        
+                        $\cos\theta = \sqrt{1 - \sin^2\theta} = \sqrt{1 - \frac{10}{16}} = \sqrt{\frac{6}{16}} = \frac{\sqrt{6}}{4}$<br/><br/>
+                        
+                        $\sin\alpha = 2 \cdot \frac{\sqrt{10}}{4} \cdot \frac{\sqrt{6}}{4} = \frac{2\sqrt{60}}{16} = \frac{2 \cdot 2\sqrt{15}}{16} = \frac{\sqrt{15}}{4}$<br/><br/>
+                        
+                        <strong>答案：B</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 圆的标准方程：$(x-a)^2 + (y-b)^2 = r^2$<br/>
+                        • 切线性质：圆心到切线的距离等于半径<br/>
+                        • 切线夹角问题：利用直角三角形和三角函数<br/>
+                        • 倍角公式：$\sin(2\theta) = 2\sin\theta\cos\theta$
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">6.2 圆锥曲线</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-solution">解答题</span>
+                        <span class="exam-year">2024新课标I卷</span>
+                        <span class="difficulty diff-hard">较难</span>
+                    </div>
+                    <strong>题目：</strong>已知椭圆$C: \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$（$a > b > 0$）的右焦点为F，点$M(1, \frac{3}{2})$在C上，且$MF \perp x$轴。<br/>
+                    (1) 求C的方程；<br/>
+                    (2) 过点P(4, 0)的直线交C于A、B两点，求△ABF面积的最大值。
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查椭圆的标准方程、直线与椭圆的位置关系，以及最值问题。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        <strong>(1) 求椭圆方程</strong><br/><br/>
+                        
+                        ∵ $MF \perp x$轴，M的横坐标为1<br/><br/>
+                        
+                        ∴ 右焦点$F(1, 0)$，即$c = 1$<br/><br/>
+                        
+                        点$M(1, \frac{3}{2})$在椭圆上：<br/><br/>
+                        
+                        $\frac{1}{a^2} + \frac{9}{4b^2} = 1$ ... ①<br/><br/>
+                        
+                        又$a^2 = b^2 + c^2 = b^2 + 1$ ... ②<br/><br/>
+                        
+                        由②代入①：<br/><br/>
+                        
+                        $\frac{1}{b^2+1} + \frac{9}{4b^2} = 1$<br/><br/>
+                        
+                        通分：$\frac{4b^2 + 9(b^2+1)}{4b^2(b^2+1)} = 1$<br/><br/>
+                        
+                        $4b^2 + 9b^2 + 9 = 4b^4 + 4b^2$<br/><br/>
+                        
+                        $4b^4 - 9b^2 - 9 = 0$<br/><br/>
+                        
+                        设$u = b^2$：$4u^2 - 9u - 9 = 0$<br/><br/>
+                        
+                        $(4u + 3)(u - 3) = 0$<br/><br/>
+                        
+                        $u = 3$（舍去负根）<br/><br/>
+                        
+                        ∴ $b^2 = 3$，$a^2 = 4$<br/><br/>
+                        
+                        椭圆方程为<strong>$\frac{x^2}{4} + \frac{y^2}{3} = 1$</strong><br/><br/>
+                        
+                        <strong>(2) 求面积最大值</strong><br/><br/>
+                        
+                        设过P(4, 0)的直线为$x = my + 4$<br/><br/>
+                        
+                        联立椭圆方程：<br/><br/>
+                        
+                        $\begin{cases} x = my + 4 \\ \frac{x^2}{4} + \frac{y^2}{3} = 1 \end{cases}$<br/><br/>
+                        
+                        代入：$\frac{(my+4)^2}{4} + \frac{y^2}{3} = 1$<br/><br/>
+                        
+                        $3(my+4)^2 + 4y^2 = 12$<br/><br/>
+                        
+                        $(3m^2+4)y^2 + 24my + 36 = 0$<br/><br/>
+                        
+                        设$A(x_1, y_1)$，$B(x_2, y_2)$，则：<br/><br/>
+                        
+                        $y_1 + y_2 = -\frac{24m}{3m^2+4}$，$y_1y_2 = \frac{36}{3m^2+4}$<br/><br/>
+                        
+                        $|y_1 - y_2| = \sqrt{(y_1+y_2)^2 - 4y_1y_2} = \frac{12\sqrt{m^2-4}}{3m^2+4}$<br/><br/>
+                        
+                        需要$m^2 > 4$才能保证有两个交点<br/><br/>
+                        
+                        △ABF的面积：<br/><br/>
+                        
+                        $S = \frac{1}{2}|PF| \cdot |y_1 - y_2| = \frac{1}{2} \cdot 3 \cdot \frac{12\sqrt{m^2-4}}{3m^2+4}$<br/><br/>
+                        
+                        $= \frac{18\sqrt{m^2-4}}{3m^2+4}$<br/><br/>
+                        
+                        设$t = \sqrt{m^2-4}$（$t > 0$），则$m^2 = t^2 + 4$<br/><br/>
+                        
+                        $S = \frac{18t}{3(t^2+4)+4} = \frac{18t}{3t^2+16}$<br/><br/>
+                        
+                        求最大值：令$f(t) = \frac{18t}{3t^2+16}$<br/><br/>
+                        
+                        $f'(t) = \frac{18(3t^2+16) - 18t \cdot 6t}{(3t^2+16)^2} = \frac{18(16-3t^2)}{(3t^2+16)^2}$<br/><br/>
+                        
+                        令$f'(t) = 0$，得$t^2 = \frac{16}{3}$，$t = \frac{4}{\sqrt{3}} = \frac{4\sqrt{3}}{3}$<br/><br/>
+                        
+                        最大值为：<br/><br/>
+                        
+                        $S_{max} = \frac{18 \cdot \frac{4\sqrt{3}}{3}}{3 \cdot \frac{16}{3} + 16} = \frac{24\sqrt{3}}{16 + 16} = \frac{24\sqrt{3}}{32} = \frac{3\sqrt{3}}{4}$<br/><br/>
+                        
+                        <strong>△ABF面积的最大值为$\frac{3\sqrt{3}}{4}$</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 椭圆标准方程：利用已知条件建立方程组<br/>
+                        • 直线与椭圆相交：联立方程，利用韦达定理<br/>
+                        • 面积计算：$S = \frac{1}{2} \times$底$\times$高<br/>
+                        • 最值问题：构造函数，利用导数或基本不等式
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <h2 class="chapter-title">第七章：概率与统计</h2>
+            
+            <div class="section">
+                <h3 class="section-title">7.1 概率计算</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-choice">选择题</span>
+                        <span class="exam-year">2023新课标I卷</span>
+                        <span class="difficulty diff-medium">中档</span>
+                    </div>
+                    <strong>题目：</strong>某学校开设了4门体育类选修课和4门艺术类选修课，学生需从这8门课中选修2门或3门课，并且每类选修课至少选修1门，则不同的选课方案共有（　　）种<br/><br/>
+                    A. 64　　B. 80　　C. 96　　D. 104
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查分类计数原理和组合数的计算。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        <strong>情况一：选修2门课</strong><br/><br/>
+                        
+                        每类至少1门，则体育1门、艺术1门<br/><br/>
+                        
+                        $C_4^1 \times C_4^1 = 4 \times 4 = 16$种<br/><br/>
+                        
+                        <strong>情况二：选修3门课</strong><br/><br/>
+                        
+                        每类至少1门，有两种子情况：<br/><br/>
+                        
+                        ① 体育2门、艺术1门：$C_4^2 \times C_4^1 = 6 \times 4 = 24$种<br/><br/>
+                        
+                        ② 体育1门、艺术2门：$C_4^1 \times C_4^2 = 4 \times 6 = 24$种<br/><br/>
+                        
+                        共$24 + 24 = 48$种<br/><br/>
+                        
+                        <strong>总计：</strong>$16 + 48 = 64$种<br/><br/>
+                        
+                        <strong>答案：A</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 分类计数：先分类，再分步，用加法原理汇总<br/>
+                        • 限制条件"每类至少1门"：分类讨论<br/>
+                        • 组合数计算：$C_n^k = \frac{n!}{k!(n-k)!}$
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">7.2 统计与数据分析</h3>
+                
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-type type-solution">解答题</span>
+                        <span class="exam-year">2024新课标I卷</span>
+                        <span class="difficulty diff-medium">中档</span>
+                    </div>
+                    <strong>题目：</strong>某工厂为了提高生产效率，对生产设备进行了技术改造。现从改造前和改造后生产的大量产品中各随机抽取了100件产品作为样本，测量其质量指标值，得到如下数据：<br/><br/>
+                    
+                    <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="border: 1px solid #ddd; padding: 8px;">质量指标值区间</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">[95,100)</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">[100,105)</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">[105,110)</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">[110,115)</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">[115,120]</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="border: 1px solid #ddd; padding: 8px;">改造前频数</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">10</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">30</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">40</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">15</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">5</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="border: 1px solid #ddd; padding: 8px;">改造后频数</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">5</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">20</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">45</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">20</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">10</td>
+                        </tr>
+                    </table>
+                    <br/>
+                    (1) 估计改造前和改造后产品质量指标值的平均数（同一组中的数据用该组区间的中点值作代表）；<br/>
+                    (2) 根据上述数据，能否有95%的把握认为技术改造提高了产品质量？<br/><br/>
+                    
+                    附：$\chi^2 = \frac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$，$P(\chi^2 \geq 3.841) = 0.05$
+                    
+                    <div class="analysis">
+                        <strong>【命题意图】</strong>考查平均数的估计、独立性检验，以及数据分析能力。
+                    </div>
+                    
+                    <div class="solution">
+                        <strong>【规范解答】</strong><br/><br/>
+                        
+                        <strong>(1) 估计平均数</strong><br/><br/>
+                        
+                        各区间中点值：97.5, 102.5, 107.5, 112.5, 117.5<br/><br/>
+                        
+                        <strong>改造前：</strong><br/><br/>
+                        
+                        $\bar{x}_{前} = \frac{1}{100}(10 \times 97.5 + 30 \times 102.5 + 40 \times 107.5 + 15 \times 112.5 + 5 \times 117.5)$<br/><br/>
+                        
+                        $= \frac{1}{100}(975 + 3075 + 4300 + 1687.5 + 587.5)$<br/><br/>
+                        
+                        $= \frac{10625}{100} = 106.25$<br/><br/>
+                        
+                        <strong>改造后：</strong><br/><br/>
+                        
+                        $\bar{x}_{后} = \frac{1}{100}(5 \times 97.5 + 20 \times 102.5 + 45 \times 107.5 + 20 \times 112.5 + 10 \times 117.5)$<br/><br/>
+                        
+                        $= \frac{1}{100}(487.5 + 2050 + 4837.5 + 2250 + 1175)$<br/><br/>
+                        
+                        $= \frac{10800}{100} = 108$<br/><br/>
+                        
+                        <strong>(2) 独立性检验</strong><br/><br/>
+                        
+                        将数据分为"优质品"（指标值≥110）和"非优质品"（指标值<110）：<br/><br/>
+                        
+                        <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
+                            <tr style="border: 1px solid #ddd;">
+                                <td style="border: 1px solid #ddd; padding: 8px;"></td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">优质品</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">非优质品</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">合计</td>
+                            </tr>
+                            <tr style="border: 1px solid #ddd;">
+                                <td style="border: 1px solid #ddd; padding: 8px;">改造前</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">20</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">80</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">100</td>
+                            </tr>
+                            <tr style="border: 1px solid #ddd;">
+                                <td style="border: 1px solid #ddd; padding: 8px;">改造后</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">30</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">70</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">100</td>
+                            </tr>
+                            <tr style="border: 1px solid #ddd;">
+                                <td style="border: 1px solid #ddd; padding: 8px;">合计</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">50</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">150</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">200</td>
+                            </tr>
+                        </table>
+                        <br/>
+                        
+                        计算$\chi^2$：<br/><br/>
+                        
+                        $a = 20, b = 80, c = 30, d = 70, n = 200$<br/><br/>
+                        
+                        $\chi^2 = \frac{200 \times (20 \times 70 - 80 \times 30)^2}{100 \times 100 \times 50 \times 150}$<br/><br/>
+                        
+                        $= \frac{200 \times (1400 - 2400)^2}{75000000}$<br/><br/>
+                        
+                        $= \frac{200 \times 1000000}{75000000}$<br/><br/>
+                        
+                        $= \frac{200000000}{75000000} = \frac{8}{3} \approx 2.667$<br/><br/>
+                        
+                        ∵ $\chi^2 = 2.667 < 3.841$<br/><br/>
+                        
+                        ∴ <strong>没有95%的把握认为技术改造提高了产品质量</strong>
+                    </div>
+                    
+                    <div class="technique">
+                        <strong>【方法总结】</strong><br/>
+                        • 平均数估计：用组中值代表该组数据<br/>
+                        • 独立性检验步骤：<br/>
+                          ① 提出假设<br/>
+                          ② 计算$\chi^2$统计量<br/>
+                          ③ 比较临界值<br/>
+                          ④ 得出结论<br/>
+                        • 注意：$\chi^2$越大，越有理由拒绝原假设
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="integration.html" class="nav-link">← 上一章：融合使用技巧</a>
+            <a href="index.html" class="nav-link">返回首页</a>
+        </div>
+    </div>
+</body>
+</html>

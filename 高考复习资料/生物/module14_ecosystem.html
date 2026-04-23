@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块14：生态系统及其稳定性 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #00b09b;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #00b09b; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #00b09b;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #00b09b;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #00b09b;
+        }
+        h3 {
+            color: #008a7a;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #00b09b20, #96c93d20);
+            border-left: 4px solid #00b09b;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #00b09b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #00b09b;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #00b09b;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #00b09b15, #96c93d15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #00b09b;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module13_population.html">← 上一模块</a>
+                <a href="module15_biotech.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🌍 模块14：生态系统及其稳定性</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：10-15分</span>
+                <span class="tag tag-key">难度：★★★☆☆</span>
+                <span class="tag tag-formula">能量流动计算</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>生态系统结构</strong><br/>
+                        组成成分、营养结构
+                    </div>
+                    <div class="network-item">
+                        <strong>能量流动</strong><br/>
+                        单向流动、逐级递减
+                    </div>
+                    <div class="network-item">
+                        <strong>物质循环</strong><br/>
+                        碳循环、氮循环
+                    </div>
+                    <div class="network-item">
+                        <strong>信息传递</strong><br/>
+                        物理、化学、行为信息
+                    </div>
+                    <div class="network-item">
+                        <strong>稳定性</strong><br/>
+                        抵抗力、恢复力
+                    </div>
+                    <div class="network-item">
+                        <strong>环境保护</strong><br/>
+                        生物多样性保护
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、生态系统的结构</h2>
+
+            <h3>1.1 生态系统的概念和类型</h3>
+            <div class="key-point">
+                <strong>生态系统：</strong>由生物群落与它的无机环境相互作用而形成的统一整体。<br/><br/>
+                <strong>生态系统的类型：</strong><br/>
+                • <strong>自然生态系统：</strong>森林、草原、荒漠、湿地、海洋、淡水等<br/>
+                • <strong>人工生态系统：</strong>农田、城市等
+            </div>
+
+            <h3>1.2 生态系统的组成成分</h3>
+            <table>
+                <tr>
+                    <th>成分</th>
+                    <th>作用</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>非生物的物质和能量</td>
+                    <td>为生物提供物质和能量</td>
+                    <td>阳光、热能、水、空气、无机盐</td>
+                </tr>
+                <tr>
+                    <td>生产者（自养生物）</td>
+                    <td>将无机物转化为有机物，将光能或化学能转化为化学能</td>
+                    <td>绿色植物、蓝藻、硝化细菌</td>
+                </tr>
+                <tr>
+                    <td>消费者（异养生物）</td>
+                    <td>加快物质循环，帮助植物传粉和传播种子</td>
+                    <td>动物（植食性、肉食性、杂食性、寄生）</td>
+                </tr>
+                <tr>
+                    <td>分解者（异养生物）</td>
+                    <td>将动植物遗体和排泄物分解成无机物</td>
+                    <td>细菌、真菌、腐生动物</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ 重要提醒：</strong><br/>
+                • 生产者是生态系统的基石，是生态系统的主要成分<br/>
+                • 分解者是物质循环的关键环节，不可缺少<br/>
+                • 消费者不是生态系统的必需成分，但可以加快物质循环
+            </div>
+
+            <h3>1.3 生态系统的营养结构</h3>
+            <div class="key-point">
+                <strong>食物链：</strong>生态系统中各种生物因食物关系而形成的一种联系。<br/><br/>
+                <strong>食物链的特点：</strong><br/>
+                • 起点一定是生产者<br/>
+                • 终点是不被其他生物所食的消费者<br/>
+                • 箭头方向表示能量流动方向（被捕食者→捕食者）<br/>
+                • 食物链中只包含生产者和消费者，不包括分解者和非生物成分<br/><br/>
+                <strong>食物网：</strong>许多食物链彼此相互交错连接成的复杂营养结构。<br/><br/>
+                <strong>营养级：</strong>食物链中的每一个环节。生产者为第一营养级，初级消费者为第二营养级，以此类推。
+            </div>
+
+            <h2>二、生态系统的能量流动</h2>
+
+            <h3>2.1 能量流动的过程</h3>
+            <div class="key-point">
+                <strong>能量流动的起点：</strong>生产者通过光合作用固定的太阳能<br/><br/>
+                <strong>能量流动的渠道：</strong>食物链和食物网<br/><br/>
+                <strong>能量流动的过程：</strong><br/>
+                • 输入：生产者固定太阳能<br/>
+                • 传递：沿食物链（网）逐级传递<br/>
+                • 散失：通过呼吸作用以热能形式散失<br/>
+                • 转化：光能→化学能→热能
+            </div>
+
+            <div class="formula-box">
+                <div class="title">能量流动的特点</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>1. 单向流动：</strong><br/>
+                    • 只能从第一营养级流向第二营养级，再依次流向后面的各个营养级<br/>
+                    • 不可逆转，也不能循环流动<br/><br/>
+                    <strong>2. 逐级递减：</strong><br/>
+                    • 输入到一个营养级的能量不可能百分之百地流入下一个营养级<br/>
+                    • 能量在沿食物链流动的过程中是逐级减少的<br/>
+                    • 能量传递效率：10%～20%<br/><br/>
+                    <strong>能量传递效率计算公式：</strong><br/>
+                    能量传递效率 = (下一营养级同化量 / 上一营养级同化量) × 100%
+                </p>
+            </div>
+
+            <h3>2.2 能量金字塔</h3>
+            <div class="key-point">
+                <strong>能量金字塔：</strong>将单位时间内各个营养级所得到的能量数值，由低到高绘制成图，可形成一个金字塔图形。<br/><br/>
+                <strong>特点：</strong><br/>
+                • 正金字塔形，绝不会倒置<br/>
+                • 营养级越多，能量消耗越多<br/>
+                • 食物链一般不超过5个营养级
+            </div>
+
+            <h2>三、生态系统的物质循环</h2>
+
+            <h3>3.1 物质循环的概念和特点</h3>
+            <div class="key-point">
+                <strong>物质循环：</strong>组成生物体的C、H、O、N、P、S等元素，都不断进行着从无机环境到生物群落，又从生物群落到无机环境的循环过程。<br/><br/>
+                <strong>特点：</strong><br/>
+                • 全球性（生物地球化学循环）<br/>
+                • 循环性（物质可被反复利用）<br/>
+                • 与能量流动同时进行，相互依存
+            </div>
+
+            <h3>3.2 碳循环</h3>
+            <div class="formula-box">
+                <div class="title">碳循环过程</div>
+                <p style="line-height: 2; text-align: left;">
+                    <strong>碳在无机环境中的存在形式：</strong>CO₂和碳酸盐<br/><br/>
+                    <strong>碳在生物群落中的存在形式：</strong>含碳有机物<br/><br/>
+                    <strong>碳循环的主要途径：</strong><br/>
+                    • <strong>碳进入生物群落：</strong>生产者的光合作用或化能合成作用<br/>
+                    • <strong>碳返回无机环境：</strong><br/>
+                    &nbsp;&nbsp;- 生产者、消费者的呼吸作用<br/>
+                    &nbsp;&nbsp;- 分解者的分解作用<br/>
+                    &nbsp;&nbsp;- 化石燃料的燃烧<br/><br/>
+                    <strong>温室效应：</strong>大气中CO₂含量增加，导致地球温度上升
+                </p>
+            </div>
+
+            <h2>四、生态系统的信息传递</h2>
+
+            <h3>4.1 生态系统中信息的种类</h3>
+            <table>
+                <tr>
+                    <th>信息类型</th>
+                    <th>概念</th>
+                    <th>来源</th>
+                    <th>实例</th>
+                </tr>
+                <tr>
+                    <td>物理信息</td>
+                    <td>通过物理过程传递的信息</td>
+                    <td>无机环境、生物</td>
+                    <td>光、声、温度、湿度、磁力</td>
+                </tr>
+                <tr>
+                    <td>化学信息</td>
+                    <td>生物在生命活动过程中产生的可以传递信息的化学物质</td>
+                    <td>生物</td>
+                    <td>植物的生物碱、有机酸；动物的性外激素</td>
+                </tr>
+                <tr>
+                    <td>行为信息</td>
+                    <td>动物的特殊行为，对于同种或异种生物传递某种信息</td>
+                    <td>动物</td>
+                    <td>蜜蜂跳舞、孔雀开屏、求偶炫耀</td>
+                </tr>
+            </table>
+
+            <h3>4.2 信息传递的作用</h3>
+            <div class="key-point">
+                <strong>在生态系统中的作用：</strong><br/>
+                • 生命活动的正常进行，离不开信息的作用<br/>
+                • 生物种群的繁衍，也离不开信息的传递<br/>
+                • 信息还能调节生物的种间关系，以维持生态系统的稳定<br/><br/>
+                <strong>在农业生产中的应用：</strong><br/>
+                • 提高农产品或畜产品的产量<br/>
+                • 对有害动物进行控制
+            </div>
+
+            <h2>五、生态系统的稳定性</h2>
+
+            <h3>5.1 生态系统稳定性的概念</h3>
+            <div class="key-point">
+                <strong>生态系统稳定性：</strong>生态系统所具有的保持或恢复自身结构和功能相对稳定的能力。<br/><br/>
+                <strong>原因：</strong>生态系统具有一定的自我调节能力<br/><br/>
+                <strong>基础：</strong>负反馈调节（生态系统自我调节能力的基础）
+            </div>
+
+            <h3>5.2 抵抗力稳定性和恢复力稳定性</h3>
+            <div class="formula-box">
+                <div class="title">两种稳定性的比较</div>
+                <table>
+                    <tr>
+                        <th>项目</th>
+                        <th>抵抗力稳定性</th>
+                        <th>恢复力稳定性</th>
+                    </tr>
+                    <tr>
+                        <td>概念</td>
+                        <td>生态系统抵抗外界干扰并使自身的结构与功能保持原状的能力</td>
+                        <td>生态系统在受到外界干扰因素的破坏后恢复到原状的能力</td>
+                    </tr>
+                    <tr>
+                        <td>核心</td>
+                        <td>抵抗干扰，保持原状</td>
+                        <td>遭到破坏，恢复原状</td>
+                    </tr>
+                    <tr>
+                        <td>影响因素</td>
+                        <td>生态系统的组分越多，食物网越复杂，抵抗力稳定性越强</td>
+                        <td>生态系统的组分越少，恢复力稳定性越强</td>
+                    </tr>
+                    <tr>
+                        <td>联系</td>
+                        <td colspan="2">一般呈负相关；同时存在于同一生态系统中</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>六、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>生态系统结构</strong><br/>
+                        • 组成成分<br/>
+                        • 食物链和食物网
+                    </div>
+                    <div class="network-item">
+                        <strong>能量流动</strong><br/>
+                        • 单向流动<br/>
+                        • 逐级递减
+                    </div>
+                    <div class="network-item">
+                        <strong>物质循环</strong><br/>
+                        • 碳循环<br/>
+                        • 特点
+                    </div>
+                    <div class="network-item">
+                        <strong>信息传递</strong><br/>
+                        • 三种类型<br/>
+                        • 作用
+                    </div>
+                    <div class="network-item">
+                        <strong>稳定性</strong><br/>
+                        • 抵抗力稳定性<br/>
+                        • 恢复力稳定性
+                    </div>
+                    <div class="network-item">
+                        <strong>计算</strong><br/>
+                        • 能量传递效率<br/>
+                        • 营养级计算
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>下列关于生态系统的叙述，正确的是（  ）</p>
+                <p>A. 分解者是生态系统的必备成分</p>
+                <p>B. 能量可以在生态系统中循环利用</p>
+                <p>C. 生态系统的信息传递都是双向的</p>
+                <p>D. 抵抗力稳定性强的生态系统恢复力稳定性也一定强</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：A</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A正确：分解者能将有机物分解为无机物，是物质循环的关键环节，是生态系统的必备成分。</p>
+                <p>B错误：能量在生态系统中是单向流动、逐级递减的，不能循环利用。</p>
+                <p>C错误：生态系统的信息传递可以是双向的，也可以是单向的。</p>
+                <p>D错误：抵抗力稳定性和恢复力稳定性一般呈负相关，抵抗力稳定性强的生态系统恢复力稳定性通常较弱。</p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module13_population.html">← 上一模块</a>
+                    <a href="module15_biotech.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

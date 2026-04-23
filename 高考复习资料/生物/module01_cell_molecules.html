@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块01：细胞的分子组成 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #667eea; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        .module-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        h4 {
+            color: #555;
+            font-size: 1.1em;
+            margin: 20px 0 10px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-box .title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .example .title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e9ecef; }
+        .diagram {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .comparison-card h4 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        .tag-formula { background: #27ae60; color: white; }
+        .experiment-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .experiment-box h4 {
+            color: #2e7d32;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .step-list {
+            counter-reset: step;
+            list-style: none;
+        }
+        .step-list li {
+            counter-increment: step;
+            margin: 10px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .summary-box h3 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .knowledge-network {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .knowledge-network h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .network-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="module16_modern_biotech.html">上一模块</a>
+                <a href="module02_cell_structure.html">下一模块 →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>🧬 模块01：细胞的分子组成</h1>
+            <div class="module-info">
+                <span class="tag tag-important">高考分值：6-10分</span>
+                <span class="tag tag-key">难度：★★☆☆☆</span>
+                <span class="tag tag-formula">必须全拿的基础分</span>
+            </div>
+
+            <div class="knowledge-network">
+                <h3>🌐 知识网络图</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>元素层次</strong><br/>
+                        大量元素 → 微量元素 → 最基本元素(C)
+                    </div>
+                    <div class="network-item">
+                        <strong>化合物层次</strong><br/>
+                        无机物(水、无机盐) + 有机物(四大类)
+                    </div>
+                    <div class="network-item">
+                        <strong>蛋白质</strong><br/>
+                        氨基酸 → 肽链 → 空间结构 → 功能多样性
+                    </div>
+                    <div class="network-item">
+                        <strong>核酸</strong><br/>
+                        核苷酸 → DNA双螺旋 / RNA单链 → 遗传信息
+                    </div>
+                    <div class="network-item">
+                        <strong>糖类脂质</strong><br/>
+                        能源物质 + 结构物质 + 调节物质
+                    </div>
+                    <div class="network-item">
+                        <strong>检测实验</strong><br/>
+                        颜色反应原理 + 操作步骤 + 结果分析
+                    </div>
+                </div>
+            </div>
+
+            <h2>一、组成细胞的元素</h2>
+            
+            <h3>1.1 元素的分类</h3>
+            <div class="key-point">
+                <strong>核心概念：</strong>细胞中的元素按含量分为大量元素和微量元素，按作用分为最基本元素、基本元素和主要元素。
+            </div>
+
+            <table>
+                <tr>
+                    <th>分类依据</th>
+                    <th>类别</th>
+                    <th>包含元素</th>
+                    <th>含量特点</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">按含量分</td>
+                    <td>大量元素</td>
+                    <td>C、H、O、N、P、S、K、Ca、Mg</td>
+                    <td>占生物体总重量万分之一以上</td>
+                </tr>
+                <tr>
+                    <td>微量元素</td>
+                    <td>Fe、Mn、Zn、Cu、B、Mo</td>
+                    <td>含量很少，但必不可少</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">按作用分</td>
+                    <td>最基本元素</td>
+                    <td>C</td>
+                    <td>碳链是生物大分子的骨架</td>
+                </tr>
+                <tr>
+                    <td>基本元素</td>
+                    <td>C、H、O、N</td>
+                    <td>占细胞鲜重90%以上</td>
+                </tr>
+                <tr>
+                    <td>主要元素</td>
+                    <td>C、H、O、N、P、S</td>
+                    <td>占细胞鲜重97%以上</td>
+                </tr>
+            </table>
+
+            <div class="formula-box">
+                <div class="title">📊 元素含量记忆口诀</div>
+                <p><strong>鲜重时：</strong>O > C > H > N（氧碳氢氮，养碳氢蛋）</p>
+                <p><strong>干重时：</strong>C > O > N > H（碳氧氮氢，碳优先）</p>
+                <p><strong>原因：</strong>鲜重中水占85%-90%，所以O最多；干重中蛋白质等有机物占主要，所以C最多</p>
+            </div>
+
+            <h3>1.2 元素的统一性与差异性</h3>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>🔬 统一性（生物界与非生物界）</h4>
+                    <ul>
+                        <li>组成生物体的化学元素在无机自然界都能找到</li>
+                        <li>没有一种元素是生物界特有的</li>
+                        <li>说明：生物起源于非生物环境</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>🎯 差异性（生物界与非生物界）</h4>
+                    <ul>
+                        <li>生物体中元素含量与无机自然界差异很大</li>
+                        <li>如：C、H、O、N在生物体中含量高</li>
+                        <li>说明：生物有选择地从环境中吸收元素</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ 常见误区：</strong><br/>
+                1. 微量元素含量少≠作用小（如Fe是血红蛋白的组成成分，缺Fe会导致贫血）<br/>
+                2. 大量元素作用大≠可以缺少微量元素<br/>
+                3. 最基本元素是C，但占细胞鲜重最多的是O（因为水的存在）
+            </div>
+
+            <h2>二、组成细胞的化合物</h2>
+
+            <h3>2.1 化合物的分类与含量</h3>
+            <table>
+                <tr>
+                    <th>类别</th>
+                    <th>化合物</th>
+                    <th>含量（鲜重）</th>
+                    <th>主要功能</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">无机物</td>
+                    <td>水</td>
+                    <td>85%-90%</td>
+                    <td>良好溶剂、反应介质、物质运输</td>
+                </tr>
+                <tr>
+                    <td>无机盐</td>
+                    <td>1%-1.5%</td>
+                    <td>组成复杂化合物、维持生命活动</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">有机物</td>
+                    <td>蛋白质</td>
+                    <td>7%-10%</td>
+                    <td>生命活动的主要承担者</td>
+                </tr>
+                <tr>
+                    <td>脂质</td>
+                    <td>1%-2%</td>
+                    <td>储能、膜结构、调节</td>
+                </tr>
+                <tr>
+                    <td>糖类</td>
+                    <td>1%-1.5%</td>
+                    <td>主要能源物质</td>
+                </tr>
+                <tr>
+                    <td>核酸</td>
+                    <td>1%-1.5%</td>
+                    <td>遗传信息的携带者</td>
+                </tr>
+            </table>
+
+            <h3>2.2 水的存在形式与功能</h3>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>💧 自由水</h4>
+                    <p><strong>定义：</strong>以游离形式存在，可自由流动</p>
+                    <p><strong>含量：</strong>约占细胞内全部水分的95.5%</p>
+                    <p><strong>功能：</strong></p>
+                    <ul>
+                        <li>细胞内的良好溶剂</li>
+                        <li>参与许多生物化学反应</li>
+                        <li>为细胞提供液体环境</li>
+                        <li>运输营养物质和代谢废物</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>🔒 结合水</h4>
+                    <p><strong>定义：</strong>与细胞内的其他物质相结合</p>
+                    <p><strong>含量：</strong>约占细胞内全部水分的4.5%</p>
+                    <p><strong>功能：</strong></p>
+                    <ul>
+                        <li>细胞结构的重要组成成分</li>
+                        <li>维持细胞的形态和结构</li>
+                        <li>增强细胞的抗逆性</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>自由水/结合水比值与代谢的关系：</strong><br/>
+                • 比值高 → 代谢旺盛，生长迅速，抗逆性弱<br/>
+                • 比值低 → 代谢缓慢，休眠状态，抗逆性强<br/>
+                • 种子萌发时：结合水→自由水，代谢增强<br/>
+                • 种子储存时：自由水→结合水，降低代谢
+            </div>
+
+            <h3>2.3 无机盐的存在形式与功能</h3>
+            <div class="key-point">
+                <strong>存在形式：</strong>大多数以离子形式存在（如Na⁺、K⁺、Ca²⁺、Mg²⁺、Cl⁻、HCO₃⁻、HPO₄²⁻等）<br/>
+                <strong>少数以化合物形式存在：</strong>如骨骼中的CaCO₃
+            </div>
+
+            <table>
+                <tr>
+                    <th>无机盐</th>
+                    <th>功能</th>
+                    <th>缺乏症</th>
+                </tr>
+                <tr>
+                    <td>Fe²⁺</td>
+                    <td>血红蛋白的组成成分</td>
+                    <td>缺铁性贫血</td>
+                </tr>
+                <tr>
+                    <td>Mg²⁺</td>
+                    <td>叶绿素的组成成分</td>
+                    <td>叶片发黄，影响光合作用</td>
+                </tr>
+                <tr>
+                    <td>I⁻</td>
+                    <td>甲状腺激素的组成成分</td>
+                    <td>地方性甲状腺肿（大脖子病）</td>
+                </tr>
+                <tr>
+                    <td>Ca²⁺</td>
+                    <td>骨骼、牙齿的组成成分；调节神经肌肉兴奋性</td>
+                    <td>佝偻病（幼年）、骨质疏松（老年）；血钙过低抽搐</td>
+                </tr>
+                <tr>
+                    <td>Na⁺、K⁺</td>
+                    <td>维持细胞外液和细胞内液的渗透压</td>
+                    <td>渗透压失衡，细胞形态改变</td>
+                </tr>
+                <tr>
+                    <td>HCO₃⁻、HPO₄²⁻</td>
+                    <td>维持血浆的酸碱平衡</td>
+                    <td>酸碱失衡</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>促进花粉萌发和花粉管伸长</td>
+                    <td>花而不实（只开花不结果）</td>
+                </tr>
+                <tr>
+                    <td>Zn</td>
+                    <td>多种酶的组成成分</td>
+                    <td>生长发育不良，味觉障碍</td>
+                </tr>
+            </table>
+
+            <h2>三、蛋白质——生命活动的主要承担者</h2>
+
+            <h3>3.1 氨基酸：蛋白质的基本单位</h3>
+            
+            <div class="formula-box">
+                <div class="title">氨基酸的结构通式</div>
+                <p style="font-size: 1.3em;">
+                    $$\underset{R}{\underset{|}{H_2N-C-COOH}}$$
+                    $$\quad\quad\quad|$$
+                    $$\quad\quad\quad H$$
+                </p>
+                <p><strong>记忆口诀：</strong>"一个中心，两个基本点"</p>
+                <p>• 一个中心：中心碳原子（C）</p>
+                <p>• 两个基本点：氨基（-NH₂）和羧基（-COOH）</p>
+                <p>• 一个氢原子（-H）和一个R基（决定氨基酸种类）</p>
+            </div>
+
+            <div class="key-point">
+                <strong>氨基酸的结构特点：</strong><br/>
+                1. 至少含有一个氨基（-NH₂）和一个羧基（-COOH）<br/>
+                2. 都有一个氨基和一个羧基连接在同一个碳原子上<br/>
+                3. 各种氨基酸的区别在于R基的不同
+            </div>
+
+            <h4>氨基酸的分类（根据R基性质）</h4>
+            <table>
+                <tr>
+                    <th>分类</th>
+                    <th>特点</th>
+                    <th>举例</th>
+                </tr>
+                <tr>
+                    <td>必需氨基酸</td>
+                    <td>人体不能合成，必须从食物中获取（8种）</td>
+                    <td>甲硫氨酸、缬氨酸、赖氨酸、异亮氨酸、苯丙氨酸、亮氨酸、色氨酸、苏氨酸</td>
+                </tr>
+                <tr>
+                    <td>非必需氨基酸</td>
+                    <td>人体可以合成（12种）</td>
+                    <td>甘氨酸、丙氨酸、丝氨酸等</td>
+                </tr>
+            </table>
+
+            <div class="success">
+                <strong>💡 记忆口诀：必需氨基酸（8种）</strong><br/>
+                "甲携来一本亮色书"<br/>
+                甲（甲硫氨酸）携（缬氨酸）来（赖氨酸）一（异亮氨酸）本（苯丙氨酸）亮（亮氨酸）色（色氨酸）书（苏氨酸）
+            </div>
+
+            <h3>3.2 蛋白质的结构层次</h3>
+
+            <div class="diagram">
+                <h4>🏗️ 蛋白质的结构层次（从简单到复杂）</h4>
+                <p style="font-size: 1.2em; line-height: 2.5;">
+                    <strong>氨基酸</strong>（基本单位）<br/>
+                    ↓ <em>脱水缩合（肽键连接）</em><br/>
+                    <strong>多肽（肽链）</strong><br/>
+                    ↓ <em>盘曲、折叠</em><br/>
+                    <strong>蛋白质</strong>（具有一定空间结构）
+                </p>
+            </div>
+
+            <h4>脱水缩合反应详解</h4>
+            <div class="formula-box">
+                <div class="title">脱水缩合过程</div>
+                <p>一个氨基酸的羧基（-COOH）与另一个氨基酸的氨基（-NH₂）相连接</p>
+                <p>同时脱去一分子水，形成肽键（-CO-NH-）</p>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    $$H_2N-CH(R_1)-COOH + H_2N-CH(R_2)-COOH$$
+                    $$\downarrow$$
+                    $$H_2N-CH(R_1)-CO-NH-CH(R_2)-COOH + H_2O$$
+                </p>
+            </div>
+
+            <div class="key-point">
+                <strong>蛋白质相关计算公式：</strong><br/>
+                <span class="tag tag-formula">必背公式</span><br/><br/>
+                
+                <strong>1. 肽键数 = 脱去水分子数 = 氨基酸数 - 肽链数</strong><br/>
+                $$肽键数 = n - m$$
+                （n为氨基酸数，m为肽链数）<br/><br/>
+                
+                <strong>2. 蛋白质相对分子质量计算：</strong><br/>
+                $$蛋白质分子量 = 氨基酸平均分子量 \times 氨基酸数 - 18 \times 脱去水分子数$$
+                （氨基酸平均分子量按110或128计算，具体看题目要求）<br/><br/>
+                
+                <strong>3. 游离氨基/羧基数目：</strong><br/>
+                • 游离氨基数 = 肽链数 + R基中的氨基数<br/>
+                • 游离羧基数 = 肽链数 + R基中的羧基数<br/><br/>
+                
+                <strong>4. N原子数 = 肽键数 + 肽链数 + R基中的N原子数</strong><br/>
+                <strong>5. O原子数 = 肽键数 + 2×肽链数 + R基中的O原子数</strong>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 例题1：蛋白质结构计算</div>
+                <p><strong>题目：</strong>某蛋白质由n条肽链组成，共有m个氨基酸，氨基酸的平均分子量为a，求：</p>
+                <p>(1) 该蛋白质中的肽键数</p>
+                <p>(2) 形成该蛋白质时脱去的水分子数</p>
+                <p>(3) 该蛋白质的相对分子质量</p>
+                <p>(4) 该蛋白质至少含有的游离氨基数和羧基数</p>
+                
+                <p style="margin-top: 15px;"><strong>解析：</strong></p>
+                <p>(1) 肽键数 = 氨基酸数 - 肽链数 = <strong>m - n</strong></p>
+                <p>(2) 脱去水分子数 = 肽键数 = <strong>m - n</strong></p>
+                <p>(3) 蛋白质分子量 = m×a - 18×(m-n) = <strong>ma - 18(m-n)</strong></p>
+                <p>(4) 至少含有的游离氨基数 = 肽链数 = <strong>n</strong>；至少含有的游离羧基数 = <strong>n</strong></p>
+            </div>
+
+            <h3>3.3 蛋白质的结构多样性</h3>
+            <div class="key-point">
+                <strong>蛋白质结构多样性的原因（四个层次）：</strong><br/>
+                1. <strong>氨基酸水平：</strong>氨基酸的种类不同<br/>
+                2. <strong>氨基酸水平：</strong>氨基酸的数目成百上千<br/>
+                3. <strong>氨基酸水平：</strong>氨基酸的排列顺序千变万化<br/>
+                4. <strong>肽链水平：</strong>肽链的盘曲、折叠方式及其形成的空间结构千差万别
+            </div>
+
+            <h3>3.4 蛋白质的功能多样性</h3>
+            <table>
+                <tr>
+                    <th>功能</th>
+                    <th>举例</th>
+                    <th>说明</th>
+                </tr>
+                <tr>
+                    <td>结构蛋白</td>
+                    <td>肌肉蛋白、胶原蛋白、头发中的角蛋白</td>
+                    <td>构成细胞和生物体的结构</td>
+                </tr>
+                <tr>
+                    <td>催化功能</td>
+                    <td>绝大多数酶</td>
+                    <td>降低反应活化能，加速化学反应</td>
+                </tr>
+                <tr>
+                    <td>运输功能</td>
+                    <td>血红蛋白（运输O₂）、载体蛋白</td>
+                    <td>运输物质</td>
+                </tr>
+                <tr>
+                    <td>调节功能</td>
+                    <td>胰岛素、生长激素等蛋白质类激素</td>
+                    <td>调节生命活动</td>
+                </tr>
+                <tr>
+                    <td>免疫功能</td>
+                    <td>抗体（免疫球蛋白）</td>
+                    <td>抵御病原体</td>
+                </tr>
+                <tr>
+                    <td>信息传递</td>
+                    <td>细胞膜上的受体蛋白</td>
+                    <td>识别信号分子</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ 易错提醒：</strong><br/>
+                1. 并非所有酶都是蛋白质（少数酶是RNA）<br/>
+                2. 并非所有激素都是蛋白质（如性激素是脂质，甲状腺激素是氨基酸衍生物）<br/>
+                3. 抗体一定是蛋白质，且都是球蛋白<br/>
+                4. 载体蛋白和通道蛋白都有特异性，但作用机制不同
+            </div>
+
+            <h3>3.5 蛋白质的变性</h3>
+            <div class="key-point">
+                <strong>蛋白质变性的概念：</strong>蛋白质分子的空间结构被破坏，导致其理化性质改变和生物活性丧失的过程。<br/><br/>
+                
+                <strong>引起变性的因素：</strong><br/>
+                • <strong>物理因素：</strong>高温、紫外线、超声波、剧烈振荡等<br/>
+                • <strong>化学因素：</strong>强酸、强碱、重金属盐、有机溶剂（如酒精）、尿素等<br/><br/>
+                
+                <strong>变性的特点：</strong><br/>
+                • 空间结构破坏（不可逆，但肽键未断裂）<br/>
+                • 生物活性丧失<br/>
+                • 易被蛋白酶水解<br/>
+                • 溶解度降低，易沉淀
+            </div>
+
+            <div class="success">
+                <strong>💡 生活中的蛋白质变性：</strong><br/>
+                • 煮熟的鸡蛋：高温使蛋白质变性，更易消化<br/>
+                • 酒精消毒：使细菌蛋白质变性<br/>
+                • 豆腐制作：盐卤使蛋白质变性凝固<br/>
+                • 疫苗冷藏：防止蛋白质变性失活
+            </div>
+
+            <h2>四、核酸——遗传信息的携带者</h2>
+
+            <h3>4.1 核酸的种类与分布</h3>
+            <table>
+                <tr>
+                    <th>比较项目</th>
+                    <th>DNA（脱氧核糖核酸）</th>
+                    <th>RNA（核糖核酸）</th>
+                </tr>
+                <tr>
+                    <td>全称</td>
+                    <td>脱氧核糖核酸</td>
+                    <td>核糖核酸</td>
+                </tr>
+                <tr>
+                    <td>基本单位</td>
+                    <td>脱氧核苷酸</td>
+                    <td>核糖核苷酸</td>
+                </tr>
+                <tr>
+                    <td>五碳糖</td>
+                    <td>脱氧核糖</td>
+                    <td>核糖</td>
+                </tr>
+                <tr>
+                    <td>含氮碱基</td>
+                    <td>A、T、G、C</td>
+                    <td>A、U、G、C</td>
+                </tr>
+                <tr>
+                    <td>结构</td>
+                    <td>双螺旋结构</td>
+                    <td>通常为单链</td>
+                </tr>
+                <tr>
+                    <td>主要分布</td>
+                    <td>细胞核（主要）、线粒体、叶绿体</td>
+                    <td>细胞质（主要）、细胞核</td>
+                </tr>
+                <tr>
+                    <td>功能</td>
+                    <td>储存遗传信息</td>
+                    <td>传递遗传信息、参与蛋白质合成</td>
+                </tr>
+            </table>
+
+            <h3>4.2 核苷酸的结构</h3>
+            <div class="formula-box">
+                <div class="title">核苷酸的组成</div>
+                <p style="font-size: 1.2em;">
+                    <strong>核苷酸 = 磷酸 + 五碳糖 + 含氮碱基</strong>
+                </p>
+                <p>• <strong>磷酸：</strong>连接在5号碳原子上</p>
+                <p>• <strong>五碳糖：</strong>核糖（RNA）或脱氧核糖（DNA）</p>
+                <p>• <strong>含氮碱基：</strong>连接在1号碳原子上</p>
+            </div>
+
+            <h4>DNA与RNA的核苷酸种类</h4>
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>🧬 DNA的4种脱氧核苷酸</h4>
+                    <ul>
+                        <li>腺嘌呤脱氧核苷酸（dAMP）</li>
+                        <li>鸟嘌呤脱氧核苷酸（dGMP）</li>
+                        <li>胞嘧啶脱氧核苷酸（dCMP）</li>
+                        <li>胸腺嘧啶脱氧核苷酸（dTMP）</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>📝 RNA的4种核糖核苷酸</h4>
+                    <ul>
+                        <li>腺嘌呤核糖核苷酸（AMP）</li>
+                        <li>鸟嘌呤核糖核苷酸（GMP）</li>
+                        <li>胞嘧啶核糖核苷酸（CMP）</li>
+                        <li>尿嘧啶核糖核苷酸（UMP）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>核酸中的碱基互补配对原则：</strong><br/>
+                • DNA中：A = T，G = C（所以 A + G = T + C，即嘌呤数 = 嘧啶数）<br/>
+                • RNA中：A与U配对，G与C配对<br/>
+                • 双链DNA中：(A + T) / (G + C) 的比值因物种而异，可用于物种鉴定
+            </div>
+
+            <h3>4.3 DNA的结构特点</h3>
+            <div class="key-point">
+                <strong>DNA双螺旋结构的主要特点（沃森和克里克，1953年）：</strong><br/>
+                1. DNA分子是由两条反向平行的脱氧核苷酸长链盘旋而成的双螺旋结构<br/>
+                2. 脱氧核糖和磷酸交替连接，排列在外侧，构成基本骨架<br/>
+                3. 碱基排列在内侧，通过氢键连接成碱基对<br/>
+                4. 碱基互补配对原则：A与T配对（2个氢键），G与C配对（3个氢键）
+            </div>
+
+            <div class="formula-box">
+                <div class="title">📊 DNA结构相关计算</div>
+                <p><strong>1. 碱基数量关系（双链DNA）：</strong></p>
+                <p>$$A = T, \quad G = C$$</p>
+                <p>$$A + G = T + C = A + C = T + G = 50\%$$</p>
+                <p>$$\frac{A + T}{G + C} = \frac{A_1 + T_1}{G_1 + C_1} = \frac{A_2 + T_2}{G_2 + C_2}$$</p>
+                
+                <p style="margin-top: 15px;"><strong>2. DNA复制相关计算：</strong></p>
+                <p>复制n次后：DNA分子数 = $2^n$</p>
+                <p>含亲代链的DNA分子数 = 2（始终是2个）</p>
+                <p>需要游离的脱氧核苷酸数 = $a \times (2^n - 1)$（a为DNA分子中该脱氧核苷酸数）</p>
+            </div>
+
+            <h2>五、糖类和脂质</h2>
+
+            <h3>5.1 糖类的种类与功能</h3>
+            <table>
+                <tr>
+                    <th>分类</th>
+                    <th>种类</th>
+                    <th>分布</th>
+                    <th>功能</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">单糖</td>
+                    <td>葡萄糖</td>
+                    <td>动植物细胞</td>
+                    <td>细胞的主要能源物质（"生命的燃料"）</td>
+                </tr>
+                <tr>
+                    <td>果糖</td>
+                    <td>植物细胞</td>
+                    <td>提供能量</td>
+                </tr>
+                <tr>
+                    <td>半乳糖</td>
+                    <td>动物细胞</td>
+                    <td>提供能量</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">二糖</td>
+                    <td>蔗糖</td>
+                    <td>植物细胞（甘蔗、甜菜）</td>
+                    <td>储能，运输形式</td>
+                </tr>
+                <tr>
+                    <td>麦芽糖</td>
+                    <td>植物细胞（发芽的小麦）</td>
+                    <td>淀粉水解产物</td>
+                </tr>
+                <tr>
+                    <td>乳糖</td>
+                    <td>动物细胞（乳汁）</td>
+                    <td>储能</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">多糖</td>
+                    <td>淀粉</td>
+                    <td>植物细胞</td>
+                    <td>植物细胞的储能物质</td>
+                </tr>
+                <tr>
+                    <td>纤维素</td>
+                    <td>植物细胞（细胞壁）</td>
+                    <td>结构物质，支持保护</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>糖原</td>
+                    <td>动物细胞（肝脏、肌肉）</td>
+                    <td>动物细胞的储能物质</td>
+                </tr>
+            </table>
+
+            <div class="key-point">
+                <strong>糖类的重要知识点：</strong><br/>
+                1. 葡萄糖是细胞的主要能源物质，但主要的储能物质是脂肪<br/>
+                2. 淀粉是植物细胞储能物质，糖原是动物细胞储能物质<br/>
+                3. 纤维素是植物细胞壁的主要成分，人体不能消化（膳食纤维）<br/>
+                4. 几丁质（壳多糖）是真菌细胞壁和昆虫外骨骼的成分
+            </div>
+
+            <h3>5.2 脂质的种类与功能</h3>
+            <table>
+                <tr>
+                    <th>类别</th>
+                    <th>亚类</th>
+                    <th>功能</th>
+                    <th>举例</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">脂肪</td>
+                    <td>甘油三酯</td>
+                    <td>良好的储能物质；绝热体，保温；缓冲减压，保护内脏</td>
+                    <td>植物油、动物脂肪</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">相同质量下，脂肪氧化分解释放能量是糖类的2倍多</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">磷脂</td>
+                    <td>磷脂分子</td>
+                    <td>构成细胞膜和多种细胞器膜的重要成分</td>
+                    <td>卵磷脂、脑磷脂</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">磷脂双分子层是生物膜的基本支架</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">固醇</td>
+                    <td>胆固醇</td>
+                    <td>构成动物细胞膜的重要成分；参与血液中脂质的运输</td>
+                    <td>动物细胞膜</td>
+                </tr>
+                <tr>
+                    <td>性激素</td>
+                    <td>促进人和动物生殖器官的发育以及生殖细胞的形成</td>
+                    <td>雌激素、雄激素</td>
+                </tr>
+                <tr>
+                    <td>维生素D</td>
+                    <td>促进人和动物肠道对钙和磷的吸收</td>
+                    <td>鱼肝油、蛋黄</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ 糖类与脂质的比较误区：</strong><br/>
+                1. 并非所有糖类都是能源物质（如纤维素是结构物质）<br/>
+                2. 并非所有细胞都含有胆固醇（植物细胞膜一般不含胆固醇）<br/>
+                3. 脂肪是主要储能物质，但主要的能源物质是糖类（葡萄糖）<br/>
+                4. 磷脂是所有细胞都含有的脂质（因为有细胞膜）
+            </div>
+
+            <h2>六、检测生物组织中的有机物（实验）</h2>
+
+            <div class="experiment-box">
+                <h4>🧪 实验一：检测生物组织中的还原糖</h4>
+                
+                <p><strong>实验原理：</strong>还原糖（如葡萄糖、果糖、麦芽糖）中的醛基（-CHO）在加热条件下能将斐林试剂中的Cu²⁺还原为Cu⁺，生成砖红色的Cu₂O沉淀。</p>
+                
+                <p style="margin-top: 15px;"><strong>试剂配制：</strong></p>
+                <ul>
+                    <li>斐林试剂甲液：0.1g/mL NaOH溶液</li>
+                    <li>斐林试剂乙液：0.05g/mL CuSO₄溶液</li>
+                    <li>使用时甲液和乙液等量混合均匀</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>实验步骤：</strong></p>
+                <ol class="step-list">
+                    <li>向试管内注入2mL待测组织样液（如苹果汁、梨汁）</li>
+                    <li>向试管内注入1mL斐林试剂（甲液和乙液等量混合均匀后再注入）</li>
+                    <li>将试管放入盛有50-65℃温水的大烧杯中加热约2分钟</li>
+                    <li>观察试管中出现的颜色变化</li>
+                </ol>
+
+                <p style="margin-top: 15px;"><strong>实验结果：</strong>蓝色 → 棕色 → 砖红色沉淀</p>
+
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>注意事项：</strong><br/>
+                    • 选材：选择还原糖含量高、颜色浅的组织（苹果、梨），避免西瓜汁（红色干扰）<br/>
+                    • 斐林试剂必须现配现用，甲液乙液先混合再加入<br/>
+                    • 必须水浴加热，不能直接加热<br/>
+                    • 蔗糖、淀粉是非还原糖，不能发生此反应
+                </div>
+            </div>
+
+            <div class="experiment-box">
+                <h4>🧪 实验二：检测生物组织中的脂肪</h4>
+                
+                <p><strong>实验原理：</strong>脂肪可以被苏丹Ⅲ染液染成橘黄色（或被苏丹Ⅳ染液染成红色）。</p>
+                
+                <p style="margin-top: 15px;"><strong>方法一：花生子叶切片法（显微镜观察）</strong></p>
+                <ol class="step-list">
+                    <li>向待测组织样液（如花生子叶）滴加2-3滴苏丹Ⅲ染液，染色3分钟</li>
+                    <li>用吸水纸吸去染液，滴加1-2滴50%酒精溶液，洗去浮色</li>
+                    <li>用吸水纸吸去酒精，滴加1滴蒸馏水，盖上盖玻片</li>
+                    <li>在低倍镜下找到花生子叶最薄处，移至视野中央</li>
+                    <li>换高倍镜观察，脂肪颗粒被染成橘黄色</li>
+                </ol>
+
+                <p style="margin-top: 15px;"><strong>方法二：组织样液法（直接观察）</strong></p>
+                <ol class="step-list">
+                    <li>向待测组织样液（如花生油）滴加3滴苏丹Ⅲ染液</li>
+                    <li>观察样液颜色变化，溶液变成橘黄色</li>
+                </ol>
+
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>注意事项：</strong><br/>
+                    • 切片要薄而均匀，便于观察<br/>
+                    • 染色后必须用50%酒精洗去浮色，否则影响观察<br/>
+                    • 苏丹Ⅲ染成橘黄色，苏丹Ⅳ染成红色，不要混淆
+                </div>
+            </div>
+
+            <div class="experiment-box">
+                <h4>🧪 实验三：检测生物组织中的蛋白质</h4>
+                
+                <p><strong>实验原理：</strong>蛋白质中的肽键（-CO-NH-）在碱性条件下能与Cu²⁺结合，形成紫色络合物。</p>
+                
+                <p style="margin-top: 15px;"><strong>试剂配制：</strong></p>
+                <ul>
+                    <li>双缩脲试剂A液：0.1g/mL NaOH溶液</li>
+                    <li>双缩脲试剂B液：0.01g/mL CuSO₄溶液</li>
+                    <li>先加A液创造碱性环境，再加B液</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>实验步骤：</strong></p>
+                <ol class="step-list">
+                    <li>向试管内注入2mL待测组织样液（如豆浆、蛋清稀释液）</li>
+                    <li>向试管内注入双缩脲试剂A液1mL，摇匀</li>
+                    <li>向试管内注入双缩脲试剂B液4滴，摇匀</li>
+                    <li>观察试管中出现的颜色变化</li>
+                </ol>
+
+                <p style="margin-top: 15px;"><strong>实验结果：</strong>溶液变成紫色</p>
+
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>注意事项：</strong><br/>
+                    • 选材：蛋清必须稀释（1:10），否则反应后粘附在试管壁上不易清洗<br/>
+                    • 双缩脲试剂要先加A液（NaOH），后加B液（CuSO₄），顺序不能颠倒<br/>
+                    • B液不能加太多（4滴即可），否则蓝色会掩盖紫色<br/>
+                    • 不需要加热，常温下即可反应
+                </div>
+            </div>
+
+            <div class="experiment-box">
+                <h4>🧪 实验四：检测生物组织中的淀粉</h4>
+                
+                <p><strong>实验原理：</strong>淀粉遇碘液变蓝色。</p>
+                
+                <p style="margin-top: 15px;"><strong>实验步骤：</strong></p>
+                <ol class="step-list">
+                    <li>向试管内注入2mL待测组织样液（如马铃薯匀浆）</li>
+                    <li>向试管内滴加2滴碘液</li>
+                    <li>观察试管中出现的颜色变化</li>
+                </ol>
+
+                <p style="margin-top: 15px;"><strong>实验结果：</strong>溶液变成蓝色</p>
+
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>注意事项：</strong><br/>
+                    • 碘液浓度不宜过高，2滴即可<br/>
+                    • 反应非常灵敏，微量淀粉即可显色<br/>
+                    • 颜色为蓝色，不要描述为"蓝黑色"或"紫蓝色"
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>📋 四大检测实验对比总结</h3>
+                <table>
+                    <tr>
+                        <th>检测物质</th>
+                        <th>试剂</th>
+                        <th>颜色反应</th>
+                        <th>是否需要加热</th>
+                        <th>关键注意点</th>
+                    </tr>
+                    <tr>
+                        <td>还原糖</td>
+                        <td>斐林试剂（甲液+乙液）</td>
+                        <td>砖红色沉淀</td>
+                        <td>需要（水浴50-65℃）</td>
+                        <td>现配现用，等量混合</td>
+                    </tr>
+                    <tr>
+                        <td>脂肪</td>
+                        <td>苏丹Ⅲ/苏丹Ⅳ</td>
+                        <td>橘黄色/红色</td>
+                        <td>不需要</td>
+                        <td>需用酒精洗去浮色</td>
+                    </tr>
+                    <tr>
+                        <td>蛋白质</td>
+                        <td>双缩脲试剂（A液+B液）</td>
+                        <td>紫色</td>
+                        <td>不需要</td>
+                        <td>先A后B，B液少量</td>
+                    </tr>
+                    <tr>
+                        <td>淀粉</td>
+                        <td>碘液</td>
+                        <td>蓝色</td>
+                        <td>不需要</td>
+                        <td>碘液少量即可</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ 斐林试剂与双缩脲试剂的比较：</strong><br/>
+                <table style="margin-top: 10px;">
+                    <tr>
+                        <th>比较项目</th>
+                        <th>斐林试剂</th>
+                        <th>双缩脲试剂</th>
+                    </tr>
+                    <tr>
+                        <td>成分</td>
+                        <td>甲液：0.1g/mL NaOH<br/>乙液：0.05g/mL CuSO₄</td>
+                        <td>A液：0.1g/mL NaOH<br/>B液：0.01g/mL CuSO₄</td>
+                    </tr>
+                    <tr>
+                        <td>添加顺序</td>
+                        <td>甲液和乙液等量混合均匀后再加入</td>
+                        <td>先加A液1mL，再加B液4滴</td>
+                    </tr>
+                    <tr>
+                        <td>反应条件</td>
+                        <td>水浴加热50-65℃</td>
+                        <td>常温，不需加热</td>
+                    </tr>
+                    <tr>
+                        <td>反应原理</td>
+                        <td>还原糖将Cu²⁺还原为Cu⁺</td>
+                        <td>肽键与Cu²⁺形成紫色络合物</td>
+                    </tr>
+                    <tr>
+                        <td>颜色变化</td>
+                        <td>蓝色→棕色→砖红色沉淀</td>
+                        <td>无色→紫色</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>七、模块总结与高考链接</h2>
+
+            <div class="summary-box">
+                <h3>🎯 核心考点清单</h3>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <strong>元素考点</strong><br/>
+                        • 大量元素vs微量元素<br/>
+                        • 最基本元素(C)的判断<br/>
+                        • 元素含量排序（鲜重/干重）
+                    </div>
+                    <div class="network-item">
+                        <strong>水考点</strong><br/>
+                        • 自由水/结合水的功能<br/>
+                        • 自由水/结合水比值与代谢<br/>
+                        • 水的存在形式转化
+                    </div>
+                    <div class="network-item">
+                        <strong>无机盐考点</strong><br/>
+                        • 离子形式存在<br/>
+                        • 典型无机盐的功能<br/>
+                        • 缺乏症对应关系
+                    </div>
+                    <div class="network-item">
+                        <strong>蛋白质考点</strong><br/>
+                        • 氨基酸结构通式<br/>
+                        • 脱水缩合计算<br/>
+                        • 蛋白质功能多样性
+                    </div>
+                    <div class="network-item">
+                        <strong>核酸考点</strong><br/>
+                        • DNA与RNA的区别<br/>
+                        • 核苷酸组成<br/>
+                        • 碱基互补配对计算
+                    </div>
+                    <div class="network-item">
+                        <strong>实验考点</strong><br/>
+                        • 四大检测实验原理<br/>
+                        • 试剂使用注意事项<br/>
+                        • 颜色反应结果
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="title">📝 高考真题演练</div>
+                <p><strong>【2023年全国甲卷】</strong>下列关于细胞中化合物的叙述，正确的是（  ）</p>
+                <p>A. 胆固醇是构成植物细胞膜的重要成分</p>
+                <p>B. 脂肪是细胞内良好的储能物质，其元素组成与糖类不同</p>
+                <p>C. 蛋白质变性后，其特定功能丧失，但肽键并未断裂</p>
+                <p>D. 无机盐在细胞中都以离子形式存在</p>
+                
+                <p style="margin-top: 15px;"><strong>答案：C</strong></p>
+                <p><strong>解析：</strong></p>
+                <p>A错误：胆固醇是构成动物细胞膜的重要成分，植物细胞膜一般不含胆固醇。</p>
+                <p>B错误：脂肪和糖类的元素组成相同，都是C、H、O，只是比例不同（脂肪中H比例高，O比例低）。</p>
+                <p>C正确：蛋白质变性是空间结构被破坏，肽键并未断裂，特定功能丧失。</p>
+                <p>D错误：无机盐大多数以离子形式存在，少数以化合物形式存在（如骨骼中的CaCO₃）。
+                </p>
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="module16_modern_biotech.html">← 上一模块</a>
+                    <a href="module02_cell_structure.html">下一模块 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

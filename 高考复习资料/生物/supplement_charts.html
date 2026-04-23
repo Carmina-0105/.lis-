@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图表分析专题 | 生物总复习</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav a {
+            color: #fa709a;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav a:hover { background: #fa709a; color: white; }
+        .content {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #fa709a;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #fa709a;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #fa709a;
+        }
+        h3 {
+            color: #e84393;
+            font-size: 1.3em;
+            margin: 25px 0 15px;
+        }
+        .chart-type {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .chart-title {
+            color: #fa709a;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .chart-desc {
+            margin-bottom: 15px;
+        }
+        .chart-example {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #fa709a20, #fee14020);
+            border-left: 4px solid #fa709a;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .tag-important { background: #e74c3c; color: white; }
+        .tag-key { background: #3498db; color: white; }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">🏠 返回主页</a>
+            <div>
+                <a href="supplement_problems_cell.html">细胞练习</a>
+                <a href="supplement_problems_genetics.html">遗传练习</a>
+                <a href="supplement_problems_regulation.html">调节练习</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>📊 图表分析专题</h1>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">
+                生物高考常见图表类型及分析方法
+            </p>
+
+            <h2>一、曲线图分析</h2>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    <span class="tag tag-important">高频</span>
+                    类型1：种群增长曲线
+                </div>
+                <div class="chart-desc">
+                    <strong>常见曲线：</strong>J型曲线、S型曲线<br/>
+                    <strong>关键点位：</strong>K值（环境容纳量）、K/2（增长速率最大）<br/>
+                    <strong>分析要点：</strong>增长速率的变化、环境阻力的影响
+                </div>
+                <div class="chart-example">
+                    <strong>例题：</strong>分析S型曲线中，种群数量为K/2时的特点。<br/>
+                    <strong>答案：</strong>增长速率最大，此时捕捞鱼类可获得最大持续产量。
+                </div>
+            </div>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    <span class="tag tag-important">高频</span>
+                    类型2：光合作用与呼吸作用曲线
+                </div>
+                <div class="chart-desc">
+                    <strong>常见曲线：</strong>光照强度-光合速率曲线、CO₂浓度-光合速率曲线<br/>
+                    <strong>关键点位：</strong>光补偿点、光饱和点、CO₂补偿点<br/>
+                    <strong>分析要点：</strong>限制因素的转换、净光合与总光合的关系
+                </div>
+            </div>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    类型3：酶活性曲线
+                </div>
+                <div class="chart-desc">
+                    <strong>常见曲线：</strong>温度-酶活性曲线、pH-酶活性曲线<br/>
+                    <strong>关键点位：</strong>最适温度、最适pH<br/>
+                    <strong>分析要点：</strong>低温抑制 vs 高温失活、过酸过碱失活
+                </div>
+            </div>
+
+            <h2>二、柱状图/条形图分析</h2>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    <span class="tag tag-key">重点</span>
+                    类型1：实验结果对比图
+                </div>
+                <div class="chart-desc">
+                    <strong>常见类型：</strong>不同处理组的实验结果对比<br/>
+                    <strong>分析要点：</strong>对照组的设置、单一变量原则、结果的显著性
+                </div>
+            </div>
+
+            <h2>三、流程图/示意图分析</h2>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    <span class="tag tag-important">高频</span>
+                    类型1：代谢过程图
+                </div>
+                <div class="chart-desc">
+                    <strong>常见类型：</strong>光合作用过程、细胞呼吸过程、物质合成与分解<br/>
+                    <strong>分析要点：</strong>反应场所、物质变化、能量转换、条件要求
+                </div>
+            </div>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    类型2：调节过程图
+                </div>
+                <div class="chart-desc">
+                    <strong>常见类型：</strong>神经调节反射弧、激素调节分级调节、免疫调节过程<br/>
+                    <strong>分析要点：</strong>信号传递方向、反馈调节机制、各环节的作用
+                </div>
+            </div>
+
+            <h2>四、表格数据分析</h2>
+
+            <div class="chart-type">
+                <div class="chart-title">
+                    <span class="tag tag-key">重点</span>
+                    类型1：实验数据表格
+                </div>
+                <div class="chart-desc">
+                    <strong>分析步骤：</strong><br/>
+                    1. 明确实验目的和自变量、因变量<br/>
+                    2. 找出对照组和实验组<br/>
+                    3. 分析数据变化趋势<br/>
+                    4. 得出实验结论<br/>
+                    <strong>注意：</strong>关注数据的单位、数量级、统计学差异
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>📝 图表分析通用方法</strong><br/><br/>
+                <strong>1. 识图：</strong>明确横纵坐标的含义、单位、刻度<br/><br/>
+                <strong>2. 析图：</strong>分析曲线的走势、关键点、特殊点<br/><br/>
+                <strong>3. 用图：</strong>结合生物学知识，解释图表反映的生物学现象<br/><br/>
+                <strong>4. 注意：</strong>多个曲线对比时，要找出差异和联系
+            </div>
+
+            <div class="nav" style="margin-top: 40px;">
+                <a href="index.html">🏠 返回主页</a>
+                <div>
+                    <a href="supplement_problems_cell.html">细胞练习</a>
+                    <a href="supplement_problems_genetics.html">遗传练习</a>
+                    <a href="supplement_problems_regulation.html">调节练习</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

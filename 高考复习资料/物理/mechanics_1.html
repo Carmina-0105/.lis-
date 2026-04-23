@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>物理复习 · 力学模块（上）运动学与力学基础</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #1e3c72;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .formula-box .mjx-chtml {
+            font-size: 1.3em !important;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .technique {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .integration {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            border: 3px solid #28a745;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        canvas {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            background: white;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 物理极致复习 · 力学模块（上）</h1>
+        <div class="subtitle">运动学与静力学基础 | 2026陕西新高考专用</div>
+
+        <!-- 模块一：匀变速直线运动 -->
+        <div class="module-box">
+            <div class="module-title">📐 模块一：匀变速直线运动</div>
+            
+            <div class="section">
+                <h3>1.1 五大基本公式（必须烂熟于心）</h3>
+                <div class="formula-box">
+                    <p>速度公式：$v = v_0 + at$</p>
+                    <p>位移公式：$x = v_0t + \frac{1}{2}at^2$</p>
+                    <p>速度-位移关系：$v^2 - v_0^2 = 2ax$</p>
+                    <p>平均速度公式：$\bar{v} = \frac{v_0 + v}{2} = \frac{x}{t}$</p>
+                    <p>位移差公式：$\Delta x = aT^2$（逐差法核心）</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>🔑 公式选择黄金法则：</strong><br/>
+                    • 缺位移 $x$ → 用 $v = v_0 + at$<br/>
+                    • 缺末速度 $v$ → 用 $x = v_0t + \frac{1}{2}at^2$<br/>
+                    • 缺时间 $t$ → 用 $v^2 - v_0^2 = 2ax$<br/>
+                    • 缺加速度 $a$ → 用 $\bar{v} = \frac{x}{t}$<br/>
+                    • 纸带数据处理 → 用 $\Delta x = aT^2$
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 常见陷阱：</strong><br/>
+                    1. 刹车问题：先判断停止时间 $t_0 = \frac{v_0}{a}$，若 $t > t_0$ 则位移按 $t_0$ 计算<br/>
+                    2. 往返运动：注意速度方向变化，建议设定正方向（通常取初速度方向）<br/>
+                    3. 竖直上抛：$a = -g$，上升到最高点 $v=0$，时间 $t = \frac{v_0}{g}$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>1.2 v-t图像深度解析</h3>
+                <div class="diagram-container">
+                    <canvas id="vtCanvas" width="600" height="400"></canvas>
+                    <p><em>v-t图像：斜率=加速度，面积=位移，交点=速度相等（距离极值点）</em></p>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>图像要素</th>
+                        <th>物理意义</th>
+                        <th>数学表达</th>
+                        <th>应用技巧</th>
+                    </tr>
+                    <tr>
+                        <td>斜率</td>
+                        <td>加速度 $a$</td>
+                        <td>$a = \frac{\Delta v}{\Delta t}$</td>
+                        <td>斜率正负表方向，绝对值表大小</td>
+                    </tr>
+                    <tr>
+                        <td>面积</td>
+                        <td>位移 $x$</td>
+                        <td>$x = \int v \, dt$</td>
+                        <td>t轴上方面积为正，下方为负</td>
+                    </tr>
+                    <tr>
+                        <td>截距</td>
+                        <td>初速度 $v_0$</td>
+                        <td>$v(0) = v_0$</td>
+                        <td>注意单位换算（如km/h→m/s）</td>
+                    </tr>
+                    <tr>
+                        <td>交点</td>
+                        <td>速度相等</td>
+                        <td>$v_1 = v_2$</td>
+                        <td>追及问题中距离极值点</td>
+                    </tr>
+                </table>
+
+                <div class="technique">
+                    <strong>💡 图像法解题三步走：</strong><br/>
+                    1. <span class="highlight">定性分析</span>：看趋势（加速/减速/匀速）<br/>
+                    2. <span class="highlight">定量计算</span>：利用几何关系（相似三角形、梯形面积）<br/>
+                    3. <span class="highlight">特殊点</span>：拐点（加速度突变）、交点（速度相等）、零点（反向运动）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>1.3 追及相遇问题（高频考点）</h3>
+                <div class="formula-box">
+                    <p>临界条件：$\Delta x = x_{前} - x_{后} = d_0$（初始距离）</p>
+                    <p>恰好追上：$v_{后} = v_{前}$ 且 $x_{后} = x_{前} + d_0$</p>
+                    <p>恰好不撞：$v_{后} = v_{前}$ 且 $x_{后} = x_{前} + d_0 - L$（车长）</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>🎯 追及问题四步法：</strong><br/>
+                    1. 写出两物体位移表达式 $x_1(t)$、$x_2(t)$<br/>
+                    2. 建立方程 $x_2 - x_1 = d_0$<br/>
+                    3. 讨论判别式 $\Delta$：$\Delta > 0$（两次相遇）、$\Delta = 0$（一次相遇）、$\Delta &lt; 0$（不相遇）<br/>
+                    4. 检验解的合理性（时间 $t > 0$，速度方向等）
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块二：相互作用 -->
+        <div class="module-box">
+            <div class="module-title">⚖️ 模块二：相互作用与物体平衡</div>
+            
+            <div class="section">
+                <h3>2.1 力的合成与分解</h3>
+                <div class="formula-box">
+                    <p>平行四边形定则：$F = \sqrt{F_1^2 + F_2^2 + 2F_1F_2\cos\theta}$</p>
+                    <p>正交分解：$F_x = F\cos\theta$，$F_y = F\sin\theta$</p>
+                    <p>三力平衡：任意两力合力与第三力等大反向</p>
+                </div>
+
+                <div class="diagram-container">
+                    <canvas id="forceCanvas" width="600" height="400"></canvas>
+                    <p><em>力的合成与分解示意图</em></p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>方法</th>
+                        <th>适用条件</th>
+                        <th>操作步骤</th>
+                        <th>注意事项</th>
+                    </tr>
+                    <tr>
+                        <td>平行四边形法</td>
+                        <td>两个已知力</td>
+                        <td>共起点作平行四边形，对角线为合力</td>
+                        <td>注意角度是力的夹角</td>
+                    </tr>
+                    <tr>
+                        <td>三角形法</td>
+                        <td>三力平衡</td>
+                        <td>三力首尾相接构成闭合三角形</td>
+                        <td>可用正弦定理、余弦定理</td>
+                    </tr>
+                    <tr>
+                        <td>正交分解法</td>
+                        <td>多力作用（≥3个）</td>
+                        <td>建立坐标系→分解→列平衡方程</td>
+                        <td>坐标轴尽量与多数力重合</td>
+                    </tr>
+                    <tr>
+                        <td>相似三角形法</td>
+                        <td>几何关系明显</td>
+                        <td>找力三角形与几何三角形相似</td>
+                        <td>对应边成比例</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>2.2 动态平衡问题（极重要）</h3>
+                <div class="key-point">
+                    <strong>🔄 动态平衡三模型：</strong><br/>
+                    1. <span class="highlight">一力恒定、一力方向不变</span>：用三角形法则，观察第三力变化<br/>
+                    2. <span class="highlight">一力恒定、两力方向都变</span>：找相似三角形，利用几何关系<br/>
+                    3. <span class="highlight">一力恒定、另两力夹角不变</span>：画圆法（辅助圆），力矢量端点在圆上
+                </div>
+
+                <div class="technique">
+                    <strong>🎨 图解法口诀：</strong><br/>
+                    "恒力为基画始终，变力方向定轨迹，<br/>
+                    三角相似比例定，辅助圆里找极值。"
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>2.3 摩擦力深度剖析</h3>
+                <div class="formula-box">
+                    <p>滑动摩擦力：$f = \mu N$（与相对运动方向相反）</p>
+                    <p>静摩擦力：$0 \leq f_{静} \leq f_{max} = \mu_s N$（与相对运动趋势方向相反）</p>
+                    <p>最大静摩擦力略大于滑动摩擦力：$f_{max} \approx 1.1f_{滑}$</p>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ 摩擦力判断四步法：</strong><br/>
+                    1. 先看运动状态：静止→静摩擦，滑动→滑动摩擦<br/>
+                    2. 再用平衡/牛顿第二定律求大小<br/>
+                    3. 方向判断：与相对运动（趋势）方向相反<br/>
+                    4. 注意：摩擦力可以是动力，也可以是阻力！
+                </div>
+            </div>
+        </div>
+
+        <!-- 模块三：牛顿运动定律 -->
+        <div class="module-box">
+            <div class="module-title">🚀 模块三：牛顿运动定律</div>
+            
+            <div class="section">
+                <h3>3.1 牛顿三定律核心</h3>
+                <div class="formula-box">
+                    <p><strong>第一定律（惯性定律）：</strong> $F_{合} = 0 \Leftrightarrow$ 静止或匀速直线运动</p>
+                    <p><strong>第二定律（动力学核心）：</strong> $F_{合} = ma$（瞬时性、矢量性、独立性）</p>
+                    <p><strong>第三定律（作用力与反作用力）：</strong> $F_{12} = -F_{21}$（等大、反向、共线、异体）</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>🔑 第二定律理解的五个维度：</strong><br/>
+                    • <span class="highlight">瞬时性</span>：$a$ 与 $F$ 同时产生、同时变化、同时消失<br/>
+                    • <span class="highlight">矢量性</span>：$a$ 方向与 $F_{合}$ 方向相同<br/>
+                    • <span class="highlight">独立性</span>：每个力独立产生加速度，$a_{合} = \sum a_i$<br/>
+                    • <span class="highlight">同体性</span>：$F$、$m$、$a$ 对应同一物体、同一参考系<br/>
+                    • <span class="highlight">局限性</span>：仅适用于宏观、低速、惯性系
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>3.2 连接体问题（整体法与隔离法）</h3>
+                <div class="formula-box">
+                    <p>整体法：$F_{合外} = (m_1 + m_2 + \cdots)a$（求加速度、外力）</p>
+                    <p>隔离法：$F_{合i} = m_i a$（求内力）</p>
+                    <p>内力公式：$T = \frac{m_{远}}{m_{总}}F$（水平光滑连接体）</p>
+                </div>
+
+                <div class="technique">
+                    <strong>🎯 连接体问题解题策略：</strong><br/>
+                    1. <span class="highlight">求加速度 $a$</span>：整体法，忽略内力<br/>
+                    2. <span class="highlight">求内力 $T$</span>：隔离受力少的物体<br/>
+                    3. <span class="highlight">临界问题</span>：$f_{max} = \mu N$，恰好滑动时 $f = f_{max}$<br/>
+                    4. <span class="highlight">多过程问题</span>：分段分析，注意连接点速度、加速度关系
+                </div>
+
+                <table>
+                    <tr>
+                        <th>模型</th>
+                        <th>示意图</th>
+                        <th>加速度</th>
+                        <th>绳张力</th>
+                    </tr>
+                    <tr>
+                        <td>水平光滑</td>
+                        <td>$F \rightarrow m_1 - m_2$</td>
+                        <td>$a = \frac{F}{m_1+m_2}$</td>
+                        <td>$T = \frac{m_2}{m_1+m_2}F$</td>
+                    </tr>
+                    <tr>
+                        <td>竖直提升</td>
+                        <td>$F \uparrow m_1 - m_2$</td>
+                        <td>$a = \frac{F-(m_1+m_2)g}{m_1+m_2}$</td>
+                        <td>$T = m_2(g+a)$</td>
+                    </tr>
+                    <tr>
+                        <td>斜面光滑</td>
+                        <td>$F \rightarrow m_1 /\ m_2$（斜面）</td>
+                        <td>$a = \frac{F-(m_1+m_2)g\sin\theta}{m_1+m_2}$</td>
+                        <td>$T = m_2(g\sin\theta + a)$</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>3.3 传送带与板块模型</h3>
+                <div class="warning">
+                    <strong>🚧 传送带问题分析框架：</strong><br/>
+                    1. <span class="highlight">初态分析</span>：$v_0$ 与 $v_{带}$ 关系，判断相对运动方向<br/>
+                    2. <span class="highlight">受力分析</span>：滑动摩擦力 $f = \mu mg$，方向与相对运动方向相反<br/>
+                    3. <span class="highlight">运动分析</span>：匀变速直到共速，之后可能匀速<br/>
+                    4. <span class="highlight">痕迹计算</span>：$\Delta x = x_{带} - x_{物}$（相对位移）<br/>
+                    5. <span class="highlight">能量分析</span>：$Q = f \cdot \Delta x$（摩擦生热）
+                </div>
+
+                <div class="technique">
+                    <strong>📊 传送带问题速查表：</strong><br/>
+                    • 水平传送带：加速段 $x = \frac{v^2-v_0^2}{2\mu g}$，若 $x &lt; L$ 则先加速后匀速<br/>
+                    • 倾斜传送带：比较 $\mu$ 与 $\tan\theta$，判断能否相对静止<br/>
+                    • 划痕长度 = 相对位移（注意往返情况取最大值）
+                </div>
+            </div>
+        </div>
+
+        <!-- 知识融合 -->
+        <div class="integration">
+            <h2>🔗 模块融合：运动学+力学+牛顿定律</h2>
+            <div class="section">
+                <h3>融合使用技巧</h3>
+                <p><strong>1. 已知力求运动：</strong>受力分析 → $F_{合} = ma$ → 运动学公式 → 求解</p>
+                <p><strong>2. 已知运动求力：</strong>运动学公式求 $a$ → $F_{合} = ma$ → 受力分析 → 求解</p>
+                <p><strong>3. 多过程问题：</strong>划分阶段 → 找连接点（速度、位移）→ 分段列方程</p>
+                <p><strong>4. 临界极值：</strong>找出临界条件（$f_{max}$、$T_{max}$、$v_{共}$）→ 列方程求解</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">← 返回首页</a>
+            <a href="mechanics_2.html">下一页：力学模块（下）→</a>
+        </div>
+    </div>
+
+    <script>
+        // v-t图像绘制
+        const vtCanvas = document.getElementById('vtCanvas');
+        const vtCtx = vtCanvas.getContext('2d');
+        
+        vtCtx.fillStyle = '#f8f9fa';
+        vtCtx.fillRect(0, 0, 600, 400);
+        
+        // 坐标轴
+        vtCtx.strokeStyle = '#333';
+        vtCtx.lineWidth = 2;
+        vtCtx.beginPath();
+        vtCtx.moveTo(50, 350);
+        vtCtx.lineTo(550, 350);
+        vtCtx.moveTo(50, 350);
+        vtCtx.lineTo(50, 50);
+        vtCtx.stroke();
+        
+        // 箭头
+        vtCtx.beginPath();
+        vtCtx.moveTo(550, 350);
+        vtCtx.lineTo(540, 345);
+        vtCtx.lineTo(540, 355);
+        vtCtx.fill();
+        vtCtx.beginPath();
+        vtCtx.moveTo(50, 50);
+        vtCtx.lineTo(45, 60);
+        vtCtx.lineTo(55, 60);
+        vtCtx.fill();
+        
+        // 标签
+        vtCtx.font = '16px Arial';
+        vtCtx.fillStyle = '#333';
+        vtCtx.fillText('t', 560, 355);
+        vtCtx.fillText('v', 35, 40);
+        vtCtx.fillText('O', 35, 370);
+        
+        // 绘制v-t图（匀加速、匀速、匀减速）
+        vtCtx.strokeStyle = '#e74c3c';
+        vtCtx.lineWidth = 3;
+        vtCtx.beginPath();
+        vtCtx.moveTo(50, 300);
+        vtCtx.lineTo(150, 200);
+        vtCtx.lineTo(300, 200);
+        vtCtx.lineTo(450, 350);
+        vtCtx.stroke();
+        
+        // 标注
+        vtCtx.fillStyle = '#e74c3c';
+        vtCtx.font = '14px Arial';
+        vtCtx.fillText('匀加速', 80, 240);
+        vtCtx.fillText('匀速', 200, 180);
+        vtCtx.fillText('匀减速', 350, 280);
+        
+        // 阴影面积表示位移
+        vtCtx.fillStyle = 'rgba(52, 152, 219, 0.3)';
+        vtCtx.beginPath();
+        vtCtx.moveTo(50, 350);
+        vtCtx.lineTo(50, 300);
+        vtCtx.lineTo(150, 200);
+        vtCtx.lineTo(300, 200);
+        vtCtx.lineTo(300, 350);
+        vtCtx.closePath();
+        vtCtx.fill();
+        
+        vtCtx.fillStyle = '#3498db';
+        vtCtx.fillText('面积=位移', 150, 320);
+
+        // 力的合成图
+        const forceCanvas = document.getElementById('forceCanvas');
+        const forceCtx = forceCanvas.getContext('2d');
+        
+        forceCtx.fillStyle = '#f8f9fa';
+        forceCtx.fillRect(0, 0, 600, 400);
+        
+        const cx = 300, cy = 250;
+        
+        // F1
+        forceCtx.strokeStyle = '#e74c3c';
+        forceCtx.lineWidth = 4;
+        forceCtx.beginPath();
+        forceCtx.moveTo(cx, cy);
+        forceCtx.lineTo(cx - 100, cy - 80);
+        forceCtx.stroke();
+        forceCtx.fillStyle = '#e74c3c';
+        forceCtx.font = 'bold 18px Arial';
+        forceCtx.fillText('F₁', cx - 120, cy - 70);
+        
+        // F2
+        forceCtx.strokeStyle = '#3498db';
+        forceCtx.beginPath();
+        forceCtx.moveTo(cx, cy);
+        forceCtx.lineTo(cx + 120, cy - 60);
+        forceCtx.stroke();
+        forceCtx.fillStyle = '#3498db';
+        forceCtx.fillText('F₂', cx + 130, cy - 50);
+        
+        // 合力F
+        forceCtx.strokeStyle = '#2ecc71';
+        forceCtx.setLineDash([5, 5]);
+        forceCtx.beginPath();
+        forceCtx.moveTo(cx, cy);
+        forceCtx.lineTo(cx + 80, cy - 120);
+        forceCtx.stroke();
+        forceCtx.setLineDash([]);
+        forceCtx.fillStyle = '#2ecc71';
+        forceCtx.fillText('F合', cx + 90, cy - 110);
+        
+        // 平行四边形
+        forceCtx.strokeStyle = '#95a5a6';
+        forceCtx.lineWidth = 2;
+        forceCtx.setLineDash([3, 3]);
+        forceCtx.beginPath();
+        forceCtx.moveTo(cx - 100, cy - 80);
+        forceCtx.lineTo(cx + 80, cy - 120);
+        forceCtx.lineTo(cx + 120, cy - 60);
+        forceCtx.stroke();
+        
+        // 角度标注
+        forceCtx.setLineDash([]);
+        forceCtx.strokeStyle = '#f39c12';
+        forceCtx.lineWidth = 2;
+        forceCtx.beginPath();
+        forceCtx.arc(cx, cy, 40, -Math.PI/3, -Math.PI/6);
+        forceCtx.stroke();
+        forceCtx.fillStyle = '#f39c12';
+        forceCtx.fillText('θ', cx + 50, cy - 20);
+        
+        // 标题
+        forceCtx.fillStyle = '#2c3e50';
+        forceCtx.font = 'bold 20px Arial';
+        forceCtx.fillText('力的平行四边形定则', 200, 40);
+    </script>
+</body>
+</html>

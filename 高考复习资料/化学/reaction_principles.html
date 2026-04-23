@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>化学复习 · 化学反应原理</title>
+<script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #fa709a;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #fa709a;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #fee140;
+            padding-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .module-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #fa709a;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .section h3 {
+            color: #fa709a;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(250, 112, 154, 0.4);
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>⚡ 化学反应原理</h1>
+<div class="subtitle">热化学 · 化学反应速率 · 化学平衡 · 电化学</div>
+<div class="module-box">
+<div class="module-title">🎯 模块核心</div>
+<p style="font-size: 1.1em;">
+<strong>化学反应原理</strong>是高中化学的核心内容，涵盖热化学、化学反应速率、化学平衡、电化学等。这部分知识理论性强，是高考必考的重点和难点。
+            </p>
+<p style="margin-top: 15px;">
+<strong>高考分值：</strong>约25-30分（选择题6-12分 + 综合题15-20分）<br/>
+<strong>重点：</strong>反应热计算、平衡移动、平衡常数、原电池、电解池
+            </p>
+</div>
+<h2>第一章 热化学</h2>
+<div class="section">
+<h3>1.1 反应热与焓变</h3>
+<div class="key-point">
+<strong>💡 反应热（Q）：</strong>化学反应过程中放出或吸收的热量。<br/>
+<strong>💡 焓变（ΔH）：</strong>在恒压条件下，化学反应的反应热等于焓变。
+            </div>
+<div class="formula-box">
+<strong>焓变的符号规定：</strong><br/>
+                ΔH &lt; 0：放热反应<br/>
+                ΔH &gt; 0：吸热反应
+            </div>
+<table>
+<tr>
+<th>反应类型</th>
+<th>放热反应</th>
+<th>吸热反应</th>
+</tr>
+<tr>
+<td>ΔH</td>
+<td>ΔH &lt; 0</td>
+<td>ΔH &gt; 0</td>
+</tr>
+<tr>
+<td>能量变化</td>
+<td>反应物总能量 &gt; 生成物总能量</td>
+<td>反应物总能量 &lt; 生成物总能量</td>
+</tr>
+<tr>
+<td>键能变化</td>
+<td>断键吸收 &lt; 成键放出</td>
+<td>断键吸收 &gt; 成键放出</td>
+</tr>
+<tr>
+<td>常见反应</td>
+<td>燃烧、中和、金属与酸、大多数化合</td>
+<td>大多数分解、C+CO₂、C+H₂O、Ba(OH)₂·8H₂O+NH₄Cl</td>
+</tr>
+</table>
+</div>
+<div class="section">
+<h3>1.2 热化学方程式</h3>
+<div class="key-point">
+<strong>💡 热化学方程式书写规则：</strong>
+                <ol>
+<li>注明反应温度和压强（25℃、101kPa时可不注明）</li>
+<li>注明物质的聚集状态：g（气态）、l（液态）、s（固态）、aq（溶液）</li>
+<li>ΔH与化学计量数相对应，化学计量数可以是整数或分数</li>
+<li>ΔH的单位：kJ/mol</li>
+</ol>
+</div>
+<div class="example">
+<strong>📝 示例：</strong><br/>
+                $H_2(g) + \frac{1}{2}O_2(g) = H_2O(l)$  ΔH = -285.8 kJ/mol<br/><br/>
+                表示：25℃、101kPa时，1mol H₂(g)与0.5mol O₂(g)完全反应生成1mol H₂O(l)，放出285.8kJ热量。
+            </div>
+</div>
+<div class="section">
+<h3>1.3 盖斯定律</h3>
+<div class="key-point">
+<strong>💡 盖斯定律：</strong>化学反应的反应热只与反应的始态和终态有关，而与反应的途径无关。
+            </div>
+<div class="formula-box">
+<strong>应用：</strong><br/>
+                如果一个反应可以分几步进行，则各步反应的反应热之和等于该反应一步完成时的反应热。<br/><br/>
+                ΔH = ΔH₁ + ΔH₂ + ΔH₃ + ...
+            </div>
+<div class="example">
+<strong>📝 例题：</strong>已知：<br/>
+                ① C(s) + O₂(g) = CO₂(g)  ΔH₁ = -393.5 kJ/mol<br/>
+                ② CO(g) + ½O₂(g) = CO₂(g)  ΔH₂ = -283.0 kJ/mol<br/><br/>
+                求：C(s) + ½O₂(g) = CO(g) 的ΔH<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确目标：</strong>求C(s) + ½O₂(g) = CO(g)的ΔH<br/>
+                2. <strong>分析已知：</strong>反应①生成CO₂，反应②消耗CO₂生成CO<br/>
+                3. <strong>确定关系：</strong>目标反应 = 反应① - 反应②<br/>
+                4. <strong>应用盖斯定律：</strong>ΔH = ΔH₁ - ΔH₂<br/>
+                5. <strong>计算：</strong>注意符号运算，减去负数等于加正数<br/><br/>
+<strong>【规范解答】</strong><br/>
+                根据盖斯定律：① - ② 得<br/>
+                C(s) + ½O₂(g) = CO(g)<br/>
+                ΔH = ΔH₁ - ΔH₂ = -393.5 - (-283.0) = -110.5 kJ/mol<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>盖斯定律核心：</strong>化学反应的焓变只与始态和终态有关，与途径无关<br/>
+                • <strong>方程式组合技巧：</strong><br/>
+                  - 目标反应的反应物在某已知反应中作反应物→该反应正向用<br/>
+                  - 目标反应的反应物在某已知反应中作生成物→该反应反向用<br/>
+                  - 消去中间产物（本题中CO₂在①中生成，在②中消耗）<br/>
+                • <strong>ΔH计算：</strong>反应正向用→ΔH不变；反应反向用→ΔH变号；反应乘以n→ΔH乘以n<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • 注意ΔH的符号：放热为负，吸热为正<br/>
+                • 减去一个负数时，等于加上它的绝对值<br/>
+                • 方程式相加减时，物质的状态必须相同
+            </div>
+</div>
+<div class="section">
+<h3>1.4 燃烧热与中和热</h3>
+<div class="key-point">
+<strong>💡 燃烧热：</strong>101kPa时，1mol纯物质完全燃烧生成稳定的氧化物时所放出的热量。<br/><br/>
+<strong>💡 中和热：</strong>在稀溶液中，强酸跟强碱发生中和反应生成1mol H₂O时所放出的热量。<br/>
+                中和热ΔH = -57.3 kJ/mol
+            </div>
+<table>
+<tr>
+<th>概念</th>
+<th>定义</th>
+<th>要点</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>燃烧热</td>
+<td>1mol纯物质完全燃烧生成稳定氧化物时放出的热量</td>
+<td>C→CO₂(g), H→H₂O(l), S→SO₂(g), N→N₂(g)</td>
+<td>H₂燃烧热 ΔH = -285.8 kJ/mol</td>
+</tr>
+<tr>
+<td>中和热</td>
+<td>稀溶液中，强酸强碱生成1mol H₂O(l)时的反应热</td>
+<td>标准值：-57.3 kJ/mol；弱酸/弱碱电离吸热，数值偏小</td>
+<td>H⁺(aq) + OH⁻(aq) = H₂O(l)  ΔH = -57.3 kJ/mol</td>
+</tr>
+</table>
+<div class="warning">
+<strong>⚠️ 注意：</strong>
+                <ul>
+<li>燃烧热：C→CO₂(g)、H→H₂O(l)、S→SO₂(g)</li>
+<li>弱酸、弱碱电离吸热，其中和热数值小于57.3 kJ/mol</li>
+<li>浓硫酸稀释放热，其中和热数值大于57.3 kJ/mol</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>1.5 反应热计算方法总结</h3>
+<div class="formula-box">
+<strong>反应热计算的五种方法：</strong><br/><br/>
+                1. <strong>从键能计算：</strong>ΔH = E(断键吸收) - E(成键释放)<br/>
+                2. <strong>从能量计算：</strong>ΔH = E(生成物) - E(反应物)<br/>
+                3. <strong>从活化能计算：</strong>ΔH = Ea(正) - Ea(逆)<br/>
+                4. <strong>盖斯定律：</strong>通过已知反应的组合计算<br/>
+                5. <strong>从燃烧热/中和热计算：</strong>利用标准数据
+            </div>
+<div class="tip">
+<strong>🎯 盖斯定律计算"三步法"：</strong><br/>
+                1. 找唯一：找出只在目标方程中出现一次的物质<br/>
+                2. 调系数：调整已知方程使该物质系数与目标一致<br/>
+                3. 相加减：通过方程加减消去其他物质，ΔH同步运算
+            </div>
+</div>
+<h2>第二章 化学反应速率</h2>
+<div class="section">
+<h3>2.1 化学反应速率</h3>
+<div class="key-point">
+<strong>💡 定义：</strong>单位时间内反应物浓度的减少或生成物浓度的增加。
+            </div>
+<div class="formula-box">
+<strong>计算公式：</strong><br/>
+                $v = \frac{\Delta c}{\Delta t}$<br/><br/>
+                单位：mol/(L·s) 或 mol/(L·min)
+            </div>
+<div class="key-point">
+<strong>💡 注意事项：</strong>
+                <ul>
+<li>化学反应速率为正值</li>
+<li>表示的是一段时间内的平均速率</li>
+<li>不同物质表示的速率数值可能不同，但意义相同</li>
+<li>速率比等于化学计量数比：$v_A:v_B:v_C:v_D = m:n:p:q$</li>
+</ul>
+</div>
+</div>
+<div class="section">
+<h3>2.2 影响化学反应速率的因素</h3>
+<table>
+<tr>
+<th>影响因素</th>
+<th>对速率的影响</th>
+<th>解释</th>
+</tr>
+<tr>
+<td>浓度</td>
+<td>增大浓度，速率加快</td>
+<td>单位体积内活化分子数增多</td>
+</tr>
+<tr>
+<td>压强（气体）</td>
+<td>增大压强，速率加快</td>
+<td>相当于增大浓度</td>
+</tr>
+<tr>
+<td>温度</td>
+<td>升高温度，速率加快（每升高10℃，速率增大2-4倍）</td>
+<td>活化分子百分数增大</td>
+</tr>
+<tr>
+<td>催化剂</td>
+<td>使用催化剂，速率加快</td>
+<td>降低活化能，活化分子百分数增大</td>
+</tr>
+<tr>
+<td>固体表面积</td>
+<td>增大表面积，速率加快</td>
+<td>接触面积增大</td>
+</tr>
+</table>
+<div class="warning">
+<strong>⚠️ 重要说明：</strong>
+                <ul>
+<li>固体和纯液体的浓度视为常数，增加其用量不改变速率</li>
+<li>压强只影响有气体参加的反应</li>
+<li>催化剂同等程度地改变正、逆反应速率</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>2.3 活化能与反应机理</h3>
+<div class="formula-box">
+<strong>活化能(Ea)：</strong>活化分子变成生成物分子所需克服的能量障碍<br/><br/>
+                <strong>阿累尼乌斯方程：</strong>k = A·e^(-Ea/RT)<br/>
+                lnk = lnA - Ea/(RT)<br/>
+                其中：A为指前因子，Ea为活化能，R为气体常数(8.314 J·mol⁻¹·K⁻¹)，T为热力学温度
+            </div>
+<div class="key-point">
+<strong>💡 催化剂的作用原理：</strong><br/>
+                催化剂通过改变反应路径，<strong>降低活化能</strong>，使更多分子成为活化分子，从而加快反应速率。<br/><br/>
+                <strong>重要特点：</strong>
+                <ul>
+<li>不改变反应的ΔH（焓变）</li>
+<li>不改变平衡位置，只缩短达到平衡的时间</li>
+<li>同等程度加快正、逆反应速率</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>2.4 反应速率图像分析</h3>
+<table>
+<tr>
+<th>图像类型</th>
+<th>横坐标</th>
+<th>纵坐标</th>
+<th>曲线特征</th>
+<th>意义</th>
+</tr>
+<tr>
+<td>v-t图</td>
+<td>时间</td>
+<td>反应速率</td>
+<td>曲线逐渐降低至水平</td>
+<td>反应速率随时间减小，达到平衡</td>
+</tr>
+<tr>
+<td>v-T图</td>
+<td>温度</td>
+<td>反应速率</td>
+<td>指数上升曲线</td>
+<td>温度升高，速率显著加快</td>
+</tr>
+<tr>
+<td>v-c图</td>
+<td>浓度</td>
+<td>反应速率</td>
+<td>过原点的直线（一级反应）</td>
+<td>浓度与速率成正比</td>
+</tr>
+<tr>
+<td>c-t图</td>
+<td>时间</td>
+<td>浓度</td>
+<td>逐渐趋于水平</td>
+<td>浓度随时间变化，达到平衡</td>
+</tr>
+</table>
+</div>
+<h2>第三章 化学平衡</h2>
+<div class="section">
+<h3>3.1 可逆反应与化学平衡</h3>
+<div class="key-point">
+<strong>💡 可逆反应：</strong>在同一条件下，既能向正反应方向进行，又能向逆反应方向进行的反应。<br/><br/>
+<strong>💡 化学平衡状态：</strong>在一定条件下的可逆反应中，正反应速率等于逆反应速率，反应混合物中各组分的浓度保持不变的状态。
+            </div>
+<div class="key-point">
+<strong>💡 化学平衡的特征（逆、等、动、定、变）：</strong>
+                <ol>
+<li><strong>逆：</strong>研究对象是可逆反应</li>
+<li><strong>等：</strong>v(正) = v(逆) ≠ 0</li>
+<li><strong>动：</strong>动态平衡，反应仍在进行</li>
+<li><strong>定：</strong>各组分浓度保持不变</li>
+<li><strong>变：</strong>条件改变，平衡发生移动</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<h3>3.2 化学平衡常数（K）</h3>
+<div class="formula-box">
+<strong>对于反应：$mA(g) + nB(g) \rightleftharpoons pC(g) + qD(g)$</strong><br/><br/>
+                平衡常数表达式：<br/>
+                $K = \frac{c^p(C) \cdot c^q(D)}{c^m(A) \cdot c^n(B)}$
+            </div>
+<div class="key-point">
+<strong>💡 注意事项：</strong>
+                <ul>
+<li>固体和纯液体不列入表达式</li>
+<li>K只与温度有关，与浓度、压强无关</li>
+<li>温度升高，若K增大，则正反应为吸热反应；若K减小，则正反应为放热反应</li>
+<li>K值越大，反应进行程度越大</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 例题：</strong>对于反应N₂(g) + 3H₂(g) ⇌ 2NH₃(g)，写出平衡常数表达式。<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确概念：</strong>平衡常数K表示反应达到平衡时生成物浓度幂之积与反应物浓度幂之积的比值<br/>
+                2. <strong>确定表达式形式：</strong>$K = \frac{[生成物]^{系数}}{[反应物]^{系数}}$<br/>
+                3. <strong>代入物质：</strong>生成物为NH₃，系数为2；反应物为N₂和H₂，系数分别为1和3<br/>
+                4. <strong>书写规范：</strong>用c()表示浓度，固体和纯液体不写入表达式<br/><br/>
+<strong>【规范解答】</strong><br/>
+                $K = \frac{c^2(NH_3)}{c(N_2) \cdot c^3(H_2)}$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>平衡常数表达式书写规则：</strong><br/>
+                  - 生成物浓度幂之积除以反应物浓度幂之积<br/>
+                  - 浓度幂的指数等于化学方程式中的计量系数<br/>
+                  - 固体、纯液体、溶剂（稀溶液中）不写入表达式<br/>
+                • <strong>K的物理意义：</strong>K值越大，反应正向进行的程度越大<br/>
+                • <strong>K的影响因素：</strong>只与温度有关，与浓度、压强无关<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • 注意区分浓度c和物质的量n，平衡常数用浓度表示<br/>
+                • 固体（如C、Fe等）和纯液体（如H₂O(l)）不写入K表达式<br/>
+                • 对于气相反应，可用分压表示平衡常数Kp<br/>
+                • 可逆符号⇌表示反应达到动态平衡，不是单向反应
+            </div>
+</div>
+<div class="section">
+<h3>3.3 平衡转化率</h3>
+<div class="formula-box">
+<strong>转化率计算公式：</strong><br/>
+                $\alpha = \frac{转化的物质的量}{起始的物质的量} \times 100\%$
+            </div>
+<div class="example">
+<strong>📝 三段式法计算：</strong><br/>
+                对于反应：$N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)$<br/><br/>
+                设起始时N₂为1mol，H₂为3mol，NH₃为0mol，平衡时N₂转化了x mol<br/><br/>
+<table>
+<tr>
+<th></th>
+<th>N₂</th>
+<th>H₂</th>
+<th>NH₃</th>
+</tr>
+<tr>
+<td>起始(mol)</td>
+<td>1</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>转化(mol)</td>
+<td>x</td>
+<td>3x</td>
+<td>2x</td>
+</tr>
+<tr>
+<td>平衡(mol)</td>
+<td>1-x</td>
+<td>3-3x</td>
+<td>2x</td>
+</tr>
+</table><br/>
+                N₂的转化率：$\alpha(N_2) = \frac{x}{1} \times 100\% = 100x\%$
+            </div>
+</div>
+<div class="section">
+<h3>3.4 化学平衡的移动（勒夏特列原理）</h3>
+<div class="key-point">
+<strong>💡 勒夏特列原理：</strong>如果改变影响平衡的一个条件（如浓度、压强或温度），平衡将向着能够减弱这种改变的方向移动。
+            </div>
+<table>
+<tr>
+<th>条件改变</th>
+<th>平衡移动方向</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>增大反应物浓度</td>
+<td>向正反应方向移动</td>
+<td>减小反应物浓度，平衡逆向移动</td>
+</tr>
+<tr>
+<td>增大压强（气体）</td>
+<td>向气体分子数减小的方向移动</td>
+<td>反应前后气体分子数相等，平衡不移动</td>
+</tr>
+<tr>
+<td>升高温度</td>
+<td>向吸热反应方向移动</td>
+<td>降低温度，平衡向放热反应方向移动</td>
+</tr>
+<tr>
+<td>使用催化剂</td>
+<td>平衡不移动</td>
+<td>同等程度改变正、逆反应速率</td>
+</tr>
+</table>
+<div class="warning">
+<strong>⚠️ 惰性气体对平衡的影响：</strong>
+                <ul>
+<li>恒温恒容：充入惰性气体，各组分浓度不变，平衡不移动</li>
+<li>恒温恒压：充入惰性气体，体积增大，各组分浓度减小，平衡向气体分子数增多的方向移动</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>3.5 压强平衡常数Kp与浓度平衡常数Kc</h3>
+<div class="formula-box">
+<strong>对于反应：aA(g) + bB(g) ⇌ cC(g) + dD(g)</strong><br/><br/>
+                <strong>浓度平衡常数 Kc：</strong><br/>
+                Kc = [C]^c · [D]^d / ([A]^a · [B]^b)<br/><br/>
+                <strong>压强平衡常数 Kp（气体）：</strong><br/>
+                Kp = (p_C)^c · (p_D)^d / ((p_A)^a · (p_B)^b)<br/><br/>
+                <strong>关系：</strong>Kp = Kc·(RT)^Δn，其中Δn = (c+d) - (a+b)
+            </div>
+<div class="key-point">
+<strong>💡 平衡常数的重要性质：</strong>
+                <ul>
+<li>K只与温度有关，与浓度、压强、催化剂无关</li>
+<li>K &gt;&gt; 1：反应进行程度大，正向几乎完全</li>
+<li>K &lt;&lt; 1：反应进行程度小，逆向为主</li>
+<li>温度升高，若K增大，则正反应为吸热反应；若K减小，则正反应为放热反应</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>3.6 等效平衡原理</h3>
+<div class="key-point">
+<strong>💡 等效平衡：</strong>在一定条件下，起始加入情况不同的同一可逆反应，达到平衡时，各组分的百分含量（体积分数、物质的量分数、质量分数）相同。<br/><br/>
+                <strong>恒温恒容（气体分子数变化反应）：</strong>投料换算为同一侧后，物质的量完全相同才等效<br/>
+                <strong>恒温恒容（气体分子数不变反应）：</strong>投料比相同即等效<br/>
+                <strong>恒温恒压：</strong>投料比相同即等效
+            </div>
+<table>
+<tr>
+<th>条件</th>
+<th>反应特点</th>
+<th>等效条件</th>
+</tr>
+<tr>
+<td>恒温恒容</td>
+<td>气体分子数变化（Δn≠0）</td>
+<td>换算后各物质的量完全相同</td>
+</tr>
+<tr>
+<td>恒温恒容</td>
+<td>气体分子数不变（Δn=0）</td>
+<td>投料比相同即可</td>
+</tr>
+<tr>
+<td>恒温恒压</td>
+<td>任意</td>
+<td>投料比相同即可</td>
+</tr>
+</table>
+</div>
+
+<div class="section">
+<h3>3.7 化学平衡图像分析</h3>
+<table>
+<tr>
+<th>图像类型</th>
+<th>特征</th>
+<th>分析方法</th>
+</tr>
+<tr>
+<td>转化率-温度图</td>
+<td>曲线随温度升高而降低</td>
+<td>正反应为放热反应</td>
+</tr>
+<tr>
+<td>转化率-压强图</td>
+<td>曲线随压强增大而升高</td>
+<td>正反应为气体分子数减小的反应</td>
+</tr>
+<tr>
+<td>含量-时间图</td>
+<td>曲线先降后平，拐点表示平衡</td>
+<td>拐点前为建立平衡过程</td>
+</tr>
+<tr>
+<td>v-t图（条件改变）</td>
+<td>某时刻速率突变</td>
+<td>根据突变方向判断改变的条件</td>
+</tr>
+</table>
+<div class="tip">
+<strong>🎯 平衡图像解题技巧：</strong><br/>
+                1. 先拐先平数值大：温度高或压强大的曲线先达到平衡<br/>
+                2. 定一议二：固定一个变量，讨论另外两个变量的关系<br/>
+                3. 注意坐标轴含义：确认横纵坐标代表的物理量
+            </div>
+</div>
+<h2>第四章 水溶液中的离子平衡</h2>
+<div class="section">
+<h3>4.1 弱电解质的电离</h3>
+<div class="key-point">
+<strong>💡 强电解质：</strong>在水溶液中完全电离的化合物（强酸、强碱、大部分盐）。<br/>
+<strong>💡 弱电解质：</strong>在水溶液中部分电离的化合物（弱酸、弱碱、水）。
+            </div>
+<div class="formula-box">
+<strong>电离方程式：</strong><br/>
+                强电解质：$NaCl = Na^+ + Cl^-$（用"="）<br/>
+                弱电解质：$CH_3COOH \rightleftharpoons CH_3COO^- + H^+$（用"⇌"）
+            </div>
+<div class="key-point">
+<strong>💡 常见的强弱电解质：</strong><br/>
+<strong>强酸：</strong>HCl、H₂SO₄、HNO₃、HBr、HI、HClO₄<br/>
+<strong>弱酸：</strong>CH₃COOH、H₂CO₃、H₂SO₃、H₂S、HClO、HF<br/>
+<strong>强碱：</strong>NaOH、KOH、Ca(OH)₂、Ba(OH)₂<br/>
+<strong>弱碱：</strong>NH₃·H₂O、Al(OH)₃、Fe(OH)₃
+            </div>
+</div>
+<div class="section">
+<h3>4.2 水的电离与pH</h3>
+<div class="key-point">
+<strong>💡 水的电离：</strong>$H_2O \rightleftharpoons H^+ + OH^-$<br/><br/>
+<strong>水的离子积常数：</strong>$K_w = c(H^+) \cdot c(OH^-) = 1.0 \times 10^{-14}$（25℃）
+            </div>
+<div class="formula-box">
+<strong>pH计算公式：</strong><br/>
+                $pH = -lg\ c(H^+)$<br/>
+                $c(H^+) = 10^{-pH}$<br/><br/>
+                $pOH = -lg\ c(OH^-)$<br/>
+                $pH + pOH = 14$（25℃）
+            </div>
+<table>
+<tr>
+<th>溶液酸碱性</th>
+<th>c(H⁺)与c(OH⁻)关系</th>
+<th>pH范围（25℃）</th>
+</tr>
+<tr>
+<td>酸性</td>
+<td>c(H⁺) &gt; c(OH⁻)</td>
+<td>pH &lt; 7</td>
+</tr>
+<tr>
+<td>中性</td>
+<td>c(H⁺) = c(OH⁻)</td>
+<td>pH = 7</td>
+</tr>
+<tr>
+<td>碱性</td>
+<td>c(H⁺) &lt; c(OH⁻)</td>
+<td>pH &gt; 7</td>
+</tr>
+</table>
+</div>
+<div class="section">
+<h3>4.3 盐类水解</h3>
+<div class="key-point">
+<strong>💡 盐类水解：</strong>盐电离出的离子与水电离出的H⁺或OH⁻结合生成弱电解质的反应。
+            </div>
+<table>
+<tr>
+<th>盐的类型</th>
+<th>水解情况</th>
+<th>溶液酸碱性</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>强酸强碱盐</td>
+<td>不水解</td>
+<td>中性</td>
+<td>NaCl、KNO₃</td>
+</tr>
+<tr>
+<td>强酸弱碱盐</td>
+<td>阳离子水解</td>
+<td>酸性</td>
+<td>NH₄Cl、CuSO₄</td>
+</tr>
+<tr>
+<td>弱酸强碱盐</td>
+<td>阴离子水解</td>
+<td>碱性</td>
+<td>CH₃COONa、Na₂CO₃</td>
+</tr>
+<tr>
+<td>弱酸弱碱盐</td>
+<td>双水解</td>
+<td>视情况而定</td>
+<td>CH₃COONH₄</td>
+</tr>
+</table>
+<div class="example">
+<strong>📝 水解方程式示例：</strong><br/>
+                $NH_4^+ + H_2O \rightleftharpoons NH_3·H_2O + H^+$（溶液呈酸性）<br/><br/>
+                $CH_3COO^- + H_2O \rightleftharpoons CH_3COOH + OH^-$（溶液呈碱性）<br/><br/>
+                $CO_3^{2-} + H_2O \rightleftharpoons HCO_3^- + OH^-$（第一步水解，为主）<br/>
+                $HCO_3^- + H_2O \rightleftharpoons H_2CO_3 + OH^-$（第二步水解）
+            </div>
+</div>
+
+<div class="section">
+<h3>4.4 电离平衡常数与水解常数</h3>
+<div class="formula-box">
+<strong>弱酸电离平衡常数 Ka：</strong><br/>
+                对于 HA ⇌ H⁺ + A⁻：Ka = [H⁺][A⁻] / [HA]<br/><br/>
+                <strong>弱碱电离平衡常数 Kb：</strong><br/>
+                对于 BOH ⇌ B⁺ + OH⁻：Kb = [B⁺][OH⁻] / [BOH]<br/><br/>
+                <strong>水解常数 Kh：</strong><br/>
+                弱酸强碱盐：Kh = Kw / Ka<br/>
+                强酸弱碱盐：Kh = Kw / Kb
+            </div>
+<div class="key-point">
+<strong>💡 电离度与稀释定律：</strong><br/>
+                电离度 α = (已电离分子数 / 总分子数) × 100%<br/><br/>
+                <strong>稀释定律（Ostwald）：</strong>当α &lt; 5%时，Ka ≈ cα²，α = √(Ka/c)<br/><br/>
+                <strong>弱酸pH速算：</strong>[H⁺] = √(Ka·c)（当c/Ka &gt; 400时适用）
+            </div>
+</div>
+
+<div class="section">
+<h3>4.5 完全双水解（离子共存重点）</h3>
+<div class="warning">
+<strong>⚠️ 常见完全双水解组合（不能大量共存）：</strong><br/>
+                Al³⁺ 与 CO₃²⁻、HCO₃⁻、S²⁻、HS⁻、AlO₂⁻、SiO₃²⁻<br/>
+                Fe³⁺ 与 CO₃²⁻、HCO₃⁻、AlO₂⁻、SiO₃²⁻（与S²⁻发生氧化还原）<br/>
+                NH₄⁺ 与 AlO₂⁻、SiO₃²⁻（加热时完全双水解）<br/><br/>
+                <strong>典型反应：</strong><br/>
+                Al³⁺ + 3HCO₃⁻ = Al(OH)₃↓ + 3CO₂↑（泡沫灭火器原理）<br/>
+                2Al³⁺ + 3CO₃²⁻ + 3H₂O = 2Al(OH)₃↓ + 3CO₂↑
+            </div>
+</div>
+<div class="section">
+<h3>4.6 沉淀溶解平衡</h3>
+<div class="key-point">
+<strong>💡 溶度积常数（Ksp）：</strong>难溶电解质在饱和溶液中各离子浓度幂的乘积。
+            </div>
+<div class="formula-box">
+<strong>对于沉淀溶解平衡：</strong>$A_mB_n(s) \rightleftharpoons mA^{n+}(aq) + nB^{m-}(aq)$<br/><br/>
+                $K_{sp} = c^m(A^{n+}) \cdot c^n(B^{m-})$<br/><br/>
+                <strong>溶度积规则：</strong><br/>
+                Q &gt; Ksp：溶液过饱和，有沉淀析出<br/>
+                Q = Ksp：溶液饱和，处于平衡状态<br/>
+                Q &lt; Ksp：溶液未饱和，沉淀溶解
+            </div>
+</div>
+
+<div class="section">
+<h3>4.7 Ksp与溶解度(S)的换算</h3>
+<table>
+<tr>
+<th>沉淀类型</th>
+<th>示例</th>
+<th>Ksp与S的关系</th>
+</tr>
+<tr>
+<td>AB型（1:1）</td>
+<td>AgCl、BaSO₄、CaCO₃</td>
+<td>Ksp = S²，S = √Ksp</td>
+</tr>
+<tr>
+<td>AB₂型（1:2）</td>
+<td>Ag₂CrO₄、CaF₂</td>
+<td>Ksp = 4S³，S = ³√(Ksp/4)</td>
+</tr>
+<tr>
+<td>A₂B型（2:1）</td>
+<td>Ag₂S</td>
+<td>Ksp = 4S³，S = ³√(Ksp/4)</td>
+</tr>
+<tr>
+<td>AB₃型（1:3）</td>
+<td>Fe(OH)₃、Al(OH)₃</td>
+<td>Ksp = 27S⁴，S = ⁴√(Ksp/27)</td>
+</tr>
+</table>
+<div class="tip">
+<strong>🎯 沉淀转化规律：</strong><br/>
+                溶解度大的沉淀 → 溶解度小的沉淀（Ksp小的更难溶）<br/>
+                例：AgCl（白）→ AgBr（浅黄）→ AgI（黄）→ Ag₂S（黑）<br/><br/>
+                <strong>沉淀溶解方法：</strong><br/>
+                1. 酸碱溶解：CaCO₃ + 2H⁺ = Ca²⁺ + H₂O + CO₂↑<br/>
+                2. 配位溶解：AgCl + 2NH₃ = [Ag(NH₃)₂]⁺ + Cl⁻<br/>
+                3. 氧化还原溶解：3CuS + 8HNO₃ = 3Cu(NO₃)₂ + 3S↓ + 2NO↑ + 4H₂O
+            </div>
+</div>
+
+<div class="section">
+<h3>4.8 离子浓度大小比较（三大守恒）</h3>
+<div class="key-point">
+<strong>💡 电荷守恒：</strong>溶液中所有阳离子正电荷总数 = 所有阴离子负电荷总数<br/><br/>
+                <strong>物料守恒：</strong>某元素所有存在形式浓度之和 = 初始浓度<br/><br/>
+                <strong>质子守恒：</strong>水电离出的H⁺和OH⁻浓度相等（可由电荷守恒和物料守恒推导）
+            </div>
+<div class="example">
+<strong>📝 示例：Na₂CO₃溶液中的守恒关系</strong><br/><br/>
+                <strong>电荷守恒：</strong><br/>
+                [Na⁺] + [H⁺] = [OH⁻] + [HCO₃⁻] + 2[CO₃²⁻]<br/><br/>
+                <strong>物料守恒：</strong><br/>
+                [Na⁺] = 2([CO₃²⁻] + [HCO₃⁻] + [H₂CO₃])<br/><br/>
+                <strong>质子守恒：</strong><br/>
+                [OH⁻] = [H⁺] + [HCO₃⁻] + 2[H₂CO₃]
+            </div>
+</div>
+<h2>第五章 电化学</h2>
+<div class="section">
+<h3>5.1 原电池</h3>
+<div class="key-point">
+<strong>💡 原电池：</strong>将化学能转化为电能的装置。
+            </div>
+<div class="key-point">
+<strong>💡 原电池的形成条件：</strong>
+                <ol>
+<li>两种活动性不同的电极材料</li>
+<li>电解质溶液</li>
+<li>形成闭合回路</li>
+<li>能自发进行氧化还原反应</li>
+</ol>
+</div>
+<table>
+<tr>
+<th>电极</th>
+<th>负极</th>
+<th>正极</th>
+</tr>
+<tr>
+<td>定义</td>
+<td>电子流出的一极</td>
+<td>电子流入的一极</td>
+</tr>
+<tr>
+<td>反应类型</td>
+<td>氧化反应</td>
+<td>还原反应</td>
+</tr>
+<tr>
+<td>电极材料</td>
+<td>较活泼金属</td>
+<td>较不活泼金属或非金属</td>
+</tr>
+<tr>
+<td>现象</td>
+<td>溶解（质量减小）</td>
+<td>增重或产生气泡</td>
+</tr>
+</table>
+<div class="example">
+<strong>📝 铜锌原电池（稀硫酸作电解质）：</strong><br/><br/>
+                负极（Zn）：$Zn - 2e^- = Zn^{2+}$（氧化反应）<br/>
+                正极（Cu）：$2H^+ + 2e^- = H_2↑$（还原反应）<br/><br/>
+                总反应：$Zn + 2H^+ = Zn^{2+} + H_2↑$
+            </div>
+</div>
+
+<div class="section">
+<h3>5.2 经典原电池模型</h3>
+<table>
+<tr>
+<th>电池类型</th>
+<th>负极反应</th>
+<th>正极反应</th>
+<th>总反应</th>
+<th>特征</th>
+</tr>
+<tr>
+<td>Cu-Zn原电池<br/>(H₂SO₄)</td>
+<td>Zn - 2e⁻ → Zn²⁺</td>
+<td>2H⁺ + 2e⁻ → H₂↑</td>
+<td>Zn + 2H⁺ → Zn²⁺ + H₂↑</td>
+<td>Zn溶解，Cu极冒泡</td>
+</tr>
+<tr>
+<td>Fe-C原电池<br/>(NaCl，吸氧腐蚀)</td>
+<td>Fe - 2e⁻ → Fe²⁺</td>
+<td>O₂ + 2H₂O + 4e⁻ → 4OH⁻</td>
+<td>2Fe + O₂ + 2H₂O → 2Fe(OH)₂</td>
+<td>最终生成铁锈Fe₂O₃·nH₂O</td>
+</tr>
+<tr>
+<td>铅蓄电池<br/>(放电)</td>
+<td>Pb + SO₄²⁻ - 2e⁻ → PbSO₄</td>
+<td>PbO₂ + 4H⁺ + SO₄²⁻ + 2e⁻ → PbSO₄ + 2H₂O</td>
+<td>Pb + PbO₂ + 2H₂SO₄ → 2PbSO₄ + 2H₂O</td>
+<td>硫酸浓度降低，密度减小</td>
+</tr>
+<tr>
+<td>氢氧燃料电池<br/>(酸性)</td>
+<td>H₂ - 2e⁻ → 2H⁺</td>
+<td>O₂ + 4H⁺ + 4e⁻ → 2H₂O</td>
+<td>2H₂ + O₂ → 2H₂O</td>
+<td>绿色能源，产物是水</td>
+</tr>
+<tr>
+<td>氢氧燃料电池<br/>(碱性)</td>
+<td>H₂ + 2OH⁻ - 2e⁻ → 2H₂O</td>
+<td>O₂ + 2H₂O + 4e⁻ → 4OH⁻</td>
+<td>2H₂ + O₂ → 2H₂O</td>
+<td>KOH溶液浓度变化需分析</td>
+</tr>
+</table>
+<div class="tip">
+<strong>🎯 燃料电池电极反应书写技巧：</strong><br/>
+                1. 确定燃料（H₂、CH₄、CH₃OH等）在负极失电子<br/>
+                2. 酸性介质：用H⁺平衡电荷，生成H₂O<br/>
+                3. 碱性介质：用OH⁻平衡电荷，生成H₂O<br/>
+                4. 熔融碳酸盐：用CO₃²⁻平衡电荷<br/>
+                5. 固体氧化物：用O²⁻平衡电荷
+            </div>
+</div>
+
+<div class="section">
+<h3>5.3 电解池</h3>
+<div class="key-point">
+<strong>💡 电解池：</strong>将电能转化为化学能的装置。
+            </div>
+<table>
+<tr>
+<th>电极</th>
+<th>阳极</th>
+<th>阴极</th>
+</tr>
+<tr>
+<td>定义</td>
+<td>与电源正极相连</td>
+<td>与电源负极相连</td>
+</tr>
+<tr>
+<td>反应类型</td>
+<td>氧化反应</td>
+<td>还原反应</td>
+</tr>
+<tr>
+<td>离子移动</td>
+<td>阴离子移向阳极</td>
+<td>阳离子移向阴极</td>
+</tr>
+</table>
+<div class="key-point">
+<strong>💡 放电顺序：</strong><br/>
+<strong>阳极（失电子）：</strong><br/>
+                活性电极（Ag以前金属）&gt; S²⁻ &gt; I⁻ &gt; Br⁻ &gt; Cl⁻ &gt; OH⁻ &gt; 含氧酸根 &gt; F⁻<br/><br/>
+<strong>阴极（得电子）：</strong><br/>
+                Ag⁺ &gt; Fe³⁺ &gt; Cu²⁺ &gt; H⁺（酸）&gt; Pb²⁺ &gt; Fe²⁺ &gt; Zn²⁺ &gt; H⁺（水）&gt; Al³⁺ &gt; Mg²⁺ &gt; Na⁺
+            </div>
+<div class="example">
+<strong>📝 电解CuCl₂溶液：</strong><br/><br/>
+                阳极：$2Cl^- - 2e^- = Cl_2↑$<br/>
+                阴极：$Cu^{2+} + 2e^- = Cu$<br/><br/>
+                总反应：$CuCl_2 \stackrel{电解}{\longrightarrow} Cu + Cl_2↑$
+            </div>
+</div>
+<div class="section">
+<h3>5.3 金属的腐蚀与防护</h3>
+<div class="key-point">
+<strong>💡 金属腐蚀：</strong>金属与周围的气体或液体物质发生氧化还原反应而损耗的现象。
+            </div>
+<table>
+<tr>
+<th>腐蚀类型</th>
+<th>化学腐蚀</th>
+<th>电化学腐蚀（主要）</th>
+</tr>
+<tr>
+<td>条件</td>
+<td>金属与氧化剂直接接触</td>
+<td>不纯金属与电解质溶液接触</td>
+</tr>
+<tr>
+<td>本质</td>
+<td>氧化还原反应</td>
+<td>原电池反应</td>
+</tr>
+<tr>
+<td>实例</td>
+<td>铁与氯气反应</td>
+<td>钢铁生锈</td>
+</tr>
+</table>
+<div class="key-point">
+<strong>💡 钢铁的电化学腐蚀：</strong><br/>
+<strong>吸氧腐蚀（中性或弱酸性）：</strong><br/>
+                负极：$2Fe - 4e^- = 2Fe^{2+}$<br/>
+                正极：$O_2 + 2H_2O + 4e^- = 4OH^-$<br/><br/>
+<strong>析氢腐蚀（较强酸性）：</strong><br/>
+                负极：$Fe - 2e^- = Fe^{2+}$<br/>
+                正极：$2H^+ + 2e^- = H_2↑$
+            </div>
+<div class="key-point">
+<strong>💡 金属防护方法：</strong>
+                <ol>
+<li>改变金属内部结构（如制成不锈钢）</li>
+<li>覆盖保护层（涂油、刷漆、电镀、钝化）</li>
+<li>电化学保护法：
+                        <ul>
+<li>牺牲阳极的阴极保护法（原电池原理）</li>
+<li>外加电流的阴极保护法（电解池原理）</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+<h2>第六章 反应原理拓展（整合补充）</h2>
+
+<div class="section">
+<h3>6.1 活化能与反应热</h3>
+<div class="key-point">
+<strong>💡 活化能（Ea）：</strong>反应物分子变成活化分子所需最低能量。<br/><br/>
+<strong>关系式：</strong>Ea(正) - Ea(逆) = ΔH
+            </div>
+<div class="formula-box">
+<strong>键能计算反应热：</strong><br/>
+                ΔH = 反应物键能总和 - 生成物键能总和<br/>
+                = 断键吸收能量 - 成键释放能量<br/><br/>
+<strong>注意：</strong>键能越大，键越稳定，含该键的物质能量越低。
+            </div>
+</div>
+
+<div class="section">
+<h3>6.2 燃烧热与中和热详解</h3>
+<div class="key-point">
+<strong>💡 燃烧热要点：</strong>
+                <ul>
+<li>101kPa，1mol纯物质完全燃烧生成指定产物时的反应热</li>
+<li>C → CO₂(g)；H → H₂O(l)；S → SO₂(g)；N → N₂(g)</li>
+<li>注意：H₂O必须为液态，C→CO不是完全燃烧</li>
+</ul>
+</div>
+<div class="key-point">
+<strong>💡 中和热要点：</strong>
+                <ul>
+<li>稀溶液中，强酸强碱生成1mol H₂O(l)时的反应热，ΔH = -57.3 kJ/mol</li>
+<li>浓硫酸稀释放热，测得值偏大（|ΔH| &gt; 57.3）</li>
+<li>弱酸弱碱电离吸热，测得值偏小（|ΔH| &lt; 57.3）</li>
+<li>生成沉淀（如Ba²⁺ + SO₄²⁻）放热，测得值偏大</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>6.3 原电池原理深化</h3>
+<div class="key-point">
+<strong>💡 电极判断技巧：</strong>
+                <ul>
+<li><strong>根据材料：</strong>活泼金属为负极（注意：Mg-Al/NaOH溶液，Al为负极；Fe-Cu/浓HNO₃，Cu为负极——钝化）</li>
+<li><strong>根据现象：</strong>溶解的一极为负极；增重或有气泡的一极为正极</li>
+<li><strong>根据离子移动：</strong>阳离子移向正极，阴离子移向负极</li>
+<li><strong>燃料电池：</strong>通入燃料（H₂、CH₄、CH₃OH等）为负极，通入氧化剂（O₂、空气）为正极</li>
+</ul>
+</div>
+<div class="key-point">
+<strong>💡 常见化学电源：</strong>
+                <ul>
+<li><strong>一次电池（不可充电）：</strong>锌锰干电池（NH₄Cl糊状电解质，负极Zn，正极C棒周围MnO₂）</li>
+<li><strong>二次电池（可充电）：</strong>铅蓄电池（负极Pb，正极PbO₂，电解液H₂SO₄）；锂离子电池</li>
+<li><strong>燃料电池：</strong>氢氧燃料电池（酸性：负极H₂ - 2e⁻ = 2H⁺；正极O₂ + 4H⁺ + 4e⁻ = 2H₂O；碱性：负极H₂ + 2OH⁻ - 2e⁻ = 2H₂O；正极O₂ + 2H₂O + 4e⁻ = 4OH⁻）</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>6.4 电解池原理深化</h3>
+<div class="key-point">
+<strong>💡 离子放电顺序（必须熟记）：</strong>
+                <ul>
+<li><strong>阳极（氧化）：</strong>
+                        <ul>
+<li>活性电极（Cu、Ag等）：电极本身溶解（Cu - 2e⁻ = Cu²⁺）</li>
+<li>惰性电极（Pt、石墨、Au）：S²⁻ &gt; I⁻ &gt; Br⁻ &gt; Cl⁻ &gt; OH⁻ &gt; 含氧酸根（SO₄²⁻、NO₃⁻等）> F⁻</li>
+</ul>
+</li>
+<li><strong>阴极（还原）：</strong>Ag⁺ &gt; Hg²⁺ &gt; Fe³⁺ &gt; Cu²⁺ &gt; H⁺（酸）> Pb²⁺ &gt; Sn²⁺ &gt; Fe²⁺ &gt; Zn²⁺ &gt; H⁺（水）> Al³⁺ &gt; Mg²⁺ &gt; Na⁺ &gt; Ca²⁺ &gt; K⁺</li>
+</ul>
+</div>
+<div class="example">
+<strong>📝 电解类型总结：</strong><br/><br/>
+<strong>1. 电解水型：</strong>含氧酸、强碱、活泼金属含氧酸盐（如H₂SO₄、NaOH、Na₂SO₄）<br/>
+                阳极：4OH⁻ - 4e⁻ = O₂↑ + 2H₂O；阴极：4H⁺ + 4e⁻ = 2H₂↑<br/>
+                实质：电解水，溶液浓度增大<br/><br/>
+<strong>2. 电解电解质型：</strong>无氧酸、不活泼金属无氧酸盐（如HCl、CuCl₂）<br/>
+                电解HCl：2HCl = H₂↑ + Cl₂↑<br/>
+                电解CuCl₂：CuCl₂ = Cu + Cl₂↑<br/><br/>
+<strong>3. 放氢生碱型：</strong>活泼金属无氧酸盐（如NaCl）<br/>
+                阳极：2Cl⁻ - 2e⁻ = Cl₂↑；阴极：2H₂O + 2e⁻ = H₂↑ + 2OH⁻<br/>
+                总反应：2NaCl + 2H₂O = 2NaOH + H₂↑ + Cl₂↑（氯碱工业）<br/><br/>
+<strong>4. 放氧生酸型：</strong>不活泼金属含氧酸盐（如CuSO₄、AgNO₃）<br/>
+                阳极：2H₂O - 4e⁻ = O₂↑ + 4H⁺；阴极：Cu²⁺ + 2e⁻ = Cu<br/>
+                总反应：2CuSO₄ + 2H₂O = 2Cu + O₂↑ + 2H₂SO₄（溶液酸性增强）
+            </div>
+</div>
+
+<div class="section">
+<h3>6.5 电解计算（电子守恒）</h3>
+<div class="formula-box">
+<strong>基本公式：</strong>n(e⁻) = Q/F = It/F（F = 96500 C/mol）<br/><br/>
+<strong>串联电路：</strong>各电解池转移电子数相等<br/><br/>
+<strong>计算模型：</strong>写出电极反应 → 确定电子转移数 → 建立物质的量关系
+            </div>
+<div class="example">
+<strong>📝 例题：</strong>电解CuSO₄溶液，阴极析出6.4g Cu，求阳极产生O₂体积（标况）。<br/><br/>
+<strong>【分析思路】</strong><br/>
+                1. <strong>明确电解池原理：</strong>阴极发生还原反应，阳极发生氧化反应<br/>
+                2. <strong>写出电极反应：</strong><br/>
+                   - 阴极：Cu²⁺ + 2e⁻ = Cu（还原反应）<br/>
+                   - 阳极：4OH⁻ - 4e⁻ = O₂↑ + 2H₂O（氧化反应，因为OH⁻比SO₄²⁻更容易失电子）<br/>
+                3. <strong>建立电子转移关系：</strong>根据阴极反应计算转移电子数<br/>
+                4. <strong>计算阳极产物：</strong>根据电子守恒，阳极失去的电子数 = 阴极得到的电子数<br/>
+                5. <strong>换算体积：</strong>利用标准状况下气体摩尔体积22.4 L/mol<br/><br/>
+<strong>【规范解答】</strong><br/>
+                ① <strong>计算阴极转移电子数：</strong><br/>
+                n(Cu) = $\frac{6.4g}{64g/mol}$ = 0.1 mol<br/>
+                由 Cu²⁺ + 2e⁻ = Cu 可知，转移电子 n(e⁻) = 0.1 × 2 = 0.2 mol<br/><br/>
+                ② <strong>计算阳极产生O₂：</strong><br/>
+                阳极反应：4OH⁻ - 4e⁻ = O₂↑ + 2H₂O<br/>
+                由电子守恒：n(O₂) = $\frac{n(e^-)}{4}$ = $\frac{0.2}{4}$ = 0.05 mol<br/><br/>
+                ③ <strong>计算O₂体积：</strong><br/>
+                V(O₂) = 0.05 mol × 22.4 L/mol = <strong>1.12 L</strong><br/><br/>
+<strong>【方法总结】</strong><br/>
+                • <strong>电解计算核心：</strong>电子守恒——阳极失电子数 = 阴极得电子数<br/>
+                • <strong>电极反应判断：</strong><br/>
+                  - 阴极：氧化性强的离子先得电子（Cu²⁺ > H⁺ > Na⁺等）<br/>
+                  - 阳极：还原性强的离子先失电子（活性电极 > Cl⁻ > OH⁻ > 含氧酸根）<br/>
+                • <strong>计算步骤：</strong>写出电极反应 → 确定电子转移数 → 建立物质的量关系 → 计算<br/>
+                • <strong>常用关系式：</strong><br/>
+                  - Cu ~ 2e⁻ ~ ½O₂ ~ Cl₂<br/>
+                  - 2H₂O ~ 4e⁻ ~ O₂ ~ 2H₂<br/>
+                  - 2Cl⁻ ~ 2e⁻ ~ Cl₂<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                • 注意区分阴极（还原反应）和阳极（氧化反应），不要与正负极混淆<br/>
+                • 惰性电极（如石墨、Pt）不参与反应，活性电极（如Cu、Ag）会参与反应<br/>
+                • 计算电子转移数时，注意化学计量系数（如Cu²⁺ + 2e⁻ = Cu，是2个电子）<br/>
+                • 标准状况下气体摩尔体积为22.4 L/mol，非标准状况不能用<br/>
+                • 电解CuSO₄溶液时，阳极是OH⁻放电，不是SO₄²⁻放电
+            </div>
+</div>
+
+<div class="section">
+<h3>6.6 化学平衡图像分析</h3>
+<div class="key-point">
+<strong>💡 常见图像类型：</strong>
+                <ul>
+<li><strong>v-t图：</strong>条件改变瞬间，v正、v逆变化，随后趋于相等（重新平衡）</li>
+<li><strong>c-t图：</strong>浓度随时间变化，拐点为平衡状态</li>
+<li><strong>转化率-T/p图：</strong>"先拐先平数值大"（温度高或压强大先平衡）；升高温度，吸热反应转化率增大，放热反应转化率减小</li>
+<li><strong>恒压（温）线：</strong>定一议二，分析变量关系</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>6.7 水溶液离子平衡深化</h3>
+<div class="key-point">
+<strong>💡 电离平衡常数Ka、Kb：</strong><br/>
+                CH₃COOH ⇌ CH₃COO⁻ + H⁺<br/>
+                $K_a = \frac{c(CH_3COO^-) \cdot c(H^+)}{c(CH_3COOH)}$<br/><br/>
+                只与温度有关，温度升高，Ka增大（电离吸热）<br/><br/>
+<strong>多元弱酸分步电离：</strong>H₂S ⇌ H⁺ + HS⁻（Ka1）；HS⁻ ⇌ H⁺ + S²⁻（Ka2）；Ka1 >> Ka2，以第一步为主
+            </div>
+<div class="key-point">
+<strong>💡 水解规律：</strong>
+                <ul>
+<li><strong>有弱才水解：</strong>含弱酸阴离子（CO₃²⁻、CH₃COO⁻等）或弱碱阳离子（NH₄⁺、Fe³⁺等）才水解</li>
+<li><strong>越弱越水解：</strong>对应酸/碱越弱，水解程度越大（如Na₂CO₃水解程度 &gt; NaHCO₃ &gt; CH₃COONa）</li>
+<li><strong>谁强显谁性：</strong>强酸弱碱盐显酸性（NH₄Cl），强碱弱酸盐显碱性（Na₂CO₃），弱酸弱碱盐看相对强弱</li>
+<li><strong>双弱双水解：</strong>Al³⁺与CO₃²⁻、HCO₃⁻、S²⁻、HS⁻、AlO₂⁻；Fe³⁺与CO₃²⁻、HCO₃⁻、AlO₂⁻（彻底水解，生成沉淀和气体）</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>6.8 溶液pH判断规律</h3>
+<div class="key-point">
+<strong>💡 pH判断技巧：</strong>
+                <ul>
+<li>强酸稀释10ⁿ倍，pH增大n（但不超过7）</li>
+<li>强碱稀释10ⁿ倍，pH减小n（但不低于7）</li>
+<li>弱酸稀释，pH变化小于强酸（稀释促进电离，补充H⁺）</li>
+<li>等体积混合：强酸+强碱，pH=7（等浓度等体积）；强酸+弱碱，pH&lt;7；弱酸+强碱，pH&gt;7</li>
+</ul>
+</div>
+</div>
+
+        <!-- 化学反应原理示意图 -->
+        <div class="module-box">
+            <div class="module-title">🎨 化学反应原理示意图</div>
+            
+            <div class="section">
+                <h3>能量变化与反应历程图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 放热反应能量图 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e74c3c; margin-bottom: 10px;">放热反应能量变化</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">反应历程</text>
+                            <text x="40" y="20" font-size="12" fill="#333">能量</text>
+                            
+                            <!-- 反应物能量线 -->
+                            <line x1="60" y1="80" x2="120" y2="80" stroke="#3498db" stroke-width="3"/>
+                            <text x="90" y="70" font-size="11" fill="#3498db" text-anchor="middle">反应物</text>
+                            <text x="90" y="95" font-size="10" fill="#3498db" text-anchor="middle">E₁</text>
+                            
+                            <!-- 生成物能量线 -->
+                            <line x1="250" y1="150" x2="310" y2="150" stroke="#27ae60" stroke-width="3"/>
+                            <text x="280" y="140" font-size="11" fill="#27ae60" text-anchor="middle">生成物</text>
+                            <text x="280" y="165" font-size="10" fill="#27ae60" text-anchor="middle">E₂</text>
+                            
+                            <!-- 活化络合物峰 -->
+                            <path d="M 120 80 Q 185 20, 250 150" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                            <text x="185" y="35" font-size="11" fill="#e74c3c" text-anchor="middle">活化络合物</text>
+                            <text x="185" y="50" font-size="10" fill="#e74c3c" text-anchor="middle">Eₐ</text>
+                            
+                            <!-- 活化能标注 -->
+                            <line x1="185" y1="55" x2="185" y2="80" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <text x="200" y="70" font-size="10" fill="#e67e22">Ea</text>
+                            
+                            <!-- 反应热标注 -->
+                            <line x1="130" y1="115" x2="240" y2="115" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrowRP)" marker-start="url(#arrowRP2)"/>
+                            <text x="185" y="130" font-size="11" fill="#9b59b6" text-anchor="middle">ΔH &lt; 0（放热）</text>
+                            
+                            <defs>
+                                <marker id="arrowRP" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <polygon points="0 0, 8 3, 0 6" fill="#9b59b6"/>
+                                </marker>
+                                <marker id="arrowRP2" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+                                    <polygon points="8 0, 0 3, 8 6" fill="#9b59b6"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">反应物能量 &gt; 生成物能量<br/>ΔH = E₂ - E₁ &lt; 0</p>
+                    </div>
+                    
+                    <!-- 吸热反应能量图 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #3498db; margin-bottom: 10px;">吸热反应能量变化</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">反应历程</text>
+                            <text x="40" y="20" font-size="12" fill="#333">能量</text>
+                            
+                            <!-- 反应物能量线 -->
+                            <line x1="60" y1="150" x2="120" y2="150" stroke="#3498db" stroke-width="3"/>
+                            <text x="90" y="140" font-size="11" fill="#3498db" text-anchor="middle">反应物</text>
+                            <text x="90" y="165" font-size="10" fill="#3498db" text-anchor="middle">E₁</text>
+                            
+                            <!-- 生成物能量线 -->
+                            <line x1="250" y1="80" x2="310" y2="80" stroke="#27ae60" stroke-width="3"/>
+                            <text x="280" y="70" font-size="11" fill="#27ae60" text-anchor="middle">生成物</text>
+                            <text x="280" y="95" font-size="10" fill="#27ae60" text-anchor="middle">E₂</text>
+                            
+                            <!-- 活化络合物峰 -->
+                            <path d="M 120 150 Q 185 30, 250 80" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                            <text x="185" y="45" font-size="11" fill="#e74c3c" text-anchor="middle">活化络合物</text>
+                            
+                            <!-- 反应热标注 -->
+                            <line x1="130" y1="115" x2="240" y2="115" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrowRP3)" marker-start="url(#arrowRP4)"/>
+                            <text x="185" y="130" font-size="11" fill="#9b59b6" text-anchor="middle">ΔH &gt; 0（吸热）</text>
+                            
+                            <defs>
+                                <marker id="arrowRP3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <polygon points="0 0, 8 3, 0 6" fill="#9b59b6"/>
+                                </marker>
+                                <marker id="arrowRP4" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+                                    <polygon points="8 0, 0 3, 8 6" fill="#9b59b6"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">反应物能量 &lt; 生成物能量<br/>ΔH = E₂ - E₁ &gt; 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>化学平衡图像分析</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 浓度-时间图 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #9b59b6; margin-bottom: 10px;">浓度-时间图</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">时间t</text>
+                            <text x="35" y="20" font-size="12" fill="#333">浓度c</text>
+                            
+                            <!-- 反应物浓度曲线 -->
+                            <path d="M 50 60 Q 100 60, 150 120 T 250 180" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+                            <text x="280" y="185" font-size="11" fill="#e74c3c">反应物</text>
+                            
+                            <!-- 生成物浓度曲线 -->
+                            <path d="M 50 200 Q 100 200, 150 160 T 250 120" stroke="#3498db" stroke-width="2.5" fill="none"/>
+                            <text x="280" y="115" font-size="11" fill="#3498db">生成物</text>
+                            
+                            <!-- 平衡线 -->
+                            <line x1="250" y1="40" x2="250" y2="220" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="5,5"/>
+                            <text x="250" y="35" font-size="10" fill="#27ae60" text-anchor="middle">平衡状态</text>
+                            
+                            <!-- t1时刻标注 -->
+                            <line x1="150" y1="220" x2="150" y2="160" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <text x="150" y="235" font-size="10" fill="#f39c12" text-anchor="middle">t₁</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">反应物浓度逐渐减小，生成物浓度逐渐增大<br/>t₁时刻达到平衡，浓度保持不变</p>
+                    </div>
+                    
+                    <!-- 速率-时间图（平衡移动） -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e67e22; margin-bottom: 10px;">速率-时间图（增大反应物浓度）</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">时间t</text>
+                            <text x="35" y="20" font-size="12" fill="#333">速率v</text>
+                            
+                            <!-- 正反应速率 -->
+                            <line x1="50" y1="180" x2="150" y2="180" stroke="#e74c3c" stroke-width="2.5"/>
+                            <line x1="150" y1="120" x2="250" y2="160" stroke="#e74c3c" stroke-width="2.5"/>
+                            <line x1="250" y1="160" x2="320" y2="160" stroke="#e74c3c" stroke-width="2.5"/>
+                            <text x="280" y="155" font-size="11" fill="#e74c3c">v正</text>
+                            
+                            <!-- 逆反应速率 -->
+                            <line x1="50" y1="200" x2="150" y2="200" stroke="#3498db" stroke-width="2.5"/>
+                            <line x1="150" y1="200" x2="250" y2="160" stroke="#3498db" stroke-width="2.5"/>
+                            <line x1="250" y1="160" x2="320" y2="160" stroke="#3498db" stroke-width="2.5"/>
+                            <text x="280" y="175" font-size="11" fill="#3498db">v逆</text>
+                            
+                            <!-- t1时刻 -->
+                            <line x1="150" y1="30" x2="150" y2="220" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="5,5"/>
+                            <text x="150" y="25" font-size="10" fill="#f39c12" text-anchor="middle">t₁:增大反应物浓度</text>
+                            
+                            <!-- 新平衡 -->
+                            <text x="285" y="150" font-size="10" fill="#27ae60" text-anchor="middle">新平衡</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">t₁时刻增大反应物浓度：v正突增，v逆不变<br/>v正 &gt; v逆，平衡正向移动，达到新平衡</p>
+                    </div>
+                    
+                    <!-- 转化率-温度图 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #27ae60; margin-bottom: 10px;">转化率-温度图（放热反应）</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">温度T</text>
+                            <text x="35" y="20" font-size="12" fill="#333">转化率α%</text>
+                            
+                            <!-- 放热反应曲线 -->
+                            <path d="M 60 60 Q 150 80, 310 180" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+                            <text x="280" y="160" font-size="11" fill="#e74c3c">放热反应</text>
+                            
+                            <!-- 吸热反应曲线 -->
+                            <path d="M 60 180 Q 150 100, 310 50" stroke="#3498db" stroke-width="2.5" fill="none"/>
+                            <text x="280" y="70" font-size="11" fill="#3498db">吸热反应</text>
+                            
+                            <!-- 说明 -->
+                            <text x="180" y="40" font-size="10" fill="#666" text-anchor="middle">升温，平衡向吸热方向移动</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">放热反应：升温，平衡逆向移动，转化率降低<br/>吸热反应：升温，平衡正向移动，转化率升高</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>电化学装置示意图</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 铜锌原电池 -->
+                    <div style="text-align: center; flex: 1; min-width: 350px; max-width: 450px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e74c3c; margin-bottom: 10px;">铜锌原电池（稀H₂SO₄）</h4>
+                        <svg width="400" height="280" style="background: white; border-radius: 4px;">
+                            <!-- 烧杯 -->
+                            <path d="M 100 80 L 100 200 Q 100 220, 120 220 L 280 220 Q 300 220, 300 200 L 300 80" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 电解质溶液 -->
+                            <path d="M 105 120 L 105 200 Q 105 215, 120 215 L 280 215 Q 295 215, 295 200 L 295 120" fill="#d4edda" opacity="0.5"/>
+                            <text x="200" y="180" font-size="11" fill="#27ae60" text-anchor="middle">稀H₂SO₄溶液</text>
+                            
+                            <!-- 锌电极（负极） -->
+                            <rect x="130" y="40" width="25" height="100" fill="#95a5a6" stroke="#333" stroke-width="2"/>
+                            <text x="142" y="35" font-size="12" fill="#333" text-anchor="middle">Zn</text>
+                            <text x="142" y="155" font-size="10" fill="#e74c3c" text-anchor="middle">-</text>
+                            
+                            <!-- 铜电极（正极） -->
+                            <rect x="245" y="40" width="25" height="100" fill="#e67e22" stroke="#333" stroke-width="2"/>
+                            <text x="257" y="35" font-size="12" fill="#333" text-anchor="middle">Cu</text>
+                            <text x="257" y="155" font-size="10" fill="#3498db" text-anchor="middle">+</text>
+                            
+                            <!-- 导线 -->
+                            <line x1="142" y1="40" x2="142" y2="20" stroke="#333" stroke-width="2"/>
+                            <line x1="257" y1="40" x2="257" y2="20" stroke="#333" stroke-width="2"/>
+                            <line x1="142" y1="20" x2="257" y2="20" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 电流表 -->
+                            <circle cx="200" cy="20" r="15" fill="#fff" stroke="#333" stroke-width="2"/>
+                            <text x="200" y="25" font-size="12" fill="#333" text-anchor="middle">A</text>
+                            
+                            <!-- 电子流向 -->
+                            <path d="M 150 25 L 190 25" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowElec)"/>
+                            <text x="170" y="15" font-size="10" fill="#e74c3c" text-anchor="middle">e⁻</text>
+                            
+                            <!-- 离子移动 -->
+                            <path d="M 170 140 L 170 100" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrowIon)"/>
+                            <text x="185" y="120" font-size="9" fill="#3498db">H⁺</text>
+                            
+                            <path d="M 230 100 L 230 140" stroke="#9b59b6" stroke-width="1.5" marker-end="url(#arrowIon2)"/>
+                            <text x="240" y="120" font-size="9" fill="#9b59b6">SO₄²⁻</text>
+                            
+                            <!-- 气泡（正极） -->
+                            <circle cx="257" cy="130" r="4" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <circle cx="265" cy="120" r="3" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <circle cx="250" cy="125" r="3" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <text x="290" y="125" font-size="10" fill="#333">H₂↑</text>
+                            
+                            <!-- 电极反应 -->
+                            <text x="10" y="100" font-size="9" fill="#e74c3c">负极：Zn-2e⁻=Zn²⁺</text>
+                            <text x="320" y="100" font-size="9" fill="#3498db">正极：2H⁺+2e⁻=H₂↑</text>
+                            
+                            <defs>
+                                <marker id="arrowElec" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <polygon points="0 0, 8 3, 0 6" fill="#e74c3c"/>
+                                </marker>
+                                <marker id="arrowIon" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                                    <polygon points="0 0, 6 2.5, 0 5" fill="#3498db"/>
+                                </marker>
+                                <marker id="arrowIon2" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                                    <polygon points="0 0, 6 2.5, 0 5" fill="#9b59b6"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">负极（Zn）：氧化反应，溶解<br/>正极（Cu）：还原反应，产生H₂气泡<br/>电子由负极流向正极</p>
+                    </div>
+                    
+                    <!-- 电解池 -->
+                    <div style="text-align: center; flex: 1; min-width: 350px; max-width: 450px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #3498db; margin-bottom: 10px;">电解池（电解CuCl₂溶液）</h4>
+                        <svg width="400" height="280" style="background: white; border-radius: 4px;">
+                            <!-- 烧杯 -->
+                            <path d="M 100 80 L 100 200 Q 100 220, 120 220 L 280 220 Q 300 220, 300 200 L 300 80" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 电解质溶液 -->
+                            <path d="M 105 120 L 105 200 Q 105 215, 120 215 L 280 215 Q 295 215, 295 200 L 295 120" fill="#d4edda" opacity="0.5"/>
+                            <text x="200" y="180" font-size="11" fill="#27ae60" text-anchor="middle">CuCl₂溶液</text>
+                            
+                            <!-- 阳极（石墨） -->
+                            <rect x="130" y="40" width="20" height="100" fill="#2c3e50" stroke="#333" stroke-width="2"/>
+                            <text x="140" y="35" font-size="11" fill="#333" text-anchor="middle">C</text>
+                            <text x="140" y="155" font-size="10" fill="#e74c3c" text-anchor="middle">阳极+</text>
+                            
+                            <!-- 阴极（石墨） -->
+                            <rect x="250" y="40" width="20" height="100" fill="#2c3e50" stroke="#333" stroke-width="2"/>
+                            <text x="260" y="35" font-size="11" fill="#333" text-anchor="middle">C</text>
+                            <text x="260" y="155" font-size="10" fill="#3498db" text-anchor="middle">阴极-</text>
+                            
+                            <!-- 电源 -->
+                            <rect x="175" y="10" width="50" height="30" fill="#f39c12" stroke="#333" stroke-width="2"/>
+                            <text x="200" y="30" font-size="14" fill="#333" text-anchor="middle">电源</text>
+                            
+                            <!-- 导线 -->
+                            <line x1="140" y1="40" x2="140" y2="25" stroke="#333" stroke-width="2"/>
+                            <line x1="140" y1="25" x2="175" y2="25" stroke="#333" stroke-width="2"/>
+                            <line x1="260" y1="40" x2="260" y2="25" stroke="#333" stroke-width="2"/>
+                            <line x1="225" y1="25" x2="260" y2="25" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 电子流向 -->
+                            <path d="M 150 30 L 165 30" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowElec2)"/>
+                            <text x="157" y="22" font-size="9" fill="#e74c3c">e⁻</text>
+                            
+                            <path d="M 235 30 L 250 30" stroke="#3498db" stroke-width="2" marker-end="url(#arrowElec3)"/>
+                            <text x="242" y="22" font-size="9" fill="#3498db">e⁻</text>
+                            
+                            <!-- 离子移动 -->
+                            <path d="M 180 140 L 220 140" stroke="#9b59b6" stroke-width="1.5" marker-end="url(#arrowIon3)"/>
+                            <text x="200" y="135" font-size="9" fill="#9b59b6">Cu²⁺→</text>
+                            
+                            <path d="M 220 160 L 180 160" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowIon4)"/>
+                            <text x="200" y="175" font-size="9" fill="#27ae60">←Cl⁻</text>
+                            
+                            <!-- 铜沉积 -->
+                            <rect x="248" y="130" width="24" height="10" fill="#e67e22" opacity="0.6"/>
+                            <text x="310" y="135" font-size="10" fill="#e67e22">Cu析出</text>
+                            
+                            <!-- 氯气 -->
+                            <circle cx="140" cy="115" r="4" fill="#d4edda" stroke="#27ae60" stroke-width="1"/>
+                            <circle cx="148" cy="108" r="3" fill="#d4edda" stroke="#27ae60" stroke-width="1"/>
+                            <text x="100" y="110" font-size="10" fill="#27ae60">Cl₂↑</text>
+                            
+                            <!-- 电极反应 -->
+                            <text x="10" y="100" font-size="9" fill="#e74c3c">阳极：2Cl⁻-2e⁻=Cl₂↑</text>
+                            <text x="300" y="100" font-size="9" fill="#3498db">阴极：Cu²⁺+2e⁻=Cu</text>
+                            
+                            <defs>
+                                <marker id="arrowElec2" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                                    <polygon points="0 0, 6 2.5, 0 5" fill="#e74c3c"/>
+                                </marker>
+                                <marker id="arrowElec3" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                                    <polygon points="0 0, 6 2.5, 0 5" fill="#3498db"/>
+                                </marker>
+                                <marker id="arrowIon3" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                                    <polygon points="0 0, 6 2.5, 0 5" fill="#9b59b6"/>
+                                </marker>
+                                <marker id="arrowIon4" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                                    <polygon points="0 0, 6 2.5, 0 5" fill="#27ae60"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">阳极（氧化）：2Cl⁻ - 2e⁻ = Cl₂↑<br/>阴极（还原）：Cu²⁺ + 2e⁻ = Cu<br/>阳离子移向阴极，阴离子移向阳极</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>水溶液离子平衡图像</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <!-- 酸碱中和滴定曲线 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #9b59b6; margin-bottom: 10px;">强酸强碱中和滴定曲线</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">V(碱)/mL</text>
+                            <text x="35" y="20" font-size="12" fill="#333">pH</text>
+                            
+                            <!-- 滴定曲线 -->
+                            <path d="M 50 200 Q 150 195, 200 120 T 250 40" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+                            
+                            <!-- 滴定突跃 -->
+                            <line x1="200" y1="40" x2="200" y2="220" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="5,5"/>
+                            <text x="200" y="235" font-size="10" fill="#f39c12" text-anchor="middle">滴定终点</text>
+                            
+                            <!-- pH=7线 -->
+                            <line x1="50" y1="120" x2="320" y2="120" stroke="#27ae60" stroke-width="1" stroke-dasharray="3,3"/>
+                            <text x="35" y="125" font-size="10" fill="#27ae60">7</text>
+                            
+                            <!-- 起点和终点标注 -->
+                            <text x="60" y="215" font-size="10" fill="#666">酸</text>
+                            <text x="300" y="50" font-size="10" fill="#666">碱过量</text>
+                            
+                            <!-- 指示剂范围 -->
+                            <rect x="190" y="100" width="20" height="40" fill="#9b59b6" opacity="0.2"/>
+                            <text x="200" y="95" font-size="9" fill="#9b59b6" text-anchor="middle">酚酞</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">滴定终点附近pH突跃<br/>强酸强碱滴定终点pH=7<br/>常用酚酞或甲基橙作指示剂</p>
+                    </div>
+                    
+                    <!-- 沉淀溶解平衡曲线 -->
+                    <div style="text-align: center; flex: 1; min-width: 300px; max-width: 400px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f8f9fa;">
+                        <h4 style="color: #e67e22; margin-bottom: 10px;">沉淀溶解平衡曲线</h4>
+                        <svg width="350" height="250" style="background: white; border-radius: 4px;">
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="220" x2="320" y2="220" stroke="#333" stroke-width="2"/>
+                            <line x1="50" y1="220" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                            <text x="330" y="225" font-size="12" fill="#333">-lgc(阳离子)</text>
+                            <text x="30" y="20" font-size="12" fill="#333">-lgc(阴离子)</text>
+                            
+                            <!-- 溶解平衡曲线 -->
+                            <path d="M 60 210 Q 100 180, 150 150 T 310 50" stroke="#3498db" stroke-width="2.5" fill="none"/>
+                            
+                            <!-- 饱和区域 -->
+                            <path d="M 60 210 Q 100 180, 150 150 T 310 50 L 310 220 L 60 220 Z" fill="#e74c3c" opacity="0.1"/>
+                            <text x="250" y="200" font-size="10" fill="#e74c3c">过饱和区（有沉淀）</text>
+                            
+                            <!-- 不饱和区域 -->
+                            <text x="100" y="80" font-size="10" fill="#27ae60">不饱和区（无沉淀）</text>
+                            
+                            <!-- 线上点 -->
+                            <circle cx="180" cy="130" r="5" fill="#f39c12"/>
+                            <text x="180" y="120" font-size="9" fill="#f39c12" text-anchor="middle">饱和溶液</text>
+                            
+                            <!-- Ksp标注 -->
+                            <text x="200" y="40" font-size="10" fill="#9b59b6">曲线上任意点：Ksp = c(阳离子)·c(阴离子)</text>
+                        </svg>
+                        <p style="font-size: 11px; color: #666; margin-top: 8px;">曲线上点：饱和溶液，Q = Ksp<br/>曲线上方：过饱和，Q &gt; Ksp，有沉淀析出<br/>曲线下方：不饱和，Q &lt; Ksp，无沉淀</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="elements_and_compounds.html">← 上一模块</a>
+            <a href="organic_chemistry.html">下一模块：有机化学基础 →</a>
+        </div>
+
+        <!-- 2025社会热点扩展知识 -->
+        <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-left: 5px solid #e74c3c;">
+            <div class="module-title" style="color: #c0392b;">🌍 2025社会热点与化学前沿</div>
+            
+            <div class="section">
+                <h3 style="color: #c0392b;">🏆 诺贝尔化学奖：蛋白质结构预测</h3>
+                <p><strong>热点背景：</strong>2024年诺贝尔化学奖授予David Baker、Demis Hassabis和John Jumper，表彰他们在计算蛋白质设计（Rosetta）和蛋白质结构预测（AlphaFold）方面的贡献。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>蛋白质结构层次：</strong>一级结构（氨基酸序列）→ 二级结构（α螺旋、β折叠）→ 三级结构 → 四级结构<br/>
+                    • <strong>氢键作用：</strong>维系二级结构的主要作用力，N-H···O=C，键能约20 kJ/mol<br/>
+                    • <strong>氨基酸等电点：</strong>$pI = \frac{pK_{a1} + pK_{a2}}{2}$，此时蛋白质溶解度最小<br/>
+                    • <strong>酶催化机理：</strong>诱导契合模型，降低活化能 $\Delta G^\ddagger$
+                </div>
+                <div class="formula-box" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-color: #e74c3c;">
+                    <strong>蛋白质折叠热力学：</strong><br/>
+                    $\Delta G_{fold} = \Delta H - T\Delta S$<br/>
+                    疏水效应驱动折叠：非极性氨基酸埋藏在内部，减少与水的接触，熵增有利
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">🔋 钠离子电池商业化元年</h3>
+                <p><strong>热点背景：</strong>2023-2025年钠离子电池实现商业化量产，宁德时代、比亚迪等企业推出钠离子电池产品，成本较锂电池低30%，适用于储能和低速电动车。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>工作原理：</strong>与锂离子电池类似，$Na^+$在正负极间嵌入/脱出<br/>
+                    • <strong>正极材料：</strong>层状氧化物 $Na_xMO_2$（M=Fe, Mn, Ni, Co）、普鲁士蓝类似物<br/>
+                    • <strong>负极材料：</strong>硬碳（无定形碳），储钠机制不同于石墨<br/>
+                    • <strong>电解液：</strong>NaPF₆溶于碳酸酯类溶剂，离子电导率约10 mS/cm
+                </div>
+                <div class="chemical-equation" style="background: #fce4ec; border-left: 4px solid #e74c3c;">
+                    <strong>钠离子电池总反应：</strong><br/>
+                    正极：$Na_{1-x}FeO_2 + xNa^+ + xe^- \underset{充电}{\stackrel{放电}{\rightleftharpoons}} NaFeO_2$<br/>
+                    负极：$Na_xC \underset{充电}{\stackrel{放电}{\rightleftharpoons}} xNa^+ + xe^- + C$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">🌍 全球塑料公约谈判</h3>
+                <p><strong>热点背景：</strong>2024-2025年联合国塑料污染公约谈判进入关键阶段，各国就塑料全生命周期管理达成共识，推动塑料循环经济转型。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>塑料分类：</strong>热塑性塑料（PE、PP、PET，可熔融重塑）vs 热固性塑料（环氧树脂，交联网络）<br/>
+                    • <strong>化学回收：</strong>解聚反应 $[PET]_n + nH_2O \rightarrow nTPA + nEG$，催化剂选择<br/>
+                    • <strong>生物降解：</strong>PLA水解 $[OCH(CH_3)CO]_n + nH_2O \rightarrow nCH_3CH(OH)COOH$<br/>
+                    • <strong>微塑料检测：</strong>红外光谱、拉曼光谱识别塑料类型
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">⚡ 绿氢制备技术突破</h3>
+                <p><strong>热点背景：</strong>2025年中国碱性电解槽成本降至1000元/kW以下，质子交换膜（PEM）电解槽效率突破70%，绿氢成本降至15元/kg，接近煤制氢成本。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>碱性电解：</strong>$2H_2O + 2e^- \rightarrow H_2↑ + 2OH^-$（阴极），$4OH^- - 4e^- \rightarrow O_2↑ + 2H_2O$（阳极）<br/>
+                    • <strong>PEM电解：</strong>固体聚合物电解质，$2H^+ + 2e^- \rightarrow H_2$（阴极），$H_2O - 2e^- \rightarrow \frac{1}{2}O_2 + 2H^+$（阳极）<br/>
+                    • <strong>理论分解电压：</strong>$E^° = 1.23$ V，实际约1.8-2.0 V（考虑过电位）<br/>
+                    • <strong>催化剂：</strong>阴极Pt/C，阳极IrO₂/RuO₂，降低活化能
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">🧪 新型CO₂转化催化剂</h3>
+                <p><strong>热点背景：</strong>2025年科学家开发单原子催化剂（SACs）和金属有机框架（MOFs）材料，实现CO₂高效选择性还原为甲醇、乙醇等化学品，法拉第效率达90%以上。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>CO₂活化：</strong>线性分子弯曲，C=O键断裂，催化剂提供电子<br/>
+                    • <strong>还原路径：</strong>CO₂ → COOH → CO → CHO → CH₃OH（多电子转移过程）<br/>
+                    • <strong>选择性控制：</strong>催化剂表面结构决定产物分布，Cu基催化剂有利于C-C偶联生成乙醇<br/>
+                    • <strong>反应条件：</strong>电位、电解质pH、温度影响产物选择性
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">⚡ 全钒液流电池储能技术</h3>
+                <p><strong>热点背景：</strong>2025年中国建成全球最大全钒液流电池储能电站（100MW/400MWh），循环寿命超20000次，安全性高，适合大规模长时储能。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>氧化还原电对：</strong>正极 $VO_2^+ + 2H^+ + e^- \rightleftharpoons VO^{2+} + H_2O$ $E^° = 1.00$ V<br/>
+                    • <strong>负极反应：</strong>$V^{3+} + e^- \rightleftharpoons V^{2+}$ $E^° = -0.26$ V<br/>
+                    • <strong>电池电动势：</strong>$E_{cell} = E_+ - E_- = 1.26$ V，与能斯特方程计算<br/>
+                    • <strong>优势：</strong>活性物质储存在外部储罐，功率与容量独立设计
+                </div>
+                <div class="chemical-equation" style="background: #fce4ec; border-left: 4px solid #e74c3c;">
+                    <strong>全钒液流电池总反应：</strong><br/>
+                    $VO_2^+ + V^{2+} + 2H^+ \underset{充电}{\stackrel{放电}{\rightleftharpoons}} VO^{2+} + V^{3+} + H_2O$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">🌊 海洋碳汇与蓝碳技术</h3>
+                <p><strong>热点背景：</strong>2025年中国启动"蓝碳"交易试点，利用海洋生态系统（红树林、海草床、盐沼）吸收固定CO₂，年碳汇能力达数亿吨。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>海水碳化学：</strong>$CO_2 + H_2O \rightleftharpoons H_2CO_3 \rightleftharpoons H^+ + HCO_3^- \rightleftharpoons 2H^+ + CO_3^{2-}$<br/>
+                    • <strong>碳酸钙沉积：</strong>$Ca^{2+} + CO_3^{2-} \rightarrow CaCO_3↓$，贝类、珊瑚固碳<br/>
+                    • <strong>pH影响：</strong>海洋酸化（pH从8.2降至8.1）抑制碳酸钙形成<br/>
+                    • <strong>缓冲体系：</strong>海水$HCO_3^-/CO_3^{2-}$缓冲对维持pH稳定
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #c0392b;">🔥 甲烷干重整制合成气</h3>
+                <p><strong>热点背景：</strong>2025年新型Ni基催化剂实现甲烷干重整（DRM）高效稳定运行，将CH₄和CO₂转化为合成气（CO+H₂），实现碳资源循环利用。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>主反应：</strong>$CH_4 + CO_2 \rightleftharpoons 2CO + 2H_2$ $\Delta H = +247$ kJ/mol（强吸热）<br/>
+                    • <strong>反应特点：</strong>同时消耗两种温室气体，生成重要化工原料<br/>
+                    • <strong>催化剂失活：</strong>积碳反应 $2CO \rightarrow C + CO_2$，需优化反应条件抑制<br/>
+                    • <strong>热力学分析：</strong>高温、低压有利于反应正向进行
+                </div>
+            </div>
+        </div>
+
+        <!-- 2026社会热点扩展知识 -->
+        <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-left: 5px solid #11998e;">
+            <div class="module-title" style="color: #0d7377;">🌍 2026社会热点与化学前沿</div>
+            
+            <div class="section">
+                <h3 style="color: #0d7377;">🔋 固态电池技术突破</h3>
+                <p><strong>热点背景：</strong>2026年固态电池实现商业化突破，能量密度达500 Wh/kg，采用硫化物固态电解质替代传统液态电解液，彻底解决锂电池安全隐患。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>电解质导电原理：</strong>固态电解质中Li⁺在晶格中迁移，电导率与温度关系符合阿伦尼乌斯方程 $k = A e^{-E_a/RT}$<br/>
+                    • <strong>电极反应：</strong>正极 $Li_xCoO_2 \underset{充电}{\stackrel{放电}{\rightleftharpoons}} Li_{x-1}CoO_2 + Li^+ + e^-$<br/>
+                    • <strong>能量密度计算：</strong>$\rho = \frac{nFE}{m}$，与电极材料理论容量相关<br/>
+                    • <strong>热稳定性：</strong>固态电解质分解温度 &gt; 300℃，远高于液态电解液
+                </div>
+                <div class="warning">
+                    <strong>高考预测：</strong>可能考查电极反应式书写、能量密度计算、电化学防护等
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">🌱 人工光合作用与碳中和</h3>
+                <p><strong>热点背景：</strong>2026年中国"人工光合作用"技术取得突破，利用太阳能将CO₂和H₂O直接转化为乙醇等燃料，转化效率达15%，为碳中和提供新路径。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>光合作用总反应：</strong>$6CO_2 + 6H_2O \stackrel{光}{\longrightarrow} C_6H_{12}O_6 + 6O_2$<br/>
+                    • <strong>人工催化剂：</strong>TiO₂、CdS等半导体光催化剂，带隙 $E_g = h\nu = \frac{hc}{\lambda}$<br/>
+                    • <strong>反应机理：</strong>光生电子-空穴对分离，CO₂在催化剂表面活化还原<br/>
+                    • <strong>化学平衡：</strong>提高CO₂浓度、选择合适温度压力促进转化
+                </div>
+                <div class="formula-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-color: #11998e;">
+                    <strong>CO₂电化学还原半反应：</strong><br/>
+                    $CO_2 + 6H^+ + 6e^- \rightarrow CH_3OH + H_2O$（酸性介质）<br/>
+                    $CO_2 + 8H_2O + 12e^- \rightarrow CH_3CH_2OH + 12OH^-$（碱性介质）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">💧 海水淡化与膜技术</h3>
+                <p><strong>热点背景：</strong>2026年新型石墨烯氧化物膜实现海水淡化能耗降至1.5 kWh/m³，较传统反渗透技术节能40%，为解决全球水资源短缺提供方案。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>渗透压：</strong>$\Pi = cRT$，海水渗透压约2.5 MPa<br/>
+                    • <strong>反渗透原理：</strong>施加外压 $P &gt; \Pi$，使水分子逆向通过半透膜<br/>
+                    • <strong>膜材料：</strong>聚酰胺薄膜复合膜（TFC）、石墨烯氧化物层间距 ~0.8 nm<br/>
+                    • <strong>离子选择性：</strong>水合离子半径 $Na^+$: 0.36 nm，$Cl^-$: 0.33 nm，膜孔道筛选效应
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">🧬 生物可降解塑料</h3>
+                <p><strong>热点背景：</strong>2026年全球"限塑令"升级，PLA（聚乳酸）、PBAT等生物可降解塑料产能爆发，替代传统PE、PP塑料，解决白色污染问题。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>PLA合成：</strong>乳酸缩聚 $nCH_3CH(OH)COOH \stackrel{缩聚}{\longrightarrow} [OCH(CH_3)CO]_n + nH_2O$<br/>
+                    • <strong>降解机理：</strong>酯键水解 $-COO- + H_2O \rightarrow -COOH + -OH$，微生物代谢<br/>
+                    • <strong>高分子概念：</strong>数均分子量 $M_n$、重均分子量 $M_w$、多分散指数 $PDI = M_w/M_n$<br/>
+                    • <strong>结构决定性质：</strong>结晶度影响降解速率，无定形区先降解
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">🌊 氢能与燃料电池</h3>
+                <p><strong>热点背景：</strong>2026年绿氢（可再生能源电解水制氢）成本降至15元/kg，氢燃料电池汽车续航突破1000公里，加氢时间仅3分钟。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>电解水：</strong>$2H_2O \stackrel{电解}{\longrightarrow} 2H_2↑ + O_2↑$，理论分解电压1.23 V<br/>
+                    • <strong>燃料电池：</strong>负极 $H_2 - 2e^- \rightarrow 2H^+$，正极 $O_2 + 4H^+ + 4e^- \rightarrow 2H_2O$<br/>
+                    • <strong>能斯特方程：</strong>$E = E^° - \frac{RT}{nF}\ln Q$，与浓度、温度关系<br/>
+                    • <strong>催化剂：</strong>Pt/C催化剂降低活化能，提高反应速率
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">🏭 工业废气资源化利用</h3>
+                <p><strong>热点背景：</strong>2026年"碳捕集利用与封存"（CCUS）技术规模化应用，将工业废气中的CO₂转化为甲醇、合成气等高价值化学品。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>化学平衡移动：</strong>$CO_2 + 3H_2 \rightleftharpoons CH_3OH + H_2O$ $\Delta H &lt; 0$<br/>
+                    • <strong>条件优化：</strong>低温、高压有利于甲醇合成（勒夏特列原理）<br/>
+                    • <strong>反应速率：</strong>Cu/ZnO/Al₂O₃催化剂提高反应速率，选择性达99%<br/>
+                    • <strong>转化率计算：</strong>平衡转化率与初始投料比关系，原子经济性
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">🔋 锂硫电池技术突破</h3>
+                <p><strong>热点背景：</strong>2026年锂硫电池能量密度突破600 Wh/kg，理论比容量达1675 mAh/g，是锂离子电池的5倍以上，成为下一代动力电池的有力竞争者。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>正极反应：</strong>$S_8 + 16Li^+ + 16e^- \rightarrow 8Li_2S$，多电子转移（16e⁻）<br/>
+                    • <strong>穿梭效应：</strong>多硫化物 $Li_2S_x$（4≤x≤8）溶于电解液，导致容量衰减<br/>
+                    • <strong>解决策略：</strong>隔膜修饰、正极包覆、电解液优化抑制穿梭<br/>
+                    • <strong>能量密度计算：</strong>$\rho = \frac{nFE}{M}$，S的摩尔质量小，理论能量密度高
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">🌱 电化学氮还原合成氨</h3>
+                <p><strong>热点背景：</strong>2026年室温电化学氮还原（NRR）技术取得突破，在常温常压下将N₂和H₂O直接转化为NH₃，能耗仅为哈伯法（Haber-Bosch）的20%。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>N≡N三键：</strong>键能高达946 kJ/mol，活化困难，需催化剂降低活化能<br/>
+                    • <strong>反应方程式：</strong>$N_2 + 6H_2O + 6e^- \rightarrow 2NH_3 + 6OH^-$（碱性介质）<br/>
+                    • <strong>法拉第效率：</strong>$FE = \frac{m_{NH_3} \cdot n \cdot F}{Q} \times 100\%$，衡量电流利用效率<br/>
+                    • <strong>催化剂设计：</strong>Fe、Mo、Ru单原子催化剂，d带中心调控活性
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">💧 大气水收集技术</h3>
+                <p><strong>热点背景：</strong>2026年新型MOFs（金属有机框架）材料实现干旱地区大气水高效收集，相对湿度20%条件下日收集量达10 L/kg，解决缺水地区饮用水问题。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>吸湿原理：</strong>MOFs孔道内的亲水基团（-OH、-COOH）与水分子形成氢键<br/>
+                    • <strong>吸附等温线：</strong>Langmuir模型 $\theta = \frac{KP}{1+KP}$，描述吸附量与压力关系<br/>
+                    • <strong>相变热：</strong>水蒸气凝结放热 $\Delta H_{vap} = 40.7$ kJ/mol，需散热设计<br/>
+                    • <strong>循环稳定性：</strong>材料需经受多次吸湿-脱附循环，结构稳定性关键
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="color: #0d7377;">⚡ 高温超导电缆输电</h3>
+                <p><strong>热点背景：</strong>2026年中国建成全球首条35kV高温超导电缆商业化示范线，输电损耗降低50%，传输容量提升5倍，为城市电网升级提供新方案。</p>
+                <div class="key-point">
+                    <strong>化学考点链接：</strong><br/>
+                    • <strong>超导材料：</strong>YBCO（钇钡铜氧）临界温度92K，需液氮冷却（77K）<br/>
+                    • <strong>迈斯纳效应：</strong>超导体内部B=0，电流仅在表面薄层（穿透深度λ）流动<br/>
+                    • <strong>临界参数：</strong>临界温度$T_c$、临界磁场$H_c$、临界电流$J_c$，三者相互制约<br/>
+                    • <strong>制冷系统：</strong>液氮循环冷却，维持超导态，制冷能耗需计入总损耗
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

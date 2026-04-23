@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>化学高考实验专题 · 原创题库</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #11998e;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #11998e;
+        }
+        .module-title {
+            font-size: 1.5em;
+            color: #11998e;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .question-box {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        .question-box:hover {
+            border-color: #11998e;
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.2);
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .question-number {
+            background: #11998e;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .question-type {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        .question-content {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .question-image {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .options {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .options li {
+            margin-bottom: 8px;
+            list-style-type: upper-alpha;
+        }
+        .btn-show-answer {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        .btn-show-answer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+        }
+        .answer-section {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+        }
+        .answer-title {
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answer-content {
+            color: #555;
+            line-height: 1.8;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: "Courier New", monospace;
+        }
+        .chemical-equation {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #11998e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .difficulty {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .difficulty-easy { background: #d4edda; color: #155724; }
+        .difficulty-medium { background: #fff3cd; color: #856404; }
+        .difficulty-hard { background: #f8d7da; color: #721c24; }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-links a {
+            color: #11998e;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #11998e;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            background: #11998e;
+            color: white;
+        }
+        .experimental-steps {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .experimental-steps ol {
+            margin-left: 20px;
+        }
+        .experimental-steps li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 化学高考实验专题</h1>
+        <p class="subtitle">原创题库 · 经典与创新并重 · 详细解析</p>
+
+        <!-- 经典实验题目 -->
+        <div class="module-box">
+            <div class="module-title">📚 经典实验题目</div>
+
+            <!-- 题目1：配制一定物质的量浓度的溶液 -->
+            <div class="question-box">
+                <div class="question-header">
+                    <span class="question-number">题目 1</span>
+                    <div>
+                        <span class="question-type">定量实验</span>
+                        <span class="difficulty difficulty-medium">中等</span>
+                    </div>
+                </div>
+                <div class="question-content">
+                    <p>实验室需要配制480 mL 0.5 mol/L的硫酸铜溶液。现有以下仪器和药品：</p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>托盘天平（带砝码）、药匙</li>
+                        <li>烧杯、玻璃棒、胶头滴管</li>
+                        <li>容量瓶（100 mL、250 mL、500 mL、1000 mL）</li>
+                        <li>蒸馏水、CuSO₄·5H₂O晶体</li>
+                    </ul>
+                    <p><strong>(1)</strong> 配制该溶液应选用_______mL的容量瓶，需要称取CuSO₄·5H₂O晶体的质量为_______g（保留1位小数）。</p>
+                    <p><strong>(2)</strong> 配制过程的正确操作顺序为：计算→称量→_______→转移→_______→定容→摇匀。</p>
+                    <p><strong>(3)</strong> 下列操作会导致所配溶液浓度偏高的是_______（填序号）。</p>
+                    <ul class="options">
+                        <li>定容时俯视刻度线</li>
+                        <li>转移溶液时，有少量溶液溅出</li>
+                        <li>容量瓶洗净后未干燥</li>
+                        <li>定容摇匀后，液面下降，又加水至刻度线</li>
+                        <li>称量时，药品与砝码位置放反（使用游码）</li>
+                    </ul>
+                    <p><strong>(4)</strong> 某同学按正确步骤配制后，发现溶液略显浑浊，可能的原因是_______。</p>
+                </div>
+                <button class="btn-show-answer" onclick="toggleAnswer('answer1')">显示解析</button>
+                <div id="answer1" class="answer-section">
+                    <div class="answer-title">✅ 答案与解析</div>
+                    <div class="answer-content">
+                        <p><strong>(1) 答案：500；62.5</strong></p>
+                        <div class="key-point">
+                            <strong>容量瓶选择：</strong>实验室没有480 mL容量瓶，应选用<strong>500 mL</strong>容量瓶（选大而近的规格）
+                        </div>
+                        <div class="formula-box">
+                            <strong>计算过程：</strong><br/>
+                            $n(CuSO_4) = c \times V = 0.5 \text{ mol/L} \times 0.5 \text{ L} = 0.25 \text{ mol}$<br/><br/>
+                            $m(CuSO_4·5H_2O) = n \times M = 0.25 \times 250 = 62.5$ g<br/>
+                            （CuSO₄·5H₂O的摩尔质量：64+32+64+5×18 = 250 g/mol）
+                        </div>
+                        
+                        <p><strong>(2) 答案：溶解；洗涤</strong></p>
+                        <div class="experimental-steps">
+                            <strong>完整操作顺序：</strong>
+                            <ol>
+                                <li><strong>计算</strong>：算出所需溶质质量</li>
+                                <li><strong>称量</strong>：用托盘天平称取CuSO₄·5H₂O</li>
+                                <li><strong>溶解</strong>：在烧杯中加适量蒸馏水溶解</li>
+                                <li><strong>转移</strong>：冷却后转移至容量瓶</li>
+                                <li><strong>洗涤</strong>：洗涤烧杯和玻璃棒2-3次，洗液转入容量瓶</li>
+                                <li><strong>定容</strong>：加蒸馏水至接近刻度线1-2 cm，再用胶头滴管滴加至刻度线</li>
+                                <li><strong>摇匀</strong>：塞好瓶塞，反复颠倒摇匀</li>
+                            </ol>
+                        </div>
+                        
+                        <p><strong>(3) 答案：A</strong></p>
+                        <div class="key-point">
+                            <strong>误差分析：</strong><br/>
+                            <strong>A. 定容时俯视刻度线</strong>→实际液面低于刻度线→V偏小→c偏高 ✓<br/>
+                            B. 溶液溅出→溶质减少→n偏小→c偏低<br/>
+                            C. 容量瓶未干燥→对n和V无影响→c不变<br/>
+                            D. 又加水→V偏大→c偏低<br/>
+                            E. 称量放反→实际质量偏小→n偏小→c偏低
+                        </div>
+                        
+                        <p><strong>(4) 答案：CuSO₄·5H₂O未完全溶解（或溶解时加水过少，溶液过饱和析出晶体）</strong></p>
+                        <div class="key-point">
+                            <strong>浑浊原因分析：</strong><br/>
+                            1. 溶解时加水过少，溶液过饱和<br/>
+                            2. 未冷却至室温就转移（CuSO₄溶解度随温度降低而减小）<br/>
+                            3. 容量瓶内有杂质
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 题目2：氯气的制备与性质 -->
+            <div class="question-box">
+                <div class="question-header">
+                    <span class="question-number">题目 2</span>
+                    <div>
+                        <span class="question-type">气体制备</span>
+                        <span class="difficulty difficulty-medium">中等</span>
+                    </div>
+                </div>
+                <div class="question-content">
+                    <p>某化学兴趣小组设计如下实验装置制备氯气并探究其性质。</p>
+                    <div class="question-image">
+                        <svg width="600" height="220" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <!-- A装置：发生装置 -->
+                            <rect x="20" y="80" width="80" height="60" fill="#e3f2fd" stroke="#333" stroke-width="2"/>
+                            <text x="60" y="115" font-size="11" fill="#333" text-anchor="middle">A</text>
+                            <text x="60" y="155" font-size="10" fill="#666" text-anchor="middle">发生装置</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="100" y1="110" x2="130" y2="110" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- B装置：净化 -->
+                            <rect x="130" y="70" width="60" height="80" fill="#fff3e0" stroke="#333" stroke-width="2"/>
+                            <text x="160" y="115" font-size="11" fill="#333" text-anchor="middle">B</text>
+                            <text x="160" y="165" font-size="9" fill="#666" text-anchor="middle">饱和食盐水</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="190" y1="110" x2="220" y2="110" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- C装置：干燥 -->
+                            <rect x="220" y="70" width="60" height="80" fill="#e8f5e9" stroke="#333" stroke-width="2"/>
+                            <text x="250" y="115" font-size="11" fill="#333" text-anchor="middle">C</text>
+                            <text x="250" y="165" font-size="9" fill="#666" text-anchor="middle">浓硫酸</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="280" y1="110" x2="310" y2="110" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- D装置：收集 -->
+                            <rect x="310" y="70" width="60" height="80" fill="#fce4ec" stroke="#333" stroke-width="2"/>
+                            <text x="340" y="115" font-size="11" fill="#333" text-anchor="middle">D</text>
+                            <text x="340" y="165" font-size="9" fill="#666" text-anchor="middle">收集装置</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="370" y1="110" x2="400" y2="110" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- E装置：性质检验 -->
+                            <rect x="400" y="70" width="60" height="80" fill="#f3e5f5" stroke="#333" stroke-width="2"/>
+                            <text x="430" y="115" font-size="11" fill="#333" text-anchor="middle">E</text>
+                            <text x="430" y="165" font-size="9" fill="#666" text-anchor="middle">KI淀粉溶液</text>
+                            
+                            <!-- 导管 -->
+                            <line x1="460" y1="110" x2="490" y2="110" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- F装置：尾气处理 -->
+                            <rect x="490" y="70" width="60" height="80" fill="#ffebee" stroke="#333" stroke-width="2"/>
+                            <text x="520" y="115" font-size="11" fill="#333" text-anchor="middle">F</text>
+                            <text x="520" y="165" font-size="9" fill="#666" text-anchor="middle">NaOH溶液</text>
+                            
+                            <!-- 加热符号 -->
+                            <path d="M 50 75 Q 55 65, 60 75 Q 65 65, 70 75" stroke="#e74c3c" stroke-width="2" fill="none"/>
+                            <text x="60" y="60" font-size="10" fill="#e74c3c" text-anchor="middle">△</text>
+                            
+                            <!-- 气体流向 -->
+                            <path d="M 140 50 L 500 50" stroke="#3498db" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowFlow)"/>
+                            <text x="320" y="45" font-size="11" fill="#3498db" text-anchor="middle">Cl₂流向</text>
+                            
+                            <text x="300" y="200" font-size="14" fill="#333" font-weight="bold" text-anchor="middle">氯气制备与性质实验装置图</text>
+                            
+                            <defs>
+                                <marker id="arrowFlow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p><strong>(1)</strong> 装置A中发生反应的化学方程式为_______。</p>
+                    <p><strong>(2)</strong> 装置B的作用是_______，装置C的作用是_______。</p>
+                    <p><strong>(3)</strong> 装置D用于收集氯气，应采用_______（填"向上排空气法"或"向下排空气法"），理由是_______。</p>
+                    <p><strong>(4)</strong> 装置E中的实验现象是_______，反应的离子方程式为_______。</p>
+                    <p><strong>(5)</strong> 装置F中NaOH溶液的作用是_______，反应的化学方程式为_______。</p>
+                </div>
+                <button class="btn-show-answer" onclick="toggleAnswer('answer2')">显示解析</button>
+                <div id="answer2" class="answer-section">
+                    <div class="answer-title">✅ 答案与解析</div>
+                    <div class="answer-content">
+                        <p><strong>(1) 答案：</strong></p>
+                        <div class="chemical-equation">
+                            MnO₂ + 4HCl(浓) $\stackrel{\triangle}{\longrightarrow}$ MnCl₂ + Cl₂↑ + 2H₂O
+                        </div>
+                        <div class="key-point">
+                            <strong>注意：</strong>必须使用浓盐酸，稀盐酸不与MnO₂反应；需要加热条件。
+                        </div>
+                        
+                        <p><strong>(2) 答案：</strong></p>
+                        <div class="key-point">
+                            <strong>装置B（饱和食盐水）：</strong>除去Cl₂中混有的HCl气体<br/><br/>
+                            <strong>原理：</strong>HCl极易溶于水，而Cl₂在饱和食盐水中溶解度很小（同离子效应）<br/><br/>
+                            <strong>装置C（浓硫酸）：</strong>干燥氯气，除去水蒸气
+                        </div>
+                        
+                        <p><strong>(3) 答案：向上排空气法；氯气密度比空气大（相对分子质量71 &gt; 29）</strong></p>
+                        <div class="key-point">
+                            <strong>收集方法选择：</strong><br/>
+                            氯气密度（约3.21 g/L）> 空气密度（约1.29 g/L）<br/>
+                            应采用向上排空气法，导管应伸入集气瓶底部
+                        </div>
+                        
+                        <p><strong>(4) 答案：溶液变蓝色；Cl₂ + 2I⁻ = 2Cl⁻ + I₂</strong></p>
+                        <div class="key-point">
+                            <strong>反应原理：</strong><br/>
+                            氯气具有强氧化性，能将I⁻氧化为I₂<br/>
+                            碘遇淀粉变蓝色，这是检验氯气的特征反应
+                        </div>
+                        
+                        <p><strong>(5) 答案：吸收尾气中的氯气，防止污染环境；Cl₂ + 2NaOH = NaCl + NaClO + H₂O</strong></p>
+                        <div class="chemical-equation">
+                            Cl₂ + 2NaOH = NaCl + NaClO + H₂O
+                        </div>
+                        <div class="key-point">
+                            <strong>尾气处理：</strong>氯气有毒，不能直接排放到空气中<br/>
+                            用NaOH溶液吸收，反应生成NaCl、NaClO（漂白液的主要成分）和H₂O
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 创新实验题目 -->
+        <div class="module-box">
+            <div class="module-title">💡 创新实验题目</div>
+
+            <!-- 题目3：数字化实验测反应速率 -->
+            <div class="question-box">
+                <div class="question-header">
+                    <span class="question-number">题目 3</span>
+                    <div>
+                        <span class="question-type">数字化实验</span>
+                        <span class="difficulty difficulty-hard">较难</span>
+                    </div>
+                </div>
+                <div class="question-content">
+                    <p>某研究小组利用压强传感器和温度传感器探究镁与盐酸反应的反应速率。实验装置如图所示，将一定质量的镁条放入锥形瓶中，通过注射器快速注入20 mL 2.0 mol/L盐酸，同时记录压强和温度随时间的变化数据。</p>
+                    <div class="question-image">
+                        <svg width="350" height="280" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <!-- 锥形瓶 -->
+                            <path d="M 100 150 L 120 220 Q 175 240, 230 220 L 250 150" fill="#e3f2fd" stroke="#333" stroke-width="2"/>
+                            <ellipse cx="175" cy="150" rx="75" ry="15" fill="#e3f2fd" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 镁条 -->
+                            <rect x="160" y="170" width="30" height="40" fill="#95a5a6" stroke="#333" stroke-width="1"/>
+                            <text x="175" y="195" font-size="9" fill="#333" text-anchor="middle">Mg</text>
+                            
+                            <!-- 盐酸 -->
+                            <path d="M 125 200 Q 175 215, 225 200 L 230 220 Q 175 240, 120 220 Z" fill="#fff9c4" stroke="#333" stroke-width="1" opacity="0.7"/>
+                            <text x="175" y="230" font-size="9" fill="#666" text-anchor="middle">盐酸</text>
+                            
+                            <!-- 双孔塞 -->
+                            <rect x="140" y="135" width="70" height="20" fill="#8d6e63" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- 注射器 -->
+                            <rect x="155" y="80" width="20" height="55" fill="#ecf0f1" stroke="#333" stroke-width="2"/>
+                            <rect x="150" y="75" width="30" height="10" fill="#bdc3c7" stroke="#333" stroke-width="1"/>
+                            <text x="190" y="105" font-size="9" fill="#333">注射器</text>
+                            
+                            <!-- 压强传感器 -->
+                            <rect x="210" y="100" width="50" height="30" fill="#3498db" stroke="#333" stroke-width="2"/>
+                            <text x="235" y="120" font-size="9" fill="#fff" text-anchor="middle">压强</text>
+                            <line x1="210" y1="115" x2="190" y2="140" stroke="#333" stroke-width="1.5"/>
+                            
+                            <!-- 温度传感器 -->
+                            <line x1="280" y1="115" x2="250" y2="140" stroke="#333" stroke-width="1.5"/>
+                            <line x1="250" y1="140" x2="210" y2="180" stroke="#333" stroke-width="1.5"/>
+                            <rect x="280" y="100" width="50" height="30" fill="#e74c3c" stroke="#333" stroke-width="2"/>
+                            <text x="305" y="120" font-size="9" fill="#fff" text-anchor="middle">温度</text>
+                            
+                            <!-- 数据采集器 -->
+                            <rect x="280" y="50" width="50" height="40" fill="#27ae60" stroke="#333" stroke-width="2"/>
+                            <text x="305" y="75" font-size="9" fill="#fff" text-anchor="middle">采集器</text>
+                            <line x1="305" y1="90" x2="305" y2="100" stroke="#333" stroke-width="1.5"/>
+                            <line x1="280" y1="115" x2="280" y2="90" stroke="#333" stroke-width="1.5"/>
+                            
+                            <text x="175" y="270" font-size="14" fill="#333" font-weight="bold" text-anchor="middle">数字化实验装置</text>
+                        </svg>
+                    </div>
+                    <p>实验数据记录如下表：</p>
+                    <table>
+                        <tr>
+                            <th>时间t/s</th>
+                            <th>0</th>
+                            <th>20</th>
+                            <th>40</th>
+                            <th>60</th>
+                            <th>80</th>
+                            <th>100</th>
+                            <th>120</th>
+                        </tr>
+                        <tr>
+                            <td>压强p/kPa</td>
+                            <td>101.3</td>
+                            <td>108.5</td>
+                            <td>118.2</td>
+                            <td>128.6</td>
+                            <td>136.4</td>
+                            <td>140.2</td>
+                            <td>140.5</td>
+                        </tr>
+                        <tr>
+                            <td>温度T/℃</td>
+                            <td>25.0</td>
+                            <td>28.5</td>
+                            <td>33.2</td>
+                            <td>38.6</td>
+                            <td>42.1</td>
+                            <td>43.5</td>
+                            <td>43.2</td>
+                        </tr>
+                    </table>
+                    <p><strong>(1)</strong> 写出该反应的离子方程式：_______。</p>
+                    <p><strong>(2)</strong> 计算0-60 s内，用H⁺浓度变化表示的平均反应速率$v(H^+)$=_______mol/(L·s)（溶液体积变化忽略不计，保留2位有效数字）。</p>
+                    <p><strong>(3)</strong> 分析压强变化曲线，反应速率最大的时间段是_______，判断依据是_______。</p>
+                    <p><strong>(4)</strong> 温度升高对该反应速率的影响是_______（填"加快"、"减慢"或"不变"），结合实验数据说明理由：_______。</p>
+                </div>
+                <button class="btn-show-answer" onclick="toggleAnswer('answer3')">显示解析</button>
+                <div id="answer3" class="answer-section">
+                    <div class="answer-title">✅ 答案与解析</div>
+                    <div class="answer-content">
+                        <p><strong>(1) 答案：</strong></p>
+                        <div class="chemical-equation">
+                            Mg + 2H⁺ = Mg²⁺ + H₂↑
+                        </div>
+                        
+                        <p><strong>(2) 答案：8.3×10⁻³ mol/(L·s)</strong></p>
+                        <div class="formula-box">
+                            <strong>计算过程：</strong><br/>
+                            由理想气体状态方程，压强变化与H₂物质的量成正比<br/><br/>
+                            Δp = 128.6 - 101.3 = 27.3 kPa<br/><br/>
+                            设生成H₂的物质的量为n，则：<br/>
+                            $\frac{n}{n_0} = \frac{\Delta p}{p_0}$，其中n₀为标准状况下气体摩尔数<br/><br/>
+                            简化计算：由反应方程式，Δn(H⁺) = 2Δn(H₂)<br/>
+                            由压强变化比例：n(H₂) ∝ Δp<br/><br/>
+                            假设最终压强增加全部来自H₂生成：<br/>
+                            Δn(H₂) = $\frac{\Delta p}{RT/V}$...<br/><br/>
+                            <strong>简化处理：</strong>由表中数据，60s时压强增加27.3 kPa<br/>
+                            假设温度不变（实际变化），则n(H₂) ∝ Δp<br/>
+                            消耗H⁺的物质的量 = 2 × n(H₂)<br/><br/>
+                            取近似计算：v(H⁺) = $\frac{\Delta c}{\Delta t} = \frac{2 \times \frac{27.3}{101.3} \times 0.02}{0.02 \times 60} \approx 8.3 \times 10^{-3}$ mol/(L·s)
+                        </div>
+                        
+                        <p><strong>(3) 答案：40-60 s；该时间段内压强变化最大（曲线斜率最大）</strong></p>
+                        <div class="key-point">
+                            <strong>反应速率判断：</strong><br/>
+                            在恒容密闭容器中，压强变化率反映反应速率<br/>
+                            计算各时间段压强变化：<br/>
+                            0-20s：Δp = 7.2 kPa<br/>
+                            20-40s：Δp = 9.7 kPa<br/>
+                            40-60s：Δp = 10.4 kPa（最大）<br/>
+                            60-80s：Δp = 7.8 kPa<br/>
+                            80-100s：Δp = 3.8 kPa
+                        </div>
+                        
+                        <p><strong>(4) 答案：加快；温度从25℃升高到43.5℃，压强增加速率逐渐增大，说明温度升高使反应速率加快</strong></p>
+                        <div class="key-point">
+                            <strong>数据分析：</strong><br/>
+                            该反应为放热反应，随着反应进行：<br/>
+                            1. H⁺浓度降低→反应速率应减慢<br/>
+                            2. 温度升高→反应速率加快<br/><br/>
+                            实验数据显示40-60s速率最大，说明在此阶段温度升高的影响大于浓度降低的影响<br/>
+                            60s后，虽然温度仍较高，但H⁺浓度显著降低，反应速率下降
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 题目4：微型实验探究 -->
+            <div class="question-box">
+                <div class="question-header">
+                    <span class="question-number">题目 4</span>
+                    <div>
+                        <span class="question-type">微型实验</span>
+                        <span class="difficulty difficulty-medium">中等</span>
+                    </div>
+                </div>
+                <div class="question-content">
+                    <p>某同学设计了如下微型实验装置（使用点滴板）探究Fe²⁺的还原性和Fe³⁺的氧化性。</p>
+                    <div class="question-image">
+                        <svg width="450" height="300" style="border: 1px solid #ddd; background: #f8f9fa;">
+                            <!-- 点滴板 -->
+                            <rect x="50" y="50" width="350" height="200" fill="#ecf0f1" stroke="#333" stroke-width="2" rx="10"/>
+                            
+                            <!-- 凹槽1 -->
+                            <circle cx="120" cy="100" r="30" fill="#e3f2fd" stroke="#333" stroke-width="1.5"/>
+                            <text x="120" y="105" font-size="10" fill="#333" text-anchor="middle">①</text>
+                            <text x="120" y="145" font-size="9" fill="#666" text-anchor="middle">FeSO₄</text>
+                            <text x="120" y="158" font-size="8" fill="#666" text-anchor="middle">+KSCN</text>
+                            
+                            <!-- 凹槽2 -->
+                            <circle cx="225" cy="100" r="30" fill="#fff3e0" stroke="#333" stroke-width="1.5"/>
+                            <text x="225" y="105" font-size="10" fill="#333" text-anchor="middle">②</text>
+                            <text x="225" y="145" font-size="9" fill="#666" text-anchor="middle">FeSO₄</text>
+                            <text x="225" y="158" font-size="8" fill="#666" text-anchor="middle">+氯水</text>
+                            
+                            <!-- 凹槽3 -->
+                            <circle cx="330" cy="100" r="30" fill="#e8f5e9" stroke="#333" stroke-width="1.5"/>
+                            <text x="330" y="105" font-size="10" fill="#333" text-anchor="middle">③</text>
+                            <text x="330" y="145" font-size="9" fill="#666" text-anchor="middle">FeCl₃</text>
+                            <text x="330" y="158" font-size="8" fill="#666" text-anchor="middle">+KSCN</text>
+                            
+                            <!-- 凹槽4 -->
+                            <circle cx="120" cy="200" r="30" fill="#fce4ec" stroke="#333" stroke-width="1.5"/>
+                            <text x="120" y="205" font-size="10" fill="#333" text-anchor="middle">④</text>
+                            <text x="120" y="245" font-size="9" fill="#666" text-anchor="middle">FeCl₃</text>
+                            <text x="120" y="258" font-size="8" fill="#666" text-anchor="middle">+铁粉</text>
+                            
+                            <!-- 凹槽5 -->
+                            <circle cx="225" cy="200" r="30" fill="#f3e5f5" stroke="#333" stroke-width="1.5"/>
+                            <text x="225" y="205" font-size="10" fill="#333" text-anchor="middle">⑤</text>
+                            <text x="225" y="245" font-size="9" fill="#666" text-anchor="middle">FeCl₃</text>
+                            <text x="225" y="258" font-size="8" fill="#666" text-anchor="middle">+KI淀粉</text>
+                            
+                            <!-- 凹槽6 -->
+                            <circle cx="330" cy="200" r="30" fill="#ffebee" stroke="#333" stroke-width="1.5"/>
+                            <text x="330" y="205" font-size="10" fill="#333" text-anchor="middle">⑥</text>
+                            <text x="330" y="245" font-size="9" fill="#666" text-anchor="middle">FeSO₄</text>
+                            <text x="330" y="258" font-size="8" fill="#666" text-anchor="middle">+酸性KMnO₄</text>
+                            
+                            <text x="225" y="285" font-size="14" fill="#333" font-weight="bold" text-anchor="middle">微型实验装置（点滴板）</text>
+                        </svg>
+                    </div>
+                    <p>实验现象记录如下表：</p>
+                    <table>
+                        <tr>
+                            <th>编号</th>
+                            <th>①</th>
+                            <th>②</th>
+                            <th>③</th>
+                            <th>④</th>
+                            <th>⑤</th>
+                            <th>⑥</th>
+                        </tr>
+                        <tr>
+                            <td>现象</td>
+                            <td>无明显变化</td>
+                            <td>溶液变黄，后加KSCN变红</td>
+                            <td>溶液变血红色</td>
+                            <td>黄色变浅绿色</td>
+                            <td>溶液变蓝色</td>
+                            <td>紫色褪去</td>
+                        </tr>
+                    </table>
+                    <p><strong>(1)</strong> 实验①的目的是_______。</p>
+                    <p><strong>(2)</strong> 实验②中，氯水与FeSO₄反应的离子方程式为_______，后加KSCN变红说明生成了_______。</p>
+                    <p><strong>(3)</strong> 实验④中，黄色变浅绿色的离子方程式为_______，该反应说明Fe³⁺具有_______性。</p>
+                    <p><strong>(4)</strong> 实验⑤中，溶液变蓝色的原因是_______（用离子方程式表示）。</p>
+                    <p><strong>(5)</strong> 根据上述实验，可以得出Fe²⁺具有_______性，Fe³⁺具有_______性。</p>
+                </div>
+                <button class="btn-show-answer" onclick="toggleAnswer('answer4')">显示解析</button>
+                <div id="answer4" class="answer-section">
+                    <div class="answer-title">✅ 答案与解析</div>
+                    <div class="answer-content">
+                        <p><strong>(1) 答案：作对照实验，证明Fe²⁺与KSCN不显色</strong></p>
+                        <div class="key-point">
+                            <strong>实验设计意图：</strong><br/>
+                            实验①中只有FeSO₄和KSCN，无明显变化<br/>
+                            说明Fe²⁺不与SCN⁻反应生成有色物质<br/>
+                            为后续实验②③提供对照
+                        </div>
+                        
+                        <p><strong>(2) 答案：</strong></p>
+                        <div class="chemical-equation">
+                            2Fe²⁺ + Cl₂ = 2Fe³⁺ + 2Cl⁻
+                        </div>
+                        <div class="key-point">
+                            <strong>产物：</strong>Fe³⁺（或Fe(SCN)₃/硫氰化铁）<br/><br/>
+                            <strong>解释：</strong>氯水具有强氧化性，将Fe²⁺氧化为Fe³⁺<br/>
+                            Fe³⁺与SCN⁻反应生成血红色的Fe(SCN)₃<br/>
+                            离子方程式：Fe³⁺ + 3SCN⁻ = Fe(SCN)₃
+                        </div>
+                        
+                        <p><strong>(3) 答案：</strong></p>
+                        <div class="chemical-equation">
+                            2Fe³⁺ + Fe = 3Fe²⁺
+                        </div>
+                        <div class="key-point">
+                            <strong>性质：</strong>氧化<br/><br/>
+                            <strong>解释：</strong>Fe³⁺将Fe氧化为Fe²⁺，自身被还原为Fe²⁺<br/>
+                            溶液由黄色（Fe³⁺）变为浅绿色（Fe²⁺）<br/>
+                            Fe³⁺作氧化剂，表现氧化性
+                        </div>
+                        
+                        <p><strong>(4) 答案：</strong></p>
+                        <div class="chemical-equation">
+                            2Fe³⁺ + 2I⁻ = 2Fe²⁺ + I₂
+                        </div>
+                        <div class="key-point">
+                            <strong>解释：</strong>Fe³⁺氧化I⁻生成I₂，I₂遇淀粉变蓝色<br/>
+                            该反应说明Fe³⁺的氧化性强于I₂
+                        </div>
+                        
+                        <p><strong>(5) 答案：还原；氧化</strong></p>
+                        <div class="key-point">
+                            <strong>总结：</strong><br/>
+                            <strong>Fe²⁺的性质：</strong><br/>
+                            - 实验②：被Cl₂氧化→表现还原性<br/>
+                            - 实验⑥：被KMnO₄氧化→表现还原性<br/><br/>
+                            <strong>Fe³⁺的性质：</strong><br/>
+                            - 实验④：氧化Fe→表现氧化性<br/>
+                            - 实验⑤：氧化I⁻→表现氧化性
+                        </div>
+                        <div class="formula-box">
+                            <strong>铁三角转化关系：</strong><br/>
+                            Fe²⁺ $\underset{还原剂}{\stackrel{氧化剂}{\rightleftharpoons}}$ Fe³⁺ $\underset{还原剂}{\stackrel{强氧化剂}{\rightleftharpoons}}$ Fe
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">← 返回首页</a>
+            <a href="../物理/gaokao_experiments.html">物理实验题目 →</a>
+        </div>
+
+        <!-- 2025社会热点与实验创新 -->
+        <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-left: 5px solid #e74c3c;">
+            <div class="module-title" style="color: #c0392b;">🌍 2025社会热点与化学实验创新</div>
+
+            <div class="section">
+                <h3>🏆 诺贝尔奖主题实验</h3>
+                <p><strong>热点背景：</strong>2024年诺贝尔化学奖授予蛋白质结构预测和点击化学领域，高考实验题可能以此为背景设计创新题目。</p>
+                <div class="key-point">
+                    <strong>实验设计思路：</strong><br/>
+                    • <strong>蛋白质变性实验：</strong>观察加热、酸碱、重金属盐对蛋白质的影响（鸡蛋清、牛奶）<br/>
+                    • <strong>氨基酸纸层析：</strong>分离鉴定混合氨基酸，理解蛋白质一级结构<br/>
+                    • <strong>点击化学反应：</strong>叠氮化钠与炔烃的环加成反应（安全版本演示）<br/>
+                    • <strong>酶催化实验：</strong>过氧化氢酶分解H₂O₂，探究温度、pH对酶活性的影响
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🔋 钠离子电池探究实验</h3>
+                <p><strong>热点背景：</strong>2025年钠离子电池商业化量产，高考可能设计电池相关实验考查电化学知识。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>简易钠离子电池：</strong>用铝箔作负极、普鲁士蓝作正极、NaCl溶液作电解液<br/>
+                    • <strong>对比实验：</strong>钠离子电池vs锂离子电池性能对比（电压、容量、循环稳定性）<br/>
+                    • <strong>电解液研究：</strong>探究不同浓度NaCl溶液对电池性能的影响<br/>
+                    • <strong>法拉第效率计算：</strong>根据析出气体体积计算电子转移数，$n = \frac{PV}{RT}$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌍 塑料化学回收实验</h3>
+                <p><strong>热点背景：</strong>2024-2025年全球塑料公约谈判推动塑料循环经济，高考可能设计塑料降解/回收实验。</p>
+                <div class="key-point">
+                    <strong>实验设计思路：</strong><br/>
+                    • <strong>PET解聚实验：</strong>乙二醇醇解PET瓶片，回收对苯二甲酸和乙二醇<br/>
+                    • <strong>塑料鉴别实验：</strong>燃烧法、密度法、溶解法鉴别PE、PP、PET、PVC<br/>
+                    • <strong>生物降解实验：</strong>观察淀粉基塑料在土壤中的降解过程，定期称重记录<br/>
+                    • <strong>微塑料检测：</strong>用显微镜观察化妆品、洗涤用品中的微塑料颗粒
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>⚡ 绿氢制备与燃料电池实验</h3>
+                <p><strong>热点背景：</strong>2025年绿氢成本大幅下降，高考可能设计电解水制氢、燃料电池实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>电解水制氢：</strong>探究电极材料（铂、石墨、不锈钢）、电解质浓度对产氢速率的影响<br/>
+                    • <strong>氢氧燃料电池：</strong>用Nafion膜或盐桥构建简易燃料电池，测量输出电压<br/>
+                    • <strong>催化剂研究：</strong>对比Pt/C、Ni、Co₃O₄等催化剂的电解效率<br/>
+                    • <strong>能量转换效率：</strong>计算电解水制氢的能量效率，$\eta = \frac{E_{理论}}{E_{实际}} \times 100\%$
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🔋 钠离子电池探究实验</h3>
+                <p><strong>热点背景：</strong>2025年钠离子电池商业化量产，高考可能设计新型电池探究实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>简易电池制作：</strong>用铝箔作负极、普鲁士蓝作正极、NaCl溶液作电解液组装电池<br/>
+                    • <strong>电池性能测试：</strong>测量开路电压、内阻、放电曲线<br/>
+                    • <strong>对比实验：</strong>钠离子电池vs锂离子电池性能对比（电压、容量、循环稳定性）<br/>
+                    • <strong>电极反应探究：</strong>通过pH变化判断正负极反应类型
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🧪 点击化学演示实验</h3>
+                <p><strong>热点背景：</strong>2024年诺贝尔化学奖授予点击化学，高考可能设计相关有机实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>铜催化反应：</strong>苯乙炔与叠氮化钠的环加成反应（安全版本演示）<br/>
+                    • <strong>荧光标记：</strong>用点击化学反应将荧光基团连接到生物分子上<br/>
+                    • <strong>反应动力学：</strong>测定点击反应的速率常数，验证其快速高效特性<br/>
+                    • <strong>产物表征：</strong>用TLC或熔点测定验证产物纯度
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌊 海洋碳汇化学实验</h3>
+                <p><strong>热点背景：</strong>2025年中国启动蓝碳交易试点，高考可能结合碳循环设计实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>海水pH测定：</strong>用pH传感器测量海水pH，探究CO₂溶解对pH的影响<br/>
+                    • <strong>碳酸钙沉积：</strong>模拟珊瑚礁形成，探究温度、pH对CaCO₃沉积的影响<br/>
+                    • <strong>缓冲能力测试：</strong>比较海水和淡水的缓冲能力差异<br/>
+                    • <strong>CO₂吸收实验：</strong>用NaOH溶液吸收CO₂，测定吸收效率
+                </div>
+            </div>
+        </div>
+
+        <!-- 2026社会热点与实验创新 -->
+        <div class="module-box" style="margin-top: 40px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); border-left: 5px solid #0d7377;">
+            <div class="module-title">🌍 2026社会热点与化学实验创新</div>
+            
+            <div class="section">
+                <h3>🧪 微型实验与绿色化学</h3>
+                <p><strong>热点背景：</strong>2026年教育部推广"微型化学实验"，试剂用量减少90%，废弃物减少95%，培养学生绿色化学理念。</p>
+                <div class="key-point">
+                    <strong>微型实验案例：</strong><br/>
+                    • <strong>氯气制备：</strong>用青霉素瓶代替圆底烧瓶，KMnO₄用量仅需0.1g<br/>
+                    • <strong>银镜反应：</strong>使用透明胶带承载反应液，观察效果更清晰<br/>
+                    • <strong>焰色反应：</strong>用滤纸蘸取溶液在酒精灯上灼烧，现象明显<br/>
+                    • <strong>点滴板实验：</strong>6孔点滴板同时进行多组对比实验
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🔬 数字化实验技术</h3>
+                <p><strong>热点背景：</strong>2026年高中化学实验室普及传感器技术（pH传感器、电导率传感器、温度传感器、压强传感器），实现实验数据实时采集。</p>
+                <div class="key-point">
+                    <strong>数字化实验案例：</strong><br/>
+                    • <strong>酸碱中和滴定：</strong>pH传感器绘制滴定曲线，自动识别终点<br/>
+                    • <strong>反应速率：</strong>压强传感器测量H₂O₂分解速率，温度对速率影响<br/>
+                    • <strong>溶解氧测定：</strong>DO传感器探究影响水体溶解氧的因素<br/>
+                    • <strong>电导率滴定：</strong>测定Ba(OH)₂与H₂SO₄反应的导电性变化
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌱 项目式学习实验</h3>
+                <p><strong>热点背景：</strong>2026年新高考改革强调"真实情境问题解决"，化学实验从验证性向探究性、项目式转变。</p>
+                <div class="key-point">
+                    <strong>项目式实验案例：</strong><br/>
+                    • <strong>水质检测：</strong>设计实验检测学校周边水体COD、氨氮、重金属<br/>
+                    • <strong>食品分析：</strong>测定饮料中维生素C含量、食盐中碘含量<br/>
+                    • <strong>土壤改良：</strong>测定土壤pH，设计改良方案（酸性土壤加石灰）<br/>
+                    • <strong>废旧电池回收：</strong>提取锌、锰、铁等有价金属
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🔋 锂硫电池探究实验</h3>
+                <p><strong>热点背景：</strong>2026年锂硫电池能量密度突破600 Wh/kg，高考可能设计新型电池探究实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>简易锂硫电池：</strong>用硫粉作正极、锂片作负极组装扣式电池<br/>
+                    • <strong>穿梭效应探究：</strong>观察多硫化物在电解液中的扩散现象<br/>
+                    • <strong>隔膜修饰：</strong>对比普通隔膜和改性隔膜对电池性能的影响<br/>
+                    • <strong>容量衰减分析：</strong>研究循环次数对电池容量的影响规律
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌱 人工光合作用模拟实验</h3>
+                <p><strong>热点背景：</strong>2026年人工光合系统效率突破10%，高考可能结合光催化设计实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>光催化制氢：</strong>用TiO₂或CdS悬浮液在光照下分解水制氢<br/>
+                    • <strong>CO₂光还原：</strong>探究不同光催化剂对CO₂还原产物的影响<br/>
+                    • <strong>染料敏化：</strong>用天然染料（花青素）敏化TiO₂提高光吸收<br/>
+                    • <strong>量子效率测定：</strong>计算光子转化效率和表观量子产率
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🧬 蛋白质结构探究实验</h3>
+                <p><strong>热点背景：</strong>2024年诺贝尔化学奖授予蛋白质结构预测，高考可能设计相关生物化学实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>蛋白质变性：</strong>探究温度、pH、重金属盐对蛋白质结构的影响<br/>
+                    • <strong>酶活性测定：</strong>测定过氧化氢酶、淀粉酶的活性及影响因素<br/>
+                    • <strong>蛋白质分离：</strong>用透析、盐析法分离纯化蛋白质<br/>
+                    • <strong>显色反应：</strong>双缩脲试剂、茚三酮试剂检测蛋白质
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🔬 MOFs材料合成与表征</h3>
+                <p><strong>热点背景：</strong>2026年MOFs材料实现商业化应用，高考可能设计新型材料探究实验。</p>
+                <div class="key-point">
+                    <strong>实验创新方向：</strong><br/>
+                    • <strong>简易MOFs合成：</strong>室温合成ZIF-8或UiO-66<br/>
+                    • <strong>气体吸附测试：</strong>测定MOFs对CO₂或H₂的吸附能力<br/>
+                    • <strong>催化性能探究：</strong>研究MOFs对酯化反应或Knoevenagel反应的催化活性<br/>
+                    • <strong>结构表征：</strong>用XRD或SEM表征晶体结构（若学校有条件）
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🎯 高考实验命题趋势（2026预测）</h3>
+                <div class="key-point">
+                    <strong>命题特点：</strong><br/>
+                    • <strong>真实情境：</strong>以化工生产、环境保护、健康医疗为背景<br/>
+                    • <strong>实验设计：</strong>要求考生设计实验方案、选择试剂、预测现象<br/>
+                    • <strong>定量分析：</strong>滴定计算、产率计算、误差分析<br/>
+                    • <strong>仪器识别：</strong>新型仪器（恒压滴液漏斗、抽滤装置）的使用<br/>
+                    • <strong>安全环保：</strong>尾气处理、废液回收、绿色化学理念
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answerSection = document.getElementById(id);
+            var button = answerSection.previousElementSibling;
+            
+            if (answerSection.style.display === "none" || answerSection.style.display === "") {
+                answerSection.style.display = "block";
+                button.textContent = "隐藏解析";
+            } else {
+                answerSection.style.display = "none";
+                button.textContent = "显示解析";
+            }
+        }
+    </script>
+</body>
+</html>

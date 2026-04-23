@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数学复习 · 平面向量与复数</title>
+<script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #fa709a;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #fa709a;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+            font-family: 'Courier New', monospace;
+        }
+        .example {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #ff9800;
+        }
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+        }
+        .technique {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .nav-links a {
+            color: #fa709a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>📊 平面向量与复数</h1>
+<p class="subtitle">高考基础模块 · 约10分 · 工具性知识</p>
+<div class="module-box">
+<div class="module-title">🎯 模块定位</div>
+<p><strong>分值：</strong>约10分（1-2道选填，或与其他模块综合）</p>
+<p><strong>难度：</strong>⭐⭐（基础题）</p>
+<p><strong>目标：</strong>100%正确率</p>
+<p><strong>核心：</strong>向量运算 + 复数运算 + 几何应用</p>
+</div>
+<h2>第一章 平面向量</h2>
+<div class="section">
+<h3>1.1 向量的概念与线性运算</h3>
+<div class="key-point">
+<strong>💡 向量的定义：</strong>既有大小又有方向的量叫做向量。<br/><br/>
+<strong>向量的表示：</strong>
+<ul>
+<li>几何表示：有向线段 $\overrightarrow{AB}$</li>
+<li>字母表示：$\vec{a}$，$\vec{b}$，$\vec{c}$ 等</li>
+<li>坐标表示：$\vec{a} = (x, y)$</li>
+</ul>
+</div>
+<div class="formula-box">
+<strong>向量的线性运算：</strong><br/><br/>
+<strong>1. 加法：</strong><br/>
+                    • 三角形法则：$\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$<br/>
+                    • 平行四边形法则<br/>
+                    • 坐标运算：$(x_1, y_1) + (x_2, y_2) = (x_1+x_2, y_1+y_2)$<br/><br/>
+<strong>2. 减法：</strong><br/>
+                    • $\vec{a} - \vec{b} = \vec{a} + (-\vec{b})$<br/>
+                    • 坐标运算：$(x_1, y_1) - (x_2, y_2) = (x_1-x_2, y_1-y_2)$<br/><br/>
+<strong>3. 数乘：</strong><br/>
+                    • $\lambda\vec{a}$ 是与 $\vec{a}$ 共线的向量<br/>
+                    • $|\lambda\vec{a}| = |\lambda||\vec{a}|$<br/>
+                    • 坐标运算：$\lambda(x, y) = (\lambda x, \lambda y)$
+                </div>
+<div class="example">
+<strong>📝 例题1：</strong>已知 $\vec{a} = (2, 1)$，$\vec{b} = (-1, 3)$，求：<br/>
+                    (1) $\vec{a} + \vec{b}$<br/>
+                    (2) $\vec{a} - \vec{b}$<br/>
+                    (3) $2\vec{a} + 3\vec{b}$<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    利用向量坐标运算的线性性质直接计算<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $\vec{a} + \vec{b} = (2, 1) + (-1, 3) = (2-1, 1+3) = (1, 4)$<br/><br/>
+                    (2) $\vec{a} - \vec{b} = (2, 1) - (-1, 3) = (2+1, 1-3) = (3, -2)$<br/><br/>
+                    (3) $2\vec{a} + 3\vec{b} = 2(2, 1) + 3(-1, 3) = (4, 2) + (-3, 9) = (1, 11)$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 向量坐标运算：对应分量相加减<br/>
+                    • 数乘向量：每个分量都乘以该数<br/>
+                    • 运算规律与实数类似<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 注意符号，特别是减法<br/>
+                    • 数乘时每个分量都要乘<br/>
+                    • 结果仍是向量，用坐标表示
+                </div>
+</div>
+<div class="section">
+<h3>1.2 平面向量基本定理与坐标表示</h3>
+<div class="key-point">
+<strong>💡 平面向量基本定理：</strong>如果 $\vec{e_1}$，$\vec{e_2}$ 是同一平面内的两个不共线向量，那么对于这一平面内的任意向量 $\vec{a}$，有且只有一对实数 $\lambda_1$，$\lambda_2$，使 $\vec{a} = \lambda_1\vec{e_1} + \lambda_2\vec{e_2}$。<br/><br/>
+<strong>基底：</strong>不共线的向量 $\vec{e_1}$，$\vec{e_2}$ 叫做表示这一平面内所有向量的一组基底。
+                </div>
+<div class="formula-box">
+<strong>向量的坐标：</strong><br/>
+                    在平面直角坐标系中，取与x轴、y轴方向相同的两个单位向量 $\vec{i}$，$\vec{j}$ 作为基底。<br/><br/>
+                    若 $\vec{a} = x\vec{i} + y\vec{j}$，则 $(x, y)$ 叫做向量 $\vec{a}$ 的坐标，记作 $\vec{a} = (x, y)$。<br/><br/>
+<strong>重要结论：</strong><br/>
+                    • 若 $A(x_1, y_1)$，$B(x_2, y_2)$，则 $\overrightarrow{AB} = (x_2-x_1, y_2-y_1)$<br/>
+                    • 中点坐标：$M(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2})$<br/>
+                    • 重心坐标：$G(\frac{x_1+x_2+x_3}{3}, \frac{y_1+y_2+y_3}{3})$
+                </div>
+<div class="example">
+<strong>📝 例题2：</strong>已知 $A(1, 2)$，$B(4, 6)$，$C(3, -2)$，求：<br/>
+                    (1) 向量 $\overrightarrow{AB}$ 和 $\overrightarrow{AC}$<br/>
+                    (2) AB的中点坐标<br/>
+                    (3) $\triangle ABC$ 的重心坐标<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    直接套用坐标公式计算<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $\overrightarrow{AB} = (4-1, 6-2) = (3, 4)$<br/>
+                        $\overrightarrow{AC} = (3-1, -2-2) = (2, -4)$<br/><br/>
+                    (2) AB的中点 $M = (\frac{1+4}{2}, \frac{2+6}{2}) = (\frac{5}{2}, 4)$<br/><br/>
+                    (3) 重心 $G = (\frac{1+4+3}{3}, \frac{2+6-2}{3}) = (\frac{8}{3}, 2)$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 向量坐标 = 终点坐标 - 起点坐标<br/>
+                    • 中点坐标：两坐标平均值<br/>
+                    • 重心坐标：三坐标平均值<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 注意向量的方向，终点减起点<br/>
+                    • 中点和重心公式不要混淆<br/>
+                    • 计算要细心
+                </div>
+</div>
+<div class="section">
+<h3>1.3 平面向量的数量积</h3>
+<div class="key-point">
+<strong>💡 数量积定义：</strong>已知两个非零向量 $\vec{a}$ 与 $\vec{b}$，它们的夹角为 $\theta$，则数量 $|\vec{a}||\vec{b}|\cos\theta$ 叫做 $\vec{a}$ 与 $\vec{b}$ 的数量积（或内积），记作 $\vec{a} \cdot \vec{b}$。<br/><br/>
+$$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$$
+                </div>
+<div class="formula-box">
+<strong>数量积的性质：</strong><br/>
+                    1. $\vec{a} \cdot \vec{a} = |\vec{a}|^2$ 或 $|\vec{a}| = \sqrt{\vec{a} \cdot \vec{a}}$<br/>
+                    2. $\vec{a} \perp \vec{b} \Leftrightarrow \vec{a} \cdot \vec{b} = 0$<br/>
+                    3. $\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$<br/><br/>
+<strong>坐标运算：</strong><br/>
+                    若 $\vec{a} = (x_1, y_1)$，$\vec{b} = (x_2, y_2)$，则：<br/>
+                    • $\vec{a} \cdot \vec{b} = x_1x_2 + y_1y_2$<br/>
+                    • $|\vec{a}| = \sqrt{x_1^2 + y_1^2}$<br/>
+                    • $\cos\theta = \frac{x_1x_2 + y_1y_2}{\sqrt{x_1^2+y_1^2}\sqrt{x_2^2+y_2^2}}$
+                </div>
+<div class="example">
+<strong>📝 例题3：</strong>已知 $\vec{a} = (1, 2)$，$\vec{b} = (3, -1)$，求：<br/>
+                    (1) $\vec{a} \cdot \vec{b}$<br/>
+                    (2) $|\vec{a}|$ 和 $|\vec{b}|$<br/>
+                    (3) 向量 $\vec{a}$ 与 $\vec{b}$ 的夹角<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    套用数量积的坐标运算公式<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $\vec{a} \cdot \vec{b} = 1 \times 3 + 2 \times (-1) = 3 - 2 = 1$<br/><br/>
+                    (2) $|\vec{a}| = \sqrt{1^2 + 2^2} = \sqrt{5}$<br/>
+                        $|\vec{b}| = \sqrt{3^2 + (-1)^2} = \sqrt{10}$<br/><br/>
+                    (3) $\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|} = \frac{1}{\sqrt{5}\sqrt{10}} = \frac{1}{\sqrt{50}} = \frac{1}{5\sqrt{2}} = \frac{\sqrt{2}}{10}$<br/><br/>
+                        $\theta = \arccos\frac{\sqrt{2}}{10}$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 数量积坐标运算：对应坐标相乘再相加<br/>
+                    • 模长：各分量平方和开方<br/>
+                    • 夹角：用数量积公式反解<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 数量积结果是数，不是向量<br/>
+                    • 计算模长时不要漏掉开方<br/>
+                    • 夹角范围是 $[0, \pi]$
+                </div>
+</div>
+<div class="section">
+<h3>1.4 向量的应用</h3>
+<div class="formula-box">
+<strong>向量在几何中的应用：</strong><br/><br/>
+<strong>1. 证明平行：</strong>$\vec{a} \parallel \vec{b} \Leftrightarrow \vec{a} = \lambda\vec{b} \Leftrightarrow x_1y_2 - x_2y_1 = 0$<br/><br/>
+<strong>2. 证明垂直：</strong>$\vec{a} \perp \vec{b} \Leftrightarrow \vec{a} \cdot \vec{b} = 0 \Leftrightarrow x_1x_2 + y_1y_2 = 0$<br/><br/>
+<strong>3. 求夹角：</strong>$\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$<br/><br/>
+<strong>4. 求距离：</strong>$|AB| = |\overrightarrow{AB}| = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$
+                </div>
+<div class="example">
+<strong>📝 例题4：</strong>证明以 $A(1, 2)$，$B(4, 6)$，$C(7, 2)$ 为顶点的三角形是等腰三角形<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    计算三边的长度，看是否有两边相等<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    $\overrightarrow{AB} = (3, 4)$，$|AB| = \sqrt{9+16} = 5$<br/><br/>
+                    $\overrightarrow{BC} = (3, -4)$，$|BC| = \sqrt{9+16} = 5$<br/><br/>
+                    $\overrightarrow{AC} = (6, 0)$，$|AC| = 6$<br/><br/>
+                    ∵ $|AB| = |BC| = 5$<br/><br/>
+                    ∴ $\triangle ABC$ 是等腰三角形<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 用向量证明几何性质：<br/>
+                      - 等腰：两边长度相等<br/>
+                      - 直角：两向量数量积为0<br/>
+                      - 平行：向量共线<br/>
+                    • 步骤：求向量 → 计算 → 判断<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 计算距离用模长公式<br/>
+                    • 注意向量的方向<br/>
+                    • 证明要严谨
+                </div>
+</div>
+<h2>第二章 复数</h2>
+<div class="section">
+<h3>2.1 复数的概念</h3>
+<div class="key-point">
+<strong>💡 复数的定义：</strong>形如 $a + bi$（$a, b \in \mathbb{R}$）的数叫做复数，其中 $i$ 叫做虚数单位，满足 $i^2 = -1$。<br/><br/>
+<strong>复数的分类：</strong>
+<ul>
+<li>$a$ 叫做实部，$b$ 叫做虚部</li>
+<li>当 $b = 0$ 时，$z = a$ 是实数</li>
+<li>当 $b \neq 0$ 时，$z = a + bi$ 是虚数</li>
+<li>当 $a = 0$ 且 $b \neq 0$ 时，$z = bi$ 是纯虚数</li>
+</ul>
+</div>
+<div class="formula-box">
+<strong>复数相等：</strong>$a + bi = c + di \Leftrightarrow a = c$ 且 $b = d$<br/><br/>
+<strong>共轭复数：</strong>实部相等，虚部互为相反数的两个复数<br/>
+                    $z = a + bi$ 的共轭复数记作 $\bar{z} = a - bi$<br/><br/>
+<strong>复数的模：</strong>$|z| = |a + bi| = \sqrt{a^2 + b^2}$
+                </div>
+<div class="example">
+<strong>📝 例题5：</strong>已知复数 $z = (m^2 - 5m + 6) + (m^2 - 3m)i$，求：<br/>
+                    (1) 当m为何值时，z是实数？<br/>
+                    (2) 当m为何值时，z是纯虚数？<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    根据复数分类的定义，实部和虚部分别满足的条件<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) z是实数，则虚部为0：<br/>
+                        $m^2 - 3m = 0$<br/>
+                        $m(m-3) = 0$<br/>
+                        $m = 0$ 或 $m = 3$<br/><br/>
+                    (2) z是纯虚数，则实部为0且虚部不为0：<br/>
+                        $m^2 - 5m + 6 = 0$ 且 $m^2 - 3m \neq 0$<br/><br/>
+                        由 $m^2 - 5m + 6 = 0$：<br/>
+                        $(m-2)(m-3) = 0$<br/>
+                        $m = 2$ 或 $m = 3$<br/><br/>
+                        由 $m^2 - 3m \neq 0$：<br/>
+                        $m \neq 0$ 且 $m \neq 3$<br/><br/>
+                        ∴ $m = 2$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 实数：虚部 = 0<br/>
+                    • 纯虚数：实部 = 0 且 虚部 ≠ 0<br/>
+                    • 注意纯虚数要排除虚部为0的情况<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 纯虚数要求实部为0且虚部不为0<br/>
+                    • 解方程后要检验<br/>
+                    • 分类讨论要全面
+                </div>
+</div>
+<div class="section">
+<h3>2.2 复数的四则运算</h3>
+<div class="formula-box">
+<strong>复数的加减法：</strong><br/>
+                    $(a + bi) \pm (c + di) = (a \pm c) + (b \pm d)i$<br/><br/>
+<strong>复数的乘法：</strong><br/>
+                    $(a + bi)(c + di) = ac + adi + bci + bdi^2$<br/>
+                    $= (ac - bd) + (ad + bc)i$<br/><br/>
+<strong>复数的除法：</strong><br/>
+                    $\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}$<br/><br/>
+<strong>重要性质：</strong><br/>
+                    • $z \cdot \bar{z} = |z|^2 = a^2 + b^2$<br/>
+                    • $\overline{z_1 \pm z_2} = \bar{z_1} \pm \bar{z_2}$<br/>
+                    • $\overline{z_1 \cdot z_2} = \bar{z_1} \cdot \bar{z_2}$<br/>
+                    • $\overline{(\frac{z_1}{z_2})} = \frac{\bar{z_1}}{\bar{z_2}}$
+                </div>
+<div class="example">
+<strong>📝 例题6：</strong>计算：<br/>
+                    (1) $(3 + 2i) + (1 - 4i)$<br/>
+                    (2) $(2 + i)(3 - 2i)$<br/>
+                    (3) $\frac{1 + 2i}{3 - 4i}$<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    按照复数运算法则计算，除法要乘以共轭复数<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $(3 + 2i) + (1 - 4i) = (3+1) + (2-4)i = 4 - 2i$<br/><br/>
+                    (2) $(2 + i)(3 - 2i) = 6 - 4i + 3i - 2i^2$<br/>
+                        $= 6 - i + 2 = 8 - i$<br/><br/>
+                    (3) $\frac{1 + 2i}{3 - 4i} = \frac{(1 + 2i)(3 + 4i)}{(3 - 4i)(3 + 4i)}$<br/>
+                        $= \frac{3 + 4i + 6i + 8i^2}{9 + 16}$<br/>
+                        $= \frac{3 + 10i - 8}{25}$<br/>
+                        $= \frac{-5 + 10i}{25}$<br/>
+                        $= -\frac{1}{5} + \frac{2}{5}i$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 加减：实部、虚部分别相加减<br/>
+                    • 乘法：多项式乘法，$i^2 = -1$<br/>
+                    • 除法：分子分母同乘分母的共轭复数<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 记住 $i^2 = -1$<br/>
+                    • 除法一定要乘以共轭复数<br/>
+                    • 计算要细心，特别是符号
+                </div>
+</div>
+<div class="section">
+<h3>2.3 复数的几何意义</h3>
+<div class="key-point">
+<strong>💡 复平面：</strong>建立了直角坐标系来表示复数的平面叫做复平面，x轴叫做实轴，y轴叫做虚轴。<br/><br/>
+<strong>复数的几何表示：</strong>
+<ul>
+<li>复数 $z = a + bi$ 对应复平面上的点 $Z(a, b)$</li>
+<li>复数 $z = a + bi$ 对应平面向量 $\overrightarrow{OZ} = (a, b)$</li>
+<li>$|z| = |\overrightarrow{OZ}| = \sqrt{a^2 + b^2}$ 表示点Z到原点的距离</li>
+</ul>
+</div>
+<div class="formula-box">
+<strong>复数的三角形式：</strong><br/>
+                    $z = r(\cos\theta + i\sin\theta)$<br/><br/>
+                    其中 $r = |z| = \sqrt{a^2 + b^2}$，$\cos\theta = \frac{a}{r}$，$\sin\theta = \frac{b}{r}$<br/><br/>
+<strong>三角形式的运算：</strong><br/>
+                    • 乘法：$r_1(\cos\theta_1 + i\sin\theta_1) \cdot r_2(\cos\theta_2 + i\sin\theta_2) = r_1r_2[\cos(\theta_1+\theta_2) + i\sin(\theta_1+\theta_2)]$<br/>
+                    • 除法：$\frac{r_1(\cos\theta_1 + i\sin\theta_1)}{r_2(\cos\theta_2 + i\sin\theta_2)} = \frac{r_1}{r_2}[\cos(\theta_1-\theta_2) + i\sin(\theta_1-\theta_2)]$<br/>
+                    • 棣莫弗定理：$[r(\cos\theta + i\sin\theta)]^n = r^n(\cos n\theta + i\sin n\theta)$
+                </div>
+<div class="example">
+<strong>📝 例题7：</strong>已知复数 $z = 1 + i$，求：<br/>
+                    (1) z在复平面上对应的点<br/>
+                    (2) |z|<br/>
+                    (3) z的三角形式<br/><br/>
+<strong>【分析思路】</strong><br/>
+                    根据复数的几何意义和三角形式的定义求解<br/><br/>
+<strong>【规范解答】</strong><br/>
+                    (1) $z = 1 + i$ 对应复平面上的点 $(1, 1)$<br/><br/>
+                    (2) $|z| = \sqrt{1^2 + 1^2} = \sqrt{2}$<br/><br/>
+                    (3) $r = \sqrt{2}$，$\cos\theta = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$，$\sin\theta = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$<br/><br/>
+                        ∴ $\theta = \frac{\pi}{4}$<br/><br/>
+                        三角形式：$z = \sqrt{2}(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4})$<br/><br/>
+<strong>【方法总结】</strong><br/>
+                    • 代数形式 → 三角形式：<br/>
+                      ① 求模 $r = \sqrt{a^2+b^2}$<br/>
+                      ② 求辐角 $\cos\theta = \frac{a}{r}$，$\sin\theta = \frac{b}{r}$<br/>
+                    • 三角形式 → 代数形式：<br/>
+                      $a = r\cos\theta$，$b = r\sin\theta$<br/><br/>
+<strong>【易错提醒】</strong><br/>
+                    • 注意辐角的主值范围 $[0, 2\pi)$<br/>
+                    • 三角形式的实部是 $r\cos\theta$，不是 $r$<br/>
+                    • 模一定是非负的
+                </div>
+</div>
+<div class="module-box">
+<div class="module-title">🎯 本章方法总结</div>
+<p><strong>1. 向量运算核心：</strong></p>
+<ul>
+<li>线性运算：坐标对应相加减</li>
+<li>数量积：$\vec{a} \cdot \vec{b} = x_1x_2 + y_1y_2$</li>
+<li>模长：$|\vec{a}| = \sqrt{x^2 + y^2}$</li>
+<li>夹角：$\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$</li>
+</ul>
+<p><strong>2. 复数运算核心：</strong></p>
+<ul>
+<li>加减：实部、虚部分别运算</li>
+<li>乘法：多项式乘法，$i^2 = -1$</li>
+<li>除法：乘以分母的共轭复数</li>
+<li>模：$|a+bi| = \sqrt{a^2+b^2}$</li>
+</ul>
+<p><strong>3. 高考应试要点：</strong></p>
+<ul>
+<li>向量是工具，常与几何、三角、解析几何结合</li>
+<li>复数运算要熟练，特别是除法</li>
+<li>注意几何意义的应用</li>
+</ul>
+</div>
+<div class="nav-links">
+<a href="trigonometry.html">← 上一模块：三角函数</a>
+<a href="sequences.html">下一模块：数列 →</a>
+</div>
+</div>
+</body>
+</html>
