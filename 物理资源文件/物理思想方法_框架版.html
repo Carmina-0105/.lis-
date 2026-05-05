@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物理思想方法专题 - 四十六法框架</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 26pt;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 12pt;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #1a237e;
+            margin: 35px 0 20px 0;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            border-radius: 10px;
+            border-left: 5px solid #3949ab;
+        }
+        
+        .method-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .method-item {
+            background: linear-gradient(135deg, #f5f5f5, #fafafa);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid #1976d2;
+            transition: all 0.3s;
+        }
+        .method-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        }
+        
+        .method-number {
+            display: inline-block;
+            background: #1976d2;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 11pt;
+        }
+        
+        .method-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 12pt;
+        }
+        
+        .method-core {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 8px;
+            padding-left: 44px;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 9pt;
+            margin-left: 10px;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 5px solid #ff8f00;
+        }
+        .summary-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+        .summary-content {
+            color: #333;
+            line-height: 2;
+        }
+        
+        .note {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>物理思想方法专题 - 四十六法框架</h1>
+            <p>仅包含方法名称和核心思想 | 详细内容请查看完整版</p>
+        </div>
+
+        <div class="note">
+            <strong>📌 说明：</strong>本文件为框架版，仅列出46种物理思想方法的名称和核心思想。如需查看详细内容（适用场景、典型例题、方法总结等），请参考《物理思想方法_完整汇总.html》文件。
+        </div>
+
+        <!-- 第一部分：基础核心法 -->
+        <div class="section-title" id="part1">第一部分：基础核心法（1-12）</div>
+        <div class="method-list">
+            <div class="method-item">
+                <span class="method-number">1</span>
+                <span class="method-name">整体法与隔离法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">灵活选择研究对象，整体求加速度，隔离求内力</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">2</span>
+                <span class="method-name">等效法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">用简单的等效替代复杂的原问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">3</span>
+                <span class="method-name">对称法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用对称性简化问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">4</span>
+                <span class="method-name">微元法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">将连续问题分割为无穷小单元</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">5</span>
+                <span class="method-name">图像法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">利用物理图像分析问题和求解</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">6</span>
+                <span class="method-name">极限法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">将物理量推向极端情况分析</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">7</span>
+                <span class="method-name">守恒法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">利用守恒定律解决问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">8</span>
+                <span class="method-name">逆向思维法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">从结果倒推原因，或反向过程</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">9</span>
+                <span class="method-name">类比法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">将陌生问题类比为熟悉模型</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">10</span>
+                <span class="method-name">补偿法/割补法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">通过补偿或切割使问题对称</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">11</span>
+                <span class="method-name">递推归纳法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">从特殊到一般，找出规律</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">12</span>
+                <span class="method-name">临界分析法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">分析临界条件和极值点</div>
+            </div>
+        </div>
+
+        <!-- 第二部分：进阶核心法 -->
+        <div class="section-title" id="part2">第二部分：进阶核心法（13-24）</div>
+        <div class="method-list">
+            <div class="method-item">
+                <span class="method-number">13</span>
+                <span class="method-name">叠加原理法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">多个因素的效果等于各因素单独效果之和</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">14</span>
+                <span class="method-name">假设验证法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">先假设后验证，排除不可能</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">15</span>
+                <span class="method-name">数学建模法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">建立数学模型描述物理问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">16</span>
+                <span class="method-name">等势法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">利用等势面/等势线简化问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">17</span>
+                <span class="method-name">控制变量法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">控制其他因素，研究单一变量</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">18</span>
+                <span class="method-name">理想模型法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">建立理想化物理模型</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">19</span>
+                <span class="method-name">近似估算法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">合理近似，快速估算</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">20</span>
+                <span class="method-name">比例法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用比例关系简化计算</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">21</span>
+                <span class="method-name">矢量图解法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">用矢量图分析力、速度等</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">22</span>
+                <span class="method-name">系统思维法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">从系统整体角度分析问题</div>
+            </div>
+        </div>
+
+        <!-- 第三部分：高考十八法 -->
+        <div class="section-title" id="part3">第三部分：高考核心十八法</div>
+        <div class="method-list">
+            <div class="method-item">
+                <span class="method-number">1</span>
+                <span class="method-name">受力分析法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">按顺序分析物体所受各力</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">2</span>
+                <span class="method-name">运动过程分析法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">分段分析复杂运动过程</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">3</span>
+                <span class="method-name">能量转化分析法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">分析能量形式及转化</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">4</span>
+                <span class="method-name">动量分析法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">利用动量定理和守恒</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">5</span>
+                <span class="method-name">电路分析法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">等效电路、节点分析</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">6</span>
+                <span class="method-name">图像信息提取法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">从图像中提取关键信息</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">7</span>
+                <span class="method-name">临界极值法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">找临界条件和极值点</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">8</span>
+                <span class="method-name">等效替代法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">用等效简单替代复杂</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">9</span>
+                <span class="method-name">对称法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用对称性简化</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">10</span>
+                <span class="method-name">估算法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">快速估算数量级</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">11</span>
+                <span class="method-name">比例法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用比例关系</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">12</span>
+                <span class="method-name">特值法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">代入特殊值验证</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">13</span>
+                <span class="method-name">极限法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">推向极端情况</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">14</span>
+                <span class="method-name">整体隔离法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">灵活选择研究对象</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">15</span>
+                <span class="method-name">逆向思维法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">反向思考过程</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">16</span>
+                <span class="method-name">数学工具法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">函数、方程、不等式</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">17</span>
+                <span class="method-name">建模法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">建立物理模型</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">18</span>
+                <span class="method-name">实验数据处理法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">误差分析、图像处理</div>
+            </div>
+        </div>
+
+        <!-- 第四部分：高阶方法 -->
+        <div class="section-title" id="part4">第四部分：高阶方法（25-36）</div>
+        <div class="method-list">
+            <div class="method-item">
+                <span class="method-number">25</span>
+                <span class="method-name">质心法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用质心运动简化多体问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">26</span>
+                <span class="method-name">配速法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">将复杂运动分解为简单运动的叠加</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">27</span>
+                <span class="method-name">递归思想</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">通过递推关系求解问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">28</span>
+                <span class="method-name">程序法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">按固定步骤程序化解题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">29</span>
+                <span class="method-name">虚拟法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">假设虚拟状态或过程简化问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">30</span>
+                <span class="method-name">变换参考系法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">通过变换参考系简化运动分析</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">31</span>
+                <span class="method-name">极值法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">通过求极值确定临界条件</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">32</span>
+                <span class="method-name">几何法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用几何性质求解问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">33</span>
+                <span class="method-name">分类讨论法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">按不同情况分类讨论</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">34</span>
+                <span class="method-name">换元法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">通过变量替换简化问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">35</span>
+                <span class="method-name">构造法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">构造辅助元素解决问题</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">36</span>
+                <span class="method-name">反证法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">假设结论不成立导出矛盾</div>
+            </div>
+        </div>
+
+        <!-- 第五部分：补充方法 -->
+        <div class="section-title" id="part5">第五部分：补充方法（37-46）</div>
+        <div class="method-list">
+            <div class="method-item">
+                <span class="method-number">37</span>
+                <span class="method-name">惯性法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">利用惯性参考系和惯性力</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">38</span>
+                <span class="method-name">半定量分析法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">分析趋势不求精确值</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">39</span>
+                <span class="method-name">黑箱法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">通过输入输出研究系统</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">40</span>
+                <span class="method-name">反馈法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">分析输出对输入的影响</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">41</span>
+                <span class="method-name">叠加原理法</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">效果叠加（与13法呼应）</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">42</span>
+                <span class="method-name">相对运动法</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">换参考系分析运动</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">43</span>
+                <span class="method-name">十字交叉法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">快速求质量比或浓度比</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">44</span>
+                <span class="method-name">人船模型</span>
+                <span class="frequency">★★★★☆</span>
+                <div class="method-core">动量守恒与位移关系</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">45</span>
+                <span class="method-name">弹性碰撞速度公式</span>
+                <span class="frequency">★★★★★</span>
+                <div class="method-core">直接计算弹性碰撞后速度</div>
+            </div>
+            <div class="method-item">
+                <span class="method-number">46</span>
+                <span class="method-name">折合质量法</span>
+                <span class="frequency">★★★☆☆</span>
+                <div class="method-core">将两体问题转化为单体</div>
+            </div>
+        </div>
+
+        <!-- 总结 -->
+        <div class="summary-box">
+            <div class="summary-title">📊 四十六法体系总览</div>
+            <div class="summary-content">
+                <strong>第一部分：基础核心法（1-12）</strong><br>
+                整体法与隔离法、等效法、对称法、微元法、图像法、极限法、守恒法、逆向思维法、类比法、补偿法/割补法、递推归纳法、临界分析法<br><br>
+                
+                <strong>第二部分：进阶核心法（13-24）</strong><br>
+                叠加原理法、假设验证法、数学建模法、等势法、控制变量法、理想模型法、近似估算法、比例法、矢量图解法、系统思维法<br><br>
+                
+                <strong>第三部分：高考十八法（核心）</strong><br>
+                受力分析法、运动过程分析法、能量转化分析法、动量分析法、电路分析法、图像信息提取法、临界极值法、等效替代法、对称法、估算法、比例法、特值法、极限法、整体隔离法、逆向思维法、数学工具法、建模法、实验数据处理法<br><br>
+                
+                <strong>第四部分：高阶方法（25-36）</strong><br>
+                质心法、配速法、递归思想、程序法、虚拟法、变换参考系法、极值法、几何法、分类讨论法、换元法、构造法、反证法<br><br>
+                
+                <strong>第五部分：补充方法（37-46）</strong><br>
+                惯性法、半定量分析法、黑箱法、反馈法、叠加原理法、相对运动法、十字交叉法、人船模型、弹性碰撞速度公式、折合质量法
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 提示：</strong>本框架版仅展示方法名称和核心思想。如需学习详细内容（适用场景、典型例题、解题步骤、方法总结等），请查看《物理思想方法_完整汇总.html》完整版文件。
+        </div>
+
+    </div>
+</body>
+</html>

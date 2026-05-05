@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>高考物理模型大全与原创试题</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #c62828 0%, #e53935 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 28pt;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .header p {
+            font-size: 13pt;
+            opacity: 0.9;
+        }
+        .model-category {
+            margin-bottom: 50px;
+        }
+        .category-title {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 25px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+        }
+        .model-card {
+            margin-bottom: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .model-header {
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            padding: 18px 25px;
+            font-size: 16pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .model-icon {
+            font-size: 24pt;
+        }
+        .model-content {
+            padding: 25px;
+        }
+        .model-desc {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .model-desc-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 13pt;
+        }
+        .key-formula {
+            background: #fffde7;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 12pt;
+            margin: 15px 0;
+            border-left: 3px solid #fbc02d;
+        }
+        .solution-method {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff9800;
+        }
+        .solution-method-title {
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 10px;
+            font-size: 13pt;
+        }
+        .exam-question {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e91e63;
+        }
+        .exam-question-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+        .question-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px dashed #e91e63;
+        }
+        .solution-detail {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .solution-step {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #fff;
+            border-radius: 6px;
+            border-left: 3px solid #2196f3;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 8px;
+        }
+        .key-point {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid #ffa000;
+        }
+        .key-point-title {
+            font-weight: bold;
+            color: #ff6f00;
+            margin-bottom: 8px;
+        }
+        .formula {
+            background: #fffde7;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-family: "Times New Roman", serif;
+            font-size: 11pt;
+            margin: 10px 0;
+            border-left: 3px solid #fbc02d;
+        }
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .keyword {
+            background: #fff176;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        ul, ol {
+            margin-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 5px solid #4caf50;
+        }
+        .summary-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        .model-list {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .model-list-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #7b1fa2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .model-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .model-table th {
+            background: #7b1fa2;
+            color: #fff;
+            padding: 12px;
+            text-align: left;
+        }
+        .model-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .model-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        .difficulty {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+        .difficulty-easy {
+            background: #4caf50;
+            color: #fff;
+        }
+        .difficulty-medium {
+            background: #ff9800;
+            color: #fff;
+        }
+        .difficulty-hard {
+            background: #f44336;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>高考物理模型大全与原创试题</h1>
+            <p>涵盖高考所有常考物理模型 · 原创试题实战演练 · 详细解析解题方法</p>
+        </div>
+
+        <!-- 模型总览 -->
+        <div class="model-list">
+            <div class="model-list-title">📋 高考物理模型分类总览</div>
+            <table class="model-table">
+                <tr>
+                    <th>类别</th>
+                    <th>模型名称</th>
+                    <th>难度</th>
+                    <th>考查频率</th>
+                </tr>
+                <tr>
+                    <td rowspan="6"><strong>圆周运动模型</strong></td>
+                    <td>圆锥摆模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>圆盘连接体模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>三物体圆盘临界模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>倾斜圆盘模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★☆☆☆</td>
+                </tr>
+                <tr>
+                    <td>竖直圆管道模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>汽车转弯模型</td>
+                    <td><span class="difficulty difficulty-easy">易</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td rowspan="5"><strong>电磁感应模型</strong></td>
+                    <td>法拉第圆盘模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>单杆切割模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★★</td>
+                </tr>
+                <tr>
+                    <td>双杆切割模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>线框进出磁场模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>电磁驱动/阻尼模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td rowspan="5"><strong>抛体运动模型</strong></td>
+                    <td>弹道曲线模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>平抛+斜面模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>斜抛运动模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>类平抛模型（电场中）</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>平抛实验模型</td>
+                    <td><span class="difficulty difficulty-easy">易</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td rowspan="5"><strong>连接体与传送带</strong></td>
+                    <td>板块模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★★★</td>
+                </tr>
+                <tr>
+                    <td>传送带模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>弹簧连接体模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>滑轮连接体模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>连续体冲击模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td rowspan="4"><strong>碰撞与动量</strong></td>
+                    <td>弹性碰撞模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★★</td>
+                </tr>
+                <tr>
+                    <td>非弹性碰撞模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>反冲模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>人船模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td rowspan="4"><strong>电场与磁场</strong></td>
+                    <td>带电粒子在电场中偏转</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>带电粒子在磁场中圆周运动</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★★★</td>
+                </tr>
+                <tr>
+                    <td>复合场模型</td>
+                    <td><span class="difficulty difficulty-hard">难</span></td>
+                    <td>★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>速度选择器/质谱仪模型</td>
+                    <td><span class="difficulty difficulty-medium">中</span></td>
+                    <td>★★★☆☆</td>
+                </tr>
+            </table>
+        </div>
+        <!-- 第一部分：圆周运动模型 -->
+        <div class="model-category">
+            <div class="category-title">🔄 第一部分：圆周运动模型</div>
+            
+            <!-- 模型1：圆锥摆 -->
+            <div class="model-card">
+                <div class="model-header">
+                    <span class="model-icon">🌀</span>
+                    <span>模型1：圆锥摆模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>小球用细线悬挂，在水平面内做匀速圆周运动，轨迹为圆锥面。细线与竖直方向成θ角。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        向心力：$F_n = mg\tan\theta = m\omega^2 r = m\frac{v^2}{r}$<br>
+                        周期：$T = 2\pi\sqrt{\frac{L\cos\theta}{g}} = 2\pi\sqrt{\frac{h}{g}}$（与摆球质量无关）<br>
+                        角速度：$\omega = \sqrt{\frac{g}{L\cos\theta}} = \sqrt{\frac{g}{h}}$
+                    </div>
+                    
+                    <div class="solution-method">
+                        <div class="solution-method-title">💡 解题方法</div>
+                        <ul>
+                            <li><strong>受力分析：</strong>重力竖直向下，拉力沿绳方向</li>
+                            <li><strong>正交分解：</strong>水平方向提供向心力，竖直方向平衡</li>
+                            <li><strong>关键：</strong>找到圆周运动半径$r = L\sin\theta$</li>
+                            <li><strong>等高度：</strong>同一水平面内的圆锥摆周期相同</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题1：圆锥摆综合</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>如图所示，两根长度不同的细线分别悬挂质量相同的小球A和B，两球在同一水平面内做匀速圆周运动，细线与竖直方向的夹角分别为$37°$和$53°$。已知$\sin37° = 0.6$，$\cos37° = 0.8$，重力加速度为$g$。
+                            <br><br>
+                            (1) 求两球角速度之比$\omega_A : \omega_B$；<br>
+                            (2) 若两球到悬点的竖直距离相同，求两球线速度之比$v_A : v_B$；<br>
+                            (3) 若细线长度$L_A = 0.5m$，求小球A的运动周期。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <p>设悬点到运动平面的竖直距离为$h$。</p>
+                                <div class="formula">
+                                    对圆锥摆：$\omega = \sqrt{\frac{g}{h}}$<br><br>
+                                    两球在同一水平面，$h$相同，所以$\omega_A = \omega_B$<br>
+                                    <strong>答案：$\omega_A : \omega_B = 1 : 1$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <p>线速度$v = \omega r = \omega \cdot h\tan\theta$</p>
+                                <div class="formula">
+                                    $\frac{v_A}{v_B} = \frac{\tan37°}{\tan53°} = \frac{0.75}{1.33} = \frac{3}{4} \times \frac{3}{4} = \frac{9}{16}$<br><br>
+                                    <strong>答案：$v_A : v_B = 9 : 16$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    $h = L_A\cos37° = 0.5 \times 0.8 = 0.4m$<br><br>
+                                    $T = 2\pi\sqrt{\frac{h}{g}} = 2\pi\sqrt{\frac{0.4}{10}} = 2\pi \times 0.2 = 0.4\pi \approx 1.26s$<br><br>
+                                    <strong>答案：$T = 0.4\pi s$（约1.26s）</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>同一水平面的圆锥摆<strong>角速度相同</strong>，与摆长、质量无关</li>
+                                    <li>周期只与竖直高度$h$有关：$T = 2\pi\sqrt{\frac{h}{g}}$</li>
+                                    <li>线速度与$\tan\theta$成正比</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型2：圆盘连接体 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #00796b, #009688);">
+                    <span class="model-icon">💿</span>
+                    <span>模型2：圆盘连接体模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>两个或多个物体放在旋转圆盘上，用轻绳连接，随圆盘一起转动。分析何时发生相对滑动。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        静摩擦力提供向心力：$f = m\omega^2 r \leq \mu mg$<br>
+                        临界角速度：$\omega_{max} = \sqrt{\frac{\mu g}{r}}$（外侧物体先滑动）<br>
+                        绳子张力：$T = m\omega^2 r - \mu mg$（当摩擦力达到最大时）
+                    </div>
+                    
+                    <div class="solution-method">
+                        <div class="solution-method-title">💡 解题方法</div>
+                        <ul>
+                            <li><strong>找临界：</strong>外侧物体（r大）先达到最大静摩擦</li>
+                            <li><strong>整体法：</strong>用绳连接时，先整体分析</li>
+                            <li><strong>隔离法：</strong>分别分析每个物体的受力</li>
+                            <li><strong>关键：</strong>判断摩擦力方向（指向或背离圆心）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题2：圆盘连接体临界</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>水平转台上放有质量均为$m$的物块A和B，A放在距离转轴$r$处，B放在距离转轴$2r$处，两者用轻绳连接（绳长$r$）。已知A、B与转台间的动摩擦因数均为$\mu$，最大静摩擦力等于滑动摩擦力，重力加速度为$g$。
+                            <br><br>
+                            (1) 当转台角速度较小时，求绳中张力为零时的最大角速度；<br>
+                            (2) 当角速度继续增大，求A、B均不发生相对滑动的最大角速度；<br>
+                            (3) 若剪断细绳，求B开始滑动的角速度。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <p>绳中张力为零时，各自靠静摩擦力提供向心力。</p>
+                                <div class="formula">
+                                    对A：$f_A = m\omega^2 r \leq \mu mg$<br>
+                                    对B：$f_B = m\omega^2 \cdot 2r \leq \mu mg$<br><br>
+                                    B先达到最大静摩擦：$\omega_1 = \sqrt{\frac{\mu g}{2r}}$<br>
+                                    <strong>答案：$\omega_{max} = \sqrt{\frac{\mu g}{2r}}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <p>当$\omega > \omega_1$时，绳中出现张力，B的摩擦力达到最大向外。</p>
+                                <div class="formula">
+                                    对B（摩擦力向外）：$T + \mu mg = m\omega^2 \cdot 2r$<br>
+                                    对A（摩擦力向内）：$f_A - T = m\omega^2 r$，且$f_A \leq \mu mg$<br><br>
+                                    当A也达到最大静摩擦时：<br>
+                                    $\mu mg - T = m\omega^2 r$<br>
+                                    联立解得：$\omega_2 = \sqrt{\frac{2\mu g}{3r}}$<br>
+                                    <strong>答案：$\omega_{max} = \sqrt{\frac{2\mu g}{3r}}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    剪断细绳后，B只受摩擦力：<br>
+                                    $\mu mg = m\omega_B^2 \cdot 2r$<br>
+                                    $\omega_B = \sqrt{\frac{\mu g}{2r}}$<br><br>
+                                    <strong>答案：$\omega_B = \sqrt{\frac{\mu g}{2r}}$</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>外侧物体（r大）<strong>先滑动</strong></li>
+                                    <li>绳子可以<strong>延缓滑动</strong>，将外侧物体的"需求"传递给内侧</li>
+                                    <li>注意摩擦力的<strong>方向判断</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型3：三物体圆盘临界 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #c62828, #e53935);">
+                    <span class="model-icon">⚠️</span>
+                    <span>模型3：三物体圆盘临界模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>三个物体放在旋转圆盘上，通过绳子两两连接，分析不同阶段的临界条件和滑动顺序。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心思路：</strong><br>
+                        阶段1：无绳张力，各自靠摩擦力<br>
+                        阶段2：某绳出现张力<br>
+                        阶段3：多绳有张力，系统临界<br>
+                        关键：判断哪个物体先达到最大静摩擦
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题3：三物体圆盘系统</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>水平圆盘上有三个物块A、B、C，质量均为$m$，到圆心距离分别为$r$、$2r$、$3r$。A与B用绳①连接，B与C用绳②连接。摩擦因数均为$\mu$。
+                            <br><br>
+                            (1) 当圆盘缓慢加速转动时，分析哪个物体最先有滑动趋势；<br>
+                            (2) 求绳①刚出现张力时的角速度$\omega_1$；<br>
+                            (3) 求绳②刚出现张力时的角速度$\omega_2$；<br>
+                            (4) 求系统不发生相对滑动的最大角速度$\omega_{max}$。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <p>所需向心力：$F = m\omega^2 r$</p>
+                                <div class="formula">
+                                    A需要：$m\omega^2 r$<br>
+                                    B需要：$m\omega^2 \cdot 2r = 2m\omega^2 r$<br>
+                                    C需要：$m\omega^2 \cdot 3r = 3m\omega^2 r$<br><br>
+                                    C需要的向心力最大，<strong>C最先有滑动趋势</strong>。
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <p>当C达到最大静摩擦时，绳②出现张力。</p>
+                                <div class="formula">
+                                    $\mu mg = m\omega_1^2 \cdot 3r$<br>
+                                    $\omega_1 = \sqrt{\frac{\mu g}{3r}}$<br><br>
+                                    此时检查B：$f_B = m\omega_1^2 \cdot 2r = \frac{2\mu mg}{3} < \mu mg$，未达最大<br>
+                                    <strong>答案：$\omega_1 = \sqrt{\frac{\mu g}{3r}}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <p>继续加速，绳②张力增大，当B也达到最大静摩擦时，绳①出现张力。</p>
+                                <div class="formula">
+                                    对C：$T_2 + \mu mg = m\omega_2^2 \cdot 3r$（摩擦力向外）<br>
+                                    对B：$T_2 + \mu mg - T_1 = m\omega_2^2 \cdot 2r$<br>
+                                    当$T_1 = 0$且B的摩擦力向内最大时：<br>
+                                    $T_2 - \mu mg = m\omega_2^2 \cdot 2r$<br><br>
+                                    联立解得：$\omega_2 = \sqrt{\frac{\mu g}{r}}$<br>
+                                    <strong>答案：$\omega_2 = \sqrt{\frac{\mu g}{r}}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(4)问解析</div>
+                                <div class="formula">
+                                    当A也达到最大静摩擦时，系统临界：<br>
+                                    对A：$\mu mg - T_1 = m\omega_{max}^2 r$<br>
+                                    对B：$T_1 + \mu mg - T_2 = m\omega_{max}^2 \cdot 2r$<br>
+                                    对C：$T_2 + \mu mg = m\omega_{max}^2 \cdot 3r$<br><br>
+                                    三式相加：$3\mu mg - T_1 + T_1 - T_2 + T_2 = 6m\omega_{max}^2 r$<br>
+                                    $\omega_{max} = \sqrt{\frac{\mu g}{2r}}$<br><br>
+                                    <strong>答案：$\omega_{max} = \sqrt{\frac{\mu g}{2r}}$</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第二部分：电磁感应模型 -->
+        <div class="model-category">
+            <div class="category-title" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff6f00; color: #e65100;">⚡ 第二部分：电磁感应模型</div>
+            
+            <!-- 模型4：法拉第圆盘 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #f57c00, #ff9800);">
+                    <span class="model-icon">💿</span>
+                    <span>模型4：法拉第"圆盘"模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>金属圆盘在磁场中绕中心轴旋转，或圆盘静止、磁场旋转，产生感应电动势。这是发电机的基本原理。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        感应电动势：$\mathcal{E} = \frac{1}{2}B\omega R^2 = B\pi R^2 \cdot \frac{\omega}{2\pi} = BS \cdot \frac{\omega}{2\pi}$<br>
+                        或：$\mathcal{E} = \int_0^R B\omega r dr = \frac{1}{2}B\omega R^2$<br>
+                        电流方向：右手定则（边缘到中心或中心到边缘）
+                    </div>
+                    
+                    <div class="solution-method">
+                        <div class="solution-method-title">💡 解题方法</div>
+                        <ul>
+                            <li><strong>微元法：</strong>取半径$r$处宽度$dr$的圆环，计算其切割磁感线产生的电动势</li>
+                            <li><strong>等效：</strong>可等效为无数根辐条并联</li>
+                            <li><strong>平均值：</strong>$\bar{v} = \frac{0 + \omega R}{2} = \frac{\omega R}{2}$</li>
+                            <li><strong>能量守恒：</strong>机械能转化为电能</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题4：法拉第圆盘发电机</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>如图所示，半径为$R$的金属圆盘在磁感应强度为$B$的匀强磁场中，绕通过圆心且垂直于盘面的轴以角速度$\omega$匀速转动，磁场方向与盘面垂直。圆盘边缘和中心分别通过电刷与外部电路连接，外电路电阻为$r$，圆盘电阻不计。
+                            <br><br>
+                            (1) 求圆盘产生的感应电动势；<br>
+                            (2) 求通过电阻$r$的电流大小和方向；<br>
+                            (3) 求维持圆盘匀速转动所需的外力功率；<br>
+                            (4) 若圆盘质量为$m$，摩擦因数为$\mu$，求撤去外力后圆盘转动的圈数。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <div class="formula">
+                                    取距离圆心$r$处宽度$dr$的圆环，其速度$v = \omega r$<br>
+                                    该圆环产生的电动势：$d\mathcal{E} = B \cdot dr \cdot v = B\omega r dr$<br><br>
+                                    总电动势：$\mathcal{E} = \int_0^R B\omega r dr = \frac{1}{2}B\omega R^2$<br><br>
+                                    <strong>答案：$\mathcal{E} = \frac{1}{2}B\omega R^2$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <div class="formula">
+                                    电流：$I = \frac{\mathcal{E}}{r} = \frac{B\omega R^2}{2r}$<br><br>
+                                    方向：右手定则，圆盘逆时针转动（从上往下看），电流从<strong>边缘流向中心</strong>，再通过外电路从中心流回边缘。<br><br>
+                                    <strong>答案：$I = \frac{B\omega R^2}{2r}$，方向边缘→中心（圆盘内）</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    安培力产生的阻力矩：$M = \int_0^R B I r dr = \frac{1}{2}BIR^2$<br><br>
+                                    功率：$P = M\omega = \frac{1}{2}BI\omega R^2 = I \cdot \frac{1}{2}B\omega R^2 = I\mathcal{E} = \frac{\mathcal{E}^2}{r} = \frac{B^2\omega^2 R^4}{4r}$<br><br>
+                                    <strong>答案：$P = \frac{B^2\omega^2 R^4}{4r}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(4)问解析</div>
+                                <div class="formula">
+                                    由能量守恒，初始动能转化为摩擦生热和焦耳热：<br>
+                                    $\frac{1}{2}I\omega^2 = \mu mg \cdot 2\pi R \cdot n + Q_{电}$<br><br>
+                                    其中转动惯量$I = \frac{1}{2}mR^2$（圆盘）<br>
+                                    电能全部转化为焦耳热，最终都转化为热能<br><br>
+                                    简化计算：用动量定理或能量法<br>
+                                    <strong>答案：$n = \frac{\omega^2 R}{8\pi\mu g}$（近似）</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>圆盘电动势公式：$\mathcal{E} = \frac{1}{2}B\omega R^2$（<strong>必须牢记</strong>）</li>
+                                    <li>可等效为无数辐条并联，每根辐条电动势相同</li>
+                                    <li>功率平衡：$P_{机械} = P_{电} = I^2r$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型5：单杆切割 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #6a1b9a, #8e24aa);">
+                    <span class="model-icon">📏</span>
+                    <span>模型5：单杆切割模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>导体棒在导轨上运动，切割磁感线产生感应电动势，形成感应电流，受到安培力作用。这是电磁感应中最基础的模型。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        感应电动势：$\mathcal{E} = BLv$<br>
+                        感应电流：$I = \frac{BLv}{R_{总}}$<br>
+                        安培力：$F_A = BIL = \frac{B^2L^2v}{R_{总}}$（方向用左手定则）<br>
+                        加速度：$a = \frac{F_{外} - F_A}{m} = \frac{F_{外}}{m} - \frac{B^2L^2v}{mR_{总}}$
+                    </div>
+                    
+                    <div class="solution-method">
+                        <div class="solution-method-title">💡 三种典型情况</div>
+                        <ul>
+                            <li><strong>情况1：恒力拉动</strong> - 加速度逐渐减小，最终匀速（$F = F_A$）</li>
+                            <li><strong>情况2：恒速拉动</strong> - 外力等于安培力，功率$P = Fv = \frac{B^2L^2v^2}{R}$</li>
+                            <li><strong>情况3：只受安培力</strong> - 减速运动，$v = v_0e^{-\frac{B^2L^2}{mR}t}$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题5：单杆切割综合</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>如图所示，光滑平行导轨间距为$L$，电阻不计，左端接电阻$R$。质量为$m$、电阻为$r$的导体棒垂直放置在导轨上，处于磁感应强度为$B$的匀强磁场中（磁场垂直导轨平面向下）。现用恒力$F$水平向右拉导体棒，使其从静止开始运动。
+                            <br><br>
+                            (1) 求导体棒的最大速度；<br>
+                            (2) 当速度为最大速度一半时，求加速度；<br>
+                            (3) 求从静止到最大速度过程中，通过电阻$R$的电荷量；<br>
+                            (4) 求此过程中电阻$R$上产生的热量。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <div class="formula">
+                                    当$a = 0$时速度最大：<br>
+                                    $F = F_A = \frac{B^2L^2v_m}{R+r}$<br><br>
+                                    $v_m = \frac{F(R+r)}{B^2L^2}$<br><br>
+                                    <strong>答案：$v_m = \frac{F(R+r)}{B^2L^2}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <div class="formula">
+                                    当$v = \frac{v_m}{2}$时：<br>
+                                    $F_A = \frac{B^2L^2}{R+r} \cdot \frac{v_m}{2} = \frac{F}{2}$<br><br>
+                                    $a = \frac{F - F_A}{m} = \frac{F}{2m}$<br><br>
+                                    <strong>答案：$a = \frac{F}{2m}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    用动量定理：$Ft - \bar{F_A}t = mv_m$<br>
+                                    其中$\bar{F_A}t = B\bar{I}L \cdot t = BLq$<br><br>
+                                    $q = \frac{Ft - mv_m}{BL}$<br><br>
+                                    或用电磁感应：$q = \frac{\Delta\Phi}{R+r} = \frac{BLx}{R+r}$<br><br>
+                                    <strong>答案：$q = \frac{mv_m}{BL} = \frac{mF(R+r)}{B^3L^3}$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(4)问解析</div>
+                                <div class="formula">
+                                    由能量守恒：$Fx = Q_{总} + \frac{1}{2}mv_m^2$<br><br>
+                                    $Q_R = \frac{R}{R+r}Q_{总} = \frac{R}{R+r}(Fx - \frac{1}{2}mv_m^2)$<br><br>
+                                    其中$x = \frac{q(R+r)}{BL} = \frac{mF(R+r)^2}{B^4L^4}$<br><br>
+                                    <strong>答案：$Q_R = \frac{mFR(R+r)}{B^2L^2} - \frac{mFR}{2B^2L^2}$</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>最大速度条件：<strong>$F = F_A$</strong></li>
+                                    <li>电荷量公式：<strong>$q = \frac{\Delta\Phi}{R_{总}} = \frac{BLx}{R_{总}}$</strong></li>
+                                    <li>热量计算：用<strong>能量守恒</strong>，$Q = W_{外} - \Delta E_k$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三部分：抛体运动模型 -->
+        <div class="model-category">
+            <div class="category-title" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left-color: #4caf50; color: #2e7d32;">🎯 第三部分：抛体运动模型</div>
+            
+            <!-- 模型6：弹道曲线 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #2e7d32, #4caf50);">
+                    <span class="model-icon">🚀</span>
+                    <span>模型6：弹道曲线模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>考虑空气阻力的抛体运动，轨迹不是抛物线而是弹道曲线。空气阻力与速度有关（$f = kv$或$f = kv^2$），导致轨迹不对称。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心特点：</strong><br>
+                        上升段：速度大，阻力大，加速度大，时间短<br>
+                        下降段：速度小，阻力小，加速度小，时间长<br>
+                        落地点：速度小于初速度，水平位移小于无阻力时<br>
+                        轨迹特点：上升陡，下降缓，不对称
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题6：弹道曲线分析</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>某炮弹以初速度$v_0$、仰角$\theta$发射，受到重力和空气阻力作用，阻力大小$f = kv$（$k$为常数）。与无阻力情况相比，分析：
+                            <br><br>
+                            (1) 上升时间和下降时间哪个更长？<br>
+                            (2) 落地点速度与初速度相比如何？<br>
+                            (3) 最大高度与无阻力时相比如何？<br>
+                            (4) 若$f = kv^2$，定性画出轨迹示意图。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <p>上升时：重力和阻力都向下，加速度$a_{上} = g + \frac{kv}{m}$较大</p>
+                                <p>下降时：重力向下，阻力向上，加速度$a_{下} = g - \frac{kv}{m}$较小</p>
+                                <div class="formula">
+                                    由于上升减速快，下降加速慢，所以<strong>下降时间更长</strong>。
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <p>整个过程中，阻力始终做负功，机械能不断减少。</p>
+                                <div class="formula">
+                                    落地点速度<strong>小于初速度</strong>，且落地角度更陡（竖直分量相对更大）。
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <p>上升到最高点时，竖直速度为零，但仍有水平速度，阻力不为零。</p>
+                                <div class="formula">
+                                    由于阻力消耗能量，最大高度<strong>小于无阻力时</strong>。
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(4)问解析</div>
+                                <p>$f = kv^2$时，阻力与速度平方成正比，高速时阻力更大。</p>
+                                <div class="formula">
+                                    轨迹特点：<br>
+                                    • 上升段更陡（阻力大，减速快）<br>
+                                    • 下降段更缓（阻力随速度减小而减小）<br>
+                                    • 轨迹明显不对称<br>
+                                    • 落地点距离明显缩短
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>有阻力时，轨迹<strong>不对称</strong>，下降时间更长</li>
+                                    <li>阻力始终做负功，机械能不断减少</li>
+                                    <li>实际弹道曲线比抛物线更"扁"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第四部分：连接体与传送带 -->
+        <div class="model-category">
+            <div class="category-title" style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); border-left-color: #e91e63; color: #c2185b;">🔗 第四部分：连接体与传送带模型</div>
+            
+            <!-- 模型7：板块模型 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #c2185b, #e91e63);">
+                    <span class="model-icon">🧱</span>
+                    <span>模型7：板块模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>滑块在木板上滑动，两者之间有摩擦力。分析相对运动、共速条件、相对位移等。这是高考压轴题的高频模型。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        滑块加速度：$a_1 = \mu g$（只受摩擦力）<br>
+                        木板加速度：$a_2 = \frac{\mu mg}{M}$（地面光滑时）<br>
+                        共速时间：$v_0 - a_1t = a_2t$，$t = \frac{v_0}{a_1 + a_2}$<br>
+                        相对位移：$\Delta x = x_1 - x_2 = v_0t - \frac{1}{2}a_1t^2 - \frac{1}{2}a_2t^2$
+                    </div>
+                    
+                    <div class="solution-method">
+                        <div class="solution-method-title">💡 解题步骤</div>
+                        <ul>
+                            <li><strong>Step 1：</strong>分别分析滑块和木板的受力，求加速度</li>
+                            <li><strong>Step 2：</strong>判断是否能共速（比较滑块滑出时间和共速时间）</li>
+                            <li><strong>Step 3：</strong>计算共速时的速度和时间</li>
+                            <li><strong>Step 4：</strong>计算相对位移（板长条件）</li>
+                            <li><strong>Step 5：</strong>用能量守恒或动能定理求热量</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题7：板块模型压轴</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>质量为$M = 2kg$、长为$L = 2m$的木板静止在光滑水平面上，木板上表面粗糙。质量为$m = 1kg$的滑块（可视为质点）以初速度$v_0 = 6m/s$从木板左端滑上木板。已知滑块与木板间的动摩擦因数$\mu = 0.4$，重力加速度$g = 10m/s^2$。
+                            <br><br>
+                            (1) 若木板固定，求滑块在木板上滑行的时间；<br>
+                            (2) 若木板不固定，求滑块与木板达到共速所需的时间；<br>
+                            (3) 在(2)的情况下，判断滑块能否从木板右端滑出；<br>
+                            (4) 若滑块未滑出，求系统产生的热量。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <div class="formula">
+                                    滑块加速度：$a = \mu g = 4m/s^2$<br>
+                                    由$L = v_0t - \frac{1}{2}at^2$：<br>
+                                    $2 = 6t - 2t^2$<br>
+                                    $2t^2 - 6t + 2 = 0$<br>
+                                    $t = \frac{6 - \sqrt{36-16}}{4} = \frac{6 - \sqrt{20}}{4} = \frac{3 - \sqrt{5}}{2} \approx 0.38s$<br><br>
+                                    <strong>答案：$t = \frac{3-\sqrt{5}}{2}s \approx 0.38s$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <div class="formula">
+                                    滑块加速度：$a_1 = \mu g = 4m/s^2$（向左减速）<br>
+                                    木板加速度：$a_2 = \frac{\mu mg}{M} = \frac{0.4 \times 1 \times 10}{2} = 2m/s^2$（向右加速）<br><br>
+                                    共速条件：$v_0 - a_1t = a_2t$<br>
+                                    $6 - 4t = 2t$<br>
+                                    $t = 1s$<br><br>
+                                    <strong>答案：$t = 1s$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    滑块位移：$x_1 = v_0t - \frac{1}{2}a_1t^2 = 6 \times 1 - \frac{1}{2} \times 4 \times 1 = 4m$<br>
+                                    木板位移：$x_2 = \frac{1}{2}a_2t^2 = \frac{1}{2} \times 2 \times 1 = 1m$<br>
+                                    相对位移：$\Delta x = x_1 - x_2 = 3m > L = 2m$<br><br>
+                                    <strong>答案：滑块能从木板右端滑出</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(4)问解析</div>
+                                <p>若滑块未滑出（假设板长足够），则：</p>
+                                <div class="formula">
+                                    共速：$v = a_2t = 2m/s$<br>
+                                    热量：$Q = \frac{1}{2}mv_0^2 - \frac{1}{2}(M+m)v^2 = \frac{1}{2} \times 1 \times 36 - \frac{1}{2} \times 3 \times 4 = 18 - 6 = 12J$<br><br>
+                                    <strong>答案：$Q = 12J$</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>判断能否共速：<strong>比较相对位移与板长</strong></li>
+                                    <li>热量计算：$Q = \mu mg \cdot \Delta x$或$Q = \Delta E_{机械}$</li>
+                                    <li>动量守恒：地面光滑时，系统动量守恒</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型8：传送带模型 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #00796b, #009688);">
+                    <span class="model-icon">🏭</span>
+                    <span>模型8：传送带模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>物块放在运动的传送带上，分析物块的运动情况、相对滑动距离、热量产生等。关键是判断共速时间和相对运动方向。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        物块加速度：$a = \mu g$（滑动摩擦力提供）<br>
+                        共速时间：$t = \frac{v_{带} - v_0}{a}$（假设$v_{带} > v_0$）<br>
+                        相对位移：$\Delta x = v_{带}t - (v_0t + \frac{1}{2}at^2)$<br>
+                        热量：$Q = \mu mg \cdot \Delta x$
+                    </div>
+                    
+                    <div class="solution-method">
+                        <div class="solution-method-title">💡 三种情况</div>
+                        <ul>
+                            <li><strong>情况1：</strong>物块初速为0，传送带匀速 - 物块先加速后匀速</li>
+                            <li><strong>情况2：</strong>物块有初速，与传送带同向 - 可能加速或减速到共速</li>
+                            <li><strong>情况3：</strong>物块有初速，与传送带反向 - 先减速到0，再反向加速</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题8：倾斜传送带</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>倾角为$\theta = 37°$的传送带以恒定速度$v = 4m/s$向上运动，传送带两端距离$L = 10m$。将质量$m = 1kg$的物块轻放在传送带底端，物块与传送带间的动摩擦因数$\mu = 0.875$。重力加速度$g = 10m/s^2$，$\sin37° = 0.6$，$\cos37° = 0.8$。
+                            <br><br>
+                            (1) 求物块从底端运送到顶端所需的时间；<br>
+                            (2) 求物块与传送带间的相对位移；<br>
+                            (3) 求系统产生的热量；<br>
+                            (4) 求电动机多消耗的电能。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <div class="formula">
+                                    第一阶段（加速）：<br>
+                                    摩擦力向上：$f = \mu mg\cos\theta = 0.875 \times 1 \times 10 \times 0.8 = 7N$<br>
+                                    重力分量向下：$mg\sin\theta = 6N$<br>
+                                    合力向上：$F = f - mg\sin\theta = 1N$<br>
+                                    加速度：$a = \frac{F}{m} = 1m/s^2$<br><br>
+                                    加速到共速：$t_1 = \frac{v}{a} = 4s$<br>
+                                    位移：$x_1 = \frac{1}{2}at_1^2 = 8m < L$<br><br>
+                                    第二阶段（匀速）：<br>
+                                    $t_2 = \frac{L - x_1}{v} = \frac{2}{4} = 0.5s$<br><br>
+                                    总时间：$t = t_1 + t_2 = 4.5s$<br>
+                                    <strong>答案：$t = 4.5s$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <div class="formula">
+                                    只在第一阶段有相对滑动：<br>
+                                    传送带位移：$x_{带} = vt_1 = 16m$<br>
+                                    物块位移：$x_1 = 8m$<br>
+                                    相对位移：$\Delta x = x_{带} - x_1 = 8m$<br><br>
+                                    <strong>答案：$\Delta x = 8m$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    $Q = \mu mg\cos\theta \cdot \Delta x = 7 \times 8 = 56J$<br><br>
+                                    <strong>答案：$Q = 56J$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(4)问解析</div>
+                                <div class="formula">
+                                    电动机多消耗的电能 = 物块机械能增加 + 热量<br>
+                                    $E = mgL\sin\theta + \frac{1}{2}mv^2 + Q$<br>
+                                    $= 1 \times 10 \times 10 \times 0.6 + \frac{1}{2} \times 1 \times 16 + 56$<br>
+                                    $= 60 + 8 + 56 = 124J$<br><br>
+                                    <strong>答案：$E = 124J$</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>判断摩擦力方向：<strong>相对运动趋势</strong></li>
+                                    <li>倾斜传送带：比较$\mu$与$\tan\theta$判断能否静止</li>
+                                    <li>电动机耗能：$E = \Delta E_k + \Delta E_p + Q$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型9：连续体冲击 -->
+            <div class="model-card">
+                <div class="model-header" style="background: linear-gradient(135deg, #6a1b9a, #8e24aa);">
+                    <span class="model-icon">🌊</span>
+                    <span>模型9：连续体冲击模型</span>
+                </div>
+                <div class="model-content">
+                    <div class="model-desc">
+                        <div class="model-desc-title">📖 模型描述</div>
+                        <p>连续流动的流体（水、空气等）冲击物体，或物体在连续介质中运动。用微元法取一小段时间内的质量，用动量定理求解。</p>
+                    </div>
+                    
+                    <div class="key-formula">
+                        <strong>核心公式：</strong><br>
+                        微元质量：$dm = \rho S v dt$（流体）或$dm = \lambda v dt$（链条）<br>
+                        动量定理：$F dt = dm \cdot \Delta v$<br>
+                        冲击力：$F = \rho S v^2$（水冲击墙壁，速度降为0）<br>
+                        或：$F = \rho S v_1(v_1 - v_2)$（相对速度变化）
+                    </div>
+                    
+                    <div class="exam-question">
+                        <div class="exam-question-title">📝 原创试题9：水力冲击</div>
+                        <div class="question-content">
+                            <strong>【题目】</strong>高压水枪喷出的水柱横截面积为$S$，速度为$v$，水的密度为$\rho$。水柱垂直冲击竖直墙壁后向四周散开，速度可视为0。
+                            <br><br>
+                            (1) 求水对墙壁的冲击力；<br>
+                            (2) 若墙壁以速度$u$（$u < v$）向水枪方向运动，求冲击力；<br>
+                            (3) 若用此水枪清洗水平地面，水枪与地面成$\theta$角，求水对地面的水平作用力。
+                        </div>
+                        <div class="solution-detail">
+                            <div class="solution-step">
+                                <div class="step-title">第(1)问解析</div>
+                                <div class="formula">
+                                    取时间$dt$内冲击墙壁的水的质量：<br>
+                                    $dm = \rho S v dt$<br><br>
+                                    这些水的速度从$v$变为0，由动量定理：<br>
+                                    $F dt = dm \cdot v = \rho S v^2 dt$<br><br>
+                                    $F = \rho S v^2$<br><br>
+                                    <strong>答案：$F = \rho S v^2$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(2)问解析</div>
+                                <div class="formula">
+                                    相对速度：$v_{相对} = v + u$<br>
+                                    单位时间内冲击墙壁的水的质量：<br>
+                                    $dm = \rho S (v+u) dt$<br><br>
+                                    这些水相对墙壁的速度从$v+u$变为$u$：<br>
+                                    $F dt = dm \cdot (v+u-u) = \rho S (v+u) v dt$<br><br>
+                                    $F = \rho S v(v+u)$<br><br>
+                                    <strong>答案：$F = \rho S v(v+u)$</strong>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-title">第(3)问解析</div>
+                                <div class="formula">
+                                    水速竖直分量：$v_y = v\sin\theta$<br>
+                                    水速水平分量：$v_x = v\cos\theta$<br><br>
+                                    假设水竖直方向速度变为0，水平方向速度不变（光滑地面）：<br>
+                                    竖直冲击力：$F_y = \rho S v \cdot v_y = \rho S v^2\sin\theta$<br>
+                                    水平冲击力：$F_x = \rho S v \cdot v_x = \rho S v^2\cos\theta$<br><br>
+                                    <strong>答案：水平作用力$F_x = \rho S v^2\cos\theta$</strong>
+                                </div>
+                            </div>
+                            <div class="key-point">
+                                <div class="key-point-title">🎯 关键总结</div>
+                                <ul>
+                                    <li>取微元：$dm = \rho S v dt$</li>
+                                    <li>动量定理：$F = \frac{dp}{dt} = \frac{dm \cdot \Delta v}{dt}$</li>
+                                    <li>注意<strong>相对速度</strong>和<strong>速度变化量</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 总结 -->
+        <div class="summary-box">
+            <div class="summary-title">📊 高考物理模型总结</div>
+            <div class="two-col">
+                <div>
+                    <strong>力学模型（高频）：</strong>
+                    <ul>
+                        <li>圆锥摆、圆盘连接体</li>
+                        <li>板块模型、传送带</li>
+                        <li>弹簧连接体、滑轮</li>
+                        <li>碰撞、反冲、人船</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>电磁学模型（高频）：</strong>
+                    <ul>
+                        <li>单杆切割、双杆切割</li>
+                        <li>法拉第圆盘</li>
+                        <li>线框进出磁场</li>
+                        <li>带电粒子在电磁场中运动</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="two-col" style="margin-top: 20px;">
+                <div>
+                    <strong>运动学模型：</strong>
+                    <ul>
+                        <li>平抛+斜面</li>
+                        <li>斜抛、弹道曲线</li>
+                        <li>类平抛（电场中）</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>其他重要模型：</strong>
+                    <ul>
+                        <li>连续体冲击</li>
+                        <li>理想气体状态变化</li>
+                        <li>光学折射、全反射</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="key-point" style="margin-top: 25px;">
+                <div class="key-point-title">🎯 备考建议</div>
+                <p>1. <strong>掌握核心模型</strong>：每个模型都要理解原理、熟记公式、熟练计算</p>
+                <p>2. <strong>多做变式训练</strong>：同一模型的不同问法、不同条件</p>
+                <p>3. <strong>总结解题步骤</strong>：形成固定的解题流程</p>
+                <p>4. <strong>注意易错点</strong>：临界条件、方向判断、相对运动</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

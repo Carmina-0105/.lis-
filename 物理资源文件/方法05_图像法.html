@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法05：图像法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法05：图像法 <span class="frequency">★★★★★</span></h1>
+            <p>数形结合，直观理解物理过程</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>图像法</strong>是利用图像来描述物理量之间的关系，通过图像的斜率、面积、截距等几何意义来分析和解决物理问题的方法。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>斜率意义</strong>：表示变化率，如 $v-t$ 图的斜率表示加速度</li>
+                    <li><strong>面积意义</strong>：表示累积量，如 $v-t$ 图的面积表示位移</li>
+                    <li><strong>截距意义</strong>：表示初始值或临界值</li>
+                    <li><strong>交点意义</strong>：表示两物理量相等的状态</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>常见图像的物理意义：</strong><br>
+                $v-t$ 图像：斜率 $= a$，面积 $= x$<br>
+                $F-x$ 图像：面积 $= W$（功）<br>
+                $a-F$ 图像：斜率 $= \frac{1}{m}$<br>
+                $U-I$ 图像：斜率 $= R$（电阻）
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">运动学问题</span>：利用 $v-t$ 图分析复杂运动</li>
+                <li><span class="highlight">变力做功</span>：利用 $F-x$ 图的面积求功</li>
+                <li><span class="highlight">电路分析</span>：利用 $U-I$ 图分析元件特性</li>
+                <li><span class="highlight">追及相遇</span>：利用图像直观判断相遇条件</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li>多过程运动的分析</li>
+                    <li>变力做功的计算</li>
+                    <li>追及相遇问题</li>
+                    <li>电源电动势和内阻的测定</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>图像分析步骤</strong>
+                <ul style="margin-top:8px;">
+                    <li>明确坐标轴表示的物理量及单位</li>
+                    <li>分析图像的形状、斜率、截距、面积</li>
+                    <li>结合物理规律建立方程</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>常用图像技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li>将非线性关系转化为线性关系</li>
+                    <li>利用图像面积求解累积量</li>
+                    <li>利用图像交点确定临界条件</li>
+                    <li>通过图像斜率确定变化率</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 常见错误</strong>
+                <ul style="margin-top:8px;">
+                    <li>混淆不同图像的物理意义</li>
+                    <li>忽视坐标轴的标度和单位</li>
+                    <li>错误计算图像面积或斜率</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：追及相遇问题</div>
+                <p><strong>题目：</strong>甲、乙两车在同一平直公路上同向行驶，甲车在后，乙车在前。甲车以 $v_1 = 10$ m/s 匀速行驶，乙车以 $v_2 = 4$ m/s 匀速行驶。当两车相距 $s_0 = 7$ m 时，甲车开始以 $a = 2$ m/s² 加速。求两车相遇的时间。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析：</strong>利用 $v-t$ 图像求解。<br><br>
+                    
+                    <strong>步骤1：</strong>建立坐标系，画出 $v-t$ 图像<br>
+                    甲车：初速度 $10$ m/s，加速度 $2$ m/s²<br>
+                    乙车：速度 $4$ m/s 的水平线<br><br>
+                    
+                    <strong>步骤2：</strong>分析相遇条件<br>
+                    两车相遇时，甲车比乙车多走的距离等于初始距离 $s_0 = 7$ m<br><br>
+                    
+                    <strong>步骤3：</strong>利用面积关系<br>
+                    设相遇时间为 $t$，则：<br>
+                    $$\frac{(10 + 10+2t)}{2} \cdot t - 4t = 7$$<br>
+                    $$10t + t^2 - 4t = 7$$<br>
+                    $$t^2 + 6t - 7 = 0$$<br><br>
+                    
+                    解得：$t = 1$ s 或 $t = -7$ s（舍去）<br><br>
+                    
+                    <strong>答案：</strong>$t = 1$ s
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：变力做功</div>
+                <p><strong>题目：</strong>某物体在变力 $F$ 作用下沿直线运动，力 $F$ 随位移 $x$ 变化的关系如图所示（$F-x$ 图为三角形，最大力 $F_0 = 10$ N，位移范围 $0$ 到 $4$ m）。求力 $F$ 做的功。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析：</strong>变力做功等于 $F-x$ 图像与横轴围成的面积。<br><br>
+                    
+                    <strong>步骤1：</strong>确定图像形状<br>
+                    $F-x$ 图为三角形，底边 $4$ m，高 $10$ N<br><br>
+                    
+                    <strong>步骤2：</strong>计算面积<br>
+                    $$W = \frac{1}{2} \times \text{底} \times \text{高} = \frac{1}{2} \times 4 \times 10 = 20 \text{ J}$$<br><br>
+                    
+                    <strong>答案：</strong>$W = 20$ J
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法04_微元法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法06_极限法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

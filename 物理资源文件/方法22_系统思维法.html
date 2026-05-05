@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法22：系统思维法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法22：系统思维法 <span class="frequency">★★★★☆</span></h1>
+            <p>从整体角度分析物理系统</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>系统思维法</strong>是从整体出发，将研究对象视为一个系统，分析系统内部各要素之间的相互关系，以及系统与外部环境的相互作用。这种方法强调整体性、关联性和层次性。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>整体性</strong>：系统具有各组成部分所没有的整体功能</li>
+                    <li><strong>关联性</strong>：系统内各要素相互联系、相互制约</li>
+                    <li><strong>层次性</strong>：系统可以分解为若干子系统</li>
+                    <li><strong>开放性</strong>：系统与外界存在物质、能量、信息的交换</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>系统分析的基本框架：</strong><br>
+                <strong>1. 确定系统边界：</strong>明确研究对象的范围<br>
+                <strong>2. 识别系统要素：</strong>找出系统的组成部分<br>
+                <strong>3. 分析相互关系：</strong>研究要素间的相互作用<br>
+                <strong>4. 考察系统功能：</strong>分析系统的整体行为和特性<br>
+                <strong>5. 研究演化规律：</strong>探讨系统的变化和发展
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">复杂系统分析</span>：多物体、多过程的综合问题</li>
+                <li><span class="highlight">能量转化问题</span>：分析系统内能量的流动和转化</li>
+                <li><span class="highlight">动量守恒问题</span>：将相互作用的物体视为系统</li>
+                <li><span class="highlight">热力学系统</span>：分析系统与外界的热交换</li>
+                <li><span class="highlight">电路系统</span>：分析电路的整体特性</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li>多物体碰撞系统</li>
+                    <li>弹簧-物块振动系统</li>
+                    <li>热力学循环过程</li>
+                    <li>复杂电路网络</li>
+                    <li>天体运动系统</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>系统划分原则</strong>
+                <ul style="margin-top:8px;">
+                    <li>根据研究目的确定系统边界</li>
+                    <li>系统可以是实物系统，也可以是过程系统</li>
+                    <li>系统可以嵌套，大系统包含子系统</li>
+                    <li>选择合适的研究对象可以简化问题</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>守恒量的应用</strong>
+                <ul style="margin-top:8px;">
+                    <li><strong>能量守恒</strong>：孤立系统总能量保持不变</li>
+                    <li><strong>动量守恒</strong>：系统不受外力或外力矢量和为零</li>
+                    <li><strong>角动量守恒</strong>：系统不受外力矩或外力矩和为零</li>
+                    <li><strong>质量守恒</strong>：封闭系统质量保持不变</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>明确系统的边界和范围</li>
+                    <li>区分系统内力和外力</li>
+                    <li>注意系统是否满足守恒条件</li>
+                    <li>复杂系统可以分解为简单子系统</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：弹簧-物块系统</div>
+                <p><strong>题目：</strong>质量为 $m$ 的物块放在光滑水平面上，与一个劲度系数为 $k$ 的轻弹簧相连。将物块从平衡位置拉开距离 $A$ 后静止释放，求系统的最大速度和振动周期。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>系统分析：</strong><br>
+                    将物块和弹簧视为一个系统，水平方向不受外力<br><br>
+                    
+                    <strong>能量守恒：</strong><br>
+                    系统机械能守恒：$\frac{1}{2}kA^2 = \frac{1}{2}mv_{max}^2$<br>
+                    最大速度：$v_{max} = A\sqrt{\frac{k}{m}}$<br><br>
+                    
+                    <strong>简谐运动：</strong><br>
+                    角频率：$\omega = \sqrt{\frac{k}{m}}$<br>
+                    周期：$T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}$<br><br>
+                    
+                    <strong>答案：</strong>最大速度为 $A\sqrt{\frac{k}{m}}$，周期为 $2\pi\sqrt{\frac{m}{k}}$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：人船模型</div>
+                <p><strong>题目：</strong>质量为 $M$ 的船静止在水面上，质量为 $m$ 的人从船头走到船尾。船长为 $L$，不计水的阻力，求船移动的距离。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>系统分析：</strong><br>
+                    将人和船视为一个系统，水平方向不受外力，动量守恒<br><br>
+                    
+                    <strong>动量守恒：</strong><br>
+                    设人相对地面的速度为 $v$，船相对地面的速度为 $V$<br>
+                    $mv + MV = 0$（系统初动量为零）<br>
+                    $v = -\frac{M}{m}V$<br><br>
+                    
+                    <strong>位移关系：</strong><br>
+                    设船移动距离为 $s$，则人相对地面移动距离为 $L-s$<br>
+                    由于运动时间相同：$\frac{L-s}{s} = \frac{|v|}{|V|} = \frac{M}{m}$<br><br>
+                    
+                    <strong>求解：</strong><br>
+                    $m(L-s) = Ms$<br>
+                    $s = \frac{mL}{M+m}$<br><br>
+                    
+                    <strong>答案：</strong>船向相反方向移动 $\frac{mL}{M+m}$
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法21_矢量图解法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法23_量纲分析法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

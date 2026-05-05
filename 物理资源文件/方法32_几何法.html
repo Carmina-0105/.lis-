@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法32：几何法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法32：几何法 <span class="frequency">★★★★☆</span></h1>
+            <p>利用几何关系解决物理问题</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>几何法</strong>是利用几何图形、几何关系和几何性质来解决物理问题的方法。许多物理问题可以通过几何分析直观地求解，避免了复杂的数学计算。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>几何直观</strong>：利用图形直观理解物理过程</li>
+                    <li><strong>几何关系</strong>：利用边、角、面积等几何量</li>
+                    <li><strong>几何变换</strong>：利用对称、相似、全等等性质</li>
+                    <li><strong>数形结合</strong>：将物理问题转化为几何问题</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>常用几何知识：</strong><br>
+                <strong>三角形：</strong>正弦定理、余弦定理、相似三角形<br>
+                <strong>圆：</strong>圆周角、弦切角、圆幂定理<br>
+                <strong>坐标系：</strong>距离公式、斜率、曲线方程<br>
+                <strong>向量：</strong>向量运算、点积、叉积
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">运动学</span>：轨迹、位移、速度方向</li>
+                <li><span class="highlight">力学</span>：力的分解、力矩、平衡</li>
+                <li><span class="highlight">光学</span>：光路、反射、折射</li>
+                <li><span class="highlight">电磁学</span>：电场线、等势面</li>
+                <li><span class="highlight">天体运动</span>：轨道、开普勒定律</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型应用</h3>
+                <ul>
+                    <li>力的矢量图解</li>
+                    <li>光的反射和折射路径</li>
+                    <li>抛体运动的轨迹分析</li>
+                    <li>圆周运动的几何关系</li>
+                    <li>电场和磁场的分布</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>几何分析步骤</strong>
+                <ul style="margin-top:8px;">
+                    <li>画出清晰的物理情景图</li>
+                    <li>标出已知量和待求量</li>
+                    <li>分析几何关系和约束条件</li>
+                    <li>利用几何定理求解</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>常用技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li><strong>相似三角形</strong>：利用比例关系</li>
+                    <li><strong>圆的性质</strong>：利用圆周角、弦切角</li>
+                    <li><strong>坐标系</strong>：建立坐标系量化几何关系</li>
+                    <li><strong>对称性</strong>：利用对称简化问题</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>作图要准确，比例要适当</li>
+                    <li>注意几何图形的特殊性质</li>
+                    <li>结合物理意义理解几何关系</li>
+                    <li>复杂问题可以建立坐标系求解</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：力的分解</div>
+                <p><strong>题目：</strong>一物体放在倾角为 $\theta$ 的斜面上，求重力沿斜面和垂直斜面的分力。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>几何分析：</strong><br>
+                    重力 $mg$ 竖直向下<br>
+                    建立坐标系：沿斜面向下为x轴，垂直斜面向上为y轴<br><br>
+                    
+                    <strong>几何关系：</strong><br>
+                    重力与y轴负方向的夹角为 $\theta$<br>
+                    沿斜面分力：$F_x = mg\sin\theta$<br>
+                    垂直斜面分力：$F_y = mg\cos\theta$<br><br>
+                    
+                    <strong>验证：</strong><br>
+                    $F_x^2 + F_y^2 = m^2g^2(\sin^2\theta + \cos^2\theta) = m^2g^2$ ✓<br><br>
+                    
+                    <strong>答案：</strong>沿斜面分力为 $mg\sin\theta$，垂直斜面分力为 $mg\cos\theta$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：光的反射</div>
+                <p><strong>题目：</strong>一束光线从点A射出，经平面镜反射后经过点B。求入射点位置。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>几何方法：</strong><br>
+                    利用镜像法，作A关于平面镜的对称点A'<br>
+                    连接A'B，与平面镜的交点即为入射点P<br><br>
+                    
+                    <strong>原理：</strong><br>
+                    根据光的反射定律，入射角等于反射角<br>
+                    等价于光线从A'直线传播到B<br>
+                    光程最短，符合费马原理<br><br>
+                    
+                    <strong>几何关系：</strong><br>
+                    AP = A'P（对称性质）<br>
+                    总光程 = AP + PB = A'P + PB = A'B（最短）<br><br>
+                    
+                    <strong>答案：</strong>入射点为A'B连线与平面镜的交点
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法31_极值法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法33_分类讨论法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

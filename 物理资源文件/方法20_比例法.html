@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法20：比例法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法20：比例法 <span class="frequency">★★★★☆</span></h1>
+            <p>利用比例关系简化计算</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>比例法</strong>是利用物理量之间的比例关系，通过已知比例求解未知量的方法。这种方法可以避免繁琐的数值计算，直接得到物理量之间的比例关系。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>正比关系</strong>：$y = kx$，则 $\frac{y_1}{y_2} = \frac{x_1}{x_2}$</li>
+                    <li><strong>反比关系</strong>：$y = \frac{k}{x}$，则 $\frac{y_1}{y_2} = \frac{x_2}{x_1}$</li>
+                    <li><strong>幂次关系</strong>：$y = kx^n$，则 $\frac{y_1}{y_2} = \left(\frac{x_1}{x_2}\right)^n$</li>
+                    <li><strong>连比关系</strong>：多个物理量的比例关系联立求解</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>比例法的基本形式：</strong><br>
+                若 $y = f(x)$，则 $\frac{y_1}{y_2} = \frac{f(x_1)}{f(x_2)}$<br><br>
+                <strong>常见比例关系：</strong><br>
+                匀速运动：$s \propto t$<br>
+                匀加速运动：$v \propto t$，$s \propto t^2$<br>
+                万有引力：$F \propto \frac{1}{r^2}$<br>
+                库仑力：$F \propto \frac{1}{r^2}$
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">过程比较</span>：比较同一物理过程在不同条件下的结果</li>
+                <li><span class="highlight">状态变化</span>：分析系统状态变化前后的关系</li>
+                <li><span class="highlight">相似问题</span>：处理物理情景相似的问题</li>
+                <li><span class="highlight">多变量问题</span>：减少变量个数，简化分析</li>
+                <li><span class="highlight">快速估算</span>：不需要精确数值时的快速判断</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型应用</h3>
+                <ul>
+                    <li>理想气体状态方程中的比例关系</li>
+                    <li>天体运动中的开普勒定律应用</li>
+                    <li>电路中的串并联电阻分配</li>
+                    <li>光学中的相似三角形问题</li>
+                    <li>力学中的相似形变问题</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>确定比例关系</strong>
+                <ul style="margin-top:8px;">
+                    <li>写出物理量之间的函数关系</li>
+                    <li>确定哪些量保持不变（常量）</li>
+                    <li>建立变化量之间的比例关系</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>比例运算规则</strong>
+                <ul style="margin-top:8px;">
+                    <li><strong>正比传递</strong>：若 $a \propto b$，$b \propto c$，则 $a \propto c$</li>
+                    <li><strong>反比转化</strong>：$a \propto \frac{1}{b}$ 等价于 $ab = $ 常数</li>
+                    <li><strong>幂次运算</strong>：$\frac{y_1}{y_2} = \left(\frac{x_1}{x_2}\right)^n$</li>
+                    <li><strong>连比消去</strong>：利用中间量消去，得到直接比例</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>确保比例关系的前提条件成立</li>
+                    <li>注意区分正比和反比关系</li>
+                    <li>多个变量变化时要分别考虑</li>
+                    <li>检验比例结果的合理性</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：理想气体状态变化</div>
+                <p><strong>题目：</strong>一定质量的理想气体，在0°C时压强为 $p_0$，保持体积不变，温度升高到273°C时，压强变为多少？</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>确定过程：</strong>等容变化<br><br>
+                    
+                    <strong>应用查理定律：</strong><br>
+                    $\frac{p_1}{T_1} = \frac{p_2}{T_2}$（T为热力学温度）<br><br>
+                    
+                    <strong>代入数据：</strong><br>
+                    $T_1 = 273$ K，$T_2 = 273 + 273 = 546$ K<br>
+                    $\frac{p_0}{273} = \frac{p_2}{546}$<br><br>
+                    
+                    <strong>求解：</strong><br>
+                    $p_2 = p_0 \times \frac{546}{273} = 2p_0$<br><br>
+                    
+                    <strong>答案：</strong>压强变为 $2p_0$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：卫星轨道变化</div>
+                <p><strong>题目：</strong>人造地球卫星的轨道半径增大为原来的2倍，其周期如何变化？</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>应用开普勒第三定律：</strong><br>
+                    $\frac{T^2}{r^3} = k$（常量）<br><br>
+                    
+                    <strong>建立比例关系：</strong><br>
+                    $\frac{T_1^2}{r_1^3} = \frac{T_2^2}{r_2^3}$<br><br>
+                    
+                    <strong>求解：</strong><br>
+                    $\frac{T_2^2}{T_1^2} = \frac{r_2^3}{r_1^3} = \left(\frac{r_2}{r_1}\right)^3 = 2^3 = 8$<br>
+                    $\frac{T_2}{T_1} = \sqrt{8} = 2\sqrt{2}$<br><br>
+                    
+                    <strong>答案：</strong>周期变为原来的 $2\sqrt{2}$ 倍
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法19_近似估算法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法21_矢量图解法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

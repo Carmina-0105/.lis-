@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法01：整体法与隔离法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法01：整体法与隔离法 <span class="frequency">★★★★★</span></h1>
+            <p>灵活选择研究对象，整体求加速度，隔离求内力</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>整体法与隔离法</strong>是处理连接体问题的核心方法，通过灵活选择研究对象来简化问题分析。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>整体法</strong>：将多个物体视为一个整体系统，分析外力与整体运动的关系，适用于求系统加速度或外力</li>
+                    <li><strong>隔离法</strong>：将系统中的某个物体单独隔离出来分析，适用于求系统内部的作用力（内力）</li>
+                    <li><strong>综合运用</strong>：通常先用整体法求加速度，再用隔离法求内力</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>整体法基本方程：</strong><br>
+                $$F_{合外} = (m_1 + m_2 + ... + m_n)a$$
+                <br><strong>隔离法基本方程：</strong><br>
+                $$F_{合} = ma$$
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">连接体问题</span>：多个物体通过绳子、杆、弹簧等连接，具有相同加速度的情况</li>
+                <li><span class="highlight">叠放物体</span>：物体叠放在一起，需要分析摩擦力或支持力</li>
+                <li><span class="highlight">相对静止系统</span>：系统内各物体相对静止，具有共同加速度</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li>滑轮连接体问题</li>
+                    <li>斜面上的连接体</li>
+                    <li>水平面上的叠放物体</li>
+                    <li>弹簧连接的系统</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>选择研究对象的原则</strong>
+                <ul style="margin-top:8px;">
+                    <li>求加速度或外力时，优先考虑整体法</li>
+                    <li>求内力时，必须将受力物体隔离出来</li>
+                    <li>系统内各物体加速度不同时，只能使用隔离法</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>受力分析技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li>整体法只分析外力，不分析内力</li>
+                    <li>隔离法要分析该物体受到的所有力</li>
+                    <li>注意作用力与反作用力的关系</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 常见错误</strong>
+                <ul style="margin-top:8px;">
+                    <li>混淆内力和外力，在整体法中错误地分析内力</li>
+                    <li>忽略摩擦力方向的判断</li>
+                    <li>没有正确建立坐标系分解力</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：基础应用</div>
+                <p><strong>题目：</strong>质量分别为 $m_1$ 和 $m_2$ 的两个物体用轻绳连接，在水平拉力 $F$ 作用下沿光滑水平面加速运动，求绳子的张力 $T$。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>第一步（整体法）：</strong><br>
+                    将两物体视为整体，由牛顿第二定律：<br>
+                    $$F = (m_1 + m_2)a$$
+                    解得：$a = \frac{F}{m_1 + m_2}$<br><br>
+                    
+                    <strong>第二步（隔离法）：</strong><br>
+                    隔离 $m_2$，分析受力：绳子拉力 $T$ 向右<br>
+                    $$T = m_2a = m_2 \cdot \frac{F}{m_1 + m_2} = \frac{m_2F}{m_1 + m_2}$$<br><br>
+                    
+                    <strong>答案：</strong>$T = \frac{m_2F}{m_1 + m_2}$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：进阶应用</div>
+                <p><strong>题目：</strong>质量为 $M$ 的木板放在光滑水平面上，木板上表面粗糙。质量为 $m$ 的物块放在木板上，物块与木板间的动摩擦因数为 $\mu$。现对木板施加水平拉力 $F$，为使物块不从木板上滑落，求 $F$ 的最大值。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析：</strong>当 $F$ 过大时，物块与木板间发生相对滑动。临界条件是静摩擦力达到最大值。<br><br>
+                    
+                    <strong>对物块 $m$：</strong><br>
+                    最大加速度：$a_{max} = \frac{\mu mg}{m} = \mu g$<br><br>
+                    
+                    <strong>对整体：</strong><br>
+                    $$F_{max} = (M + m)a_{max} = (M + m)\mu g$$<br><br>
+                    
+                    <strong>答案：</strong>$F_{max} = \mu(M + m)g$
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <span class="nav-btn disabled">← 上一个方法</span>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法02_等效法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

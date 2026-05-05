@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法21：矢量图解法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .diagram-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法21：矢量图解法 <span class="frequency">★★★★☆</span></h1>
+            <p>用矢量图直观表示物理关系</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>矢量图解法</strong>是利用矢量的几何性质，通过画图来直观表示和求解物理问题的方法。矢量既有大小又有方向，用箭头表示，可以直观地表示力、速度、位移、电场强度等物理量。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>矢量表示</strong>：用有向线段表示矢量，长度表大小，方向表方向</li>
+                    <li><strong>平行四边形法则</strong>：两个矢量的合矢量由平行四边形对角线表示</li>
+                    <li><strong>三角形法则</strong>：两个矢量首尾相接，合矢量由起点指向终点</li>
+                    <li><strong>多边形法则</strong>：多个矢量依次首尾相接，合矢量封闭多边形</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>矢量运算规则：</strong><br>
+                <strong>加法：</strong>$\vec{C} = \vec{A} + \vec{B}$（平行四边形法则或三角形法则）<br>
+                <strong>减法：</strong>$\vec{C} = \vec{A} - \vec{B} = \vec{A} + (-\vec{B})$<br>
+                <strong>数乘：</strong>$k\vec{A}$（大小变为$|k|$倍，方向$k>0$不变，$k<0$反向）<br>
+                <strong>分解：</strong>$\vec{A} = \vec{A}_x + \vec{A}_y = A_x\vec{i} + A_y\vec{j}$
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">力的合成与分解</span>：分析多个力的合力或一个力的分力</li>
+                <li><span class="highlight">运动分析</span>：速度、加速度的合成与分解</li>
+                <li><span class="highlight">平衡问题</span>：利用矢量封闭（合力为零）求解</li>
+                <li><span class="highlight">相对运动</span>：速度的合成与分解</li>
+                <li><span class="highlight">电磁学</span>：电场、磁场的叠加</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li>共点力的平衡问题</li>
+                    <li>斜面上的物体受力分析</li>
+                    <li>曲线运动的速度分解</li>
+                    <li>相对速度问题（如船渡河）</li>
+                    <li>力的动态平衡问题</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>画图步骤</strong>
+                <ul style="margin-top:8px;">
+                    <li>选择合适的标度（矢量长度与物理量大小的比例）</li>
+                    <li>确定参考方向（通常选水平或竖直方向）</li>
+                    <li>按比例画出各矢量</li>
+                    <li>应用矢量法则求合矢量</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>常用技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li><strong>正交分解</strong>：将矢量分解到相互垂直的方向上</li>
+                    <li><strong>相似三角形</strong>：利用几何相似关系求解</li>
+                    <li><strong>极值问题</strong>：利用矢量图中垂线最短等几何性质</li>
+                    <li><strong>动态分析</strong>：通过改变矢量方向观察变化趋势</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>标度要统一，所有矢量使用相同标度</li>
+                    <li>方向要准确，特别是角度关系</li>
+                    <li>注意区分矢量和标量</li>
+                    <li>复杂问题可先定性分析，再定量计算</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：力的合成</div>
+                <p><strong>题目：</strong>两个力 $F_1 = 3$ N 和 $F_2 = 4$ N，夹角为90°，求合力的大小和方向。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>矢量图解：</strong><br>
+                    以 $F_1$ 和 $F_2$ 为邻边作平行四边形，对角线即为合力<br><br>
+                    
+                    <strong>计算大小：</strong><br>
+                    由于夹角为90°，构成直角三角形<br>
+                    $F = \sqrt{F_1^2 + F_2^2} = \sqrt{3^2 + 4^2} = 5$ N<br><br>
+                    
+                    <strong>计算方向：</strong><br>
+                    $\tan\theta = \frac{F_2}{F_1} = \frac{4}{3}$<br>
+                    $\theta = \arctan\frac{4}{3} \approx 53.1°$<br><br>
+                    
+                    <strong>答案：</strong>合力大小为5 N，方向与 $F_1$ 成53.1°角
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：船渡河问题</div>
+                <p><strong>题目：</strong>河宽 $d = 100$ m，水流速度 $v_水 = 3$ m/s，船在静水中的速度 $v_船 = 5$ m/s。求船垂直渡河时的船头指向和渡河时间。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析：</strong><br>
+                    要使船垂直渡河，船的合速度必须垂直于河岸<br>
+                    即 $v_船$ 必须有向上的分量抵消 $v_水$<br><br>
+                    
+                    <strong>矢量关系：</strong><br>
+                    $v_船\sin\theta = v_水$（水平分量抵消水流）<br>
+                    $\sin\theta = \frac{v_水}{v_船} = \frac{3}{5} = 0.6$<br>
+                    $\theta = 37°$（船头向上游偏37°）<br><br>
+                    
+                    <strong>渡河速度：</strong><br>
+                    $v_合 = v_船\cos\theta = 5 \times 0.8 = 4$ m/s<br><br>
+                    
+                    <strong>渡河时间：</strong><br>
+                    $t = \frac{d}{v_合} = \frac{100}{4} = 25$ s<br><br>
+                    
+                    <strong>答案：</strong>船头应向上游偏37°，渡河时间为25 s
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法20_比例法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法22_系统思维法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

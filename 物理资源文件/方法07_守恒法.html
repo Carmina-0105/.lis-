@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法07：守恒法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法07：守恒法 <span class="frequency">★★★★★</span></h1>
+            <p>抓住不变量，简化复杂过程</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>守恒法</strong>是利用物理过程中某些物理量保持不变的特性（守恒定律），建立方程求解问题的方法。守恒定律是物理学最基本、最重要的规律。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>能量守恒</strong>：孤立系统的总能量保持不变</li>
+                    <li><strong>动量守恒</strong>：系统不受外力或外力合力为零时，总动量守恒</li>
+                    <li><strong>角动量守恒</strong>：系统不受外力矩或外力矩合力为零时，总角动量守恒</li>
+                    <li><strong>电荷守恒</strong>：孤立系统的总电荷量保持不变</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>守恒定律的数学表达：</strong><br>
+                能量守恒：$E_{初} = E_{末}$ 或 $\Delta E = 0$<br>
+                动量守恒：$p_{初} = p_{末}$ 或 $m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'$<br>
+                机械能守恒：$E_k + E_p = \text{常量}$（只有保守力做功）
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">碰撞问题</span>：动量守恒，弹性碰撞能量也守恒</li>
+                <li><span class="highlight">抛体运动</span>：机械能守恒（忽略空气阻力）</li>
+                <li><span class="highlight">天体运动</span>：角动量守恒、机械能守恒</li>
+                <li><span class="highlight">电路问题</span>：电荷守恒、能量守恒</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li>一维弹性碰撞和非弹性碰撞</li>
+                    <li>弹簧振子系统</li>
+                    <li>单摆和复摆问题</li>
+                    <li>人船模型、子弹打木块</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>守恒条件的判断</strong>
+                <ul style="margin-top:8px;">
+                    <li>动量守恒：系统所受合外力为零</li>
+                    <li>机械能守恒：只有重力、弹力做功</li>
+                    <li>能量守恒：任何过程都成立（注意内能转化）</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>应用技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li>选取合适的系统，明确初末状态</li>
+                    <li>建立坐标系，注意动量的矢量性</li>
+                    <li>区分弹性碰撞（动能守恒）和非弹性碰撞</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 常见错误</strong>
+                <ul style="margin-top:8px;">
+                    <li>忽视守恒条件，盲目使用守恒定律</li>
+                    <li>混淆动量守恒和能量守恒的适用条件</li>
+                    <li>漏掉某个物体的动量或能量</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：弹性碰撞</div>
+                <p><strong>题目：</strong>质量为 $m_1$ 的小球以速度 $v_0$ 与静止的质量为 $m_2$ 的小球发生弹性正碰，求碰撞后两球的速度。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析：</strong>弹性碰撞同时满足动量守恒和动能守恒。<br><br>
+                    
+                    <strong>动量守恒：</strong><br>
+                    $$m_1v_0 = m_1v_1 + m_2v_2$$<br><br>
+                    
+                    <strong>动能守恒：</strong><br>
+                    $$\frac{1}{2}m_1v_0^2 = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2$$<br><br>
+                    
+                    <strong>联立求解：</strong><br>
+                    $$v_1 = \frac{m_1-m_2}{m_1+m_2}v_0$$<br>
+                    $$v_2 = \frac{2m_1}{m_1+m_2}v_0$$<br><br>
+                    
+                    <strong>答案：</strong>$v_1 = \frac{m_1-m_2}{m_1+m_2}v_0$，$v_2 = \frac{2m_1}{m_1+m_2}v_0$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：弹簧系统</div>
+                <p><strong>题目：</strong>质量为 $m$ 的物体从高度 $h$ 处自由下落，落在竖直放置的轻弹簧上（劲度系数为 $k$），求弹簧的最大压缩量。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析：</strong>系统机械能守恒，以弹簧原长位置为重力势能零点和弹性势能零点。<br><br>
+                    
+                    <strong>初状态：</strong>物体在高度 $h$ 处，速度为零<br>
+                    $$E_1 = mgh$$<br><br>
+                    
+                    <strong>末状态：</strong>弹簧压缩量最大为 $x$，物体速度为零<br>
+                    $$E_2 = -mgx + \frac{1}{2}kx^2$$<br><br>
+                    
+                    <strong>机械能守恒：</strong><br>
+                    $$mgh = -mgx + \frac{1}{2}kx^2$$<br><br>
+                    
+                    整理得：$kx^2 - 2mgx - 2mgh = 0$<br><br>
+                    
+                    解得：$x = \frac{mg + \sqrt{(mg)^2 + 2mghk}}{k}$（取正根）<br><br>
+                    
+                    <strong>答案：</strong>$x = \frac{mg + \sqrt{m^2g^2 + 2mghk}}{k}$
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法06_极限法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法08_逆向思维法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

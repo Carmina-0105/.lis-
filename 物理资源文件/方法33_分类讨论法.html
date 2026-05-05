@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法33：分类讨论法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        .case-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #9c27b0;
+        }
+        .case-title {
+            font-weight: bold;
+            color: #7b1fa2;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法33：分类讨论法 <span class="frequency">★★★★☆</span></h1>
+            <p>按不同情况分类讨论</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>分类讨论法</strong>是根据问题的不同情况或条件，将问题划分为若干类别，分别进行讨论求解的方法。当问题的结果与某个变量的取值范围、某种条件是否成立、或某种情况是否发生有关时，就需要进行分类讨论。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>完备性</strong>：分类要涵盖所有可能情况，不重不漏</li>
+                    <li><strong>互斥性</strong>：各类别之间互不重叠</li>
+                    <li><strong>层次性</strong>：复杂问题可分多级讨论</li>
+                    <li><strong>转化性</strong>：将复杂问题转化为若干简单问题</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>分类讨论的基本原则：</strong><br>
+                <strong>1. 确定分类标准</strong>：明确按什么条件分类<br>
+                <strong>2. 合理划分类别</strong>：确保分类合理、完整<br>
+                <strong>3. 逐类讨论求解</strong>：对每类分别求解<br>
+                <strong>4. 综合各类结果</strong>：汇总所有情况的解
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">含参数问题</span>：参数取值不同导致结果不同</li>
+                <li><span class="highlight">绝对值问题</span>：需要讨论绝对值内表达式的正负</li>
+                <li><span class="highlight">运动学问题</span>：运动方向、运动状态可能变化</li>
+                <li><span class="highlight">摩擦力问题</span>：静摩擦与动摩擦的转换</li>
+                <li><span class="highlight">碰撞问题</span>：碰撞类型不同结果不同</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li><strong>二次方程根的情况</strong>：判别式讨论</li>
+                    <li><strong>运动学多解问题</strong>：往返运动的不同阶段</li>
+                    <li><strong>电路分析</strong>：开关的不同状态</li>
+                    <li><strong>极值问题</strong>：不同区间内的极值</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>确定分类标准</strong>
+                <ul style="margin-top:8px;">
+                    <li>找出影响结果的关键变量或条件</li>
+                    <li>确定分类的边界点</li>
+                    <li>考虑是否需要多级分类</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>合理划分类别</strong>
+                <ul style="margin-top:8px;">
+                    <li>确保分类不重不漏</li>
+                    <li>各类别要有明确的界限</li>
+                    <li>优先从简单情况开始讨论</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>逐类求解并汇总</strong>
+                <ul style="margin-top:8px;">
+                    <li>对每类情况分别求解</li>
+                    <li>检验各类解的合理性</li>
+                    <li>综合所有情况的解</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 常见错误</strong>
+                <ul style="margin-top:8px;">
+                    <li>分类标准不明确</li>
+                    <li>遗漏某些情况</li>
+                    <li>类别之间有重叠</li>
+                    <li>忘记综合各类结果</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：含参数的二次方程</div>
+                <p><strong>题目：</strong>讨论方程 $x^2 - 2x + k = 0$ 的根的情况。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>判别式：</strong>$\Delta = 4 - 4k$<br><br>
+                    
+                    <div class="case-box">
+                        <div class="case-title">情况1：$\Delta > 0$（即 $k < 1$）</div>
+                        方程有两个不相等的实根：<br>
+                        $x_{1,2} = \frac{2 \pm \sqrt{4-4k}}{2} = 1 \pm \sqrt{1-k}$
+                    </div>
+                    
+                    <div class="case-box">
+                        <div class="case-title">情况2：$\Delta = 0$（即 $k = 1$）</div>
+                        方程有两个相等的实根：<br>
+                        $x_1 = x_2 = 1$
+                    </div>
+                    
+                    <div class="case-box">
+                        <div class="case-title">情况3：$\Delta < 0$（即 $k > 1$）</div>
+                        方程无实根（有两个共轭复根）
+                    </div>
+                    
+                    <strong>答案：</strong><br>
+                    当 $k < 1$ 时，有两个不等实根 $x = 1 \pm \sqrt{1-k}$<br>
+                    当 $k = 1$ 时，有两个相等实根 $x = 1$<br>
+                    当 $k > 1$ 时，无实根
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：摩擦力问题</div>
+                <p><strong>题目：</strong>质量为 $m = 2$ kg 的物体放在水平面上，摩擦系数 $\mu = 0.3$。用水平力 $F$ 拉物体，讨论物体的运动情况。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>最大静摩擦力：</strong><br>
+                    $f_{max} = \mu mg = 0.3 \times 2 \times 10 = 6$ N<br><br>
+                    
+                    <div class="case-box">
+                        <div class="case-title">情况1：$F \leq 6$ N</div>
+                        物体静止，静摩擦力 $f = F$，与外力平衡
+                    </div>
+                    
+                    <div class="case-box">
+                        <div class="case-title">情况2：$F > 6$ N</div>
+                        物体滑动，动摩擦力 $f = 6$ N<br>
+                        加速度 $a = \frac{F - f}{m} = \frac{F - 6}{2}$ m/s²
+                    </div>
+                    
+                    <strong>答案：</strong><br>
+                    当 $F \leq 6$ N 时，物体静止，$f = F$<br>
+                    当 $F > 6$ N 时，物体加速运动，$a = \frac{F-6}{2}$ m/s²
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法32_几何法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法34_换元法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

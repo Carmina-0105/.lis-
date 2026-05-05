@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法12：临界分析法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法12：临界分析法 <span class="frequency">★★★★☆</span></h1>
+            <p>抓住转折点，解决极值问题</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>临界分析法</strong>是通过分析物理过程的临界状态（转折点），找出临界条件，从而解决问题的方法。临界状态是物理过程发生质变的关节点。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>临界状态</strong>：物理过程发生突变的转折点</li>
+                    <li><strong>临界条件</strong>：临界状态满足的特定条件</li>
+                    <li><strong>极值分析</strong>：临界状态往往对应极值</li>
+                    <li><strong>边界条件</strong>：临界状态是不同区域的边界</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>临界条件的一般形式：</strong><br>
+                静摩擦临界：$f = f_{max} = \mu N$<br>
+                脱离临界：$N = 0$<br>
+                绳子拉紧临界：$T = 0$<br>
+                圆周运动临界：$F_{向心} = F_{所需}$
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">摩擦力问题</span>：物体即将滑动或相对滑动的临界</li>
+                <li><span class="highlight">脱离问题</span>：物体即将脱离接触面的临界</li>
+                <li><span class="highlight">绳子问题</span>：绳子即将松弛或拉断的临界</li>
+                <li><span class="highlight">圆周运动</span>：物体能否完成圆周运动的临界</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型临界问题</h3>
+                <ul>
+                    <li>斜面上物体的滑动临界</li>
+                    <li>竖直平面内圆周运动的最高点临界</li>
+                    <li>弹簧振子的分离临界</li>
+                    <li>追及相遇问题的距离临界</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>临界分析的步骤</strong>
+                <ul style="margin-top:8px;">
+                    <li>分析物理过程，识别可能的临界状态</li>
+                    <li>确定临界条件</li>
+                    <li>建立临界状态的方程</li>
+                    <li>求解临界参数</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>常用临界条件</strong>
+                <ul style="margin-top:8px;">
+                    <li>静摩擦→滑动摩擦：$f = \mu_s N$</li>
+                    <li>接触→脱离：$N = 0$</li>
+                    <li>绳子拉紧→松弛：$T = 0$</li>
+                    <li>圆周运动最高点：$v = \sqrt{gR}$（仅重力提供向心力）</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>临界状态是理想化的极限情况</li>
+                    <li>实际问题中要考虑安全裕度</li>
+                    <li>多个临界条件同时存在时要综合考虑</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：斜面滑动临界</div>
+                <p><strong>题目：</strong>质量为 $m$ 的物体放在倾角为 $\theta$ 的斜面上，斜面与物体间的静摩擦因数为 $\mu_s$。求物体即将下滑时的临界倾角。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>受力分析：</strong><br>
+                    沿斜面方向：$mg\sin\theta - f = 0$<br>
+                    垂直斜面方向：$N - mg\cos\theta = 0$<br><br>
+                    
+                    <strong>临界条件：</strong><br>
+                    $f = f_{max} = \mu_s N$<br><br>
+                    
+                    <strong>求解：</strong><br>
+                    $mg\sin\theta = \mu_s mg\cos\theta$<br>
+                    $\tan\theta = \mu_s$<br><br>
+                    
+                    <strong>答案：</strong>$\theta_{临界} = \arctan\mu_s$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：圆周运动临界</div>
+                <p><strong>题目：</strong>一质量为 $m$ 的小球用长为 $L$ 的轻绳悬挂，在竖直平面内做圆周运动。求小球能完成完整圆周运动的最小初速度（最低点）。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>临界分析：</strong><br>
+                    最高点是关键位置，若能通过最高点，则能完成圆周运动<br><br>
+                    
+                    <strong>最高点临界条件：</strong><br>
+                    绳子拉力为零，仅重力提供向心力：<br>
+                    $mg = m\frac{v_{顶}^2}{L}$<br>
+                    $v_{顶} = \sqrt{gL}$<br><br>
+                    
+                    <strong>机械能守恒：</strong><br>
+                    $\frac{1}{2}mv_{底}^2 = \frac{1}{2}mv_{顶}^2 + mg \cdot 2L$<br>
+                    $v_{底}^2 = v_{顶}^2 + 4gL = 5gL$<br><br>
+                    
+                    <strong>答案：</strong>$v_{min} = \sqrt{5gL}$
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法11_递推归纳法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法13_叠加原理法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

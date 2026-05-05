@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法15：数学建模法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法15：数学建模法 <span class="frequency">★★★★☆</span></h1>
+            <p>用数学语言描述物理世界</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>数学建模法</strong>是将物理问题抽象为数学问题，通过建立数学模型来描述物理规律，然后利用数学工具求解，最后将数学结果解释为物理结论的方法。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>抽象化</strong>：提取物理问题的本质特征</li>
+                    <li><strong>数学化</strong>：用数学语言描述物理关系</li>
+                    <li><strong>求解</strong>：运用数学工具求解模型</li>
+                    <li><strong>解释</strong>：将数学结果转化为物理意义</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>数学建模的基本流程：</strong><br>
+                物理问题 → 数学模型 → 数学求解 → 物理解释<br>
+                常用模型：函数关系、方程、不等式、几何图形等
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">运动学</span>：建立位移、速度、时间的函数关系</li>
+                <li><span class="highlight">动力学</span>：建立牛顿运动方程</li>
+                <li><span class="highlight">能量问题</span>：建立能量守恒方程</li>
+                <li><span class="highlight">极值问题</span>：建立目标函数求极值</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">常用数学工具</h3>
+                <ul>
+                    <li>函数与方程</li>
+                    <li>微积分</li>
+                    <li>向量与矩阵</li>
+                    <li>概率统计</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>建模的步骤</strong>
+                <ul style="margin-top:8px;">
+                    <li>理解物理问题的本质</li>
+                    <li>确定变量和参数</li>
+                    <li>建立变量间的关系</li>
+                    <li>选择适当的数学工具</li>
+                    <li>求解并验证结果</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>常用技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li>合理简化，抓住主要因素</li>
+                    <li>选择合适的坐标系</li>
+                    <li>注意单位的统一</li>
+                    <li>检验结果的合理性</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>模型要反映物理本质</li>
+                    <li>简化要合理，不能丢失关键信息</li>
+                    <li>数学求解后要进行物理解释</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：抛体运动建模</div>
+                <p><strong>题目：</strong>以初速度 $v_0$、抛射角 $\theta$ 斜抛一物体，不计空气阻力。建立运动方程并求最大射程。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>建立坐标系：</strong><br>
+                    以抛出点为原点，水平向右为 $x$ 轴，竖直向上为 $y$ 轴<br><br>
+                    
+                    <strong>运动方程：</strong><br>
+                    $x = v_0\cos\theta \cdot t$<br>
+                    $y = v_0\sin\theta \cdot t - \frac{1}{2}gt^2$<br><br>
+                    
+                    <strong>求射程：</strong><br>
+                    令 $y = 0$，得 $t = \frac{2v_0\sin\theta}{g}$<br>
+                    $R = v_0\cos\theta \cdot \frac{2v_0\sin\theta}{g} = \frac{v_0^2\sin2\theta}{g}$<br><br>
+                    
+                    <strong>最大射程：</strong>当 $\theta = 45°$ 时，$R_{max} = \frac{v_0^2}{g}$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：最速降线</div>
+                <p><strong>题目：</strong>一质点在重力作用下从A点沿光滑曲线滑到B点（A、B不在同一高度），求使下滑时间最短的曲线形状。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>建模：</strong><br>
+                    设曲线为 $y = y(x)$，由能量守恒：<br>
+                    $\frac{1}{2}mv^2 = mgy$，得 $v = \sqrt{2gy}$<br><br>
+                    
+                    <strong>时间泛函：</strong><br>
+                    $T = \int_A^B \frac{ds}{v} = \int_A^B \frac{\sqrt{1+y'^2}}{\sqrt{2gy}}dx$<br><br>
+                    
+                    <strong>欧拉-拉格朗日方程：</strong><br>
+                    求解得摆线（旋轮线）<br><br>
+                    
+                    <strong>答案：</strong>最速降线是摆线
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法14_假设验证法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法16_等势法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

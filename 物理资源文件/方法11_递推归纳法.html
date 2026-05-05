@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法11：递推归纳法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法11：递推归纳法 <span class="frequency">★★★☆☆</span></h1>
+            <p>由特殊到一般，发现普遍规律</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>递推归纳法</strong>是通过分析特殊情形，找出规律，然后归纳总结出一般结论的方法。这种方法常用于处理数列、多次碰撞、多过程等涉及递推关系的问题。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>递推关系</strong>：找出相邻项之间的关系</li>
+                    <li><strong>归纳猜想</strong>：从特殊情形猜想一般规律</li>
+                    <li><strong>数学归纳</strong>：用数学归纳法证明猜想</li>
+                    <li><strong>模式识别</strong>：识别问题中的重复模式</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>递推法的基本形式：</strong><br>
+                已知 $a_1$，递推关系 $a_{n+1} = f(a_n)$<br>
+                求通项公式 $a_n = g(n)$<br>
+                或求极限 $\lim_{n \to \infty} a_n$
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">多次碰撞</span>：多个物体间的连续碰撞</li>
+                <li><span class="highlight">多过程运动</span>：物体经历多个相似的运动过程</li>
+                <li><span class="highlight">数列问题</span>：涉及数列求和或通项</li>
+                <li><span class="highlight">迭代过程</span>：需要迭代计算的问题</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li>小球在斜面上的多次弹跳</li>
+                    <li>多球碰撞问题</li>
+                    <li>电阻网络的等效电阻</li>
+                    <li>光的多次反射</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>递推法的步骤</strong>
+                <ul style="margin-top:8px;">
+                    <li>分析前几个特殊情形（n=1,2,3）</li>
+                    <li>找出相邻项之间的递推关系</li>
+                    <li>归纳猜想通项公式</li>
+                    <li>验证猜想的正确性</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>常用技巧</strong>
+                <ul style="margin-top:8px;">
+                    <li>寻找不变量或守恒量</li>
+                    <li>利用几何级数求和</li>
+                    <li>注意递推中的周期性</li>
+                    <li>考虑极限情况</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 注意事项</strong>
+                <ul style="margin-top:8px;">
+                    <li>递推关系要准确</li>
+                    <li>初始条件要正确</li>
+                    <li>归纳猜想需要验证</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：小球弹跳</div>
+                <p><strong>题目：</strong>一小球从高度 $h$ 自由落下，每次与地面碰撞后弹起的高度为前一次的 $k$ 倍（$k < 1$）。求小球运动的总路程。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>分析各次运动：</strong><br>
+                    第1次下落：$h$<br>
+                    第1次弹起和第2次下落：$2kh$<br>
+                    第2次弹起和第3次下落：$2k^2h$<br>
+                    ...<br><br>
+                    
+                    <strong>总路程：</strong><br>
+                    $S = h + 2kh + 2k^2h + 2k^3h + \cdots$<br>
+                    $S = h + 2kh(1 + k + k^2 + \cdots)$<br>
+                    $S = h + \frac{2kh}{1-k} = \frac{h(1+k)}{1-k}$<br><br>
+                    
+                    <strong>答案：</strong>$S = \frac{h(1+k)}{1-k}$
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：多球碰撞</div>
+                <p><strong>题目：</strong>质量为 $m$ 的小球以速度 $v_0$ 撞击静止的质量为 $M$ 的大球，碰撞为弹性碰撞。若小球继续撞击前方静止的相同大球，求第 $n$ 次碰撞后小球的速度。</p>
+                
+                <div class="solution">
+                    <strong>解法：</strong><br><br>
+                    <strong>单次弹性碰撞：</strong><br>
+                    由动量守恒和能量守恒：<br>
+                    $v' = \frac{m-M}{m+M}v$<br><br>
+                    
+                    <strong>递推关系：</strong><br>
+                    设 $r = \frac{m-M}{m+M}$，则 $v_n = r \cdot v_{n-1}$<br><br>
+                    
+                    <strong>通项公式：</strong><br>
+                    $v_n = r^n v_0 = \left(\frac{m-M}{m+M}\right)^n v_0$<br><br>
+                    
+                    <strong>答案：</strong>$v_n = \left(\frac{m-M}{m+M}\right)^n v_0$
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法10_补偿法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法12_临界分析法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法36：反证法 - 详细内容</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .explanation-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 5px solid #4caf50;
+        }
+        .explanation-section .section-title {
+            color: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+        }
+        .scenario-section .section-title {
+            color: #1565c0;
+            border-color: #2196f3;
+        }
+        
+        .keypoints-section {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border-left: 5px solid #ff8f00;
+        }
+        .keypoints-section .section-title {
+            color: #e65100;
+            border-color: #ff8f00;
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+        }
+        .example-section .section-title {
+            color: #c2185b;
+            border-color: #e91e63;
+        }
+        
+        .formula {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            margin: 15px 0;
+            border-left: 4px solid #fbc02d;
+            overflow-x: auto;
+        }
+        
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #e91e63;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 12pt;
+        }
+        
+        .solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        ul { margin-left: 25px; }
+        li { margin-bottom: 8px; }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .frequency {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10pt;
+            margin-left: 15px;
+        }
+        
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #fff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>方法36：反证法 <span class="frequency">★★★☆☆</span></h1>
+            <p>假设结论不成立推出矛盾</p>
+            <a href="../物理思想方法_详解版.html" class="back-link">← 返回主页面</a>
+        </div>
+
+        <div class="section explanation-section">
+            <div class="section-title">📖 方法详解</div>
+            <p><strong>反证法</strong>是一种间接证明方法。其基本思想是：要证明命题P成立，先假设P不成立（即假设¬P成立），然后从这个假设出发，经过正确的逻辑推理，推出与已知条件、公理、定理或事实相矛盾的结论，从而证明假设错误，原命题成立。</p>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#2e7d32;margin-bottom:10px;">核心原理</h3>
+                <ul>
+                    <li><strong>排中律</strong>：命题P与¬P必有一真一假</li>
+                    <li><strong>矛盾律</strong>：不能同时承认P与¬P为真</li>
+                    <li><strong>归谬</strong>：从假设推出矛盾，否定假设</li>
+                    <li><strong>间接证明</strong>：通过否定反面来肯定正面</li>
+                </ul>
+            </div>
+            
+            <div class="formula">
+                <strong>反证法的基本步骤：</strong><br>
+                <strong>1. 反设</strong>：假设结论不成立（否定结论）<br>
+                <strong>2. 归谬</strong>：从假设出发进行推理，推出矛盾<br>
+                <strong>3. 结论</strong>：由于矛盾，假设不成立，原结论成立
+            </div>
+        </div>
+
+        <div class="section scenario-section">
+            <div class="section-title">🎯 适用场景详解</div>
+            <ul>
+                <li><span class="highlight">存在性命题</span>：证明某物存在或不存在</li>
+                <li><span class="highlight">唯一性命题</span>：证明某物唯一</li>
+                <li><span class="highlight">否定性命题</span>：证明某事不可能</li>
+                <li><span class="highlight">无限性命题</span>：涉及无限的证明</li>
+                <li><span class="highlight">"至少"、"至多"型</span>：存在性、数量限制</li>
+            </ul>
+            
+            <div style="margin-top:20px;">
+                <h3 style="color:#1565c0;margin-bottom:10px;">典型问题类型</h3>
+                <ul>
+                    <li><strong>无理数证明</strong>：证明某数是无理数</li>
+                    <li><strong>素数无限</strong>：证明素数有无穷多个</li>
+                    <li><strong>不可能问题</strong>：证明某事物理上不可能</li>
+                    <li><strong>最优性证明</strong>：证明某方案最优</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section keypoints-section">
+            <div class="section-title">💡 核心要点与技巧</div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>正确反设</strong>
+                <ul style="margin-top:8px;">
+                    <li>准确否定原结论</li>
+                    <li>注意"且"与"或"的否定规则</li>
+                    <li>全称命题与存在命题的否定</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>寻找矛盾</strong>
+                <ul style="margin-top:8px;">
+                    <li>与已知条件矛盾</li>
+                    <li>与公理、定理矛盾</li>
+                    <li>自相矛盾</li>
+                    <li>与事实矛盾</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>推理严谨</strong>
+                <ul style="margin-top:8px;">
+                    <li>推理过程必须正确</li>
+                    <li>矛盾必须确实成立</li>
+                    <li>不能循环论证</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚠️ 常见错误</strong>
+                <ul style="margin-top:8px;">
+                    <li>反设不正确，否定错误</li>
+                    <li>推理过程出现错误</li>
+                    <li>矛盾不明显或不存在</li>
+                    <li>与已知矛盾的结论本身有误</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section example-section">
+            <div class="section-title">📝 典型例题</div>
+            
+            <div class="example-box">
+                <div class="example-title">例题1：证明素数无穷多</div>
+                <p><strong>题目：</strong>证明素数有无穷多个。</p>
+                
+                <div class="solution">
+                    <strong>证明：</strong><br><br>
+                    <strong>反设：</strong>假设素数只有有限个，设为 $p_1, p_2, \ldots, p_n$<br><br>
+                    
+                    <strong>构造新数：</strong><br>
+                    令 $N = p_1 \cdot p_2 \cdot \ldots \cdot p_n + 1$<br><br>
+                    
+                    <strong>分析：</strong><br>
+                    $N$ 除以任何 $p_i$ 都余 1，所以 $N$ 不能被任何已知素数整除<br><br>
+                    
+                    <strong>推出矛盾：</strong><br>
+                    若 $N$ 是素数，则 $N$ 是不在列表中的新素数，矛盾！<br>
+                    若 $N$ 是合数，则 $N$ 有素因子，但该素因子不在列表中，矛盾！<br><br>
+                    
+                    <strong>结论：</strong>假设错误，素数有无穷多个
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">例题2：证明√2是无理数</div>
+                <p><strong>题目：</strong>证明 $\sqrt{2}$ 是无理数。</p>
+                
+                <div class="solution">
+                    <strong>证明：</strong><br><br>
+                    <strong>反设：</strong>假设 $\sqrt{2}$ 是有理数<br><br>
+                    
+                    <strong>表示：</strong><br>
+                    则存在互质的整数 $p, q$（$q \neq 0$），使得 $\sqrt{2} = \frac{p}{q}$<br><br>
+                    
+                    <strong>推导：</strong><br>
+                    $2 = \frac{p^2}{q^2}$<br>
+                    $p^2 = 2q^2$<br><br>
+                    
+                    <strong>分析：</strong><br>
+                    所以 $p^2$ 是偶数，则 $p$ 是偶数<br>
+                    设 $p = 2k$，则 $(2k)^2 = 2q^2$<br>
+                    $4k^2 = 2q^2$<br>
+                    $q^2 = 2k^2$<br><br>
+                    
+                    <strong>推出矛盾：</strong><br>
+                    所以 $q^2$ 是偶数，则 $q$ 是偶数<br>
+                    这样 $p$ 和 $q$ 都是偶数，不互质，与假设矛盾！<br><br>
+                    
+                    <strong>结论：</strong>$\sqrt{2}$ 是无理数
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="方法35_构造法.html" class="nav-btn">← 上一个方法</a>
+            <a href="../物理思想方法_详解版.html" class="nav-btn">返回主页面</a>
+            <a href="方法37_惯性法.html" class="nav-btn">下一个方法 →</a>
+        </div>
+    </div>
+</body>
+</html>

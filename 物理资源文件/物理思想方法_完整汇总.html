@@ -1,0 +1,3060 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物理思想方法专题 - 完整汇总（46法全收录）</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 28pt;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .header p {
+            font-size: 13pt;
+            opacity: 0.9;
+        }
+        
+        /* 快速导航 */
+        .nav-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 5px solid #1976d2;
+        }
+        .nav-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .nav-item {
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1565c0;
+            font-size: 10pt;
+            transition: all 0.3s;
+            border-left: 3px solid #1976d2;
+        }
+        .nav-item:hover {
+            background: #1976d2;
+            color: #fff;
+            transform: translateX(5px);
+        }
+        
+        /* 方法汇总表 */
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10.5pt;
+        }
+        .summary-table th {
+            background: linear-gradient(135deg, #1565c0, #1976d2);
+            color: #fff;
+            padding: 12px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+        .summary-table td {
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+        }
+        .summary-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        .summary-table tr:hover {
+            background: #e3f2fd;
+        }
+        .num-cell {
+            font-weight: bold;
+            color: #1565c0;
+            text-align: center;
+        }
+        .method-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .frequency-tag {
+            background: #ff5722;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 9pt;
+        }
+        
+        /* 分节标题 */
+        .section-title {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #1a237e;
+            margin: 40px 0 25px 0;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            border-radius: 10px;
+            border-left: 5px solid #3949ab;
+        }
+        
+        /* 方法卡片 */
+        .method-card {
+            margin-bottom: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .method-header {
+            background: linear-gradient(135deg, #1565c0, #1976d2);
+            color: #fff;
+            padding: 20px 30px;
+            font-size: 16pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .method-icon {
+            font-size: 24pt;
+        }
+        .method-content {
+            padding: 30px;
+        }
+        .concept-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .concept-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        .scenario-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        .scenario-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        .steps-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff9800;
+        }
+        .steps-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+        .step-item {
+            background: #fff;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border-left: 3px solid #ff9800;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .step-number {
+            background: #ff9800;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10pt;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-key {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .example-box {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffc107;
+        }
+        .example-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #ff6f00;
+            margin-bottom: 10px;
+        }
+        .example-problem {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border: 1px dashed #ffc107;
+        }
+        .example-solution {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .solution-phase {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .phase-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 6px;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e91e63;
+        }
+        .summary-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 10px;
+        }
+        .formula {
+            background: #fffde7;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-family: "Times New Roman", serif;
+            font-size: 11pt;
+            margin: 8px 0;
+            border-left: 3px solid #fbc02d;
+            overflow-x: auto;
+        }
+        .keyword {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .guide-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .guide-title {
+            font-size: 15pt;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 12px;
+        }
+        .guide-content {
+            font-size: 11pt;
+            color: #1b5e20;
+            line-height: 1.8;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f44336;
+        }
+        .warning-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>物理思想方法专题 - 完整汇总</h1>
+            <p>46种核心物理解题思想方法全收录 | 高考备考必备</p>
+        </div>
+
+        <!-- 快速导航 -->
+        <div class="nav-box">
+            <div class="nav-title">📑 快速导航</div>
+            <div class="nav-grid">
+                <a href="#part1" class="nav-item">第一部分：基础核心法(1-12)</a>
+                <a href="#part2" class="nav-item">第二部分：进阶核心法(13-24)</a>
+                <a href="#part3" class="nav-item">第三部分：高考十八法</a>
+                <a href="#part4" class="nav-item">第四部分：高阶方法(25-36)</a>
+                <a href="#part5" class="nav-item">第五部分：补充方法(37-46)</a>
+            </div>
+        </div>
+
+        <!-- 方法汇总表 -->
+        <div class="section-title">📊 46种方法汇总表</div>
+        <table class="summary-table">
+            <tr>
+                <th style="width: 6%;">编号</th>
+                <th style="width: 15%;">方法名称</th>
+                <th style="width: 25%;">核心思想</th>
+                <th style="width: 20%;">关键词</th>
+                <th style="width: 14%;">考查频率</th>
+            </tr>
+            <tr><td class="num-cell">1</td><td class="method-name">力矩平衡法</td><td>$M_{顺}=M_{逆}$</td><td><span class="keyword">转动</span> <span class="keyword">转轴</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">2</td><td class="method-name">整体法与隔离法</td><td>先整体后隔离</td><td><span class="keyword">连接体</span> <span class="keyword">多物体</span></td><td><span class="frequency-tag">★★★★★</span></td></tr>
+            <tr><td class="num-cell">3</td><td class="method-name">等效法</td><td>效果等效替代</td><td><span class="keyword">等效</span> <span class="keyword">替代</span></td><td><span class="frequency-tag">★★★★☆</span></td></tr>
+            <tr><td class="num-cell">4</td><td class="method-name">图像法</td><td>斜率、面积、截距</td><td><span class="keyword">图像</span> <span class="keyword">v-t图</span></td><td><span class="frequency-tag">★★★★★</span></td></tr>
+            <tr><td class="num-cell">5</td><td class="method-name">极限法与特值法</td><td>推向极端验证</td><td><span class="keyword">选择题</span> <span class="keyword">验证</span></td><td><span class="frequency-tag">★★★★☆</span></td></tr>
+            <tr><td class="num-cell">6</td><td class="method-name">对称法</td><td>利用对称性简化</td><td><span class="keyword">对称</span> <span class="keyword">中心对称</span></td><td><span class="frequency-tag">★★★★☆</span></td></tr>
+            <tr><td class="num-cell">7</td><td class="method-name">守恒法</td><td>抓住守恒量</td><td><span class="keyword">守恒</span> <span class="keyword">光滑</span></td><td><span class="frequency-tag">★★★★★</span></td></tr>
+            <tr><td class="num-cell">8</td><td class="method-name">微元法</td><td>化整为零</td><td><span class="keyword">变力</span> <span class="keyword">连续</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">9</td><td class="method-name">量纲分析法</td><td>单位验证</td><td><span class="keyword">单位</span> <span class="keyword">量纲</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">10</td><td class="method-name">逆向思维法</td><td>正难则反</td><td><span class="keyword">末速为零</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">11</td><td class="method-name">递推归纳法</td><td>从特殊到一般</td><td><span class="keyword">多次</span> <span class="keyword">重复</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">12</td><td class="method-name">临界分析法</td><td>抓住临界点</td><td><span class="keyword">恰好</span> <span class="keyword">刚好</span></td><td><span class="frequency-tag">★★★★★</span></td></tr>
+            <tr><td class="num-cell">13</td><td class="method-name">叠加原理法</td><td>矢量叠加</td><td><span class="keyword">电场叠加</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">14</td><td class="method-name">假设验证法</td><td>先假设后验证</td><td><span class="keyword">方向不确定</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">15</td><td class="method-name">数学建模法</td><td>物理问题数学化</td><td><span class="keyword">极值</span> <span class="keyword">最值</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">16</td><td class="method-name">等势法</td><td>等势点短接</td><td><span class="keyword">对称电路</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">17</td><td class="method-name">类比法</td><td>触类旁通</td><td><span class="keyword">类似</span> <span class="keyword">相似</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">18</td><td class="method-name">补偿法/割补法</td><td>割补转化</td><td><span class="keyword">不规则</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">19</td><td class="method-name">控制变量法</td><td>单一因素分析</td><td><span class="keyword">实验</span> <span class="keyword">探究</span></td><td><span class="frequency-tag">★★★★★</span></td></tr>
+            <tr><td class="num-cell">20</td><td class="method-name">理想模型法</td><td>抓主要矛盾</td><td><span class="keyword">质点</span> <span class="keyword">理想</span></td><td><span class="frequency-tag">★★★★★</span></td></tr>
+            <tr><td class="num-cell">21</td><td class="method-name">近似估算法</td><td>数量级优先</td><td><span class="keyword">估算</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">22</td><td class="method-name">比例法</td><td>找比例关系</td><td><span class="keyword">比值</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">23</td><td class="method-name">矢量图解法</td><td>几何直观</td><td><span class="keyword">力的合成</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">24</td><td class="method-name">系统思维法</td><td>整体观念</td><td><span class="keyword">系统</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">25</td><td class="method-name">质心法</td><td>质量分布平均位置</td><td><span class="keyword">人船模型</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">26</td><td class="method-name">配速法</td><td>速度分解配置</td><td><span class="keyword">复合场</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">27</td><td class="method-name">割补法</td><td>切割或补偿</td><td><span class="keyword">不规则</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">28</td><td class="method-name">递归思想</td><td>递推关系</td><td><span class="keyword">多次碰撞</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">29</td><td class="method-name">程序法</td><td>分步分析</td><td><span class="keyword">多过程</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">30</td><td class="method-name">虚拟法</td><td>虚拟过程</td><td><span class="keyword">假设</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">31</td><td class="method-name">极值法</td><td>求极大极小值</td><td><span class="keyword">最值</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">32</td><td class="method-name">几何法</td><td>几何性质</td><td><span class="keyword">相似</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">33</td><td class="method-name">分类讨论法</td><td>不重不漏</td><td><span class="keyword">多解</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">34</td><td class="method-name">换元法</td><td>变量替换</td><td><span class="keyword">简化</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">35</td><td class="method-name">构造法</td><td>构造辅助</td><td><span class="keyword">辅助线</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">36</td><td class="method-name">反证法</td><td>反面论证</td><td><span class="keyword">证明</span></td><td><span class="frequency-tag">★☆☆☆☆</span></td></tr>
+            <tr><td class="num-cell">37</td><td class="method-name">惯性法</td><td>惯性思维</td><td><span class="keyword">变速</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">38</td><td class="method-name">半定量分析法</td><td>趋势分析</td><td><span class="keyword">选择题</span></td><td><span class="frequency-tag">★★★★☆</span></td></tr>
+            <tr><td class="num-cell">39</td><td class="method-name">黑箱法</td><td>输入输出分析</td><td><span class="keyword">等效</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">40</td><td class="method-name">反馈法</td><td>反馈调节</td><td><span class="keyword">动态</span></td><td><span class="frequency-tag">★☆☆☆☆</span></td></tr>
+            <tr><td class="num-cell">41</td><td class="method-name">变换参考系法</td><td>换参考系</td><td><span class="keyword">相对运动</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">42</td><td class="method-name">相对运动法</td><td>相对速度</td><td><span class="keyword">追及</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">43</td><td class="method-name">十字交叉法</td><td>质量比计算</td><td><span class="keyword">完全非弹性</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+            <tr><td class="num-cell">44</td><td class="method-name">人船模型</td><td>动量守恒应用</td><td><span class="keyword">位移比</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">45</td><td class="method-name">弹性碰撞速度公式</td><td>二级结论</td><td><span class="keyword">弹性碰撞</span></td><td><span class="frequency-tag">★★★☆☆</span></td></tr>
+            <tr><td class="num-cell">46</td><td class="method-name">折合质量法</td><td>两体问题</td><td><span class="keyword">相对运动</span></td><td><span class="frequency-tag">★★☆☆☆</span></td></tr>
+        </table>
+
+        <!-- 第一部分：基础核心法(1-12) -->
+        <div class="section-title" id="part1">第一部分：基础核心法 (1-12)</div>
+
+        <!-- 方法一：力矩平衡法 -->
+        <div class="method-card" id="method1">
+            <div class="method-header">
+                <span class="method-icon">⚖️</span>
+                <span>方法一：力矩平衡法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box">
+                    <div class="concept-title">📚 核心概念</div>
+                    <p><strong>力矩（力偶矩）</strong>是力使物体绕轴转动效应的度量。</p>
+                    <div class="formula">
+                        力矩公式：$M = F \times L = F \times d \times \sin\theta$
+                    </div>
+                    <p>其中：$F$ - 力的大小；$L$ - 力臂（转轴到力的作用线的垂直距离）；$d$ - 转轴到力的作用点的距离；$\theta$ - 力与力臂的夹角</p>
+                    <p><strong>力矩平衡条件：</strong>物体处于转动平衡状态时，所有力矩的代数和为零。</p>
+                    <div class="formula">
+                        平衡方程：$\sum M = 0$ 或 $M_{顺时针} = M_{逆时针}$
+                    </div>
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-title">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">有固定转轴</span>的物体平衡问题（如：杆绕端点转动、门绕铰链转动）</li>
+                        <li>物体处于<span class="keyword">转动平衡</span>状态（匀速转动或静止）</li>
+                        <li>涉及<span class="keyword">杠杆原理</span>的问题（天平、撬棍、剪刀等）</li>
+                        <li>求<span class="keyword">重心位置</span>的问题</li>
+                        <li>物体可能发生<span class="keyword">翻转</span>的临界问题</li>
+                    </ul>
+                </div>
+                <div class="steps-box">
+                    <div class="steps-title">📝 解题步骤</div>
+                    <div class="step-item">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <span class="step-key">确定研究对象</span><br>
+                            明确要分析的物体，画出简图
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <span class="step-key">确定转轴位置</span><br>
+                            选择未知力的作用点为转轴，可以消除该力的力矩
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <span class="step-key">受力分析</span><br>
+                            画出所有作用力，标出大小和方向
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <span class="step-key">计算力臂并列方程</span><br>
+                            力臂 = 转轴到力的作用线的垂直距离，列力矩平衡方程求解
+                        </div>
+                    </div>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>一根质量均匀分布的杆AB，长为L，质量为m，A端用铰链固定在墙上，B端用水平绳拉住，杆与水平方向成$30°$角。求绳子的拉力T。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>第一步：</strong>选A点为转轴，消除铰链作用力的力矩</p>
+                            <p><strong>第二步：</strong>受力分析 - 重力$mg$（作用于中点，竖直向下），绳子拉力$T$（水平向左）</p>
+                            <p><strong>第三步：</strong>计算力臂</p>
+                            <div class="formula">
+                                重力力臂：$L_1 = \frac{L}{2}\cos30°$（水平距离）<br>
+                                拉力力臂：$L_2 = L\sin30°$（竖直距离）
+                            </div>
+                            <p><strong>第四步：</strong>列力矩平衡方程</p>
+                            <div class="formula">
+                                $mg \times \frac{L}{2}\cos30° = T \times L\sin30°$<br>
+                                $T = \frac{mg\cos30°}{2\sin30°} = \frac{mg\sqrt{3}/2}{2 \times 1/2} = \frac{\sqrt{3}mg}{2}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>选转轴的技巧：</strong>优先选择未知力的作用点，可以消除该力的力矩</li>
+                        <li><strong>力臂的计算：</strong>一定是垂直距离，不是到力的作用点的距离</li>
+                        <li><strong>重心的位置：</strong>质量均匀分布的物体，重心在几何中心</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二：整体法与隔离法 -->
+        <div class="method-card" id="method2">
+            <div class="method-header" style="background: linear-gradient(135deg, #2e7d32, #43a047);">
+                <span class="method-icon">⚡</span>
+                <span>方法二：整体法与隔离法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left-color: #4caf50;">
+                    <div class="concept-title" style="color: #2e7d32;">📚 核心概念</div>
+                    <p><strong>整体法：</strong>将多个物体视为一个整体分析，不考虑内力，只分析外力。</p>
+                    <p><strong>隔离法：</strong>将某个物体从系统中隔离出来，分析其受力情况。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>选择原则：</strong><br>
+                        • 求外力 → 用整体法<br>
+                        • 求内力 → 用隔离法<br>
+                        • 复杂问题 → 整体法+隔离法结合
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left-color: #ffa000;">
+                    <div class="scenario-title" style="color: #ff6f00;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">连接体问题：</span>滑轮、弹簧连接的多物体</li>
+                        <li><span class="keyword">叠加体问题：</span>板块模型、斜面叠加</li>
+                        <li><span class="keyword">碰撞问题：</span>动量守恒中的系统分析</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$M$的木板放在光滑水平面上，木板上表面粗糙。质量为$m$的滑块以初速度$v_0$滑上木板，最终两者相对静止。求：(1) 共同速度；(2) 滑块相对木板滑行的距离。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">🔍 第(1)问 - 整体法求共同速度</div>
+                            <p>系统水平方向不受外力，动量守恒：</p>
+                            <div class="formula">
+                                $mv_0 = (M+m)v$<br>
+                                $v = \frac{mv_0}{M+m}$
+                            </div>
+                        </div>
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 第(2)问 - 隔离法+能量守恒</div>
+                            <p>对滑块用动能定理，或对系统用能量守恒：</p>
+                            <div class="formula">
+                                $Q = \frac{1}{2}mv_0^2 - \frac{1}{2}(M+m)v^2 = \mu mg \cdot \Delta x$<br><br>
+                                解得：$\Delta x = \frac{Mv_0^2}{2\mu g(M+m)}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>步骤分：</strong>先写"取整体为研究对象"或"隔离XX物体"</li>
+                        <li><strong>方程分：</strong>列牛顿第二定律或守恒方程</li>
+                        <li><strong>关键：</strong>明确研究对象，不要混用内力外力</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三：等效法 -->
+        <div class="method-card" id="method3">
+            <div class="method-header" style="background: linear-gradient(135deg, #e65100, #ff7043);">
+                <span class="method-icon">🔄</span>
+                <span>方法三：等效法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="concept-title" style="color: #e65100;">📚 核心概念</div>
+                    <p><strong>等效法：</strong>在保证某种效果相同的前提下，用简单的物理量或模型替代复杂的物理量或模型。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>效果等效，简化问题<br>
+                        <strong>常见类型：</strong>力的等效、运动的等效、电路的等效、场的等效
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left-color: #ffa000;">
+                    <div class="scenario-title" style="color: #ff6f00;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">力的合成：</span>多个力等效为一个合力</li>
+                        <li><span class="keyword">等效重力：</span>电场与重力场的叠加</li>
+                        <li><span class="keyword">等效电路：</span>复杂电路的简化</li>
+                        <li><span class="keyword">等效电源：</span>电源的等效变换</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>在水平向右的匀强电场中，用长为L的细线悬挂一质量为m、带电量为+q的小球。求小球静止时细线与竖直方向的夹角。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答（等效重力法）</div>
+                            <p>小球受重力$mg$（向下）和电场力$qE$（向右）。</p>
+                            <div class="formula">
+                                等效重力：$G' = \sqrt{(mg)^2 + (qE)^2}$<br>
+                                等效重力方向与竖直方向夹角：$\tan\theta = \frac{qE}{mg}$<br><br>
+                                小球静止时，细线沿等效重力方向<br>
+                                因此细线与竖直方向夹角$\theta = \arctan\frac{qE}{mg}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>效果相同：</strong>等效前后效果必须完全相同</li>
+                        <li><strong>简化问题：</strong>等效后问题应更简单</li>
+                        <li><strong>常见等效：</strong>合力、等效重力、等效电源</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四：图像法 -->
+        <div class="method-card" id="method4">
+            <div class="method-header" style="background: linear-gradient(135deg, #6a1b9a, #9c27b0);">
+                <span class="method-icon">📊</span>
+                <span>方法四：图像法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="concept-title" style="color: #6a1b9a;">📚 核心概念</div>
+                    <p><strong>图像法：</strong>利用物理图像（v-t图、F-x图等）的斜率、面积、截距等几何意义求解物理问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>v-t图像：</strong><br>
+                        • 斜率 = 加速度<br>
+                        • 面积 = 位移<br>
+                        • 交点 = 速度相等（追及相遇临界）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="scenario-title" style="color: #6a1b9a;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">运动学问题：</span>v-t图、x-t图分析</li>
+                        <li><span class="keyword">变力做功：</span>F-x图面积表示功</li>
+                        <li><span class="keyword">追及相遇：</span>图像交点分析</li>
+                        <li><span class="keyword">实验数据处理：</span>线性化图像</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>一物体做直线运动，其v-t图像如图所示（三角形，0-t0速度从v0减到0）。求物体的位移。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>v-t图像的面积表示位移。</p>
+                            <div class="formula">
+                                位移 = 三角形面积 = $\frac{1}{2} \times 底 \times 高 = \frac{1}{2} \times t_0 \times v_0 = \frac{v_0 t_0}{2}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>斜率意义：</strong>不同图像斜率代表不同物理量</li>
+                        <li><strong>面积意义：</strong>面积可能表示位移、功、冲量等</li>
+                        <li><strong>截距意义：</strong>初状态或临界条件</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法五：极限法与特值法 -->
+        <div class="method-card" id="method5">
+            <div class="method-header" style="background: linear-gradient(135deg, #c62828, #e53935);">
+                <span class="method-icon">🔍</span>
+                <span>方法五：极限法与特值法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #f44336;">
+                    <div class="concept-title" style="color: #c62828;">📚 核心概念</div>
+                    <p><strong>极限法：</strong>将物理量推向极端（零、无穷大等），分析问题的趋势。</p>
+                    <p><strong>特值法：</strong>选取特殊值代入，快速验证选项或求解。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>快速排除，缩小范围<br>
+                        <strong>常用特值：</strong>0、1、∞、相等量
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #f44336;">
+                    <div class="scenario-title" style="color: #c62828;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">选择题：</span>快速排除错误选项</li>
+                        <li><span class="keyword">定性分析：</span>判断变化趋势</li>
+                        <li><span class="keyword">验证答案：</span>检验结果合理性</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>如图所示电路，当滑动变阻器滑片向右移动时，判断电流表示数变化。（用极限法）
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>极限分析：</strong></p>
+                            <p>滑片移到最右端（极限）：滑动变阻器接入电阻为0</p>
+                            <p>此时电流最大，因此滑片右移时电流增大。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>快速高效：</strong>选择题中快速排除选项</li>
+                        <li><strong>极端情况：</strong>0、∞、边界值</li>
+                        <li><strong>验证功能：</strong>检验答案合理性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法六：对称法 -->
+        <div class="method-card" id="method6">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">🦋</span>
+                <span>方法六：对称法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #009688;">
+                    <div class="concept-title" style="color: #00695c;">📚 核心概念</div>
+                    <p><strong>对称法：</strong>利用物理问题的对称性（空间对称、时间对称等）简化分析和计算。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>对称类型：</strong><br>
+                        • 空间对称：中心对称、轴对称、面对称<br>
+                        • 时间对称：过程可逆<br>
+                        • 数学对称：方程对称性
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #00bcd4;">
+                    <div class="scenario-title" style="color: #00838f;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">电场分布：</span>对称电荷分布的电场</li>
+                        <li><span class="keyword">磁场分布：</span>对称电流分布的磁场</li>
+                        <li><span class="keyword">运动分析：</span>竖直上抛运动的时间对称</li>
+                        <li><span class="keyword">碰撞问题：</span>对称碰撞</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>均匀带电圆环，半径为R，总电量为Q。求圆环轴线上距离圆心x处的电场强度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>利用对称性：圆环上对称点的电场垂直分量抵消，只剩轴向分量。</p>
+                            <div class="formula">
+                                每个电荷元在轴线上产生的电场轴向分量：$dE_x = dE \cdot \cos\theta = \frac{kdq}{r^2} \cdot \frac{x}{r}$<br><br>
+                                其中$r = \sqrt{R^2 + x^2}$，$\cos\theta = \frac{x}{r}$<br><br>
+                                总电场：$E = \int dE_x = \frac{kQx}{(R^2+x^2)^{3/2}}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>识别对称：</strong>观察物理情景的对称性</li>
+                        <li><strong>简化计算：</strong>对称位置的物理量可能抵消或叠加</li>
+                        <li><strong>时间对称：</strong>过程可逆性简化分析</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法七：守恒法 -->
+        <div class="method-card" id="method7">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">⚖️</span>
+                <span>方法七：守恒法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #2196f3;">
+                    <div class="concept-title" style="color: #1565c0;">📚 核心概念</div>
+                    <p><strong>守恒法：</strong>利用物理量在特定条件下的守恒性质，建立方程求解。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>高考三大守恒：</strong><br>
+                        • <strong>机械能守恒：</strong>$E_{k1} + E_{p1} = E_{k2} + E_{p2}$（只有重力、弹力做功）<br>
+                        • <strong>动量守恒：</strong>$m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'$（系统不受外力）<br>
+                        • <strong>能量守恒：</strong>$\Delta E_{增} = \Delta E_{减}$（普遍适用）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3f51b5;">
+                    <div class="scenario-title" style="color: #283593;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">碰撞问题：</span>弹性碰撞、非弹性碰撞</li>
+                        <li><span class="keyword">弹簧问题：</span>弹性势能与动能转化</li>
+                        <li><span class="keyword">曲线运动：</span>平抛、圆周运动的能量分析</li>
+                        <li><span class="keyword">电磁感应：</span>能量转化与守恒</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>光滑水平面上，质量为$m$的小球A以速度$v_0$撞击静止的质量为$2m$的小球B，碰撞后A的速度变为$\frac{v_0}{3}$，方向不变。求：(1) 碰撞后B的速度；(2) 碰撞过程中损失的机械能。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">🔍 第(1)问 - 动量守恒</div>
+                            <div class="formula">
+                                $mv_0 = m \cdot \frac{v_0}{3} + 2m \cdot v_B$<br>
+                                $v_B = \frac{v_0 - \frac{v_0}{3}}{2} = \frac{v_0}{3}$
+                            </div>
+                        </div>
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 第(2)问 - 能量守恒</div>
+                            <div class="formula">
+                                初始能量：$E_1 = \frac{1}{2}mv_0^2$<br>
+                                末态能量：$E_2 = \frac{1}{2}m(\frac{v_0}{3})^2 + \frac{1}{2}(2m)(\frac{v_0}{3})^2 = \frac{1}{6}mv_0^2$<br><br>
+                                损失机械能：$\Delta E = E_1 - E_2 = \frac{1}{2}mv_0^2 - \frac{1}{6}mv_0^2 = \frac{1}{3}mv_0^2$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>验证条件：</strong>使用守恒定律前先验证守恒条件</li>
+                        <li><strong>初末状态：</strong>只关注初末状态，不关心中间过程</li>
+                        <li><strong>系统选择：</strong>正确选择系统，区分内力外力</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法八：微元法 -->
+        <div class="method-card" id="method8">
+            <div class="method-header" style="background: linear-gradient(135deg, #5e35b1, #7e57c2);">
+                <span class="method-icon">🔬</span>
+                <span>方法八：微元法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ede7f6, #d1c4e9); border-left-color: #7e57c2;">
+                    <div class="concept-title" style="color: #5e35b1;">📚 核心概念</div>
+                    <p><strong>微元法：</strong>将连续变化的物理量分割成无穷多个微小单元（微元），对每个微元应用物理规律，再通过积分（累加）得到整体结果。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>化整为零，积零为整<br>
+                        <strong>数学本质：</strong>微积分思想在物理中的应用
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="scenario-title" style="color: #7b1fa2;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">变力做功：</span>力随位移变化</li>
+                        <li><span class="keyword">连续体：</span>绳、链、流体</li>
+                        <li><span class="keyword">电场磁场：</span>连续分布的电荷、电流</li>
+                        <li><span class="keyword">引力计算：</span>不规则物体的引力</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>一质量为m、长为L的均匀链条，一半放在光滑水平桌面上，另一半垂在桌边。求链条刚好全部离开桌面时的速度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答（微元法+能量守恒）</div>
+                            <p>设某时刻下垂长度为x，取微元dx。</p>
+                            <div class="formula">
+                                微元质量：$dm = \frac{m}{L}dx$<br>
+                                微元下移dx，重力做功：$dW = dm \cdot g \cdot x = \frac{mg}{L}xdx$<br><br>
+                                总功（从L/2到L积分）：<br>
+                                $W = \int_{L/2}^{L} \frac{mg}{L}xdx = \frac{mg}{L} \cdot \frac{x^2}{2}|_{L/2}^{L} = \frac{3mgL}{8}$<br><br>
+                                由能量守恒：$W = \frac{1}{2}mv^2$<br>
+                                $v = \sqrt{\frac{3gL}{4}}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>取微元：</strong>选择合适的微元（长度、面积、体积）</li>
+                        <li><strong>写微元表达式：</strong>建立微元与物理量的关系</li>
+                        <li><strong>积分累加：</strong>确定积分上下限，计算积分</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法九：量纲分析法 -->
+        <div class="method-card" id="method9">
+            <div class="method-header" style="background: linear-gradient(135deg, #d84315, #ff5722);">
+                <span class="method-icon">📏</span>
+                <span>方法九：量纲分析法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffccbc, #ffab91); border-left-color: #ff5722;">
+                    <div class="concept-title" style="color: #d84315;">📚 核心概念</div>
+                    <p><strong>量纲分析法：</strong>通过分析物理量的单位（量纲）来验证公式的正确性或推导公式。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>基本量纲：</strong><br>
+                        • 长度[L]、质量[M]、时间[T]<br>
+                        • 速度[L/T]、加速度[L/T²]、力[ML/T²]<br>
+                        • 能量[ML²/T²]、功率[ML²/T³]
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">公式验证：</span>检查公式量纲是否一致</li>
+                        <li><span class="keyword">选择题：</span>快速排除量纲错误的选项</li>
+                        <li><span class="keyword">公式推导：</span>通过量纲分析推导公式形式</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>单摆周期公式可能是以下哪个？（用量纲分析）<br>
+                        A. $T = 2\pi\sqrt{\frac{g}{L}}$  B. $T = 2\pi\sqrt{\frac{L}{g}}$  C. $T = 2\pi\sqrt{Lg}$  D. $T = 2\pi\sqrt{\frac{m}{g}}$
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>周期T的量纲是[T]。</p>
+                            <div class="formula">
+                                分析各选项右侧量纲：<br>
+                                A. $\sqrt{\frac{[L/T^2]}{[L]}} = \sqrt{[T^{-2}]} = [T^{-1}]$ ✗<br>
+                                B. $\sqrt{\frac{[L]}{[L/T^2]}} = \sqrt{[T^2]} = [T]$ ✓<br>
+                                C. $\sqrt{[L] \cdot [L/T^2]} = \sqrt{[L^2/T^2]} = [L/T]$ ✗<br>
+                                D. $\sqrt{\frac{[M]}{[L/T^2]}} = \sqrt{[MT^2/L]}$ ✗<br><br>
+                                答案：B
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>量纲一致性：</strong>等式两边量纲必须相同</li>
+                        <li><strong>快速排除：</strong>选择题中快速排除量纲错误选项</li>
+                        <li><strong>无量纲常数：</strong>量纲分析无法确定无量纲常数（如2π）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十：逆向思维法 -->
+        <div class="method-card" id="method10">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">🔄</span>
+                <span>方法十：逆向思维法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #009688;">
+                    <div class="concept-title" style="color: #00695c;">📚 核心概念</div>
+                    <p><strong>逆向思维法：</strong>当正向思考困难时，从相反的方向思考问题，或将运动过程逆向看待。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>正难则反，逆向思考<br>
+                        <strong>典型应用：</strong>末速度为零的匀减速运动 → 反向看作初速度为零的匀加速运动
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #0097a7;">
+                    <div class="scenario-title" style="color: #006064;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">末速为零：</span>竖直上抛到最高点、刹车到停止</li>
+                        <li><span class="keyword">时间反演：</span>对称运动过程</li>
+                        <li><span class="keyword">正向复杂：</span>正向分析困难的问题</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>一物体以初速度$v_0$竖直上抛，求上升的最大高度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答（逆向思维）</div>
+                            <p>将上升过程逆向看作从最高点自由下落：</p>
+                            <div class="formula">
+                                由$v^2 = 2gh$，末速度为$v_0$：<br>
+                                $v_0^2 = 2gh$<br>
+                                $h = \frac{v_0^2}{2g}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>末速为零：</strong>逆向看作初速为零的匀加速运动</li>
+                        <li><strong>对称性：</strong>利用运动的对称性简化分析</li>
+                        <li><strong>正难则反：</strong>正向困难时尝试逆向思考</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二部分：进阶核心法(11-18) -->
+        <div class="section-title" id="part2">第二部分：进阶核心法(11-18)</div>
+
+        <!-- 方法十一：递推归纳法 -->
+        <div class="method-card" id="method11">
+            <div class="method-header" style="background: linear-gradient(135deg, #6a1b9a, #9c27b0);">
+                <span class="method-icon">🔄</span>
+                <span>方法十一：递推归纳法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="concept-title" style="color: #6a1b9a;">📚 核心概念</div>
+                    <p><strong>递推归纳法：</strong>从特殊情况出发，找出规律，递推得到一般结论。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>从特殊到一般，找出递推关系<br>
+                        <strong>关键步骤：</strong>找规律 → 猜通项 → 证明
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">多次碰撞：</span>多次弹性碰撞后的速度</li>
+                        <li><span class="keyword">重复过程：</span>周期性、重复性的物理过程</li>
+                        <li><span class="keyword">数列问题：</span>物理量形成数列规律</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$m$的小球以速度$v_0$撞击静止的相同小球，发生弹性碰撞，求第$n$次碰撞后各球速度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>等质量弹性碰撞交换速度：</p>
+                            <div class="formula">
+                                第1次：球1速度0，球2速度$v_0$<br>
+                                第2次：球2与球3碰撞，球2速度0，球3速度$v_0$<br>
+                                ...<br>
+                                规律：速度向右传递，每次碰撞后一个球获得$v_0$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>找规律：</strong>计算前几项，寻找规律</li>
+                        <li><strong>递推关系：</strong>建立递推公式</li>
+                        <li><strong>数学归纳：</strong>证明通项公式</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十二：临界分析法 -->
+        <div class="method-card" id="method12">
+            <div class="method-header" style="background: linear-gradient(135deg, #c62828, #e53935);">
+                <span class="method-icon">⚠️</span>
+                <span>方法十二：临界分析法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #e53935;">
+                    <div class="concept-title" style="color: #c62828;">📚 核心概念</div>
+                    <p><strong>临界分析法：</strong>分析物理过程的临界状态，找出临界条件，确定物理量的取值范围。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>抓住"恰好"、"刚好"、"最大/最小"等临界条件<br>
+                        <strong>关键词：</strong>恰好、刚好、最大、最小、至少、至多
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">摩擦力临界：</span>恰好滑动、刚好不滑动</li>
+                        <li><span class="keyword">圆周运动：</span>恰好过最高点、刚好不掉下</li>
+                        <li><span class="keyword">分离问题：</span>两物体恰好分离</li>
+                        <li><span class="keyword">极值问题：</span>最大速度、最小力</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>小球在竖直圆轨道内侧运动，求恰好能通过最高点的最小速度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>临界条件：最高点重力恰好提供向心力</p>
+                            <div class="formula">
+                                $mg = \frac{mv^2}{R}$<br>
+                                $v_{min} = \sqrt{gR}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>识别关键词：</strong>"恰好"、"刚好"、"最大/最小"</li>
+                        <li><strong>分析临界状态：</strong>找出临界条件</li>
+                        <li><strong>列方程：</strong>根据临界条件列方程求解</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十三：叠加原理法 -->
+        <div class="method-card" id="method13">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">➕</span>
+                <span>方法十三：叠加原理法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #1976d2;">
+                    <div class="concept-title" style="color: #0d47a1;">📚 核心概念</div>
+                    <p><strong>叠加原理：</strong>多个因素共同作用的效果等于各因素单独作用效果的叠加。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心思想：</strong>独立作用，效果叠加<br>
+                        <strong>适用条件：</strong>线性系统（满足叠加性）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">电场叠加：</span>多个点电荷产生的电场</li>
+                        <li><span class="keyword">磁场叠加：</span>多个电流产生的磁场</li>
+                        <li><span class="keyword">波的叠加：</span>干涉、衍射</li>
+                        <li><span class="keyword">力的合成：</span>多个力的共同作用</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>两个点电荷$+q$和$-q$相距$d$，求中垂线上某点的电场强度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>分别计算两个电荷产生的电场，再矢量叠加：</p>
+                            <div class="formula">
+                                $E_+ = E_- = \frac{kq}{r^2}$<br>
+                                水平分量抵消，竖直分量相加<br>
+                                $E_{总} = 2E\cos\theta = \frac{2kq}{r^2} \cdot \frac{d/2}{r}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>分别计算：</strong>各因素单独作用的效果</li>
+                        <li><strong>矢量叠加：</strong>注意方向，矢量合成</li>
+                        <li><strong>对称性：</strong>利用对称性简化计算</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十四：假设验证法 -->
+        <div class="method-card" id="method14">
+            <div class="method-header" style="background: linear-gradient(135deg, #5e35b1, #7e57c2);">
+                <span class="method-icon">❓</span>
+                <span>方法十四：假设验证法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ede7f6, #d1c4e9); border-left-color: #7e57c2;">
+                    <div class="concept-title" style="color: #4527a0;">📚 核心概念</div>
+                    <p><strong>假设验证法：</strong>先假设某种情况成立，推导结论，再验证是否与已知条件矛盾。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>先假设后验证，排除不可能<br>
+                        <strong>典型应用：</strong>摩擦力方向判断、运动趋势判断
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="scenario-title" style="color: #6a1b9a;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">摩擦力方向：</span>假设方向，验证是否合理</li>
+                        <li><span class="keyword">运动趋势：</span>假设运动方向，验证</li>
+                        <li><span class="keyword">存在性判断：</span>判断某状态是否可能存在</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>物体放在斜面上，判断摩擦力的方向。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>假设摩擦力沿斜面向上，列方程求解：</p>
+                            <p>若$f > 0$，假设正确；若$f < 0$，实际方向与假设相反。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>合理假设：</strong>根据经验或直觉假设</li>
+                        <li><strong>逻辑推导：</strong>根据假设推导结论</li>
+                        <li><strong>验证判断：</strong>检验结论是否合理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十五：数学建模法 -->
+        <div class="method-card" id="method15">
+            <div class="method-header" style="background: linear-gradient(135deg, #d84315, #ff5722);">
+                <span class="method-icon">📊</span>
+                <span>方法十五：数学建模法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffccbc, #ffab91); border-left-color: #ff5722;">
+                    <div class="concept-title" style="color: #d84315;">📚 核心概念</div>
+                    <p><strong>数学建模法：</strong>将物理问题转化为数学问题，建立数学模型求解。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>物理问题数学化<br>
+                        <strong>建模步骤：</strong>问题分析 → 模型假设 → 模型建立 → 求解验证
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">极值问题：</span>建立函数求极值</li>
+                        <li><span class="keyword">优化问题：</span>最优方案选择</li>
+                        <li><span class="keyword">复杂运动：</span>建立运动方程</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>从倾角为$\theta$的斜面顶端以初速度$v_0$平抛，求落在斜面上的最远距离。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>建立坐标系，写出距离表达式，求极值：</p>
+                            <div class="formula">
+                                $x = v_0t$，$y = \frac{1}{2}gt^2$<br>
+                                落在斜面上：$\tan\theta = \frac{y}{x}$<br>
+                                距离$s = \sqrt{x^2+y^2}$，对$\theta$求极值
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>抽象建模：</strong>将物理问题抽象为数学问题</li>
+                        <li><strong>选择工具：</strong>函数、方程、不等式等</li>
+                        <li><strong>验证结果：</strong>检验数学结果的物理意义</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十六：等势法 -->
+        <div class="method-card" id="method16">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">⚡</span>
+                <span>方法十六：等势法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #009688;">
+                    <div class="concept-title" style="color: #00695c;">📚 核心概念</div>
+                    <p><strong>等势法：</strong>利用等势点电势相等的特点，简化电路或电场问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>等势点可短接，简化电路<br>
+                        <strong>应用：</strong>对称电路分析、等势面绘制
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #0097a7;">
+                    <div class="scenario-title" style="color: #006064;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">对称电路：</span>利用对称性找等势点</li>
+                        <li><span class="keyword">复杂电阻网络：</span>等势点短接简化</li>
+                        <li><span class="keyword">电场分析：</span>等势面与电场线关系</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>立方体框架每条棱电阻为$R$，求对角顶点间电阻。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>利用对称性，找出等势点，将等势点短接：</p>
+                            <div class="formula">
+                                从A点出发的三条棱电阻并联：$R_1 = \frac{R}{3}$<br>
+                                中间层六条棱，利用对称性等效为并联<br>
+                                最终：$R_{AB} = \frac{5R}{6}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>找对称：</strong>利用对称性确定等势点</li>
+                        <li><strong>可短接：</strong>等势点之间可视为短接</li>
+                        <li><strong>简化电路：</strong>将复杂网络简化为简单电路</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十七：类比法 -->
+        <div class="method-card" id="method17">
+            <div class="method-header" style="background: linear-gradient(135deg, #2e7d32, #43a047);">
+                <span class="method-icon">🔄</span>
+                <span>方法十七：类比法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left-color: #4caf50;">
+                    <div class="concept-title" style="color: #2e7d32;">📚 核心概念</div>
+                    <p><strong>类比法：</strong>将陌生的物理问题与熟悉的类似问题进行类比，借助已知结论求解。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>触类旁通，举一反三<br>
+                        <strong>常见类比：</strong>重力场↔电场、电路↔水路
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f1f8e9, #dcedc8); border-left-color: #7cb342;">
+                    <div class="scenario-title" style="color: #558b2f;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">场类问题：</span>重力场与电场类比</li>
+                        <li><span class="keyword">振动类比：</span>机械振动与电磁振荡</li>
+                        <li><span class="keyword">新概念学习：</span>用水流类比电流</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>用电场与重力场类比，理解电势能与重力势能。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <div class="formula">
+                                重力场：$E_p = mgh$，$G = mg$<br>
+                                电场：$E_p = q\varphi$，$F = qE$<br><br>
+                                类比关系：$m \leftrightarrow q$，$g \leftrightarrow E$，$h \leftrightarrow \varphi$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>找相似：</strong>找出两个问题的相似性</li>
+                        <li><strong>对应关系：</strong>建立物理量的对应关系</li>
+                        <li><strong>迁移结论：</strong>将已知结论迁移到新问题上</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法十八：补偿法/割补法 -->
+        <div class="method-card" id="method18">
+            <div class="method-header" style="background: linear-gradient(135deg, #263238, #37474f);">
+                <span class="method-icon">✂️</span>
+                <span>方法十八：补偿法/割补法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #eceff1, #cfd8dc); border-left-color: #546e7a;">
+                    <div class="concept-title" style="color: #263238;">📚 核心概念</div>
+                    <p><strong>补偿法/割补法：</strong>将不规则物体通过切割或补偿转化为规则物体，简化计算。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>割补转化，化不规则为规则<br>
+                        <strong>两种方法：</strong>切割法（化整为零）、补偿法（补全再减）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f5f5f5, #e0e0e0); border-left-color: #9e9e9e;">
+                    <div class="scenario-title" style="color: #424242;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">不规则物体：</span>求重心、转动惯量</li>
+                        <li><span class="keyword">电场计算：</span>不规则带电体的电场</li>
+                        <li><span class="keyword">引力计算：</span>挖去部分的球体引力</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>均匀球体挖去一个小球，求剩余部分对质点的引力。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>用补偿法：完整球引力减去被挖小球引力</p>
+                            <div class="formula">
+                                $F_{总} = F_{大球} - F_{小球}$<br>
+                                利用球壳定理和对称性简化计算
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>切割法：</strong>将不规则体切割成规则部分</li>
+                        <li><strong>补偿法：</strong>补全成规则体再减去补偿部分</li>
+                        <li><strong>对称利用：</strong>利用对称性简化计算</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三部分：高考核心十八法(19-24) -->
+        <div class="section-title" id="part3">第三部分：高考核心十八法(19-24)</div>
+
+        <!-- 方法十九：控制变量法 -->
+        <div class="method-card" id="method19">
+            <div class="method-header" style="background: linear-gradient(135deg, #e65100, #ff7043);">
+                <span class="method-icon">🎛️</span>
+                <span>方法十九：控制变量法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #e65100;">
+                    <div class="concept-title" style="color: #e65100;">📚 核心概念</div>
+                    <p><strong>控制变量法：</strong>在研究多个物理量之间的关系时，只改变其中一个量，保持其他量不变，从而研究该量与结果的关系。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>单一因素分析，排除干扰<br>
+                        <strong>科学本质：</strong>实验探究的基本方法
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left-color: #ffa000;">
+                    <div class="scenario-title" style="color: #ff6f00;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">实验探究：</span>探究加速度与力、质量的关系</li>
+                        <li><span class="keyword">多因素影响：</span>气体状态方程（P、V、T关系）</li>
+                        <li><span class="keyword">电阻定律：</span>R与长度、横截面积、材料的关系</li>
+                        <li><span class="keyword">单摆周期：</span>与摆长、重力加速度的关系</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>在"探究加速度与力、质量的关系"实验中，为什么要保持小车质量不变，改变拉力；再保持拉力不变，改变小车质量？
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>加速度$a$同时受到力$F$和质量$m$的影响，$a = \frac{F}{m}$。为了分别研究$a$与$F$、$a$与$m$的关系，必须采用控制变量法。</p>
+                            <div class="formula">
+                                第一步：研究$a$与$F$的关系<br>
+                                控制变量：保持小车质量$m$不变<br>
+                                改变变量：改变拉力$F$<br>
+                                结论：$m$一定时，$a \propto F$<br><br>
+                                第二步：研究$a$与$m$的关系<br>
+                                控制变量：保持拉力$F$不变<br>
+                                改变变量：改变小车质量$m$<br>
+                                结论：$F$一定时，$a \propto \frac{1}{m}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>单一变量：</strong>每次只改变一个变量</li>
+                        <li><strong>其他不变：</strong>严格控制其他变量保持不变</li>
+                        <li><strong>多次测量：</strong>减小偶然误差</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十：理想模型法 -->
+        <div class="method-card" id="method20">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">💎</span>
+                <span>方法二十：理想模型法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #1976d2;">
+                    <div class="concept-title" style="color: #0d47a1;">📚 核心概念</div>
+                    <p><strong>理想模型法：</strong>忽略次要因素，突出主要因素，建立理想化的物理模型。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心思想：</strong>抓主要矛盾，忽略次要因素<br>
+                        <strong>常见模型：</strong>质点、点电荷、理想气体、光滑表面
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 常见理想模型</div>
+                    <ul>
+                        <li><span class="keyword">理想化对象：</span>质点、点电荷、理想气体</li>
+                        <li><span class="keyword">理想化过程：</span>匀速直线运动、简谐运动</li>
+                        <li><span class="keyword">理想化条件：</span>光滑（无摩擦）、绝热（无热交换）</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>理想气体状态方程$PV = nRT$是如何从实际气体抽象出来的？
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>理想气体模型的假设：</p>
+                            <div class="formula">
+                                • 分子本身没有体积（视为质点）<br>
+                                • 分子间除碰撞外无相互作用力<br>
+                                • 分子间碰撞是弹性碰撞<br><br>
+                                忽略的因素：分子自身体积、分子间引力
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>抓主要矛盾：</strong>保留主要因素，忽略次要因素</li>
+                        <li><strong>适用条件：</strong>了解理想模型的适用条件</li>
+                        <li><strong>修正模型：</strong>必要时考虑修正因素</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十一：近似估算法 -->
+        <div class="method-card" id="method21">
+            <div class="method-header" style="background: linear-gradient(135deg, #2e7d32, #43a047);">
+                <span class="method-icon">📏</span>
+                <span>方法二十一：近似估算法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left-color: #4caf50;">
+                    <div class="concept-title" style="color: #2e7d32;">📚 核心概念</div>
+                    <p><strong>近似估算法：</strong>通过合理的近似和估算，快速得到问题的数量级或近似结果。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>数量级优先，合理近似<br>
+                        <strong>常用技巧：</strong>数量级估算、合理近似、忽略小量
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f1f8e9, #dcedc8); border-left-color: #7cb342;">
+                    <div class="scenario-title" style="color: #558b2f;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">数量级估算：</span>估算物理量的数量级</li>
+                        <li><span class="keyword">实验数据处理：</span>近似计算、误差分析</li>
+                        <li><span class="keyword">快速验证：</span>快速检验结果合理性</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>估算地球表面大气层的总质量。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>利用大气压强估算：</p>
+                            <div class="formula">
+                                大气压强$P_0 = 10^5 Pa$<br>
+                                地球表面积$S = 4\pi R^2 \approx 5 \times 10^{14} m^2$<br><br>
+                                大气总质量：$M = \frac{P_0 S}{g} \approx \frac{10^5 \times 5 \times 10^{14}}{10} = 5 \times 10^{18} kg$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>数量级优先：</strong>关注数量级，不求精确值</li>
+                        <li><strong>合理近似：</strong>π≈3，g≈10m/s²等</li>
+                        <li><strong>快速验证：</strong>检验结果数量级是否合理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十二：比例法 -->
+        <div class="method-card" id="method22">
+            <div class="method-header" style="background: linear-gradient(135deg, #6a1b9a, #9c27b0);">
+                <span class="method-icon">⚖️</span>
+                <span>方法二十二：比例法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="concept-title" style="color: #6a1b9a;">📚 核心概念</div>
+                    <p><strong>比例法：</strong>利用物理量之间的比例关系，简化计算过程。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>找比例关系，简化计算<br>
+                        <strong>适用条件：</strong>同一公式中多个量的比例关系
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">同一过程：</span>同一物理过程的不同状态</li>
+                        <li><span class="keyword">相似问题：</span>相似条件下的比例关系</li>
+                        <li><span class="keyword">实验数据处理：</span>比例关系分析</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>单摆周期$T = 2\pi\sqrt{\frac{L}{g}}$。若摆长变为原来的4倍，周期如何变化？
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <div class="formula">
+                                $T \propto \sqrt{L}$<br>
+                                $L' = 4L$<br>
+                                $\frac{T'}{T} = \sqrt{\frac{L'}{L}} = \sqrt{4} = 2$<br><br>
+                                周期变为原来的2倍
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>找比例关系：</strong>确定物理量间的比例关系</li>
+                        <li><strong>列比例式：</strong>建立比例方程</li>
+                        <li><strong>简化计算：</strong>避免复杂计算，直接求比值</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十三：矢量图解法 -->
+        <div class="method-card" id="method23">
+            <div class="method-header" style="background: linear-gradient(135deg, #c62828, #e53935);">
+                <span class="method-icon">📐</span>
+                <span>方法二十三：矢量图解法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #e53935;">
+                    <div class="concept-title" style="color: #c62828;">📚 核心概念</div>
+                    <p><strong>矢量图解法：</strong>利用几何图形（平行四边形、三角形）表示矢量关系，直观求解。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>几何直观，化代数问题为几何问题<br>
+                        <strong>常用法则：</strong>平行四边形法则、三角形法则
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">力的合成：</span>多个力的合成与分解</li>
+                        <li><span class="keyword">速度合成：</span>运动的合成与分解</li>
+                        <li><span class="keyword">动态平衡：</span>力的动态变化分析</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>用图解法求两个互成60°角的力的合力，两力大小分别为3N和4N。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>用平行四边形法则作图：</p>
+                            <div class="formula">
+                                以3N和4N为邻边作平行四边形<br>
+                                对角线即为合力<br><br>
+                                用余弦定理计算：<br>
+                                $F = \sqrt{3^2 + 4^2 + 2 \times 3 \times 4 \times \cos60°} = \sqrt{37} \approx 6.08N$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>准确作图：</strong>按比例准确画出矢量</li>
+                        <li><strong>几何关系：</strong>利用几何关系求解</li>
+                        <li><strong>动态分析：</strong>通过图形变化分析动态过程</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十四：系统思维法 -->
+        <div class="method-card" id="method24">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">🌐</span>
+                <span>方法二十四：系统思维法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #009688;">
+                    <div class="concept-title" style="color: #00695c;">📚 核心概念</div>
+                    <p><strong>系统思维法：</strong>将多个物体视为一个整体系统，从系统层面分析问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>整体观念，系统分析<br>
+                        <strong>守恒量：</strong>动量守恒、能量守恒、角动量守恒
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #0097a7;">
+                    <div class="scenario-title" style="color: #006064;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">多体系统：</span>多个相互作用的物体</li>
+                        <li><span class="keyword">守恒问题：</span>系统动量、能量守恒</li>
+                        <li><span class="keyword">复杂过程：</span>从系统层面分析复杂过程</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>分析子弹射入木块并留在其中的过程，用系统思维法分析能量转化。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>将子弹和木块视为系统：</p>
+                            <div class="formula">
+                                动量守恒：$mv_0 = (M+m)v$<br><br>
+                                能量转化：<br>
+                                初始动能：$\frac{1}{2}mv_0^2$<br>
+                                末动能：$\frac{1}{2}(M+m)v^2$<br>
+                                损失的机械能转化为内能
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>确定系统：</strong>明确系统边界</li>
+                        <li><strong>找守恒量：</strong>分析系统守恒量</li>
+                        <li><strong>能量转化：</strong>分析系统内能量转化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第四部分：高阶方法(25-30) -->
+        <div class="section-title" id="part4">第四部分：高阶方法(25-30)</div>
+
+        <!-- 方法二十五：质心法 -->
+        <div class="method-card" id="method25">
+            <div class="method-header" style="background: linear-gradient(135deg, #7b1fa2, #9c27b0);">
+                <span class="method-icon">🎯</span>
+                <span>方法二十五：质心法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="concept-title" style="color: #6a1b9a;">📚 核心概念</div>
+                    <p><strong>质心（重心）：</strong>物体质量分布的平均位置，可以看作是整个物体质量的集中点。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>质心坐标公式：</strong><br>
+                        $x_c = \frac{\sum m_i x_i}{\sum m_i} = \frac{m_1x_1 + m_2x_2 + ...}{m_1 + m_2 + ...}$<br><br>
+                        <strong>质心运动定理：</strong>系统质心的运动等同于所有质量集中在质心，所有外力作用在质心
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">人船模型：</span>人在船上行走，船后退问题</li>
+                        <li><span class="keyword">爆炸问题：</span>系统内力作用，质心运动不变</li>
+                        <li><span class="keyword">多体系统：</span>复杂多物体系统的简化分析</li>
+                        <li><span class="keyword">动量守恒：</span>系统质心保持匀速或静止</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题 - 人船模型</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$M$、长度为$L$的船静止在水面上，质量为$m$的人站在船头。当人从船头走到船尾时，船后退的距离是多少？
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>以人和船为系统，水平方向不受外力，质心水平位置保持不变。</p>
+                            <div class="formula">
+                                设船后退距离为$s$<br>
+                                人相对地面位移：$L-s$（向右）<br>
+                                船相对地面位移：$-s$（向左）<br><br>
+                                由质心守恒：$m(L-s) = Ms$<br>
+                                解得：$s = \frac{mL}{m+M}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>系统选择：</strong>正确选择系统，明确内力外力</li>
+                        <li><strong>守恒条件：</strong>系统不受外力或外力合力为零</li>
+                        <li><strong>简化计算：</strong>复杂多体问题简化为质点问题</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十六：配速法 -->
+        <div class="method-card" id="method26">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">⚡</span>
+                <span>方法二十六：配速法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #1976d2;">
+                    <div class="concept-title" style="color: #0d47a1;">📚 核心概念</div>
+                    <p><strong>配速法：</strong>将物体的运动分解为两个或多个简单的分运动，通过合理"配置"速度，使问题简化。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心思想：</strong>化曲为直，化繁为简<br>
+                        <strong>典型应用：</strong>带电粒子在复合场中的运动
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">复合场运动：</span>带电粒子在电场+磁场中的复杂运动</li>
+                        <li><span class="keyword">关联速度：</span>绳连接、杆连接的速度分解</li>
+                        <li><span class="keyword">曲线运动：</span>将曲线运动分解为简单分运动</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$m$、带电量为$q$的粒子以初速度$v_0$垂直射入正交的匀强电场和匀强磁场中，若粒子做匀速直线运动，求$E$和$B$的关系。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>粒子受三个力：重力$mg$、电场力$qE$、洛伦兹力$qvB$</p>
+                            <div class="formula">
+                                匀速直线运动条件：合力为零<br>
+                                $qE = mg$（竖直方向）<br>
+                                $qv_0B = qE$（水平方向）<br><br>
+                                因此：$v_0 = \frac{E}{B}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>合理分解：</strong>将速度分解为使问题简化的方向</li>
+                        <li><strong>力平衡：</strong>使某一分速度对应的力与其他力平衡</li>
+                        <li><strong>运动合成：</strong>复杂运动 = 简单分运动的叠加</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十七：递归思想 -->
+        <div class="method-card" id="method27">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">🔄</span>
+                <span>方法二十七：递归思想</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #009688;">
+                    <div class="concept-title" style="color: #00695c;">📚 核心概念</div>
+                    <p><strong>递归思想：</strong>通过建立第$n$项与第$n-1$项之间的关系（递推关系），求解问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>找出递推关系，由前推后<br>
+                        <strong>关键步骤：</strong>找递推式 → 求通项 → 求和
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #0097a7;">
+                    <div class="scenario-title" style="color: #006064;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">多次碰撞：</span>多次弹性碰撞后的速度递推</li>
+                        <li><span class="keyword">重复过程：</span>周期性、重复性的物理过程</li>
+                        <li><span class="keyword">数列求和：</span>物理量形成数列需要求和</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>小球从$h_0$高度自由落下，每次反弹高度为原来的$k$倍（$k<1$），求总路程。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <div class="formula">
+                                第1次下落：$h_0$<br>
+                                第1次反弹上升和下落：$2kh_0$<br>
+                                第2次反弹上升和下落：$2k^2h_0$<br>
+                                ...<br><br>
+                                总路程：$S = h_0 + 2kh_0 + 2k^2h_0 + ... = h_0 + \frac{2kh_0}{1-k} = h_0\frac{1+k}{1-k}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>找递推关系：</strong>建立相邻项之间的关系</li>
+                        <li><strong>求通项公式：</strong>由递推关系求通项</li>
+                        <li><strong>数列求和：</strong>利用等比、等差数列求和公式</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十八：程序法 -->
+        <div class="method-card" id="method28">
+            <div class="method-header" style="background: linear-gradient(135deg, #d84315, #ff5722);">
+                <span class="method-icon">📋</span>
+                <span>方法二十八：程序法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffccbc, #ffab91); border-left-color: #ff5722;">
+                    <div class="concept-title" style="color: #d84315;">📚 核心概念</div>
+                    <p><strong>程序法：</strong>按照一定的步骤和程序分析问题，适用于多过程、多阶段的复杂问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>分步分析，循序渐进<br>
+                        <strong>关键步骤：</strong>划分阶段 → 分析各阶段 → 建立联系
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">多过程问题：</span>包含多个运动阶段的问题</li>
+                        <li><span class="keyword">程序化解题：</span>按步骤求解的规范化解题</li>
+                        <li><span class="keyword">复杂运动：</span>需要分阶段分析的运动</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>物体先加速、再匀速、最后减速到停止，求总位移。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>分三个阶段分析：</p>
+                            <div class="formula">
+                                阶段1（加速）：$v^2 = 2a_1s_1$<br>
+                                阶段2（匀速）：$s_2 = vt_2$<br>
+                                阶段3（减速）：$0 - v^2 = -2a_3s_3$<br><br>
+                                总位移：$s = s_1 + s_2 + s_3$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>划分阶段：</strong>根据运动特征划分阶段</li>
+                        <li><strong>分析各阶段：</strong>分别分析每个阶段</li>
+                        <li><strong>建立联系：</strong>找出阶段间的联系（速度、位移）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法二十九：虚拟法 -->
+        <div class="method-card" id="method29">
+            <div class="method-header" style="background: linear-gradient(135deg, #5e35b1, #7e57c2);">
+                <span class="method-icon">💭</span>
+                <span>方法二十九：虚拟法</span>
+                <span class="frequency-tag">★★☆☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ede7f6, #d1c4e9); border-left-color: #7e57c2;">
+                    <div class="concept-title" style="color: #4527a0;">📚 核心概念</div>
+                    <p><strong>虚拟法：</strong>假设存在某种虚拟的状态或过程，使问题简化，然后再回到实际情况。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>虚拟假设，化难为易<br>
+                        <strong>典型应用：</strong>虚拟位移、虚拟力、虚拟过程
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="scenario-title" style="color: #6a1b9a;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">虚拟位移：</span>虚功原理</li>
+                        <li><span class="keyword">虚拟力：</span>惯性力、科里奥利力</li>
+                        <li><span class="keyword">虚拟过程：</span>假设过程求解</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>在加速上升的电梯中，用虚拟法分析物体的受力。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>在电梯参考系中，引入虚拟的惯性力：</p>
+                            <div class="formula">
+                                惯性力：$F_{惯} = ma$（方向与加速度相反）<br>
+                                物体受力：重力$mg$向下，惯性力$ma$向下，支持力$N$向上<br><br>
+                                平衡方程：$N = mg + ma = m(g+a)$<br>
+                                这就是超重现象的解释
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>合理虚拟：</strong>虚拟的状态或过程要有物理意义</li>
+                        <li><strong>简化问题：</strong>通过虚拟使问题简化</li>
+                        <li><strong>回到实际：</strong>最后要回到实际情况分析</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十：变换参考系法 -->
+        <div class="method-card" id="method30">
+            <div class="method-header" style="background: linear-gradient(135deg, #263238, #37474f);">
+                <span class="method-icon">🔄</span>
+                <span>方法三十：变换参考系法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #eceff1, #cfd8dc); border-left-color: #546e7a;">
+                    <div class="concept-title" style="color: #263238;">📚 核心概念</div>
+                    <p><strong>变换参考系法：</strong>通过变换参考系，将复杂运动转化为简单运动，简化问题分析。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>换个角度看问题<br>
+                        <strong>速度变换：</strong>$\vec{v}_{绝对} = \vec{v}_{相对} + \vec{v}_{牵连}$
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f5f5f5, #e0e0e0); border-left-color: #9e9e9e;">
+                    <div class="scenario-title" style="color: #424242;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">相对运动：</span>两个运动物体之间的相对运动</li>
+                        <li><span class="keyword">复杂运动：</span>在某一参考系中运动复杂</li>
+                        <li><span class="keyword">碰撞问题：</span>质心系中分析碰撞</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>两列火车相向而行，速度分别为$v_1$和$v_2$，求相对速度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p>以其中一列火车为参考系：</p>
+                            <div class="formula">
+                                相对速度：$v_{相对} = v_1 + v_2$<br><br>
+                                若同向行驶：$v_{相对} = |v_1 - v_2|$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>选择参考系：</strong>选择合适的参考系简化问题</li>
+                        <li><strong>速度变换：</strong>正确进行速度变换</li>
+                        <li><strong>注意加速度：</strong>非惯性系中需考虑惯性力</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十一：极值法 -->
+        <div class="method-card" id="method31">
+            <div class="method-header" style="background: linear-gradient(135deg, #e65100, #ff7043);">
+                <span class="method-icon">📈</span>
+                <span>方法三十一：极值法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #e65100;">
+                    <div class="concept-title" style="color: #bf360c;">📚 核心概念</div>
+                    <p><strong>极值法：</strong>通过求物理量的极大值或极小值来确定临界条件、最优方案或问题答案。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>数学工具：</strong><br>
+                        1. 导数法：$f'(x) = 0$ 求极值点<br>
+                        2. 配方法：二次函数顶点<br>
+                        3. 不等式：均值不等式、柯西不等式<br>
+                        4. 判别式法：$\Delta \geq 0$ 求参数范围
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f5f5f5, #e0e0e0); border-left-color: #9e9e9e;">
+                    <div class="scenario-title" style="color: #424242;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">最值问题：</span>求最大距离、最小力、最大速度</li>
+                        <li><span class="keyword">临界条件：</span>恰好能、刚好不滑落</li>
+                        <li><span class="keyword">优化设计：</span>最优角度、最优时间</li>
+                        <li><span class="keyword">范围问题：</span>求物理量的取值范围</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>从倾角为$\theta$的斜面顶端以初速度$v_0$水平抛出一物体，求物体落在斜面上时距离顶端的最大距离。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>建立坐标系：</strong>以抛出点为原点，水平向右为x轴，竖直向下为y轴。</p>
+                            <div class="formula">
+                                平抛运动方程：<br>
+                                $x = v_0 t$，$y = \frac{1}{2}gt^2$<br><br>
+                                落在斜面上条件：$\frac{y}{x} = \tan\theta$<br>
+                                解得：$t = \frac{2v_0 \tan\theta}{g}$
+                            </div>
+                            <p><strong>距离表达式：</strong></p>
+                            <div class="formula">
+                                $s = \sqrt{x^2 + y^2} = \frac{2v_0^2 \tan\theta}{g \cos\theta}$<br><br>
+                                对$\theta$求极值，当$\tan\theta = \frac{\sqrt{2}}{2}$时，$s_{max} = \frac{2v_0^2}{g}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>建立函数：</strong>将物理量表示为变量的函数</li>
+                        <li><strong>选择方法：</strong>根据函数类型选择求极值方法</li>
+                        <li><strong>验证极值：</strong>判断是极大值还是极小值</li>
+                        <li><strong>物理意义：</strong>极值点要有实际物理意义</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十二：几何法 -->
+        <div class="method-card" id="method32">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">📐</span>
+                <span>方法三十二：几何法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #1976d2;">
+                    <div class="concept-title" style="color: #0d47a1;">📚 核心概念</div>
+                    <p><strong>几何法：</strong>利用几何图形的性质（相似、全等、圆的性质、三角形不等式等）求解物理问题。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心思想：</strong>数形结合，化代数问题为几何问题<br>
+                        <strong>常用性质：</strong>相似三角形、圆的性质、最短路径
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">力的分解：</span>利用三角形、平行四边形</li>
+                        <li><span class="keyword">最短路径：</span>光的反射、折射</li>
+                        <li><span class="keyword">相似问题：</span>影子长度、相似运动</li>
+                        <li><span class="keyword">圆的性质：</span>圆周运动、等时圆</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>证明：从竖直圆环的最高点沿任意弦下滑到圆环上，所用时间都相等（等时圆）。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>建立几何关系：</strong>设圆环半径为$R$，弦与竖直方向夹角为$\theta$。</p>
+                            <div class="formula">
+                                弦长：$L = 2R\cos\theta$<br>
+                                下滑加速度：$a = g\cos\theta$（沿弦方向）
+                            </div>
+                            <p><strong>计算时间：</strong></p>
+                            <div class="formula">
+                                由$L = \frac{1}{2}at^2$：<br>
+                                $2R\cos\theta = \frac{1}{2} \cdot g\cos\theta \cdot t^2$<br><br>
+                                消去$\cos\theta$：$t^2 = \frac{4R}{g}$<br><br>
+                                $t = 2\sqrt{\frac{R}{g}}$（与$\theta$无关！）
+                            </div>
+                            <p><strong>结论：</strong>沿任意弦下滑时间都相等，等于从最高点自由下落到圆心的时间的2倍。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>画图分析：</strong>准确画出几何图形</li>
+                        <li><strong>找关系：</strong>找出几何量与物理量的关系</li>
+                        <li><strong>用性质：</strong>利用几何性质简化计算</li>
+                        <li><strong>数形结合：</strong>几何直观与代数计算相结合</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十三：分类讨论法 -->
+        <div class="method-card" id="method33">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">📂</span>
+                <span>方法三十三：分类讨论法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #00796b;">
+                    <div class="concept-title" style="color: #004d40;">📚 核心概念</div>
+                    <p><strong>分类讨论法：</strong>根据问题的不同情况或参数的不同取值范围，将问题分为若干类别分别讨论，最后综合各类结果得到完整答案。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心思想：</strong>化整为零，各个击破，综合归纳<br>
+                        <strong>分类原则：</strong>不重不漏，标准统一
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #0097a7;">
+                    <div class="scenario-title" style="color: #006064;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">多解问题：</span>一个方程多个解的情况</li>
+                        <li><span class="keyword">临界问题：</span>不同临界条件对应不同结果</li>
+                        <li><span class="keyword">参数范围：</span>参数取值不同导致结果不同</li>
+                        <li><span class="keyword">方向不确定：</span>摩擦力方向、速度方向</li>
+                        <li><span class="keyword">过程分支：</span>运动过程可能分支的情况</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>物体在斜面上，摩擦系数为$\mu$，斜面倾角为$\theta$，讨论物体下滑的条件。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>受力分析：</strong></p>
+                            <div class="formula">
+                                重力沿斜面分量：$mg\sin\theta$<br>
+                                最大静摩擦力：$f_{max} = \mu mg\cos\theta$
+                            </div>
+                            <p><strong>分类讨论：</strong></p>
+                            <div class="formula">
+                                <strong>情况1：</strong>当$mg\sin\theta \leq \mu mg\cos\theta$，即$\tan\theta \leq \mu$时<br>
+                                物体静止在斜面上<br><br>
+                                <strong>情况2：</strong>当$mg\sin\theta > \mu mg\cos\theta$，即$\tan\theta > \mu$时<br>
+                                物体沿斜面加速下滑，加速度$a = g(\sin\theta - \mu\cos\theta)$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>确定标准：</strong>明确分类的标准和依据</li>
+                        <li><strong>不重不漏：</strong>分类要完整且不重复</li>
+                        <li><strong>分别求解：</strong>对每类情况分别分析求解</li>
+                        <li><strong>综合归纳：</strong>最后综合各类结果得出结论</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十四：换元法 -->
+        <div class="method-card" id="method34">
+            <div class="method-header" style="background: linear-gradient(135deg, #6a1b9a, #8e24aa);">
+                <span class="method-icon">🔄</span>
+                <span>方法三十四：换元法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="concept-title" style="color: #6a1b9a;">📚 核心概念</div>
+                    <p><strong>换元法：</strong>通过引入新的变量或变换，将复杂问题转化为简单问题，或将未知问题转化为已知问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>变量替换，化繁为简<br>
+                        <strong>常见类型：</strong>代数换元、三角换元、整体换元
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="scenario-title" style="color: #6a1b9a;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">复杂方程：</span>方程形式复杂，换元后简化</li>
+                        <li><span class="keyword">根式问题：</span>含有根式的方程</li>
+                        <li><span class="keyword">三角函数：</span>三角换元简化计算</li>
+                        <li><span class="keyword">对称问题：</span>利用对称性换元</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>求解简谐振动方程$\frac{d^2x}{dt^2} = -\omega^2 x$。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>三角换元：</strong>令$x = A\sin(\omega t + \varphi)$</p>
+                            <div class="formula">
+                                求导：$\frac{dx}{dt} = A\omega\cos(\omega t + \varphi)$<br>
+                                再求导：$\frac{d^2x}{dt^2} = -A\omega^2\sin(\omega t + \varphi) = -\omega^2 x$<br><br>
+                                验证满足原方程。
+                            </div>
+                            <p><strong>物理意义：</strong>$A$为振幅，$\omega$为角频率，$\varphi$为初相位。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>选择换元：</strong>根据问题特点选择合适的换元方式</li>
+                        <li><strong>简化问题：</strong>换元后问题应更简单</li>
+                        <li><strong>注意范围：</strong>新变量的取值范围要正确</li>
+                        <li><strong>回代验证：</strong>最后要回代到原变量</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十五：构造法 -->
+        <div class="method-card" id="method35">
+            <div class="method-header" style="background: linear-gradient(135deg, #c62828, #e53935);">
+                <span class="method-icon">🏗️</span>
+                <span>方法三十五：构造法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #d32f2f;">
+                    <div class="concept-title" style="color: #b71c1c;">📚 核心概念</div>
+                    <p><strong>构造法：</strong>根据问题的条件和结论，构造适当的数学模型、物理模型或辅助元素，使问题得以解决。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>创造条件，搭建桥梁<br>
+                        <strong>构造类型：</strong>构造函数、构造图形、构造特例
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #d32f2f;">
+                    <div class="scenario-title" style="color: #b71c1c;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">存在性问题：</span>构造实例证明存在性</li>
+                        <li><span class="keyword">不等式证明：</span>构造函数或图形证明</li>
+                        <li><span class="keyword">极值问题：</span>构造辅助元素求极值</li>
+                        <li><span class="keyword">对称问题：</span>构造对称图形或函数</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>证明：在匀强电场中，等势面是平行平面，且电场线与等势面垂直。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>构造法证明：</strong></p>
+                            <div class="formula">
+                                <strong>构造1：</strong>设电场强度为$\vec{E}$，沿x轴方向<br>
+                                电势差：$\Delta\varphi = -\vec{E} \cdot \Delta\vec{r} = -E\Delta x$<br><br>
+                                <strong>构造2：</strong>等势面满足$\Delta x = 0$，即$x = $常数<br>
+                                这是垂直于x轴的平面，即垂直于电场线的平面。<br><br>
+                                <strong>结论：</strong>等势面是平行平面，且与电场线垂直。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>分析条件：</strong>仔细分析问题的条件和结论</li>
+                        <li><strong>构造元素：</strong>构造适当的辅助元素</li>
+                        <li><strong>建立联系：</strong>通过构造建立条件与结论的联系</li>
+                        <li><strong>验证正确：</strong>验证构造的正确性和有效性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十六：反证法 -->
+        <div class="method-card" id="method36">
+            <div class="method-header" style="background: linear-gradient(135deg, #455a64, #607d8b);">
+                <span class="method-icon">❌</span>
+                <span>方法三十六：反证法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #eceff1, #cfd8dc); border-left-color: #546e7a;">
+                    <div class="concept-title" style="color: #263238;">📚 核心概念</div>
+                    <p><strong>反证法：</strong>假设结论不成立，通过逻辑推理导出矛盾，从而证明原结论成立。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心思想：</strong>正难则反，否定导出矛盾<br>
+                        <strong>逻辑基础：</strong>排中律（非真即假）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #eceff1, #cfd8dc); border-left-color: #546e7a;">
+                    <div class="scenario-title" style="color: #263238;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">否定命题：</span>结论含"不"、"不存在"、"不可能"</li>
+                        <li><span class="keyword">唯一性：</span>证明唯一性、至多性</li>
+                        <li><span class="keyword">无限问题：</span>涉及无限、至少等概念</li>
+                        <li><span class="keyword">直接困难：</span>直接证明困难时</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>证明：电场线不相交。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>反证法：</strong></p>
+                            <div class="formula">
+                                <strong>假设：</strong>假设两条电场线相交于某点P。<br><br>
+                                <strong>推理：</strong>在交点P处，电场强度有两个不同的方向（分别沿两条电场线的切线方向）。<br><br>
+                                <strong>矛盾：</strong>但电场中每一点的电场强度是唯一确定的，不可能有两个方向。<br><br>
+                                <strong>结论：</strong>假设不成立，电场线不可能相交。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>反设：</strong>假设结论不成立</li>
+                        <li><strong>归谬：</strong>从假设出发推出矛盾</li>
+                        <li><strong>存真：</strong>否定假设，肯定原结论</li>
+                        <li><strong>矛盾类型：</strong>与已知条件、公理、定理或自身矛盾</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十七：惯性法 -->
+        <div class="method-card" id="method37">
+            <div class="method-header" style="background: linear-gradient(135deg, #5e35b1, #7e57c2);">
+                <span class="method-icon">🌀</span>
+                <span>方法三十七：惯性法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ede7f6, #d1c4e9); border-left-color: #7e57c2;">
+                    <div class="concept-title" style="color: #4527a0;">📚 核心概念</div>
+                    <p><strong>惯性法：</strong>利用惯性参考系中物理规律的形式不变性，或利用惯性思维分析物体的运动趋势。</p>
+                    <div class="formula" style="background: #f3e5f5; border-left-color: #9c27b0;">
+                        <strong>核心思想：</strong><br>
+                        1. 惯性参考系：牛顿定律在所有惯性系中形式相同<br>
+                        2. 惯性思维：利用"物体倾向于保持原有运动状态"分析问题<br>
+                        3. 惯性力：在非惯性系中引入惯性力使牛顿定律成立
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #9c27b0;">
+                    <div class="scenario-title" style="color: #6a1b9a;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">突然变速：</span>汽车急刹、电梯启动时物体的倾倒</li>
+                        <li><span class="keyword">非惯性系：</span>加速参考系中的力学问题</li>
+                        <li><span class="keyword">惯性力应用：</span>离心机、失重与超重</li>
+                        <li><span class="keyword">趋势判断：</span>判断物体相对运动趋势</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>一辆汽车以加速度$a$向右加速，车内悬挂一个小球，求悬线与竖直方向的夹角。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>地面参考系：</strong>小球随车一起加速，受到重力和拉力，合力提供加速度。</p>
+                            <div class="formula">
+                                水平：$T\sin\theta = ma$<br>
+                                竖直：$T\cos\theta = mg$<br>
+                                解得：$\tan\theta = \frac{a}{g}$，$\theta = \arctan\frac{a}{g}$
+                            </div>
+                            <p><strong>车内参考系（惯性法）：</strong>引入惯性力$F_{惯} = ma$（向左），小球受力平衡。</p>
+                            <div class="formula">
+                                结果相同：$\theta = \arctan\frac{a}{g}$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>惯性思维：</strong>物体倾向于保持原有运动状态</li>
+                        <li><strong>惯性力方向：</strong>与非惯性系加速度方向相反</li>
+                        <li><strong>参考系选择：</strong>灵活选择惯性系或非惯性系</li>
+                        <li><strong>超重失重：</strong>用惯性力理解更直观</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十八：半定量分析法 -->
+        <div class="method-card" id="method38">
+            <div class="method-header" style="background: linear-gradient(135deg, #00695c, #00897b);">
+                <span class="method-icon">📊</span>
+                <span>方法三十八：半定量分析法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-left-color: #00796b;">
+                    <div class="concept-title" style="color: #004d40;">📚 核心概念</div>
+                    <p><strong>半定量分析法：</strong>不需要精确计算，只分析物理量的变化趋势、相对大小或数量级，快速得到结论。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心思想：</strong>趋势分析 > 精确计算<br>
+                        <strong>分析维度：</strong>增大/减小、正比/反比、主导因素
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-left-color: #0097a7;">
+                    <div class="scenario-title" style="color: #006064;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">选择题：</span>快速判断选项正误</li>
+                        <li><span class="keyword">实验分析：</span>分析误差来源</li>
+                        <li><span class="keyword">趋势判断：</span>物理量随参数变化趋势</li>
+                        <li><span class="keyword">主导因素：</span>找出影响结果的主要因素</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>单摆的周期公式为$T = 2\pi\sqrt{\frac{L}{g}}$。若将单摆从地球移到月球（月球重力加速度约为地球的1/6），周期如何变化？
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>半定量分析：</strong>不需要精确计算，只分析趋势</p>
+                            <div class="formula">
+                                $T \propto \frac{1}{\sqrt{g}}$<br><br>
+                                月球$g$减小 → $\frac{1}{\sqrt{g}}$增大 → $T$增大<br><br>
+                                具体：$g$变为$\frac{1}{6}$，$T$变为$\sqrt{6} \approx 2.45$倍
+                            </div>
+                            <p><strong>结论：</strong>周期变大，变为原来的$\sqrt{6}$倍</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>抓主要因素：</strong>忽略次要因素，抓主导因素</li>
+                        <li><strong>趋势优先：</strong>先判断增大/减小趋势</li>
+                        <li><strong>比例关系：</strong>分析正比/反比关系</li>
+                        <li><strong>数量级：</strong>估算数量级，不求精确值</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法三十九：黑箱法 -->
+        <div class="method-card" id="method39">
+            <div class="method-header" style="background: linear-gradient(135deg, #263238, #37474f);">
+                <span class="method-icon">📦</span>
+                <span>方法三十九：黑箱法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #eceff1, #cfd8dc); border-left-color: #546e7a;">
+                    <div class="concept-title" style="color: #263238;">📚 核心概念</div>
+                    <p><strong>黑箱法：</strong>不研究系统内部结构，只通过输入和输出的关系来研究系统特性的方法。</p>
+                    <div class="formula" style="background: #f5f5f5; border-left-color: #616161;">
+                        <strong>核心思想：</strong>透过现象看本质，由外及内<br>
+                        <strong>基本模式：</strong>输入 → [黑箱] → 输出
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #f5f5f5, #e0e0e0); border-left-color: #9e9e9e;">
+                    <div class="scenario-title" style="color: #424242;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">电路分析：</span>等效电源、等效电阻</li>
+                        <li><span class="keyword">系统识别：</span>通过输入输出判断系统性质</li>
+                        <li><span class="keyword">功能关系：</span>不关注过程，只关注初末状态</li>
+                        <li><span class="keyword">实验探究：</span>通过实验推断未知结构</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>一个未知电路网络有两个引出端，当接入$10V$电压时，电流为$2A$；当接入$20V$电压时，电流为$4A$。求该网络的等效电阻。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>黑箱分析：</strong>不研究网络内部结构，只关注输入（电压）和输出（电流）的关系。</p>
+                            <div class="formula">
+                                由欧姆定律：$R = \frac{U}{I}$<br><br>
+                                第一次：$R = \frac{10V}{2A} = 5\Omega$<br>
+                                第二次：$R = \frac{20V}{4A} = 5\Omega$<br><br>
+                                等效电阻为$5\Omega$（线性网络）
+                            </div>
+                            <p><strong>结论：</strong>无论网络内部多复杂，对外可等效为一个$5\Omega$的电阻。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>关注接口：</strong>只关注系统的输入和输出</li>
+                        <li><strong>等效替代：</strong>用简单系统替代复杂系统</li>
+                        <li><strong>实验测定：</strong>通过实验确定系统特性</li>
+                        <li><strong>不究内部：</strong>不需要知道内部结构</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十：反馈法 -->
+        <div class="method-card" id="method40">
+            <div class="method-header" style="background: linear-gradient(135deg, #c62828, #e53935);">
+                <span class="method-icon">🔁</span>
+                <span>方法四十：反馈法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left-color: #d32f2f;">
+                    <div class="concept-title" style="color: #b71c1c;">📚 核心概念</div>
+                    <p><strong>反馈法：</strong>分析系统中输出对输入的影响，通过正反馈或负反馈来理解系统的稳定性和变化趋势。</p>
+                    <div class="formula" style="background: #fce4ec; border-left-color: #c2185b;">
+                        <strong>核心思想：</strong>输出影响输入，形成循环<br>
+                        <strong>反馈类型：</strong>正反馈（放大）+ 负反馈（稳定）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); border-left-color: #c2185b;">
+                    <div class="scenario-title" style="color: #880e4f;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">电路稳定：</span>负反馈稳定输出</li>
+                        <li><span class="keyword">振荡电路：</span>正反馈产生振荡</li>
+                        <li><span class="keyword">自动调节：</span>恒温、稳压系统</li>
+                        <li><span class="keyword">动态平衡：</span>系统的自我调节</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>分析恒温箱的工作原理：当温度升高时，加热器功率减小；当温度降低时，加热器功率增大。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>反馈分析：</strong>这是一个典型的<strong>负反馈</strong>系统</p>
+                            <div class="formula">
+                                温度升高 → 传感器检测 → 控制器调节 → 加热器功率减小 → 温度降低<br>
+                                温度降低 → 传感器检测 → 控制器调节 → 加热器功率增大 → 温度升高
+                            </div>
+                            <p><strong>结论：</strong>负反馈使系统趋于稳定，维持温度在设定值附近。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>识别反馈：</strong>判断是否存在反馈回路</li>
+                        <li><strong>正负判断：</strong>正反馈放大，负反馈稳定</li>
+                        <li><strong>系统稳定：</strong>负反馈使系统趋于稳定</li>
+                        <li><strong>振荡产生：</strong>正反馈可能导致振荡</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十一：叠加原理法 -->
+        <div class="method-card" id="method41">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">➕</span>
+                <span>方法四十一：叠加原理法</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #1976d2;">
+                    <div class="concept-title" style="color: #0d47a1;">📚 核心概念</div>
+                    <p><strong>叠加原理：</strong>多个因素共同作用产生的效果，等于各因素单独作用产生效果的叠加（矢量和或代数和）。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>数学表达：</strong><br>
+                        若$y_1 = f(x_1)$，$y_2 = f(x_2)$<br>
+                        则$f(x_1 + x_2) = y_1 + y_2$（线性系统）
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">电场叠加：</span>多个点电荷产生的电场</li>
+                        <li><span class="keyword">波的干涉：</span>多列波的叠加</li>
+                        <li><span class="keyword">力的合成：</span>多个力的共同作用</li>
+                        <li><span class="keyword">运动合成：</span>多个分运动的合成</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>两个点电荷$Q_1$和$Q_2$相距$d$，求它们连线中点处的电场强度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>叠加原理：</strong>分别计算两个电荷在中点产生的电场，然后矢量叠加。</p>
+                            <div class="formula">
+                                $Q_1$产生的电场：$E_1 = k\frac{Q_1}{(d/2)^2} = \frac{4kQ_1}{d^2}$（方向远离$Q_1$）<br>
+                                $Q_2$产生的电场：$E_2 = k\frac{Q_2}{(d/2)^2} = \frac{4kQ_2}{d^2}$（方向远离$Q_2$）<br><br>
+                                若$Q_1$、$Q_2$同号：$E = |E_1 - E_2|$（方向指向较大者）<br>
+                                若$Q_1$、$Q_2$异号：$E = E_1 + E_2$（方向从正指向负）
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>线性系统：</strong>叠加原理只适用于线性系统</li>
+                        <li><strong>分别计算：</strong>各因素单独作用的效果</li>
+                        <li><strong>矢量叠加：</strong>注意方向，矢量合成</li>
+                        <li><strong>独立性：</strong>各因素作用相互独立</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十二：相对运动法 -->
+        <div class="method-card" id="method42">
+            <div class="method-header" style="background: linear-gradient(135deg, #e65100, #ff7043);">
+                <span class="method-icon">🚀</span>
+                <span>方法四十二：相对运动法</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #e65100;">
+                    <div class="concept-title" style="color: #bf360c;">📚 核心概念</div>
+                    <p><strong>相对运动法：</strong>通过选择合适的参考系，将复杂的运动问题转化为简单的相对运动问题。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心公式：</strong><br>
+                        $v_{相对} = v_{绝对} - v_{参考系}$<br>
+                        或：$v_{绝对} = v_{相对} + v_{牵连}$
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left-color: #ffa000;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">追及问题：</span>两个运动物体的追及相遇</li>
+                        <li><span class="keyword">碰撞问题：</span>质心系中分析碰撞</li>
+                        <li><span class="keyword">复杂运动：</span>在某一参考系中运动复杂</li>
+                        <li><span class="keyword">相对速度：</span>求两个物体的相对速度</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>A、B两车在同一直线上相向而行，A车速度$v_1 = 30m/s$，B车速度$v_2 = 20m/s$，初始距离$d = 500m$。求两车相遇时间。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>相对运动解法：</strong>以A车为参考系，B车以$v_1 + v_2 = 50m/s$接近。</p>
+                            <div class="formula">
+                                $t = \frac{d}{v_{相对}} = \frac{500}{50} = 10s$
+                            </div>
+                            <p><strong>地面参考系验证：</strong></p>
+                            <div class="formula">
+                                $v_1t + v_2t = d$<br>
+                                $t = \frac{d}{v_1 + v_2} = \frac{500}{50} = 10s$<br>
+                                结果一致
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>选择参考系：</strong>选运动简单的物体为参考系</li>
+                        <li><strong>速度变换：</strong>注意速度的方向</li>
+                        <li><strong>化繁为简：</strong>将二维问题化为一维</li>
+                        <li><strong>质心系：</strong>碰撞问题常用质心系</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十三：十字交叉法 -->
+        <div class="method-card" id="method43">
+            <div class="method-header" style="background: linear-gradient(135deg, #d84315, #ff5722);">
+                <span class="method-icon">✚</span>
+                <span>方法四十三：十字交叉法</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #ffccbc, #ffab91); border-left-color: #d84315;">
+                    <div class="concept-title" style="color: #bf360c;">📚 核心概念</div>
+                    <p><strong>十字交叉法：</strong>用于求解完全非弹性碰撞后共同速度，或混合物的平均性质。通过"十字交叉"快速得到质量比或速度关系。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>核心公式（完全非弹性碰撞）：</strong><br>
+                        $m_1v_1 + m_2v_2 = (m_1+m_2)v_{共}$<br><br>
+                        <strong>质量比：</strong>$
+                        \frac{m_1}{m_2} = \frac{|v_{共}-v_2|}{|v_{共}-v_1|}$
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <div class="scenario-title" style="color: #e65100;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">完全非弹性碰撞：</span>求共同速度或质量比</li>
+                        <li><span class="keyword">混合物问题：</span>平均密度、平均速度</li>
+                        <li><span class="keyword">同位素混合：</span>平均原子量</li>
+                        <li><span class="keyword">浓度混合：</span>平均浓度</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$m_1$的物体以速度$v_1 = 6m/s$运动，质量为$m_2$的物体以速度$v_2 = 2m/s$同向运动，发生完全非弹性碰撞后共同速度为$v_{共} = 4m/s$。求质量比$m_1:m_2$。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>十字交叉法：</strong></p>
+                            <div class="formula">
+                                $|v_{共}-v_2| = |4-2| = 2$<br>
+                                $|v_{共}-v_1| = |4-6| = 2$<br><br>
+                                $\frac{m_1}{m_2} = \frac{2}{2} = 1:1$
+                            </div>
+                            <p><strong>验证：</strong>$m_1 \times 6 + m_2 \times 2 = (m_1+m_2) \times 4$，得$m_1 = m_2$ ✓</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>快速求比：</strong>十字交叉法可以快速得到质量比</li>
+                        <li><strong>距离规律：</strong>距离$v_{共}$越远的量，对应质量越小</li>
+                        <li><strong>适用范围：</strong>适用于完全非弹性碰撞和混合问题</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十四：人船模型 -->
+        <div class="method-card" id="method44">
+            <div class="method-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                <span class="method-icon">🚢</span>
+                <span>方法四十四：人船模型</span>
+                <span class="frequency-tag">★★★★☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left-color: #1976d2;">
+                    <div class="concept-title" style="color: #0d47a1;">📚 核心概念</div>
+                    <p><strong>人船模型：</strong>人在船上行走，系统水平方向动量守恒，人和船的位移与质量成反比。</p>
+                    <div class="formula" style="background: #e8f5e9; border-left-color: #388e3c;">
+                        <strong>核心公式：</strong><br>
+                        动量守恒：$mv_{人} = Mv_{船}$（大小相等，方向相反）<br><br>
+                        位移关系：$mx_{人} = Mx_{船}$<br><br>
+                        相对位移：$x_{人} + x_{船} = L$（船长）<br><br>
+                        解得：$x_{人} = \frac{M}{M+m}L$，$x_{船} = \frac{m}{M+m}L$
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-left-color: #3949ab;">
+                    <div class="scenario-title" style="color: #1a237e;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">人船系统：</span>人在船上行走、跑动</li>
+                        <li><span class="keyword">气球问题：</span>人沿绳子爬升</li>
+                        <li><span class="keyword">滑板问题：</span>人在滑板上移动</li>
+                        <li><span class="keyword">炮弹发射：</span>炮身后退</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$M = 100kg$的小船静止在水面上，船长$L = 4m$。质量为$m = 50kg$的人从船头走到船尾。不计水的阻力，求船移动的距离。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>设船移动距离为$x_{船}$，人相对地面移动$x_{人}$</strong></p>
+                            <div class="formula">
+                                动量守恒：$mx_{人} = Mx_{船}$<br>
+                                几何关系：$x_{人} + x_{船} = L$<br><br>
+                                解得：$x_{船} = \frac{m}{M+m}L = \frac{50}{150} \times 4 = \frac{4}{3}m$
+                            </div>
+                            <p><strong>答案：</strong>船向人行走的相反方向移动$\frac{4}{3}m$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>位移反比：</strong>位移与质量成反比$\frac{x_{人}}{x_{船}} = \frac{M}{m}$</li>
+                        <li><strong>速度区分：</strong>注意区分相对速度和对地速度</li>
+                        <li><strong>质心不变：</strong>系统质心位置不变</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十五：弹性碰撞速度公式 -->
+        <div class="method-card" id="method45">
+            <div class="method-header" style="background: linear-gradient(135deg, #2e7d32, #43a047);">
+                <span class="method-icon">⚡</span>
+                <span>方法四十五：弹性碰撞速度公式</span>
+                <span class="frequency-tag">★★★★★</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left-color: #388e3c;">
+                    <div class="concept-title" style="color: #1b5e20;">📚 核心概念</div>
+                    <p><strong>弹性碰撞速度公式：</strong>一维弹性碰撞中，碰撞后速度可以用简洁的公式直接计算，避免解方程组。</p>
+                    <div class="formula" style="background: #fff8e1; border-left-color: #ff8f00;">
+                        <strong>速度公式（必须牢记）：</strong><br>
+                        $v_1' = \frac{(m_1-m_2)v_1 + 2m_2v_2}{m_1+m_2}$<br><br>
+                        $v_2' = \frac{(m_2-m_1)v_2 + 2m_1v_1}{m_1+m_2}$<br><br>
+                        <strong>特殊情况（$v_2 = 0$）：</strong><br>
+                        $v_1' = \frac{m_1-m_2}{m_1+m_2}v_1$，$v_2' = \frac{2m_1}{m_1+m_2}v_1$
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left-color: #ffa000;">
+                    <div class="scenario-title" style="color: #ff6f00;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">弹性碰撞：</span>直接求碰后速度</li>
+                        <li><span class="keyword">特殊质量比：</span>等质量交换速度</li>
+                        <li><span class="keyword">多次碰撞：</span>递推计算</li>
+                        <li><span class="keyword">速度范围：</span>判断碰撞可能性</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>质量为$m$的小球A以速度$v_0$撞击静止的质量为$3m$的小球B，发生弹性碰撞。求碰后两球的速度。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 解答</div>
+                            <p><strong>用公式求解：</strong>$m_1 = m$，$m_2 = 3m$，$v_1 = v_0$，$v_2 = 0$</p>
+                            <div class="formula">
+                                $v_1' = \frac{m-3m}{m+3m}v_0 = \frac{-2m}{4m}v_0 = -\frac{v_0}{2}$<br><br>
+                                $v_2' = \frac{2m}{m+3m}v_0 = \frac{2m}{4m}v_0 = \frac{v_0}{2}$
+                            </div>
+                            <p><strong>答案：</strong>A球速度$-\frac{v_0}{2}$（反弹），B球速度$\frac{v_0}{2}$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>牢记公式：</strong>弹性碰撞速度公式必须牢记</li>
+                        <li><strong>等质量：</strong>$m_1 = m_2$时，两球交换速度</li>
+                        <li><strong>轻碰重：</strong>轻球反弹，重球几乎不动</li>
+                        <li><strong>重碰轻：</strong>两球同向运动</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方法四十六：折合质量法 -->
+        <div class="method-card" id="method46">
+            <div class="method-header" style="background: linear-gradient(135deg, #6a1b9a, #8e24aa);">
+                <span class="method-icon">⚖️</span>
+                <span>方法四十六：折合质量法（约化质量）</span>
+                <span class="frequency-tag">★★★☆☆</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #7b1fa2;">
+                    <div class="concept-title" style="color: #4a148c;">📚 核心概念</div>
+                    <p><strong>折合质量法：</strong>将两体问题转化为单体问题，用折合质量$\mu$代替原质量，简化计算。</p>
+                    <div class="formula" style="background: #fce4ec; border-left-color: #c2185b;">
+                        <strong>核心公式：</strong><br>
+                        折合质量：$\mu = \frac{m_1m_2}{m_1+m_2}$<br><br>
+                        相对运动动能：$E_k = \frac{1}{2}\mu v_{相对}^2$<br><br>
+                        应用：碰撞问题、双星系统、分子运动
+                    </div>
+                </div>
+                <div class="scenario-box" style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); border-left-color: #c2185b;">
+                    <div class="scenario-title" style="color: #880e4f;">🎯 适用场景</div>
+                    <ul>
+                        <li><span class="keyword">碰撞问题：</span>计算相对动能损失</li>
+                        <li><span class="keyword">双星系统：</span>转化为单体圆周运动</li>
+                        <li><span class="keyword">弹簧振子：</span>两物体弹簧系统</li>
+                        <li><span class="keyword">分子碰撞：</span>平均自由程计算</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <div class="example-title">💡 典型例题</div>
+                    <div class="example-problem">
+                        <strong>【例题】</strong>证明：一维完全非弹性碰撞中损失的机械能为$\Delta E = \frac{1}{2}\mu(v_1-v_2)^2$，其中$\mu = \frac{m_1m_2}{m_1+m_2}$为折合质量。
+                    </div>
+                    <div class="example-solution">
+                        <div class="solution-phase">
+                            <div class="phase-title">✏️ 证明</div>
+                            <p><strong>碰前总动能：</strong>$E = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2$</p>
+                            <div class="formula">
+                                碰后共同速度：$v_{共} = \frac{m_1v_1+m_2v_2}{m_1+m_2}$<br><br>
+                                碰后动能：$E' = \frac{1}{2}(m_1+m_2)v_{共}^2$<br><br>
+                                损失能量：$\Delta E = E - E' = \frac{1}{2}\frac{m_1m_2}{m_1+m_2}(v_1-v_2)^2 = \frac{1}{2}\mu(v_1-v_2)^2$<br><br>
+                                <strong>证毕</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="summary-title">🎯 方法总结</div>
+                    <ul>
+                        <li><strong>质量特性：</strong>折合质量$\mu$总是小于任一物体质量</li>
+                        <li><strong>能量损失：</strong>完全非弹性碰撞损失能量只与相对速度有关</li>
+                        <li><strong>竞赛常用：</strong>此法在竞赛中更常用</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 完结总结 -->
+        <div class="method-card" id="conclusion" style="border: 3px solid #ffd700; background: linear-gradient(135deg, #fff8e1, #ffecb3);">
+            <div class="method-header" style="background: linear-gradient(135deg, #ff8f00, #ffb300);">
+                <span class="method-icon">🏆</span>
+                <span>物理思想方法四十六法 - 完结总结</span>
+            </div>
+            <div class="method-content">
+                <div class="concept-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff6f00;">
+                    <div class="concept-title" style="color: #e65100;">📊 四十六法体系总览</div>
+                    <div class="formula" style="background: #fff; border-left-color: #ff8f00;">
+                        <strong>第一部分：基础核心法（1-12）</strong><br>
+                        整体法与隔离法、等效法、对称法、微元法、图像法、极限法、守恒法、逆向思维法、类比法、补偿法/割补法、递推归纳法、临界分析法<br><br>
+                        <strong>第二部分：进阶核心法（13-24）</strong><br>
+                        叠加原理法、假设验证法、数学建模法、等势法、控制变量法、理想模型法、近似估算法、比例法、矢量图解法、系统思维法<br><br>
+                        <strong>第三部分：高考十八法（核心）</strong><br>
+                        受力分析法、运动过程分析法、能量转化分析法、动量分析法、电路分析法、图像信息提取法、临界极值法、等效替代法、对称法、估算法、比例法、特值法、极限法、整体隔离法、逆向思维法、数学工具法、建模法、实验数据处理法<br><br>
+                        <strong>第四部分：高阶方法（25-36）</strong><br>
+                        质心法、配速法、递归思想、程序法、虚拟法、变换参考系法、极值法、几何法、分类讨论法、换元法、构造法、反证法<br><br>
+                        <strong>第五部分：补充方法（37-46）</strong><br>
+                        惯性法、半定量分析法、黑箱法、反馈法、叠加原理法、相对运动法、十字交叉法、人船模型、弹性碰撞速度公式、折合质量法
+                    </div>
+                </div>
+                <div class="summary-box" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left-color: #4caf50;">
+                    <div class="summary-title" style="color: #2e7d32;">🎯 学习建议</div>
+                    <ul>
+                        <li><strong>循序渐进：</strong>从基础法到高阶法逐步掌握</li>
+                        <li><strong>理解本质：</strong>不仅记住公式，更要理解思想</li>
+                        <li><strong>灵活运用：</strong>实际问题中多种方法结合使用</li>
+                        <li><strong>勤加练习：</strong>通过大量练习形成条件反射</li>
+                        <li><strong>总结归纳：</strong>建立自己的解题方法体系</li>
+                    </ul>
+                </div>
+                <div class="guide-box" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); margin-top: 30px;">
+                    <div class="guide-title" style="color: #1565c0;">🎓 结语</div>
+                    <div style="color: #0d47a1; font-size: 12pt; line-height: 2; text-align: center;">
+                        至此，高中物理<span class="highlight">四十六法</span>已全部呈现<br>
+                        掌握这些方法，高考物理、竞赛、自主招生<span class="highlight">全部拿下</span>！<br><br>
+                        <strong>祝学习进步，金榜题名！</strong> 🎉
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
